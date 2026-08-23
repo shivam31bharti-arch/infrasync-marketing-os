@@ -26,6 +26,6 @@ Groq → Gemini (AI Studio free) → NVIDIA NIM. Keys in `.env`. Spec: `plan/05-
 `infra/litellm.config.yaml` — local LiteLLM proxy on :4000 exposing one model id `auto-coder`
 that falls through Groq → Gemini → NIM DeepSeek (Kimi direct slot commented until
 MOONSHOT_API_KEY exists). 429/5xx reroute automatically with cooldowns. Kilo: OpenAI
-Compatible → http://localhost:4000 → model `auto-coder`. Caveats: free-tier DAILY caps still
+Compatible → http://localhost:4000 → model `auto-coder` (speed chain) or `auto-heavy` (quality chain: Nemotron 3 Ultra 550B-A55B on NIM → Gemini → Groq — use for the design loop, architecture, debugging). Caveats: free-tier DAILY caps still
 apply per provider (the proxy dodges outages, not quotas); quality varies per fallback;
 Antigravity keeps its own AI Pro quota and stays the daytime primary.

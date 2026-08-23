@@ -34,6 +34,22 @@ model_list:
   #     model: moonshot/kimi-k3
   #     api_key: os.environ/MOONSHOT_API_KEY
 
+  # ---- "auto-heavy": quality-first chain for hard tasks (design loop, architecture,
+  # ---- debugging). Slower per call; frontier reasoning. Use model id "auto-heavy" in Kilo.
+  - model_name: auto-heavy
+    litellm_params:
+      model: openai/nvidia/nemotron-3-ultra-550b-a55b
+      api_base: https://integrate.api.nvidia.com/v1
+      api_key: os.environ/NVIDIA_API_KEY
+  - model_name: auto-heavy
+    litellm_params:
+      model: gemini/gemini-3.5-flash
+      api_key: os.environ/GEMINI_API_KEY
+  - model_name: auto-heavy
+    litellm_params:
+      model: groq/openai/gpt-oss-120b
+      api_key: os.environ/GROQ_API_KEY
+
 litellm_settings:
   num_retries: 2
   request_timeout: 300
