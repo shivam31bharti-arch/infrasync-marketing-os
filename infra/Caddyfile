@@ -1,0 +1,18 @@
+# Caddy reverse proxy — automatic HTTPS. Deploy on the Oracle VPS (Stage 2).
+# DNS: A records for api, admin, news, social -> VPS IP (Cloudflare, proxy ON).
+
+api.infra-sync.online {
+	reverse_proxy medusa:9000
+}
+
+admin.infra-sync.online {
+	reverse_proxy medusa:9000
+}
+
+news.infra-sync.online {
+	reverse_proxy listmonk:9000
+}
+
+social.infra-sync.online {
+	reverse_proxy postiz:5000
+}

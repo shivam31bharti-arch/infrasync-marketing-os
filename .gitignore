@@ -1,0 +1,30 @@
+# secrets
+.env
+.env.*
+!.env.example
+
+# agent/tool state
+.freebuff/
+.kilocode/
+.antigravity/
+graphify-out/graph.html
+
+# dependencies / builds
+node_modules/
+.next/
+dist/
+out/
+__pycache__/
+*.pyc
+.venv/
+
+# media outputs (keep briefs + refs, ignore renders)
+ads/**/clips/
+ads/**/out/
+*.mp4
+*.mov
+*.wav
+
+# os
+.DS_Store
+Thumbs.db

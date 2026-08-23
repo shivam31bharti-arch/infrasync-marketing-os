@@ -1,0 +1,73 @@
+# Stage 2 — Oracle Always-Free VPS. Sketch: pin image versions before first deploy.
+# Run: docker compose --env-file ../.env up -d
+services:
+  caddy:
+    image: caddy:2
+    restart: unless-stopped
+    ports: ["80:80", "443:443"]
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+
+  db:
+    image: postgres:16
+    restart: unless-stopped
+    environment:
+      POSTGRES_PASSWORD: "${PG_PASS}"
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+      - ./init-dbs.sql:/docker-entrypoint-initdb.d/init-dbs.sql:ro
+
+  redis:
+    image: redis:7
+    restart: unless-stopped
+
+  medusa:
+    build: ../medusa            # Medusa v2 app created in Stage 1/2 (npx create-medusa-app)
+    restart: unless-stopped
+    depends_on: [db, redis]
+    environment:
+      DATABASE_URL: "postgres://postgres:${PG_PASS}@db/medusa"
+      REDIS_URL: "redis://redis:6379"
+      STORE_CORS: "https://infra-sync.online,https://www.infra-sync.online"
+      ADMIN_CORS: "https://admin.infra-sync.online"
+      AUTH_CORS: "https://infra-sync.online,https://admin.infra-sync.online"
+      JWT_SECRET: "${JWT_SECRET}"
+      COOKIE_SECRET: "${COOKIE_SECRET}"
+      MEDUSA_BACKEND_URL: "https://api.infra-sync.online"
+    volumes:
+      - medusa_uploads:/app/uploads
+
+  listmonk:
+    image: listmonk/listmonk:latest
+    restart: unless-stopped
+    depends_on: [db]
+    environment:
+      LISTMONK_db__host: db
+      LISTMONK_db__port: 5432
+      LISTMONK_db__user: postgres
+      LISTMONK_db__password: "${PG_PASS}"
+      LISTMONK_db__database: listmonk
+      LISTMONK_app__address: 0.0.0.0:9000
+
+  postiz:
+    image: ghcr.io/gitroomhq/postiz-app:latest
+    restart: unless-stopped
+    depends_on: [db, redis]
+    environment:
+      DATABASE_URL: "postgres://postgres:${PG_PASS}@db/postiz"
+      REDIS_URL: "redis://redis:6379"
+      MAIN_URL: "https://social.infra-sync.online"
+      FRONTEND_URL: "https://social.infra-sync.online"
+      NEXT_PUBLIC_BACKEND_URL: "https://social.infra-sync.online/api"
+      JWT_SECRET: "${JWT_SECRET}"
+    volumes:
+      - postiz_uploads:/uploads
+
+volumes:
+  caddy_data: {}
+  caddy_config: {}
+  pg_data: {}
+  medusa_uploads: {}
+  postiz_uploads: {}
