@@ -9,6 +9,7 @@
     "allowJs": true,
     "noEmit": true
   },
+  "ts-node": { "transpileOnly": true },
   "include": ["src", "medusa-config.ts"],
   "exclude": ["node_modules", ".medusa"]
 }
