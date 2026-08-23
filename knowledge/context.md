@@ -20,13 +20,18 @@ Merchant Center / Meta catalog / Pinterest (free listings) · PostHog + Sentry �
 F build loop). **Stage guide:** `plan/00`–`06`. **Facts:** `agent/offers.md` (mostly still to be
 filled by the user). **History:** `BUILD-LOG.md`.
 
-**Where we are:** Stage 0 — domain + Cloudflare ✅, AI Pro ✅, NIM key ✅, local tools ✅ (git, Node 24,
-Python 3.11, Docker, gh; **FFmpeg missing**), repo prepped (folders, .gitignore, .env.example,
-infra configs, script skeletons, prompt templates, this knowledge base). Pending (user-only):
-GitHub push, Supabase, Oracle VPS, Razorpay/Stripe, Meta verification, Merchant Center,
-Brevo/PostHog/Sentry/Groq/Gemini/YouTube keys, product photos, `agent/offers.md` answers.
-Next build step: Stage 1 storefront once the minimum prerequisites in `plan/00-stack.md`
-(Stage 0.5) are met.
+**Where we are:** Stage 0 mostly done — domain + Cloudflare ✅, all core API keys ✅ (Supabase,
+Brevo, PostHog, Sentry, Groq, Gemini, NIM, YouTube; 11/13 verified). **Night shift 2026-08-24 built
+Stage 1 skeleton:** `storefront/` (Next.js 15, builds clean; home/collections/product/cart/policies,
+subscribe popup → Supabase, PostHog+Sentry wired, `/drafts` approval queue env-gated) · `medusa/`
+local backend running (npx medusa develop :9000, admin /app, admin@infrasync.local — local-only
+creds; Postgres `:5433` + Redis `:6380` in Docker; seeded with 3 clearly-fake samples) ·
+`agent/llm.py` router verified live on all 3 providers · media scripts (tts/captions/join) tested
+end-to-end with real fixes. Nothing deployed; nothing touches a real person.
+Pending (user-only): Oracle VPS, Razorpay/Stripe KYC, Meta verification, Merchant Center/Pinterest,
+product photos, `agent/offers.md` + `icp.md` answers, Turnstile site key, brand-name decision.
+Next build steps: real checkout wiring (after payments KYC) · Stage 2 VPS deploy of Medusa/Listmonk/
+Postiz · brand DNA once Pomelli runs.
 
 **Non-negotiables:** no overhead spend without a trigger · official WhatsApp API only · human
 approves all outbound · product on screen = real product · no fake reviews/urgency · innerwear

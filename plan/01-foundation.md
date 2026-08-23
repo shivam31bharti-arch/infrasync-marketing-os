@@ -17,7 +17,7 @@ event · Sentry catches a test error.
 ## Tasks
 
 ### 1. Repo + storefront
-- [ ] Init monorepo folders: `storefront/`, `infra/`, `agent/`, `scripts/`
+- [x] Init monorepo folders: `storefront/`, `infra/`, `agent/`, `scripts/`
 - [ ] Storefront (you design it): Next.js + the Medusa JS SDK
   - Pages: home · collections (men / women / footwear / bags & accessories — innerwear exists
     but is not featured) · product pages with variants (size/colour) · cart · checkout ·

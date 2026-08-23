@@ -1,5 +1,18 @@
 # Decision log (newest first). Format: date · decision · why · rejected alternatives.
 
+- **2026-08-24 (night shift) · Local dev Medusa runs natively** (npx medusa develop on Windows) with
+  Postgres/Redis in Docker containers on ports 5433/6380 — NOT infra/docker-compose.yml (VPS-only).
+  Gotchas recorded: exact-pinned @mikro-orm/* (must match framework's), ts-node + transpileOnly.
+- **2026-08-24 · LLM router default models:** Groq `openai/gpt-oss-120b`, Gemini `gemini-3.5-flash`,
+  NIM `meta/llama-3.1-8b-instruct` (retired ids replaced). Router needs a custom User-Agent or
+  Groq's edge 403s urllib.
+- **2026-08-24 · ffmpeg caption styling uses ASS units, not pixels** (PlayResY≈288 scaling) —
+  MarginV=40 ≈ 267px safe zone on 1080×1920. Faster-whisper pinned to CPU int8 by default (no
+  cuBLAS on this box); WHISPER_DEVICE=cuda opts back in after CUDA redist install.
+- **2026-08-24 · Drafts dashboard is env-gated (`DRAFTS_DASHBOARD=1`)** until real auth exists;
+  approval flips a row only — never sends.
+
+
 - **2026-08-23 · Knowledge base = markdown pack + optional Graphify.** Survives model churn; any
   agent reads it first. Rejected for now: Graphiti/Zep (needs a graph DB + LLM pipeline), Potpie
   (overkill until the codebase is large) — revisit when `storefront/` + `medusa/` exist.

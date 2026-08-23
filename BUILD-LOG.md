@@ -160,6 +160,17 @@ writes one entry per iteration in this format:
 - Done: Groq + Gemini (AI Studio) + YouTube Data API v3 keys in .env; 11/13 keys verified (Pexels/Pixabay deferred to Stage 3).
 - Remaining Stage 0 (all human/slow): Oracle VPS · Razorpay/Stripe KYC · Meta WhatsApp verification + Commerce Manager · Merchant Center + Pinterest (after site) · research inbox · Pomelli DNA (after site) · product photos · agent/offers.md + icp.md answers.
 
+## 2026-08-24 (night shift) — Task 7: drafts dashboard + CI
+- Done: `/drafts` page skeleton (server component) listing Supabase `drafts` — gated behind
+  `DRAFTS_DASHBOARD=1` in root `.env` (404 otherwise; TODO: real Supabase auth before public
+  deploy). Approve/Reject buttons → `PATCH /api/drafts/[id]` → sets `approved` + `reviewed_by`.
+  Page ONLY flips queue rows — nothing sends. `.github/workflows/storefront-build.yml` runs
+  `npm ci && npm run build` on storefront pushes (no secrets needed).
+- Verified: inserted test draft via REST → page listed it w/ buttons → PATCH approve → row shows
+  `approved=true, reviewed_by=local-user` → test row deleted (queue clean). `npm run build`
+  passes with both new routes (only benign Sentry/OpenTelemetry bundling warning).
+- Open questions: none.
+
 ## 2026-08-24 (night shift) — Task 6: media scripts tested end-to-end (all PASS)
 - Done: two 5s test clips (testsrc+440Hz, smptebars+880Hz) → Kokoro `vo.wav` → faster-whisper
   `captions.srt` (transcription accurate) → `join.sh --vo` full run. venv `.venv/` created with

@@ -10,10 +10,10 @@ no manual copywriting.
 
 ## 1. LLM router (₹0)
 
-- [ ] `agent/llm.py|ts`: one client, three OpenAI-compatible providers, fallback order
+- [x] `agent/llm.py|ts`: one client, three OpenAI-compatible providers, fallback order
   **Groq → Gemini → NVIDIA NIM** (NIM ≈ 1,000 credits @ 40 req/min — save it for models the
   others lack)
-- [ ] `.env`: `GROQ_API_KEY`, `GEMINI_API_KEY`, `NVIDIA_API_KEY` — never committed
+- [x] `.env`: `GROQ_API_KEY`, `GEMINI_API_KEY`, `NVIDIA_API_KEY` — never committed
 - [ ] Log provider + tokens per call into Supabase (`drafts.agent_reasoning` / `meta`) so free-tier burn is visible
 
 ## 2. Brand DNA (Rule 4: injected into every generation)
