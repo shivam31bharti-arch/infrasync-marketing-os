@@ -159,3 +159,20 @@ writes one entry per iteration in this format:
 ## 2026-08-24 — Stage 0: key batch complete (4d)
 - Done: Groq + Gemini (AI Studio) + YouTube Data API v3 keys in .env; 11/13 keys verified (Pexels/Pixabay deferred to Stage 3).
 - Remaining Stage 0 (all human/slow): Oracle VPS · Razorpay/Stripe KYC · Meta WhatsApp verification + Commerce Manager · Merchant Center + Pinterest (after site) · research inbox · Pomelli DNA (after site) · product photos · agent/offers.md + icp.md answers.
+
+## 2026-08-24 (night shift) — Stage 1 task 3: subscriber capture live
+- Done: `/api/subscribe` (Next route → Supabase `subscribers` via service role, upsert on email,
+  consent=true) tested end-to-end on the dev server.
+- Verified: POST `{email: nightshift-devtest@…, source: 'dev-test'}` → HTTP 200 → row present in
+  Supabase via REST (consent ✓, segment 'new') → row deleted (0 rows remain). Bad email → 400.
+- Next: Turnstile verification once the user creates a site key (stub TODO already in place).
+- Open questions: Turnstile site key (user).
+
+## 2026-08-24 (night shift) — Stage 1 task 4: analytics + error monitoring smoke
+- Done: PostHog — one `night_shift_smoke` capture event accepted (`status: Ok`); the storefront
+  SDK fires product_viewed/add_to_cart/checkout_started/subscribed on real interactions, and
+  `purchase` is defined for when checkout exists. Sentry — one test error event accepted
+  (HTTP 200, event_id 57dd4d73…) via the project DSN; SDK wired via instrumentation.ts.
+  One event each — no floods.
+- Verified: exact responses above.
+- Open questions: none.
