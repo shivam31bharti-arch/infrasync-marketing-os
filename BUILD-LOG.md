@@ -85,3 +85,18 @@ writes one entry per iteration in this format:
 
 ## 2026-08-22 — Research artifact re-synced
 - Done: the published "Open Marketing Stack" page now reflects the apparel + Google Flow plan (TL;DR build, ad factory section, architecture, footer); catalog sections kept as the record of alternatives. Same URL.
+
+## 2026-08-23 — Stage 0.5 prep done by the agent (no user input needed) — CHECKLIST
+- [x] Machine audit: Git 2.53 ✓ · Node 24 ✓ · npm 11 ✓ · Python 3.11.9 ✓ · Docker 29 ✓ · gh 2.95 ✓ · **FFmpeg missing** (user: `winget install Gyan.FFmpeg`)
+- [x] `.gitignore` (secrets, tool state incl. `.freebuff/`, node_modules, renders) · `.gitattributes` (LF for scripts) · `.env.example` (all key names)
+- [x] `infra/`: Caddyfile (api/admin/news/social) · docker-compose.yml (Caddy, Postgres, Redis, Medusa, Listmonk, Postiz) · init-dbs.sql · supabase-schema.sql
+- [x] `scripts/`: join.sh (FFmpeg concat → VO → captions → end card → −14 LUFS) · captions.py (faster-whisper SRT) · tts.py (Kokoro) · feed.py (stub) · README with tested/untested table — all UNTESTED skeletons
+- [x] `agent/`: icp.md template · research/README (brief template + sources) · prompts/ (ad-brief, email-touch, product-copy)
+- [x] `knowledge/` model-agnostic memory: README (how it works + Graphify install/use) · context.md (1-page situation) · decisions.md (ADR log) · tooling.md (agents/models/providers + deprecations) · glossary.md · handoff.md (session protocol)
+- [x] Wired the knowledge base into AGENTS.md, prompts/build-loop.md, prompts/kimi-kickoff.md (read context first; update decisions/tooling/context; git ON — commit after every verified task)
+- [x] README repo layout updated · plan/00-stack.md Stage 0.5 ticks + FFmpeg + GitHub push + Graphify items
+- [x] Placeholders: assets/products/README · ads/README · storefront/README
+- [x] `git init -b main` + first commit `4df0e1c` (43 files, .env not included)
+- Verified: file tree + git log; scripts not executed (FFmpeg absent; no audio sample yet)
+- Next (user): install FFmpeg · `gh repo create infrasync-marketing-os --private --source . --push` · create `.env` from `.env.example` · fill `agent/offers.md` + `agent/icp.md` · product photos · Supabase project → then Stage 1 with Antigravity (Opus 4.6)
+- Open questions: none new — see agent/offers.md open items
