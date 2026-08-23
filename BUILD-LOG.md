@@ -112,3 +112,9 @@ writes one entry per iteration in this format:
 ## 2026-08-23 — Stage 0: Brevo done (step 4b)
 - Done: Brevo free account (company InfraSync, sells-online yes, promo emails opted out). SMTP login + generated key stored in .env, format-verified.
 - Next: PostHog + Sentry (4c), then Groq/Gemini/YouTube keys (4d).
+
+## 2026-08-24 — Stage 0: .env recovered + PostHog done
+- Incident: re-running "copy .env.example .env" wiped the filled .env; .env.example and git verified clean (no secret ever committed). All values re-entered from their dashboards; Brevo SMTP key regenerated.
+- Done: PostHog account (US cloud) + project token in .env. All 7 present keys length-checked; Supabase re-probed OK end-to-end.
+- Rule reinforced: .env is only ever edited via notepad; the copy command is never re-run.
+- Next: Sentry DSN (finishes 4c) -> Groq/Gemini/YouTube keys (4d).
