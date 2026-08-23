@@ -104,3 +104,7 @@ writes one entry per iteration in this format:
 ## 2026-08-23 — Stage 0: FFmpeg + GitHub done (steps 1–2 of the prep walkthrough)
 - Done: FFmpeg 9.0 installed & verified; repo pushed to private GitHub (shivam31bharti-arch/infrasync-marketing-os, main). plan/00 ticks updated.
 - Next: user creates .env from .env.example (step 3), then account batch (step 4).
+
+## 2026-08-23 — Stage 0: Supabase done (step 4a)
+- Done: org InfraSync + project infrasync (Mumbai, free). URL + anon + service keys in .env (legacy JWT variants — valid). infra/supabase-schema.sql executed; all 5 tables verified live via REST probe.
+- Next: Brevo (4b) → PostHog + Sentry (4c) → Groq/Gemini/YouTube keys (4d).

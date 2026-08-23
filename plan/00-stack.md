@@ -69,7 +69,7 @@ Keep keys in `.env` (never committed); one `LLM_BASE_URL`/`LLM_API_KEY` pair per
 - [x] Cloudflare account; move domain nameservers to Cloudflare ✓ 2026-08-21 — `infra-sync.online` on `jaziel`/`uma.ns.cloudflare.com`, verified at registry
 - [x] Google AI Pro (Flow + Nano Banana Pro) — already owned
 - [x] GitHub repo ✓ 2026-08-23 — private `shivam31bharti-arch/infrasync-marketing-os`, main pushed
-- [ ] Supabase project (free tier)
+- [x] Supabase project ✓ 2026-08-23 — `infrasync` (Mumbai ap-south-1), 5 marketing tables + pgvector created and probe-verified; keys in .env (legacy JWT format — works)
 - [ ] Oracle Cloud account — **home region is permanent**; pick for ARM capacity (see [02-free-server.md](02-free-server.md) before choosing)
 - [ ] Razorpay and/or Stripe account (test mode first) — business KYC takes days, start now
 - [ ] Brevo account (free) — note SMTP credentials; Resend as backup
