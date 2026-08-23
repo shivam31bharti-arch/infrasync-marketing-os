@@ -125,6 +125,21 @@ writes one entry per iteration in this format:
 - Next: Medusa backend (task 2), then live subscribe test (task 3), live PostHog/Sentry smoke (task 4).
 - Open questions: Turnstile site key needs user (Cloudflare dashboard).
 
+## 2026-08-24 (night shift) — Stage 1 task 2: local Medusa v2 commerce backend
+- Done: `medusa/` hand-rolled Medusa v2 app (@medusajs 2.19) + Postgres 16 & Redis 7 in Docker
+  Desktop containers (`medusa-pg` :5433, `medusa-redis` :6380 — NOT infra/docker-compose.yml,
+  that stays VPS-only). Migrations run; admin user `admin@infrasync.local` / `infrasync-dev-2026`
+  (LOCAL DEV ONLY — rotate for VPS); seed script created publishable API key + INR/India region +
+  3 categories + 3 clearly-fake samples ("…— DO NOT PUBLISH", ₹999 placeholder). Storefront wired
+  to `http://localhost:9000` + publishable key (in `storefront/.env.local`, gitignored).
+  Gotchas fixed: starter expects `ts-node` (+`ts-node.transpileOnly` in tsconfig) and exact-pinned
+  `@mikro-orm/*@6.6.14` set present in package.json.
+- Verified: `/store/products` returns the 3 samples (HTTP 200, key-auth); Admin `/app` HTTP 200;
+  storefront dev server renders Sample Tee on `/`, Sneaker on `/collections/footwear`,
+  `/products/sample-tee` renders, and the "backend unreachable" fallback badge is ABSENT.
+- Next: subscribe live test (task 3).
+- Open questions: none.
+
 ## 2026-08-24 (night shift) — Stage 5 task 5: LLM router (done out of order while npm installed)
 - Done: `agent/llm.py` — Groq → Gemini → NIM fallback, OpenAI-compatible, stdlib-only (no deps),
   keys from root `.env`, 429 retry once then fall through, per-provider attempt trail. Defaults
