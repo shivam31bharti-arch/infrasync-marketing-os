@@ -28,3 +28,6 @@ ads/**/out/
 # os
 .DS_Store
 Thumbs.db
+
+# QA artifacts (screenshots are large and regenerated)
+qa/shots/
