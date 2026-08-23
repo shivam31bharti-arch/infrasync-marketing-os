@@ -68,7 +68,7 @@ Keep keys in `.env` (never committed); one `LLM_BASE_URL`/`LLM_API_KEY` pair per
 
 - [x] Cloudflare account; move domain nameservers to Cloudflare ✓ 2026-08-21 — `infra-sync.online` on `jaziel`/`uma.ns.cloudflare.com`, verified at registry
 - [x] Google AI Pro (Flow + Nano Banana Pro) — already owned
-- [ ] GitHub org/repo (this repo pushed)
+- [x] GitHub repo ✓ 2026-08-23 — private `shivam31bharti-arch/infrasync-marketing-os`, main pushed
 - [ ] Supabase project (free tier)
 - [ ] Oracle Cloud account — **home region is permanent**; pick for ARM capacity (see [02-free-server.md](02-free-server.md) before choosing)
 - [ ] Razorpay and/or Stripe account (test mode first) — business KYC takes days, start now
@@ -87,12 +87,10 @@ Keep keys in `.env` (never committed); one `LLM_BASE_URL`/`LLM_API_KEY` pair per
 
 Human-only; the agent can't install software on your PC or create accounts.
 
-- [x] Installed ✓ 2026-08-23: Git 2.53 · Node 24 · Python 3.11 · Docker 29 · gh CLI — **[ ] FFmpeg still missing**
-  (`winget install Gyan.FFmpeg`, then reopen the terminal)
+- [x] Installed ✓ 2026-08-23: Git 2.53 · Node 24 · Python 3.11 · Docker 29 · gh CLI · FFmpeg 9.0 ✓ (verified)
 - [ ] Agent tool of choice signed in: Antigravity (Google AI Pro account) and/or Kilo Code with the
   NIM key; model picked (Opus 4.6 / Gemini 3.5 Flash in Antigravity; `deepseek-v4-flash` or Kimi on NIM)
-- [x] `git init` + `.gitignore` + first commit ✓ 2026-08-23 — **[ ] push to a private GitHub repo**
-  (`gh repo create infrasync-marketing-os --private --source . --push`; Cloudflare Pages deploys from it)
+- [x] `git init` + `.gitignore` + first commit + pushed to private GitHub ✓ 2026-08-23
 - [x] `.env.example` created ✓ 2026-08-23 — **[ ] copy to `.env` and fill the real keys** (never committed)
 - [ ] Knowledge graph (after Stage 1 code exists): `uv tool install graphifyy` → `graphify install`
   (+ `--platform kilo` / `gemini`) → `/graphify .` — see `knowledge/README.md`

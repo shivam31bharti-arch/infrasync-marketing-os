@@ -100,3 +100,7 @@ writes one entry per iteration in this format:
 - Verified: file tree + git log; scripts not executed (FFmpeg absent; no audio sample yet)
 - Next (user): install FFmpeg · `gh repo create infrasync-marketing-os --private --source . --push` · create `.env` from `.env.example` · fill `agent/offers.md` + `agent/icp.md` · product photos · Supabase project → then Stage 1 with Antigravity (Opus 4.6)
 - Open questions: none new — see agent/offers.md open items
+
+## 2026-08-23 — Stage 0: FFmpeg + GitHub done (steps 1–2 of the prep walkthrough)
+- Done: FFmpeg 9.0 installed & verified; repo pushed to private GitHub (shivam31bharti-arch/infrasync-marketing-os, main). plan/00 ticks updated.
+- Next: user creates .env from .env.example (step 3), then account batch (step 4).
