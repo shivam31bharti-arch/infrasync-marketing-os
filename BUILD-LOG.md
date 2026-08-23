@@ -119,6 +119,12 @@ writes one entry per iteration in this format:
 - Rule reinforced: .env is only ever edited via notepad; the copy command is never re-run.
 - Next: Sentry DSN (finishes 4c) -> Groq/Gemini/YouTube keys (4d).
 
+## 2026-08-24 (night shift) — Stage 1 task 1: storefront scaffold
+- Done: `storefront/` = Next.js 15 App Router (TS). Home, 3 collections (clothing/footwear/bags-accessories), product page w/ variant selector + JSON-LD, cart (localStorage; checkout button is a placeholder — no payments), 4 policy pages w/ obvious placeholders, subscriber popup + footer form → `/api/subscribe` → Supabase (service-role, server-side only, root `.env` loaded dev-only), Turnstile stubbed w/ TODO. PostHog + Sentry wired (events defined). All copy `[[PLACEHOLDER]]`; samples marked DO NOT PUBLISH. `storefront/.env.local` generated from root `.env` w/ public keys only (gitignored).
+- Verified: `npm run build` passes — 14 routes, 0 errors.
+- Next: Medusa backend (task 2), then live subscribe test (task 3), live PostHog/Sentry smoke (task 4).
+- Open questions: Turnstile site key needs user (Cloudflare dashboard).
+
 ## 2026-08-24 — Stage 0: Sentry done (4c complete)
 - Done: Sentry org infrasync-yc, Next.js project "storefront", DSN in .env (format-verified). All 8 core keys now present.
 - Next: 4d — Groq + Google AI Studio (Gemini) + YouTube Data API keys; then only the slow items remain (Oracle VPS, Meta verification, Razorpay/Stripe, Merchant Center/Pinterest, product photos, offers.md).

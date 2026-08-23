@@ -1,0 +1,69 @@
+:root {
+  --bg: #ffffff;
+  --fg: #141414;
+  --muted: #666666;
+  --line: #e5e5e5;
+  --accent: #141414;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--fg);
+}
+a { color: inherit; }
+header.site-nav {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+  padding: 1rem 2rem;
+  border-bottom: 1px solid var(--line);
+}
+header.site-nav .brand { font-weight: 700; letter-spacing: 0.05em; text-decoration: none; }
+header.site-nav nav { display: flex; gap: 1rem; }
+header.site-nav nav a { text-decoration: none; color: var(--muted); }
+main { padding: 2rem; max-width: 1100px; margin: 0 auto; }
+.product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1.5rem; }
+.card { border: 1px solid var(--line); border-radius: 8px; padding: 1rem; text-decoration: none; display: block; }
+.card .img { aspect-ratio: 4/5; background: #f2f2f2; border-radius: 6px; display: flex; align-items: center; justify-content: center; color: var(--muted); font-size: 0.8rem; margin-bottom: 0.75rem; overflow: hidden; }
+.card .img img { width: 100%; height: 100%; object-fit: cover; }
+.muted { color: var(--muted); }
+.badge { font-size: 0.7rem; background: #faf0c8; border: 1px solid #e0cf8a; border-radius: 4px; padding: 0.15rem 0.4rem; }
+button {
+  background: var(--accent);
+  color: #fff;
+  border: 0;
+  border-radius: 6px;
+  padding: 0.7rem 1.2rem;
+  cursor: pointer;
+  font-size: 0.95rem;
+}
+button.ghost { background: transparent; color: var(--fg); border: 1px solid var(--line); }
+input[type="email"], input[type="text"], select {
+  padding: 0.7rem;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  font-size: 0.95rem;
+}
+footer {
+  border-top: 1px solid var(--line);
+  margin-top: 4rem;
+  padding: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: space-between;
+}
+footer nav a { display: block; color: var(--muted); text-decoration: none; margin-bottom: 0.4rem; font-size: 0.9rem; }
+.popup-backdrop {
+  position: fixed; inset: 0; background: rgba(0,0,0,0.45);
+  display: flex; align-items: center; justify-content: center; z-index: 50;
+}
+.popup {
+  background: #fff; border-radius: 10px; padding: 2rem; max-width: 380px; width: 90%;
+}
+form.subscribe { display: flex; gap: 0.5rem; }
+form.subscribe input { flex: 1; }
+table.cart { width: 100%; border-collapse: collapse; }
+table.cart td, table.cart th { border-bottom: 1px solid var(--line); padding: 0.6rem; text-align: left; }
