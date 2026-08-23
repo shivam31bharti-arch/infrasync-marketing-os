@@ -75,7 +75,7 @@ Keep keys in `.env` (never committed); one `LLM_BASE_URL`/`LLM_API_KEY` pair per
 - [x] Brevo account ✓ 2026-08-23 — free plan, SMTP login + key in .env (server smtp-relay.brevo.com:587 for Listmonk in Stage 2)
 - [ ] Meta developer account + WhatsApp Business app (verification takes days — start now) + Meta Commerce Manager
 - [ ] Google Merchant Center account (domain verification after Stage 1) · Pinterest business account
-- [x] PostHog ✓ 2026-08-24 — US cloud, project token in .env, live-verified · [ ] Sentry (DSN pending)
+- [x] PostHog ✓ + Sentry ✓ 2026-08-24 — PostHog US cloud (token in .env, live-verified); Sentry org infrasync-yc, Next.js project `storefront`, DSN in .env
 - [ ] NVIDIA Developer account → NIM API key; Groq key; Google AI Studio key
 - [ ] YouTube Data API key (free) for competitor research
 - [ ] Pexels + Pixabay API keys (b-roll fill)

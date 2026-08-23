@@ -118,3 +118,7 @@ writes one entry per iteration in this format:
 - Done: PostHog account (US cloud) + project token in .env. All 7 present keys length-checked; Supabase re-probed OK end-to-end.
 - Rule reinforced: .env is only ever edited via notepad; the copy command is never re-run.
 - Next: Sentry DSN (finishes 4c) -> Groq/Gemini/YouTube keys (4d).
+
+## 2026-08-24 — Stage 0: Sentry done (4c complete)
+- Done: Sentry org infrasync-yc, Next.js project "storefront", DSN in .env (format-verified). All 8 core keys now present.
+- Next: 4d — Groq + Google AI Studio (Gemini) + YouTube Data API keys; then only the slow items remain (Oracle VPS, Meta verification, Razorpay/Stripe, Merchant Center/Pinterest, product photos, offers.md).
