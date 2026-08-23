@@ -72,7 +72,7 @@ Keep keys in `.env` (never committed); one `LLM_BASE_URL`/`LLM_API_KEY` pair per
 - [x] Supabase project ✓ 2026-08-23 — `infrasync` (Mumbai ap-south-1), 5 marketing tables + pgvector created and probe-verified; keys in .env (legacy JWT format — works)
 - [ ] Oracle Cloud account — **home region is permanent**; pick for ARM capacity (see [02-free-server.md](02-free-server.md) before choosing)
 - [ ] Razorpay and/or Stripe account (test mode first) — business KYC takes days, start now
-- [ ] Brevo account (free) — note SMTP credentials; Resend as backup
+- [x] Brevo account ✓ 2026-08-23 — free plan, SMTP login + key in .env (server smtp-relay.brevo.com:587 for Listmonk in Stage 2)
 - [ ] Meta developer account + WhatsApp Business app (verification takes days — start now) + Meta Commerce Manager
 - [ ] Google Merchant Center account (domain verification after Stage 1) · Pinterest business account
 - [ ] PostHog + Sentry free accounts
