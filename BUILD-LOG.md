@@ -125,6 +125,18 @@ writes one entry per iteration in this format:
 - Next: Medusa backend (task 2), then live subscribe test (task 3), live PostHog/Sentry smoke (task 4).
 - Open questions: Turnstile site key needs user (Cloudflare dashboard).
 
+## 2026-08-24 (night shift) — Stage 5 task 5: LLM router (done out of order while npm installed)
+- Done: `agent/llm.py` — Groq → Gemini → NIM fallback, OpenAI-compatible, stdlib-only (no deps),
+  keys from root `.env`, 429 retry once then fall through, per-provider attempt trail. Defaults
+  updated to current models: `openai/gpt-oss-120b` (Groq) · `gemini-3.5-flash` (Gemini) ·
+  `meta/llama-3.1-8b-instruct` (NIM). Fixes found live: Groq edge blocks default urllib UA
+  (403 code 1010 → custom UA header); `llama-3.3-70b-versatile` + `gemini-2.0-flash` retired (404).
+- Verified: one tiny live call per provider — 3/3 returned `ok` (136/75/42 tokens). Full router
+  path also exercised (fallback trail works).
+- Next: wire usage logging into Supabase (`drafts.agent_reasoning`/`meta`) when draft
+  generation lands (plan/05 §1 last bullet).
+- Open questions: none.
+
 ## 2026-08-24 — Stage 0: Sentry done (4c complete)
 - Done: Sentry org infrasync-yc, Next.js project "storefront", DSN in .env (format-verified). All 8 core keys now present.
 - Next: 4d — Groq + Google AI Studio (Gemini) + YouTube Data API keys; then only the slow items remain (Oracle VPS, Meta verification, Razorpay/Stripe, Merchant Center/Pinterest, product photos, offers.md).

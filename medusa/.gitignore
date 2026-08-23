@@ -1,0 +1,4 @@
+.env
+.medusa/
+dist/
+node_modules/
