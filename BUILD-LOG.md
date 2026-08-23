@@ -160,6 +160,21 @@ writes one entry per iteration in this format:
 - Done: Groq + Gemini (AI Studio) + YouTube Data API v3 keys in .env; 11/13 keys verified (Pexels/Pixabay deferred to Stage 3).
 - Remaining Stage 0 (all human/slow): Oracle VPS · Razorpay/Stripe KYC · Meta WhatsApp verification + Commerce Manager · Merchant Center + Pinterest (after site) · research inbox · Pomelli DNA (after site) · product photos · agent/offers.md + icp.md answers.
 
+## 2026-08-24 (night shift) — Task 6: media scripts tested end-to-end (all PASS)
+- Done: two 5s test clips (testsrc+440Hz, smptebars+880Hz) → Kokoro `vo.wav` → faster-whisper
+  `captions.srt` (transcription accurate) → `join.sh --vo` full run. venv `.venv/` created with
+  faster-whisper/kokoro/soundfile. scripts/README table updated honestly.
+- Bugs found & fixed (real ones, in the skeletons): (1) `join.sh` concat list had paths relative
+  to the ad folder but the list file lives in `out/` — ffmpeg couldn't open inputs (now `../clips/…`);
+  (2) caption `MarginV=260` is ASS units (PlayResY≈288) not pixels — 260 overflowed and pinned
+  captions to the TOP of frame; verified visually, set to 40 (≈267px bottom safe zone, confirmed
+  in extracted frame); (3) `captions.py` `device=auto` crashed (cublas64_12.dll absent) → CPU
+  int8 default, `WHISPER_DEVICE=cuda` env to opt back in; (4) MSYS/Windows path-in-filter gotcha
+  documented in scripts/README.
+- Verified: final `adtest.mp4` 6.1s, 1080x1920, burned captions bottom-third (frame inspected), VO
+  audio aac, loudnorm −14 LUFS pass ran. tts.py + captions.py ran live.
+- Open questions: end-card step untested (needs `assets/brand/endcard.png` → asset + user).
+
 ## 2026-08-24 (night shift) — Stage 1 task 3: subscriber capture live
 - Done: `/api/subscribe` (Next route → Supabase `subscribers` via service role, upsert on email,
   consent=true) tested end-to-end on the dev server.
