@@ -24,8 +24,18 @@ the drafts dashboard. Commit + push after each verified phase.
 - Deploy target when asked: Cloudflare Pages **preview** (`*.pages.dev`) ONLY. Never the real
   domain. If Pages isn't connected yet, run locally and stop — the user connects Pages.
 
-## Aesthetic (references decoded: fashion e-com with prototype-grade animation; 2025
-## award-site inspiration; theme = luxury store)
+## References (study them if your environment can open them; otherwise rely on the decoded aesthetic below)
+- https://www.youtube.com/shorts/fxDkOQZ_-8M — "E-commerce Fashion Website Animation | Figma to
+  Prototype": study the transition timing, hover states, and image-reveal animations.
+- https://youtu.be/RGWXVbkrYKM — "Impressive 2025 Website Design Inspiration": study hero
+  composition, scroll choreography, and section pacing of the sites shown.
+- X post (3D landing page, x.com/Da7_Tech/status/2088297344672432602): not fetchable by tools —
+  the user will paste screenshots into chat if that specific 3D treatment is wanted; ask once
+  at the start of Phase A, then proceed without blocking.
+- If video analysis isn't available in your environment, do NOT guess at the refs — the
+  decoded aesthetic below is the authoritative spec.
+
+## Aesthetic (decoded from the references; theme = luxury store)
 - Palette: near-black `#0B0B0C` ground · ivory `#F5F1EA` · champagne `#C8A96A` accent (sparingly)
   · warm stone `#8E867B` for muted text. Light sections alternate with dark; never mid-gray.
 - Type (Google Fonts): display **Cormorant Garamond** (500/600, tight leading, large editorial
