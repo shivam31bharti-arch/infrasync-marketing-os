@@ -21,3 +21,11 @@ Groq → Gemini (AI Studio free) → NVIDIA NIM. Keys in `.env`. Spec: `plan/05-
 ## Deprecations seen
 - 2026-08-21 `z-ai/glm-5.2` end of life on NIM (HTTP 410).
 - 2026-06-18 Gemini CLI stopped serving AI Pro/free → Antigravity.
+
+## Auto model fallback (added 2026-08-24)
+`infra/litellm.config.yaml` — local LiteLLM proxy on :4000 exposing one model id `auto-coder`
+that falls through Groq → Gemini → NIM DeepSeek (Kimi direct slot commented until
+MOONSHOT_API_KEY exists). 429/5xx reroute automatically with cooldowns. Kilo: OpenAI
+Compatible → http://localhost:4000 → model `auto-coder`. Caveats: free-tier DAILY caps still
+apply per provider (the proxy dodges outages, not quotas); quality varies per fallback;
+Antigravity keeps its own AI Pro quota and stays the daytime primary.

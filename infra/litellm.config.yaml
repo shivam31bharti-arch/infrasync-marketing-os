@@ -1,0 +1,45 @@
+# LiteLLM proxy — automatic model fallback for coding agents (Kilo etc.)
+# Run:  pip install "litellm[proxy]"   then, from the repo root:
+#       litellm --config infra/litellm.config.yaml --port 4000
+# Kilo Code: provider "OpenAI Compatible" · Base URL http://localhost:4000 ·
+#            API key: anything (e.g. "local") · Model ID: "auto-coder"
+# Requests to "auto-coder" try the chain top-to-bottom; 429/5xx auto-falls through
+# with per-model cooldowns. Keys are read from the environment — start the proxy
+# from a shell where .env is loaded (e.g. `set -a; . ./.env; set +a` in Git Bash).
+
+model_list:
+  # 1) Groq — fastest, generous free RPM
+  - model_name: auto-coder
+    litellm_params:
+      model: groq/openai/gpt-oss-120b
+      api_key: os.environ/GROQ_API_KEY
+
+  # 2) Gemini free tier — strong long-context + vision
+  - model_name: auto-coder
+    litellm_params:
+      model: gemini/gemini-3.5-flash
+      api_key: os.environ/GEMINI_API_KEY
+
+  # 3) NVIDIA NIM — DeepSeek V4 Flash (40 RPM free)
+  - model_name: auto-coder
+    litellm_params:
+      model: openai/deepseek-ai/deepseek-v4-flash-0731
+      api_base: https://integrate.api.nvidia.com/v1
+      api_key: os.environ/NVIDIA_API_KEY
+
+  # 4) Kimi K3 direct — uncomment after adding MOONSHOT_API_KEY to .env
+  #    (platform.moonshot.ai → API keys; then this becomes the night-time heavy lifter)
+  # - model_name: auto-coder
+  #   litellm_params:
+  #     model: moonshot/kimi-k3
+  #     api_key: os.environ/MOONSHOT_API_KEY
+
+litellm_settings:
+  num_retries: 2
+  request_timeout: 300
+  allowed_fails: 2          # after 2 failures a model goes on cooldown
+  cooldown_time: 120        # seconds before a cooled model is retried
+
+router_settings:
+  routing_strategy: simple-shuffle
+  enable_pre_call_checks: true
