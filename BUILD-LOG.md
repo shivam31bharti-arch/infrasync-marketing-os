@@ -122,3 +122,7 @@ writes one entry per iteration in this format:
 ## 2026-08-24 — Stage 0: Sentry done (4c complete)
 - Done: Sentry org infrasync-yc, Next.js project "storefront", DSN in .env (format-verified). All 8 core keys now present.
 - Next: 4d — Groq + Google AI Studio (Gemini) + YouTube Data API keys; then only the slow items remain (Oracle VPS, Meta verification, Razorpay/Stripe, Merchant Center/Pinterest, product photos, offers.md).
+
+## 2026-08-24 — Stage 0: key batch complete (4d)
+- Done: Groq + Gemini (AI Studio) + YouTube Data API v3 keys in .env; 11/13 keys verified (Pexels/Pixabay deferred to Stage 3).
+- Remaining Stage 0 (all human/slow): Oracle VPS · Razorpay/Stripe KYC · Meta WhatsApp verification + Commerce Manager · Merchant Center + Pinterest (after site) · research inbox · Pomelli DNA (after site) · product photos · agent/offers.md + icp.md answers.

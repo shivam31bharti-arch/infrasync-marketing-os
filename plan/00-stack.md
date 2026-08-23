@@ -76,8 +76,8 @@ Keep keys in `.env` (never committed); one `LLM_BASE_URL`/`LLM_API_KEY` pair per
 - [ ] Meta developer account + WhatsApp Business app (verification takes days — start now) + Meta Commerce Manager
 - [ ] Google Merchant Center account (domain verification after Stage 1) · Pinterest business account
 - [x] PostHog ✓ + Sentry ✓ 2026-08-24 — PostHog US cloud (token in .env, live-verified); Sentry org infrasync-yc, Next.js project `storefront`, DSN in .env
-- [ ] NVIDIA Developer account → NIM API key; Groq key; Google AI Studio key
-- [ ] YouTube Data API key (free) for competitor research
+- [x] LLM keys ✓ 2026-08-24 — NVIDIA NIM + Groq + Google AI Studio (Gemini), all in .env, length-verified
+- [x] YouTube Data API v3 key ✓ 2026-08-24 — enabled + key restricted to the API, in .env
 - [ ] Pexels + Pixabay API keys (b-roll fill)
 - [ ] A "research inbox" Gmail subscribed to 5 competitor brands' newsletters + following them on IG/Pinterest
 - [ ] Pomelli: sign in at labs.google.com/pomelli, generate the Business DNA from the storefront (after Stage 1)
@@ -88,8 +88,7 @@ Keep keys in `.env` (never committed); one `LLM_BASE_URL`/`LLM_API_KEY` pair per
 Human-only; the agent can't install software on your PC or create accounts.
 
 - [x] Installed ✓ 2026-08-23: Git 2.53 · Node 24 · Python 3.11 · Docker 29 · gh CLI · FFmpeg 9.0 ✓ (verified)
-- [ ] Agent tool of choice signed in: Antigravity (Google AI Pro account) and/or Kilo Code with the
-  NIM key; model picked (Opus 4.6 / Gemini 3.5 Flash in Antigravity; `deepseek-v4-flash` or Kimi on NIM)
+- [x] Agent tools ready ✓ — Antigravity (Opus 4.6 available) + Kilo Code with the NIM key
 - [x] `git init` + `.gitignore` + first commit + pushed to private GitHub ✓ 2026-08-23
 - [x] `.env.example` created ✓ 2026-08-23 — **[ ] copy to `.env` and fill the real keys** (never committed)
 - [ ] Knowledge graph (after Stage 1 code exists): `uv tool install graphifyy` → `graphify install`
