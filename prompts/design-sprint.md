@@ -24,6 +24,20 @@ invented. Commit + push after each verified phase.
   (e.g. drifting particle field or neural-mesh gradient) — lazy-loaded, static fallback on
   mobile/reduced-motion. `prefers-reduced-motion` respected.
 
+## Component sources (use these — do NOT hand-roll generic sections)
+- **Aceternity UI** (ui.aceternity.com, free): hero sections, animated cards, spotlight/beam
+  effects, marquees. Copy the component, then RE-SKIN to our tokens (ink/paper/electric
+  palette, Space Grotesk/Inter) — default Aceternity purple gradients are banned.
+- **21st.dev** (free tier): browse for hero/pricing/FAQ/testimonial-layout components; if the
+  agent environment supports MCP, its Magic MCP can pull components directly. Same re-skin rule.
+- **Motion (framer-motion, free library)** for all animation — springs, scroll-linked,
+  layout transitions. This is the "Framer feel" without Framer-the-platform (which is paid,
+  hosted, and cannot run our Supabase/quiz/chat/certificate code — rejected).
+- **React Three Fiber + drei** for the one true-3D hero moment; optional **Spline** scene
+  embed only if a free-tier export works without breaking the JS budget.
+- Rule: every borrowed component must end up looking like OUR system (tokens, type, spacing)
+  — if a section is recognizably "stock Aceternity/21st", it fails the design loop judge.
+
 ## Phase A — design system + landing (verify: build passes, desktop+mobile screenshots)
 1. Tokenize palette/type; restyle nav/footer/buttons/cards. Strip commerce routes.
 2. Home: hero (statement + the $20 workshop CTA + R3F accent) → "two tracks" split section

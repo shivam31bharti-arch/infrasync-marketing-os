@@ -1,5 +1,9 @@
 # Decision log (newest first). Format: date · decision · why · rejected alternatives.
 
+- **2026-08-25 · UI sources: Aceternity UI + 21st.dev (+ Magic MCP) + Motion (framer-motion)
+  + R3F, all free, re-skinned to our tokens.** Rejected: Framer the platform — paid custom
+  domain, replaces the stack, cannot host our Supabase/quiz/chat/certificate code.
+
 - **2026-08-24 · PIVOT #3: business = AI education again (final).** $20 2-Day AI Workshop →
   AI Generalist Accelerator (non-tech; vibe coding + AI tools) and AI Engineer Accelerator
   (Python required; AI-augmented engineering, performance, time management), both $1,200 intl /
