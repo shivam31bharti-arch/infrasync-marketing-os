@@ -18,11 +18,13 @@ export function initPostHog(): void {
 }
 
 export type AnalyticsEvent =
-  | { name: "product_viewed"; props: { product_id: string; handle: string; title: string } }
-  | { name: "add_to_cart"; props: { product_id: string; variant_id: string; quantity: number } }
-  | { name: "checkout_started"; props: { cart_size: number } }
-  | { name: "purchase"; props: { order_id: string; total: number; currency: string } }
-  | { name: "subscribed"; props: { source: string } };
+  | { name: "workshop_register"; props: { email: string; source: string } }
+  | { name: "quiz_completed"; props: { recommended_track: string; score_generalist: number; score_engineer: number } }
+  | { name: "checkout_click"; props: { product: string; price: number; currency: string } }
+  | { name: "purchase"; props: { product: string; amount: number; currency: string } }
+  | { name: "subscribed"; props: { source: string } }
+  | { name: "chat_opened"; props: Record<string, never> }
+  | { name: "chat_message"; props: { role: "user" | "assistant"; length: number } };
 
 export function track(event: AnalyticsEvent): void {
   if (!initialised) return;

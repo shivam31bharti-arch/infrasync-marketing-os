@@ -247,3 +247,65 @@ writes one entry per iteration in this format:
 - Verified: reference grep (one live pointer updated; history mentions left); git mv tracked.
 - Next: proceed with plan/TODAY.md Track B — new agent starts by pasting prompts/START-HERE.md.
 - Open questions: none.
+
+## 2026-08-25 — Stage 1: storefront repurposed (green-lit tasks 1–7)
+- Done: complete storefront repurpose from retired AURELIAN apparel e-commerce to InfraSync
+  AI education program site. Executed plan/TODAY.md Track B green-lit list:
+  **Task 1 — commerce strip**: deleted app/collections/, app/products/, app/cart/,
+  lib/medusa.ts, lib/cart.ts, lib/demo-data.ts, components/ProductCard+ProductDetail.
+  **Task 2 — program pages**: `/` (hero + two-track split + how-it-works + FAQ), `/workshop`
+  ($20, payment link from env), `/programs/ai-generalist` ($1,200/₹95,000),
+  `/programs/ai-engineer` (Python prereq at top + prereq section + prereq box),
+  `/thank-you` (dynamic product param), `/policies/{refund,privacy,terms,contact}` (education
+  context; TBD items styled "announced soon").
+  **Task 3 — track-fit quiz**: `/quiz` — 6 deterministic questions, weighted scoring,
+  recommends Generalist/Engineer, progress bar, score bar, retake option → saves to Supabase
+  via `/api/quiz` (upserts into subscribers with segment + meta.program) → PostHog
+  `quiz_completed` event.
+  **Task 5 — design system**: rethemed globals.css — palette (ink #0A0E14, paper #F4F2EC,
+  electric #4F7CFF, warm gray #8A8F98), fonts (Space Grotesk display, Inter body, JetBrains
+  Mono code), alternating dark/light sections, track cards, program badges, responsive nav,
+  TBD styling. Layout rewritten: education nav, Outskill branding, education footer.
+  Components updated: SubscribeForm (education copy + design classes), SubscriberPopup
+  (education copy + styled panel).
+  **Task 6 — chat agent**: `/api/chat` — LLM router (Groq → Gemini → NIM), offers.md-only
+  system prompt, claims policy enforced (refuses to invent), rate-limited (20 msgs/session,
+  500 char/msg), 10s timeout per provider, fallback message. ChatWidget component: floating
+  panel on every page, PostHog `chat_opened`/`chat_message` events.
+  **Task 7 — certificates**: `/verify/[code]` page reads `certificates` table (schema in
+  infra/supabase-certificates.sql — already existed). Verified/not-found states. Displays
+  student name, program, date, cert code. States completion-only (no accreditation claims).
+  Analytics updated: commerce events replaced with education events (workshop_register,
+  quiz_completed, checkout_click, chat_opened, chat_message).
+- Verified: `npm run build` → 0 errors, 16 routes (13 static/SSG + 5 dynamic API/pages).
+  Grep for stale commerce refs (Medusa/AURELIAN/apparel/clothing/footwear/DEMO_BRAND/
+  Cormorant) → 0 matches in storefront source. Python prereq visible on `/programs/ai-engineer`
+  (badge + prereq box + prerequisites section). All prices match offers.md ($20/$1,200/₹95,000).
+  TBD items (dates, curriculum, refund, EMI, schedule, instructor) render as styled "announced
+  soon" — nothing invented. Chat agent system prompt enforces claims policy.
+- Next: `scripts/certificate.mjs` (Playwright render + Brevo SMTP email) end-to-end test
+  → then design-loop polish → then deploy prep. Resume: `node scripts/certificate.mjs --test`
+  after founder runs `infra/supabase-certificates.sql` in Supabase SQL editor.
+- Open questions: offers.md open items (dates, schedule, curriculum, EMI, refund, cert
+  signatory) still unchecked — pages show "announced soon" which is correct per night-shift
+  rules. Founder: please fill them when ready; agent will refresh all pages on next run.
+
+## 2026-08-25 — SHIFT HANDOFF: Opus (Antigravity) → Kimi K3 (checkpoint closed by Claude)
+- Opus shift delivered (verified per its log above): commerce fully stripped · program site
+  pages built (/, /workshop, /programs/*, /quiz + api/quiz, /thank-you, /verify, /policies) ·
+  chat agent (/api/chat + widget, claims-policy system prompt) · education analytics events ·
+  npm build 0 errors / 16 routes · stale-commerce grep = 0.
+- Gap fixed here: Opus wrote its log but did NOT commit/push — this commit is its checkpoint,
+  closed by Claude. ALSO: founder-confirmed facts landed in agent/offers.md AFTER Opus's last
+  page refresh (workshop Sat+Sun 2–8 PM IST + dates Aug 29–30/Sep 5–6/Sep 12–13 · cohort
+  Sep 15 · no-cost EMI 3/6/10 · workshop non-refundable, shown BEFORE payment · accelerator
+  4-week money-back · AI reminder-call feature + consent line · curricula) — pages still show
+  "announced soon" for these.
+- NEXT (Kimi K3, in order):
+  1. Re-read agent/offers.md → refresh ALL pages/chat-prompt with the confirmed facts above.
+  2. Certificate system end-to-end (resume: `node scripts/certificate.mjs --test` — BLOCKED
+     until founder runs infra/supabase-certificates.sql in the Supabase SQL editor; if still
+     blocked, build the script + /verify page logic and test everything except the DB insert).
+  3. Then prompts/design-loop.md until a stop rule fires.
+- Open questions: founder to run the certificates SQL · accelerator duration number ·
+  instructor + signatory names.

@@ -27,15 +27,19 @@ in Google Flow from agent briefs, joined by tested `scripts/` · LLM: local Lite
 
 **Where we are:** Stage 0 mostly done — domain+Cloudflare ✅, Supabase live (5 tables) ✅,
 Brevo/PostHog/Sentry/Groq/Gemini/NIM/YouTube keys in `.env` ✅, repo on private GitHub ✅,
-FFmpeg+Docker ready ✅. Night shift built a Next.js site skeleton in `storefront/` (builds
-clean; Supabase capture, PostHog+Sentry, drafts dashboard) — it currently still contains
-retired commerce routes; **Stage 1 = repurpose it into the program site** per `plan/01` +
-`prompts/design-sprint.md` (premium tech-education theme, track-fit quiz as hero feature).
-`medusa/` folder + local containers on :5433/:6380 are retired — safe to delete. Media
-scripts tested; `agent/llm.py` router verified.
+FFmpeg+Docker ready ✅. **Stage 1 storefront repurpose DONE** — `storefront/` is now the
+InfraSync AI education program site (16 routes, builds clean): home, /workshop ($20),
+/programs/ai-generalist + /programs/ai-engineer (Python prereq stated), /quiz (6-Q
+deterministic scoring), /thank-you, /policies/{refund,privacy,terms,contact}, /verify/[code]
+(certificate lookup), /api/chat (LLM router, offers.md-only knowledge, claims policy),
+/api/quiz (Supabase upsert), ChatWidget on every page. Design system rethemed (ink/paper/
+electric/JetBrains Mono). Commerce code fully stripped. TBD items (dates, curriculum, EMI,
+refund, schedule, instructor) render as styled "announced soon". `medusa/` folder + local
+containers on :5433/:6380 are retired — safe to delete.
 Pending (founder-only): Oracle VPS · Razorpay/Stripe KYC · Meta WhatsApp verification ·
 research inbox · offers.md open items (dates, duration, curriculum, EMI, refund policy) ·
-Turnstile key.
+Turnstile key · run infra/supabase-certificates.sql · certificate.mjs end-to-end test ·
+Cloudflare Pages deploy.
 
 **Brand note:** company/issuer = **Outskill**; "InfraSync" was the working codename; domain
 stays infra-sync.online for now. **Today-mode:** plan/TODAY.md is the active one-day runbook.

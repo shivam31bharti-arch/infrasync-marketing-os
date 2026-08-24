@@ -4,6 +4,7 @@ import "./globals.css";
 import PostHogInit from "@/components/PostHogInit";
 import SubscriberPopup from "@/components/SubscriberPopup";
 import SubscribeForm from "@/components/SubscribeForm";
+import ChatWidget from "@/components/ChatWidget";
 
 export const metadata: Metadata = {
   title: {
@@ -154,6 +155,7 @@ export default function RootLayout({
             </p>
           </div>
         </footer>
+        <ChatWidget />
         <SubscriberPopup />
       </body>
     </html>
