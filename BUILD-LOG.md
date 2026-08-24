@@ -312,3 +312,43 @@ writes one entry per iteration in this format:
 
 ## 2026-08-25 — Certificates SQL run (founder) — blocker cleared
 - certificates table live in Supabase, probe-verified by Claude. Kimi may run the FULL certificate end-to-end test (DB insert + render + Brevo email to founder inbox + /verify page).
+
+## 2026-08-25 — Kimi K3 shift: facts refresh + SkillSync rename + Razorpay wiring + Cloudflare adapter
+- Done (task 0, own commit c3de849): @opennextjs/cloudflare 1.20.2 + wrangler 4.125.0;
+  open-next.config.ts, wrangler.jsonc (main .open-next/worker.js, ASSETS binding,
+  nodejs_compat, compat 2026-08-01), preview/deploy scripts, .gitignore (.open-next/,
+  .wrangler/), server-env.ts try/catch (Workers has no fs). Verified: `npm run build`
+  16 routes 0 errors · `npx opennextjs-cloudflare build` → worker.js + assets generated.
+  FOUNDER UNBLOCKED: connect Pages (build `npx opennextjs-cloudflare build`, output
+  `.open-next/assets`; set 3 NEXT_PUBLIC_RAZORPAY_*_LINK vars in Pages settings).
+- Done (facts refresh, all pages + chat prompt): workshop Sat+Sun 2–8 PM IST + dates
+  Aug 29–30 / Sep 5–6 / Sep 12–13 2026 (/workshop + home) · cohort Sep 15, 2026 + Tue/Thu
+  8–10 PM IST + weekend office hours (both program pages) · no-cost EMI 3/6/10 lines ·
+  workshop NON-REFUNDABLE stated before payment (hero near button, schedule button, FAQ) ·
+  accelerator 4-week money-back (FAQ, refund policy page — now real copy, program pages) ·
+  AI reminder-call feature + consent line on /workshop · founder curricula replace TBD
+  cards (Generalist 5 modules, Engineer 6) · /api/chat system prompt rewritten with all of it.
+- Done (brand sweep): Outskill → SkillSync across site copy, layout/footer, policies,
+  /verify, chat prompt, globals.css, offers.md, voice-agent-config.md, README, PIPELINES,
+  plan/05, plan/TODAY, night-shift, context.md, infra SQL comments. Cert prefix OSK-→SSC-.
+  History in BUILD-LOG/decisions untouched; rename logged as a new decision.
+- Done (payments): .env key renamed NEXT_PUBLIC_STRIPE_WORKSHOP_LINK →
+  NEXT_PUBLIC_RAZORPAY_WORKSHOP_LINK (surgical single-line, encoding preserved); code reads
+  only NEXT_PUBLIC_RAZORPAY_{WORKSHOP,GENERALIST,ENGINEER}_LINK via serverEnv (root .env is
+  loaded at build — NEXT_PUBLIC vars outside storefront/ were invisible before); Stripe vars
+  removed from code; terms/privacy updated; .env.example updated.
+- Done (price): workshop = $20 international · ₹1,999 India (founder-locked) on /workshop,
+  home, metadata; offers.md workshop row updated.
+- Bug fixed: chat NIM provider read NIM_API_KEY but .env has NVIDIA_API_KEY — fallback never
+  fired. Now correct.
+- Verified: npm run build 0 errors / 16 routes · prerendered HTML contains rzp.io href on
+  /workshop, /programs/ai-generalist, /programs/ai-engineer (all 3 buttons live) · UTF-8
+  spot checks pass (₹1,999, 2:00–8:00 PM IST, Sep 15 2026, EMI, curricula, PYTHON REQUIRED) ·
+  `grep -ri outskill` → only BUILD-LOG.md history + decisions.md rename entry · `OSK` → only
+  the decisions.md entry.
+- Next: certificate end-to-end — build scripts/certificate.mjs (issuer SkillSync, code
+  SSC-YYYY-NNNN; `--test` = Test Student cert emailed via Brevo SMTP to founder inbox only
+  (= Brevo account address in .env, value never printed)) + prove /verify/[code] resolves it.
+  Then prompts/design-loop.md until a stop rule fires.
+- Open questions: founder to connect Cloudflare Pages + swap test→live Razorpay links after
+  KYC · accelerator duration in weeks · instructor + cert signatory names.

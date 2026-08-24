@@ -7,19 +7,20 @@ export default function HomePage() {
       <section className="section section--dark" style={{ minHeight: "80vh", display: "flex", alignItems: "center" }}>
         <div className="container">
           <p className="label" style={{ marginBottom: "var(--space-lg)" }}>
-            AI Education by Outskill
+            AI Education by SkillSync
           </p>
           <h1 className="display-xl" style={{ maxWidth: "800px", marginBottom: "var(--space-xl)" }}>
             Learn to build with AI.{" "}
             <span className="text-electric">For real.</span>
           </h1>
           <p className="muted" style={{ fontSize: "1.25rem", maxWidth: "560px", marginBottom: "var(--space-2xl)", lineHeight: 1.7 }}>
-            Start with a hands-on $20 workshop, then accelerate into the track
-            that fits you — Generalist or Engineer. Live, cohort-based, no fluff.
+            Start with a hands-on workshop — $20 international · ₹1,999 India —
+            then accelerate into the track that fits you: Generalist or
+            Engineer. Live, cohort-based, no fluff.
           </p>
           <div style={{ display: "flex", gap: "var(--space-md)", flexWrap: "wrap" }}>
             <Link href="/workshop" className="button button--primary button--large">
-              Join the Workshop — $20
+              Join the Workshop — $20 / ₹1,999
             </Link>
             <Link href="/quiz" className="button button--secondary button--large">
               Find Your Track →
@@ -96,8 +97,9 @@ export default function HomePage() {
               <div className="step-content">
                 <h3>Start with the Workshop</h3>
                 <p>
-                  Two days, $20. Hands-on AI fundamentals — a taste of both
-                  accelerator tracks. No commitment, real skills.
+                  Two days, $20 international · ₹1,999 India. Hands-on AI
+                  fundamentals — a taste of both accelerator tracks. No
+                  commitment, real skills.
                 </p>
               </div>
             </div>
@@ -116,7 +118,7 @@ export default function HomePage() {
               <div className="step-content">
                 <h3>Accelerate</h3>
                 <p>
-                  Join your cohort, build real projects, and earn your Outskill
+                  Join your cohort, build real projects, and earn your SkillSync
                   certificate of completion.
                 </p>
               </div>
@@ -132,11 +134,15 @@ export default function HomePage() {
             The 2-Day AI Workshop
           </h2>
           <p className="muted" style={{ fontSize: "1.125rem", maxWidth: "520px", margin: "0 auto var(--space-lg)" }}>
-            Your entry point into the InfraSync ecosystem. Two days of hands-on
-            AI. Just $20 to get started.
+            Your entry point into the InfraSync ecosystem. Two days of
+            hands-on AI. Just $20 international · ₹1,999 India to get
+            started.
           </p>
-          <p className="tbd" style={{ marginBottom: "var(--space-xl)" }}>
-            Next workshop dates announced soon
+          <p style={{ marginBottom: "var(--space-xs)", fontSize: "1.0625rem" }}>
+            <strong>Live online · Saturday + Sunday, 2:00–8:00 PM IST</strong>
+          </p>
+          <p className="muted" style={{ marginBottom: "var(--space-xl)" }}>
+            Upcoming: Aug 29–30 · Sep 5–6 · Sep 12–13, 2026
           </p>
           <Link href="/workshop" className="button button--primary button--large">
             Learn More & Register
@@ -154,7 +160,7 @@ export default function HomePage() {
             <div className="faq-item">
               <h3 className="faq-question">What is InfraSync?</h3>
               <p className="faq-answer">
-                InfraSync is an AI education platform by Outskill. We run
+                InfraSync is an AI education platform by SkillSync. We run
                 live, cohort-based programs that teach people how to work
                 with AI — whether you&apos;re a non-tech professional or a
                 developer with Python experience.
@@ -186,8 +192,17 @@ export default function HomePage() {
               <h3 className="faq-question">Do I get a certificate?</h3>
               <p className="faq-answer">
                 Yes. Upon completing your accelerator program, you receive
-                a verifiable Outskill certificate of completion with a
+                a verifiable SkillSync certificate of completion with a
                 unique code and public verification page.
+              </p>
+            </div>
+            <div className="faq-item">
+              <h3 className="faq-question">
+                Is EMI available for the accelerators?
+              </h3>
+              <p className="faq-answer">
+                Yes — India enrollments can use <strong>no-cost EMI</strong> over{" "}
+                3, 6, or 10 months via Razorpay (subject to bank approval).
               </p>
             </div>
             <div className="faq-item">
@@ -195,9 +210,14 @@ export default function HomePage() {
                 What&apos;s your refund policy?
               </h3>
               <p className="faq-answer">
-                <span className="tbd">
-                  Refund policy details announced soon
-                </span>
+                The $20 workshop is non-refundable — stated clearly before you
+                pay. Accelerators include a{" "}
+                <strong>4-week money-back window</strong>: full refund if you
+                cancel within 4 weeks of your cohort start. See our{" "}
+                <Link href="/policies/refund" style={{ color: "var(--color-electric)", textDecoration: "underline" }}>
+                  Refund Policy
+                </Link>
+                .
               </p>
             </div>
           </div>

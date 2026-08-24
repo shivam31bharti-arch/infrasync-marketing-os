@@ -47,9 +47,9 @@ lines, policies pages, Lighthouse).
   Use: inbound queries via web-call widget; outbound = workshop-registrant reminders ONLY
   (consent-based, human-triggered dispatch, DND respected). Call minutes = per-lead COGS
   from that account's credits.
-- **Certificates (issuer: Outskill)**: on completion mark → generate branded certificate
+- **Certificates (issuer: SkillSync)**: on completion mark → generate branded certificate
   (HTML template → Playwright PDF/PNG, `scripts/certificate.mjs`) with unique code
-  `OSK-YYYY-NNNN` → auto-email via Brevo (transactional) → public verify page
+  `SSC-YYYY-NNNN` → auto-email via Brevo (transactional) → public verify page
   `/verify/[code]` reads Supabase `certificates` (see `infra/supabase-certificates.sql` —
   run in the SQL editor). States completion only — no accreditation claims.
 

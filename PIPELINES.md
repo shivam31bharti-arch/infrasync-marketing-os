@@ -95,11 +95,11 @@ Stage order: 0 accounts → 1 program site → 2 VPS (Listmonk·Postiz) → 3 ad
 CHAT AGENT   site widget → /api/chat → LLM router (free keys) → answers ONLY from
              agent/offers.md + FAQ → escalation: WhatsApp link + email · rate-limited ·
              PostHog chat_opened/chat_message
-VOICE AGENT  OmniDimension "Outskill Course Counselor" (DEDICATED account — config in
+VOICE AGENT  OmniDimension "SkillSync Course Counselor" (DEDICATED account — config in
              agent/voice-agent-config.md) · inbound web-call widget · outbound = registrant
              reminders only, consent-based, human-dispatched, DND respected · minutes = COGS
 CERTIFICATES completion marked (drafts dashboard / script) → scripts/certificate.mjs
-             (HTML → Playwright PDF/PNG, issuer Outskill, code OSK-YYYY-NNNN) → auto-email
+             (HTML → Playwright PDF/PNG, issuer SkillSync, code SSC-YYYY-NNNN) → auto-email
              via Brevo (transactional) → /verify/[code] public page (Supabase certificates
              table — infra/supabase-certificates.sql)
 ```

@@ -1,20 +1,21 @@
-# Outskill — programs, prices & claims policy (source of truth for every prompt)
+# SkillSync — programs, prices & claims policy (source of truth for every prompt)
 
 > Every ad script, page, email, WhatsApp message, and call script pulls its facts from here.
-> If a fact is missing, the agent asks — it never invents. Updated 2026-08-25 (founder-confirmed).
+> If a fact is missing, the agent asks — it never invents. Updated 2026-08-25 (founder-confirmed;
+> brand renamed 2026-08-25 — see knowledge/decisions.md).
 
 ## What this is
-**Outskill** — an AI education company (infra-sync.online is the current project domain;
+**SkillSync** — an AI education company (infra-sync.online is the current project domain;
 "InfraSync" was the working codename). Live, cohort-based programs teaching people to work
 with AI — one track for non-tech professionals, one for engineers. **Certificates of
-completion are issued by Outskill** automatically when a student completes their program
-(unique code + public verify page; completion only — no accreditation claims).
+completion are issued by SkillSync** automatically when a student completes their program
+(unique code `SSC-YYYY-NNNN` + public verify page; completion only — no accreditation claims).
 
 ## Programs (founder-confirmed 2026-08-25)
 
 | Program | Price | Who it's for | Format |
 |---|---|---|---|
-| **2-Day AI Workshop** | **$20** (entry offer) | Anyone curious; the funnel's front door | Live online · **Saturday + Sunday, 2:00–8:00 PM IST** |
+| **2-Day AI Workshop** | **$20 international · ₹1,999 India** (entry offer) | Anyone curious; the funnel's front door | Live online · **Saturday + Sunday, 2:00–8:00 PM IST** |
 | **AI Generalist Accelerator** | **$1,200 international · ₹95,000 India** | Non-tech backgrounds | Live cohort (see schedule) |
 | **AI Engineer Accelerator** | **$1,200 international · ₹95,000 India** | Techies — **Python required** (basic-to-intermediate) | Live cohort (see schedule) |
 
@@ -27,7 +28,7 @@ completion are issued by Outskill** automatically when a student completes their
 - **Refunds:** **Workshop: non-refundable** (stated clearly at checkout). **Accelerator:
   full refund if you cancel within 4 weeks (1 month) of cohort start** (founder-confirmed
   2026-08-25). Program duration itself: cohort-based, number announced later.
-- **AI reminder calls:** registered students receive automated reminder calls from Outskill's
+- **AI reminder calls:** registered students receive automated reminder calls from SkillSync's
   AI counselor before their sessions (plus email/WhatsApp reminders). Registration forms
   include a consent line: "I agree to receive session reminders by call, email, and WhatsApp."
 
@@ -39,17 +40,18 @@ shipping with AI · engineering performance + time-management systems · capston
 
 ## Still open (small)
 - [x] Accelerator refund: 4-week money-back window ✓ · [ ] accelerator duration in weeks (for the site, when decided)
-- [ ] Instructor real names (site says "Outskill mentor team" until then)
-- [ ] Certificate signatory real name (template says "Program Director, Outskill" until then)
+- [ ] Instructor real names (site says "SkillSync mentor team" until then)
+- [ ] Certificate signatory real name (template says "Program Director, SkillSync" until then)
 - [ ] Seats per cohort — internal cap only; never advertise scarcity
 - [ ] Certificate template sign-off (logo, signatory) — needed before first auto-send
-- [x] Brand: **Outskill** (site + certificates)
+- [x] Brand: **SkillSync** (site + certificates) — renamed 2026-08-25, see decisions.md
 
 ## Funnel
-Ads (Flow-made, 30s) · content · SEO → **$20 2-Day Workshop** (paid front-end) → track-fit
-quiz (Generalist vs Engineer) → accelerator offer $1,200 / ₹95,000 (no-cost EMI 3/6/10) →
-checkout (Stripe intl / Razorpay India) → onboarding → cohort → **completion →
-auto-certificate (Outskill) + verify page** → alumni referrals. Support: site **chat agent**
+Ads (Flow-made, 30s) · content · SEO → **2-Day Workshop — $20 intl / ₹1,999 India** (paid
+front-end) → track-fit quiz (Generalist vs Engineer) → accelerator offer $1,200 / ₹95,000
+(no-cost EMI 3/6/10) → checkout (**Razorpay hosted payment pages** — test links live,
+live-mode after KYC) → onboarding → cohort → **completion → auto-certificate (SkillSync) +
+verify page** → alumni referrals. Support: site **chat agent**
 (answers only from this file) + **voice counselor** (OmniDimension, dedicated account —
 inbound queries + consented reminder calls) + WhatsApp windows. Reminders via email (Brevo) +
 WhatsApp utility + AI reminder calls.

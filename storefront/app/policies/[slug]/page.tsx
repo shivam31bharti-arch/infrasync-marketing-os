@@ -10,12 +10,12 @@ const POLICIES: Record<
     title: "Refund Policy",
     sections: [
       {
-        h: "Workshop refunds",
-        body: "[[REFUND_POLICY — to be confirmed in agent/offers.md before payments go live]]",
+        h: "2-Day AI Workshop — non-refundable",
+        body: "The 2-Day AI Workshop ($20 international · ₹1,999 India) is non-refundable. This is stated clearly before payment. Please check the workshop dates and your availability before registering.",
       },
       {
-        h: "Accelerator refunds",
-        body: "[[REFUND_POLICY — to be confirmed in agent/offers.md before payments go live]]",
+        h: "Accelerator refunds — 4-week money-back window",
+        body: "For the AI Generalist and AI Engineer accelerators ($1,200 international · ₹95,000 India): full refund if you cancel within 4 weeks (1 month) of your cohort start date. After that window, payments are non-refundable. To request a cancellation, contact us via the Contact page.",
       },
     ],
   },
@@ -24,7 +24,7 @@ const POLICIES: Record<
     sections: [
       {
         h: "Data we collect",
-        body: "We collect information you provide when registering for programs: name, email, quiz responses, and payment details (processed by Stripe/Razorpay — we do not store card numbers). We also collect usage data to improve our programs.",
+        body: "We collect information you provide when registering for programs: name, email, quiz responses, and payment details (processed by Razorpay — we do not store card numbers). We also collect usage data to improve our programs.",
       },
       {
         h: "Analytics & error monitoring",
@@ -41,15 +41,15 @@ const POLICIES: Record<
     sections: [
       {
         h: "Service provider",
-        body: "Programs are provided by Outskill. Domain: infra-sync.online.",
+        body: "Programs are provided by SkillSync. Domain: infra-sync.online.",
       },
       {
         h: "Program terms",
-        body: "Certificates of completion are issued by Outskill upon program completion. They state completion only — no accreditation claims are made. Program content and schedules may be updated between cohorts.",
+        body: "Certificates of completion are issued by SkillSync upon program completion. They state completion only — no accreditation claims are made. Program content and schedules may be updated between cohorts.",
       },
       {
         h: "Payment",
-        body: "International payments are processed via Stripe in USD. India payments are processed via Razorpay in INR. All prices are as stated on the program pages.",
+        body: "Payments are processed via Razorpay hosted payment pages ($ international / ₹ India; no-cost EMI available for India enrollments, subject to bank approval). All prices are as stated on the program pages.",
       },
       {
         h: "Legal details",
@@ -88,16 +88,19 @@ export default async function PolicyPage({
   const { slug } = await params;
   const policy = POLICIES[slug];
   if (!policy) notFound();
+  const hasPlaceholders = policy.sections.some((s) => s.body.includes("[["));
   return (
     <section className="section">
       <div className="container container--narrow">
         <h1 style={{ marginBottom: "var(--space-xl)" }}>{policy.title}</h1>
-        <p style={{ marginBottom: "var(--space-3xl)" }}>
-          <span className="tbd">
-            Some details below are placeholders — they will be finalized
-            before payments go live.
-          </span>
-        </p>
+        {hasPlaceholders && (
+          <p style={{ marginBottom: "var(--space-3xl)" }}>
+            <span className="tbd">
+              Some details below are placeholders — they will be finalized
+              before payments go live.
+            </span>
+          </p>
+        )}
         {policy.sections.map((s) => (
           <div key={s.h} style={{ marginBottom: "var(--space-2xl)" }}>
             <h2

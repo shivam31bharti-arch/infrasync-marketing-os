@@ -1,0 +1,15 @@
+First Name,Last Name,Email,Lifecycle Stage,Program,Status
+Ananya,Rao,ananya.rao@example.com,Lead,2-Day AI Workshop,Quiz completed — recommended Generalist
+Rohit,Sharma,rohit.sharma@example.com,Lead,2-Day AI Workshop,Asked about EMI on chat
+Priya,Nair,priya.nair@example.com,Lead,Undecided,Voice-agent call — callback requested
+Arjun,Mehta,arjun.mehta@example.com,Lead,AI Engineer Accelerator,Knows Python — quiz matched Engineer
+Sneha,Iyer,sneha.iyer@example.com,Opportunity,2-Day AI Workshop,Workshop paid ₹1999 — batch Aug 29-30
+Vikram,Singh,vikram.singh@example.com,Opportunity,2-Day AI Workshop,Workshop paid ₹1999 — batch Sep 5-6
+Divya,Kulkarni,divya.kulkarni@example.com,Opportunity,2-Day AI Workshop,Workshop paid ₹1999 — batch Sep 5-6
+Karan,Patel,karan.patel@example.com,Customer,AI Generalist Accelerator,Enrolled — EMI 6 months — cohort Sep 15
+Meera,Krishnan,meera.krishnan@example.com,Customer,AI Generalist Accelerator,Enrolled — paid full — cohort Sep 15
+Aditya,Verma,aditya.verma@example.com,Customer,AI Generalist Accelerator,Enrolled — EMI 3 months — cohort Sep 15
+Nikhil,Joshi,nikhil.joshi@example.com,Customer,AI Engineer Accelerator,Enrolled — EMI 10 months — cohort Sep 15
+Riya,Banerjee,riya.banerjee@example.com,Customer,AI Engineer Accelerator,Enrolled — paid full — cohort Sep 15
+Sanjay,Reddy,sanjay.reddy@example.com,Customer,AI Generalist Accelerator,COMPLETED — certificate SSC-2026-0001 issued
+Pooja,Desai,pooja.desai@example.com,Customer,AI Engineer Accelerator,COMPLETED — certificate SSC-2026-0002 issued

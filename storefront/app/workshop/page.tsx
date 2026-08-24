@@ -1,15 +1,18 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { loadServerEnv, serverEnv } from "@/lib/server-env";
+
+loadServerEnv(); // root .env (NEXT_PUBLIC_* not auto-loaded outside storefront/)
 
 export const metadata: Metadata = {
-  title: "2-Day AI Workshop — $20",
+  title: "2-Day AI Workshop — $20 international · ₹1,999 India",
   description:
-    "Two days of hands-on AI fundamentals. A taste of both the Generalist and Engineer accelerators. Just $20.",
+    "Two days of hands-on AI fundamentals. A taste of both the Generalist and Engineer accelerators. $20 international · ₹1,999 India.",
 };
 
 export default function WorkshopPage() {
   const paymentLink =
-    process.env.NEXT_PUBLIC_STRIPE_WORKSHOP_LINK || null;
+    serverEnv("NEXT_PUBLIC_RAZORPAY_WORKSHOP_LINK") || null;
 
   return (
     <>
@@ -37,11 +40,31 @@ export default function WorkshopPage() {
             Two days of hands-on AI fundamentals. No prior coding needed.
             A real taste of both accelerator tracks — before you commit.
           </p>
-          <div className="price-display" style={{ marginBottom: "var(--space-md)" }}>
-            $20
+          <div
+            style={{
+              display: "flex",
+              gap: "var(--space-2xl)",
+              flexWrap: "wrap",
+              marginBottom: "var(--space-sm)",
+            }}
+          >
+            <div>
+              <div className="price-display">$20</div>
+              <p className="price-note">International</p>
+            </div>
+            <div>
+              <div className="price-display">₹1,999</div>
+              <p className="price-note">India</p>
+            </div>
           </div>
-          <p className="price-note" style={{ marginBottom: "var(--space-2xl)" }}>
-            One-time payment. No hidden fees.
+          <p className="price-note" style={{ marginBottom: "var(--space-lg)" }}>
+            One-time payment — $20 international · ₹1,999 India. No hidden fees.
+          </p>
+          <p style={{ marginBottom: "var(--space-xs)", fontWeight: 600 }}>
+            Live online · Saturday + Sunday, 2:00–8:00 PM IST (6 hrs/day)
+          </p>
+          <p className="muted" style={{ marginBottom: "var(--space-2xl)" }}>
+            Upcoming: Aug 29–30 · Sep 5–6 · Sep 12–13, 2026
           </p>
           {paymentLink ? (
             <a
@@ -50,13 +73,21 @@ export default function WorkshopPage() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              Register Now — $20
+              Register Now — $20 / ₹1,999
             </a>
           ) : (
             <span className="tbd">
               Registration opens soon — payment link being configured
             </span>
           )}
+          <p
+            className="muted"
+            style={{ marginTop: "var(--space-lg)", fontSize: "0.875rem", maxWidth: "560px" }}
+          >
+            Please note: workshop bookings are <strong>non-refundable</strong>.
+            By registering, you agree to receive session reminders by call,
+            email, and WhatsApp.
+          </p>
         </div>
       </section>
 
@@ -118,18 +149,29 @@ export default function WorkshopPage() {
           <h2 style={{ marginBottom: "var(--space-xl)" }}>
             Upcoming Workshop Dates
           </h2>
-          <p
-            className="tbd"
-            style={{ fontSize: "1.125rem", marginBottom: "var(--space-xl)" }}
-          >
-            Dates announced soon — subscribe to be the first to know
+          <p style={{ fontSize: "1.125rem", marginBottom: "var(--space-lg)" }}>
+            Every weekend · <strong>Saturday + Sunday, 2:00–8:00 PM IST</strong> · live online
           </p>
+          <div
+            style={{
+              display: "flex",
+              gap: "var(--space-md)",
+              justifyContent: "center",
+              flexWrap: "wrap",
+              marginBottom: "var(--space-xl)",
+            }}
+          >
+            {["Aug 29–30, 2026", "Sep 5–6, 2026", "Sep 12–13, 2026"].map((d) => (
+              <span key={d} className="track-badge" style={{ fontSize: "0.9375rem" }}>
+                {d}
+              </span>
+            ))}
+          </div>
           <p className="muted" style={{ marginBottom: "var(--space-2xl)", lineHeight: 1.7 }}>
             Workshops are live and cohort-based. Small groups for real
-            interaction.{" "}
-            <span className="tbd">
-              Schedule details (times, timezone) announced soon
-            </span>
+            interaction. Registered students receive automated session
+            reminders — by call from SkillSync&apos;s AI counselor, plus email
+            and WhatsApp.
           </p>
           <div style={{ display: "flex", gap: "var(--space-md)", justifyContent: "center", flexWrap: "wrap" }}>
             {paymentLink ? (
@@ -139,7 +181,7 @@ export default function WorkshopPage() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Register — $20
+                Register — $20 / ₹1,999
               </a>
             ) : (
               <span className="tbd">Registration link coming soon</span>
@@ -180,9 +222,24 @@ export default function WorkshopPage() {
             </p>
           </div>
           <div className="faq-item">
+            <h3 className="faq-question">Will I get a reminder before my sessions?</h3>
+            <p className="faq-answer">
+              Yes. Registered students receive automated reminders before
+              sessions — a call from SkillSync&apos;s AI counselor, plus email
+              and WhatsApp. You consent to these reminders when you register.
+            </p>
+          </div>
+          <div className="faq-item">
             <h3 className="faq-question">Can I get a refund?</h3>
             <p className="faq-answer">
-              <span className="tbd">Refund policy details announced soon</span>
+              The workshop is <strong>non-refundable</strong> — and we state
+              that clearly before you pay. Accelerator programs are different:
+              they include a 4-week money-back window from cohort start. See
+              the{" "}
+              <Link href="/policies/refund" style={{ color: "var(--color-electric)", textDecoration: "underline" }}>
+                Refund Policy
+              </Link>
+              .
             </p>
           </div>
         </div>

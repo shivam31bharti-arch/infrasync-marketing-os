@@ -30,7 +30,7 @@ GREEN-LIT (current stage — Stage 1 repurpose, per plan/01 + prompts/design-spr
    policy enforced, escalation links, rate limit, PostHog events). Verify with 5 test
    questions incl. one it must refuse to invent.
 7. **Certificates**: run infra/supabase-certificates.sql (via service key) · build
-   `scripts/certificate.mjs` (HTML template, issuer Outskill, Playwright render) ·
+   `scripts/certificate.mjs` (HTML template, issuer SkillSync, Playwright render) ·
    `/verify/[code]` page · end-to-end test: generate one for "Test Student", email it via
    Brevo SMTP to the founder's own inbox, verify page resolves. No real recipients.
 8. If time remains: SEO (sitemap, Course JSON-LD, OG) · GitHub Actions build-on-push.

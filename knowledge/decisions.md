@@ -1,5 +1,16 @@
 # Decision log (newest first). Format: date · decision · why · rejected alternatives.
 
+- **2026-08-25 · BRAND RENAME: Outskill → SkillSync.** Outskill is a real existing company —
+  legal risk. Swept repo-wide (site, offers, plans, prompts, voice-agent config, certificate
+  issuer); certificate code prefix OSK-→SSC-. History in BUILD-LOG.md and this file (below)
+  intentionally left as-is.
+- **2026-08-25 · Payments: Razorpay-only.** Stripe dropped — Stripe has no India onboarding
+  for this business. Founder created 3 Razorpay TEST payment pages (workshop, generalist,
+  engineer), wired via `NEXT_PUBLIC_RAZORPAY_*_LINK` in root .env; Stripe vars removed from
+  code. Swap test→live links after Razorpay KYC completes.
+- **2026-08-25 · Workshop price locked: $20 international · ₹1,999 India** (founder-locked).
+  Accelerators unchanged: $1,200 intl / ₹95,000 India with no-cost EMI 3/6/10.
+
 - **2026-08-25 · UI sources: Aceternity UI + 21st.dev (+ Magic MCP) + Motion (framer-motion)
   + R3F, all free, re-skinned to our tokens.** Rejected: Framer the platform — paid custom
   domain, replaces the stack, cannot host our Supabase/quiz/chat/certificate code.

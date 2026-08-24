@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { loadServerEnv, serverEnv } from "@/lib/server-env";
+
+loadServerEnv(); // root .env (NEXT_PUBLIC_* not auto-loaded outside storefront/)
 
 export const metadata: Metadata = {
   title: "AI Generalist Accelerator — $1,200 / ₹95,000",
@@ -8,10 +11,8 @@ export const metadata: Metadata = {
 };
 
 export default function AIGeneralistPage() {
-  const paymentLinkIntl =
-    process.env.NEXT_PUBLIC_STRIPE_GENERALIST_LINK || null;
-  const paymentLinkIndia =
-    process.env.NEXT_PUBLIC_RAZORPAY_GENERALIST_LINK || null;
+  const paymentLink =
+    serverEnv("NEXT_PUBLIC_RAZORPAY_GENERALIST_LINK") || null;
 
   return (
     <>
@@ -64,27 +65,17 @@ export default function AIGeneralistPage() {
               flexWrap: "wrap",
             }}
           >
-            {paymentLinkIntl ? (
+            {paymentLink ? (
               <a
-                href={paymentLinkIntl}
+                href={paymentLink}
                 className="button button--primary button--large"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Enroll — $1,200
+                Enroll — $1,200 / ₹95,000
               </a>
             ) : (
               <span className="tbd">Enrollment opens soon</span>
-            )}
-            {paymentLinkIndia && (
-              <a
-                href={paymentLinkIndia}
-                className="button button--secondary button--large"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Enroll — ₹95,000
-              </a>
             )}
             <Link
               href="/workshop"
@@ -93,6 +84,16 @@ export default function AIGeneralistPage() {
               Start with the $20 Workshop →
             </Link>
           </div>
+          <p className="muted" style={{ marginTop: "var(--space-xl)", fontSize: "0.9375rem", maxWidth: "640px", lineHeight: 1.7 }}>
+            Next cohort starts <strong>Sep 15, 2026</strong> · live sessions Tue
+            &amp; Thu, 8–10 PM IST + weekend office hours ·{" "}
+            <span className="tbd">program duration announced soon</span>
+          </p>
+          <p className="muted" style={{ marginTop: "var(--space-sm)", fontSize: "0.9375rem", maxWidth: "640px", lineHeight: 1.7 }}>
+            India: <strong>no-cost EMI</strong> — 3, 6, or 10 months via
+            Razorpay (subject to bank approval) · Full refund within 4 weeks of
+            cohort start.
+          </p>
         </div>
       </section>
 
@@ -109,7 +110,18 @@ export default function AIGeneralistPage() {
             <div className="card card--dark">
               <div className="card-body">
                 <h3 style={{ marginBottom: "var(--space-md)" }}>
-                  Vibe Coding
+                  AI Fundamentals &amp; Prompting
+                </h3>
+                <p className="muted" style={{ lineHeight: 1.7 }}>
+                  How modern AI actually works, where it helps, where it fails —
+                  and how to prompt it for reliable, useful output.
+                </p>
+              </div>
+            </div>
+            <div className="card card--dark">
+              <div className="card-body">
+                <h3 style={{ marginBottom: "var(--space-md)" }}>
+                  Vibe Coding with AI Builders
                 </h3>
                 <p className="muted" style={{ lineHeight: 1.7 }}>
                   Build functional software using AI assistants — no traditional
@@ -121,35 +133,33 @@ export default function AIGeneralistPage() {
             <div className="card card--dark">
               <div className="card-body">
                 <h3 style={{ marginBottom: "var(--space-md)" }}>
-                  The Modern AI Tool Stack
+                  Automations Without Code
                 </h3>
                 <p className="muted" style={{ lineHeight: 1.7 }}>
-                  Master the tools that are changing every profession — from
-                  document processing to content creation to workflow automation.
+                  Design automations for everyday work — connect tools, data,
+                  and AI steps without writing a line of code.
                 </p>
               </div>
             </div>
             <div className="card card--dark">
               <div className="card-body">
                 <h3 style={{ marginBottom: "var(--space-md)" }}>
-                  Building Real Things
+                  AI for Content, Marketing &amp; Data
                 </h3>
                 <p className="muted" style={{ lineHeight: 1.7 }}>
-                  Hands-on projects throughout — not theory. You&apos;ll leave
-                  with a portfolio of things you actually built using AI.
+                  Put AI to work on content, marketing, and data workflows —
+                  the highest-leverage applications for non-tech roles.
                 </p>
               </div>
             </div>
             <div className="card card--dark">
               <div className="card-body">
                 <h3 style={{ marginBottom: "var(--space-md)" }}>
-                  <span className="tbd">
-                    Full curriculum modules announced soon
-                  </span>
+                  Build-Your-Own Capstone
                 </h3>
                 <p className="muted" style={{ lineHeight: 1.7 }}>
-                  Detailed module breakdown, session schedule, and project list
-                  will be published before the first cohort opens for enrollment.
+                  Finish with a project you design and build yourself — a real
+                  thing you made, not a certificate of attendance.
                 </p>
               </div>
             </div>
@@ -202,7 +212,7 @@ export default function AIGeneralistPage() {
       <section className="section section--dark" style={{ textAlign: "center" }}>
         <div className="container container--narrow">
           <h2 style={{ marginBottom: "var(--space-xl)" }}>
-            Earn your Outskill certificate
+            Earn your SkillSync certificate
           </h2>
           <p
             className="muted"
@@ -212,11 +222,14 @@ export default function AIGeneralistPage() {
               lineHeight: 1.7,
             }}
           >
-            Complete the program and receive a verifiable Outskill certificate
+            Complete the program and receive a verifiable SkillSync certificate
             of completion with a unique code and public verification page.
           </p>
+          <p className="muted" style={{ marginBottom: "var(--space-sm)" }}>
+            Next cohort: <strong>Sep 15, 2026</strong> · Tue &amp; Thu, 8–10 PM IST + weekend office hours
+          </p>
           <p className="tbd" style={{ marginBottom: "var(--space-2xl)" }}>
-            Program duration and schedule announced soon
+            Program duration announced soon
           </p>
           <div style={{ display: "flex", gap: "var(--space-md)", justifyContent: "center", flexWrap: "wrap" }}>
             <Link

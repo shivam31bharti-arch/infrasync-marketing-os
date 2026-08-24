@@ -1,7 +1,7 @@
--- Certificates (issuer: Outskill). Run in the Supabase SQL editor after supabase-schema.sql.
+-- Certificates (issuer: SkillSync). Run in the Supabase SQL editor after supabase-schema.sql.
 create table if not exists certificates (
   id uuid primary key default gen_random_uuid(),
-  cert_no text unique not null,            -- human code e.g. OSK-2026-0001
+  cert_no text unique not null,            -- human code e.g. SSC-2026-0001
   subscriber_id uuid references subscribers(id),
   student_name text not null,
   program text not null,                   -- workshop | ai_generalist | ai_engineer

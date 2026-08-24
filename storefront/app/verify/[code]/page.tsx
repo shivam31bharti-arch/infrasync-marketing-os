@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Verify Certificate",
-  description: "Verify an Outskill certificate of completion.",
+  description: "Verify a SkillSync certificate of completion.",
 };
 
 async function getCertificate(code: string) {
@@ -106,7 +106,7 @@ export default async function VerifyPage({
             className="label"
             style={{ marginBottom: "var(--space-xl)", color: "var(--color-electric)" }}
           >
-            Outskill
+            SkillSync
           </p>
           <h2 style={{ marginBottom: "var(--space-md)" }}>{cert.student_name}</h2>
           <p

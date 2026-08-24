@@ -1,4 +1,4 @@
-# Context — read this first (updated 2026-08-24, pivot #3)
+# Context — read this first (updated 2026-08-25, pivot #3 + SkillSync rename)
 
 **What:** Marketing OS for **InfraSync**, an **AI education company**. Products: **2-Day AI
 Workshop ($20**, funnel front door) → two accelerators at **$1,200 international / ₹95,000
@@ -17,9 +17,11 @@ Pro is owned (Flow ads + Antigravity + Nano Banana).
 
 **Stack:** Next.js program site on Cloudflare Pages · site chat agent (/api/chat on the free
 LLM router, offers.md-only) · OmniDimension voice counselor (DEDICATED account — NOT the demo
-account connected to some Claude sessions; config in agent/voice-agent-config.md) · Outskill
-completion certificates (scripts/certificate.mjs + Supabase + Brevo + /verify/[code]) · Stripe Payment Links + Razorpay Payment
-Pages (hosted; EMI for ₹95k pending) · Supabase (leads/segments/drafts + pgvector) · Oracle
+account connected to some Claude sessions; config in agent/voice-agent-config.md) · SkillSync
+completion certificates (scripts/certificate.mjs + Supabase + Brevo + /verify/[code],
+code `SSC-YYYY-NNNN`) · Razorpay Payment Pages only — hosted, TEST links wired in root .env
+(`NEXT_PUBLIC_RAZORPAY_{WORKSHOP,GENERALIST,ENGINEER}_LINK`); EMI for ₹95k; live-mode after
+KYC (Stripe dropped — no India onboarding) · Supabase (leads/segments/drafts + pgvector) · Oracle
 Always-Free VPS (pending) running Listmonk + Postiz behind Caddy · WhatsApp Cloud API
 (official only) · YouTube Live for ₹0 delivery · PostHog + Sentry · ads made by the founder
 in Google Flow from agent briefs, joined by tested `scripts/` · LLM: local LiteLLM proxy
@@ -36,13 +38,19 @@ deterministic scoring), /thank-you, /policies/{refund,privacy,terms,contact}, /v
 electric/JetBrains Mono). Commerce code fully stripped. TBD items (dates, curriculum, EMI,
 refund, schedule, instructor) render as styled "announced soon". `medusa/` folder + local
 containers on :5433/:6380 are retired — safe to delete.
-Pending (founder-only): Oracle VPS · Razorpay/Stripe KYC · Meta WhatsApp verification ·
-research inbox · offers.md open items (dates, duration, curriculum, EMI, refund policy) ·
-Turnstile key · run infra/supabase-certificates.sql · certificate.mjs end-to-end test ·
-Cloudflare Pages deploy.
+Pages now show founder-confirmed facts (workshop Sat+Sun 2–8 PM IST, dates Aug 29–30 /
+Sep 5–6 / Sep 12–13 · cohort Sep 15 · EMI 3/6/10 · workshop non-refundable stated before
+payment · accelerator 4-week money-back · curricula) and Razorpay TEST payment buttons;
+Cloudflare adapter (@opennextjs/cloudflare) committed — dashboard connect pending.
+Pending (founder-only): Oracle VPS · Razorpay KYC (live mode) · Meta WhatsApp verification ·
+research inbox · offers.md open items (accelerator duration, instructor + signatory names,
+seats cap, cert template sign-off) · Turnstile key · certificate.mjs end-to-end test ·
+Cloudflare Pages connect + DNS.
 
-**Brand note:** company/issuer = **Outskill**; "InfraSync" was the working codename; domain
-stays infra-sync.online for now. **Today-mode:** plan/TODAY.md is the active one-day runbook.
+**Brand note:** company/issuer = **SkillSync** (renamed 2026-08-25 — name conflict with an
+existing company; full story in knowledge/decisions.md; history in BUILD-LOG/decisions kept
+as-is); "InfraSync" was the working codename; domain stays infra-sync.online for now.
+**Today-mode:** plan/TODAY.md is the active one-day runbook.
 
 **Non-negotiables:** no overhead spend without a plan/06 trigger · official WhatsApp only ·
 human approves all outbound · facts only from offers.md · **no fake students/testimonials,

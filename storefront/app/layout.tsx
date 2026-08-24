@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     template: "%s · InfraSync",
   },
   description:
-    "AI education for builders. A $20 hands-on workshop, then choose your path: AI Generalist (non-tech) or AI Engineer (Python required). Live, cohort-based programs by Outskill.",
+    "AI education for builders. A hands-on workshop ($20 international · ₹1,999 India), then choose your path: AI Generalist (non-tech) or AI Engineer (Python required). Live, cohort-based programs by SkillSync.",
   openGraph: { siteName: "InfraSync" },
 };
 
@@ -89,7 +89,7 @@ export default function RootLayout({
               </Link>
               <p className="footer-tagline">
                 AI education for builders. Live, cohort-based programs by
-                Outskill.
+                SkillSync.
               </p>
             </div>
             <nav className="footer-nav" aria-label="Footer navigation">
@@ -135,7 +135,7 @@ export default function RootLayout({
                 <h4 className="footer-heading">Company</h4>
                 <ul>
                   <li>
-                    <Link href="/">About Outskill</Link>
+                    <Link href="/">About SkillSync</Link>
                   </li>
                 </ul>
               </div>
@@ -151,7 +151,7 @@ export default function RootLayout({
           </div>
           <div className="footer-bottom">
             <p className="copyright">
-              © {new Date().getFullYear()} Outskill. All rights reserved.
+              © {new Date().getFullYear()} SkillSync. All rights reserved.
             </p>
           </div>
         </footer>

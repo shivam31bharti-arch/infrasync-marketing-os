@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { loadServerEnv, serverEnv } from "@/lib/server-env";
+
+loadServerEnv(); // root .env (NEXT_PUBLIC_* not auto-loaded outside storefront/)
 
 export const metadata: Metadata = {
   title: "AI Engineer Accelerator — Python Required — $1,200 / ₹95,000",
@@ -8,10 +11,8 @@ export const metadata: Metadata = {
 };
 
 export default function AIEngineerPage() {
-  const paymentLinkIntl =
-    process.env.NEXT_PUBLIC_STRIPE_ENGINEER_LINK || null;
-  const paymentLinkIndia =
-    process.env.NEXT_PUBLIC_RAZORPAY_ENGINEER_LINK || null;
+  const paymentLink =
+    serverEnv("NEXT_PUBLIC_RAZORPAY_ENGINEER_LINK") || null;
 
   return (
     <>
@@ -88,27 +89,17 @@ export default function AIEngineerPage() {
               flexWrap: "wrap",
             }}
           >
-            {paymentLinkIntl ? (
+            {paymentLink ? (
               <a
-                href={paymentLinkIntl}
+                href={paymentLink}
                 className="button button--primary button--large"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Enroll — $1,200
+                Enroll — $1,200 / ₹95,000
               </a>
             ) : (
               <span className="tbd">Enrollment opens soon</span>
-            )}
-            {paymentLinkIndia && (
-              <a
-                href={paymentLinkIndia}
-                className="button button--secondary button--large"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Enroll — ₹95,000
-              </a>
             )}
             <Link
               href="/workshop"
@@ -117,6 +108,16 @@ export default function AIEngineerPage() {
               Start with the $20 Workshop →
             </Link>
           </div>
+          <p className="muted" style={{ marginTop: "var(--space-xl)", fontSize: "0.9375rem", maxWidth: "640px", lineHeight: 1.7 }}>
+            Next cohort starts <strong>Sep 15, 2026</strong> · live sessions Tue
+            &amp; Thu, 8–10 PM IST + weekend office hours ·{" "}
+            <span className="tbd">program duration announced soon</span>
+          </p>
+          <p className="muted" style={{ marginTop: "var(--space-sm)", fontSize: "0.9375rem", maxWidth: "640px", lineHeight: 1.7 }}>
+            India: <strong>no-cost EMI</strong> — 3, 6, or 10 months via
+            Razorpay (subject to bank approval) · Full refund within 4 weeks of
+            cohort start.
+          </p>
         </div>
       </section>
 
@@ -133,46 +134,66 @@ export default function AIEngineerPage() {
             <div className="card">
               <div className="card-body">
                 <h3 style={{ marginBottom: "var(--space-md)" }}>
-                  AI-Augmented Engineering
+                  AI-Assisted Dev Workflows
                 </h3>
                 <p className="muted" style={{ lineHeight: 1.7 }}>
-                  Integrate AI into your development workflow — code generation,
-                  review, debugging, and testing with real engineering rigor.
+                  Code generation, review, and debugging with AI woven into
+                  your daily workflow — with real engineering rigor.
                 </p>
               </div>
             </div>
             <div className="card">
               <div className="card-body">
                 <h3 style={{ marginBottom: "var(--space-md)" }}>
-                  Performance &amp; Productivity
+                  Agents &amp; Tool Use
                 </h3>
                 <p className="muted" style={{ lineHeight: 1.7 }}>
-                  Ship faster without sacrificing quality. Learn the workflows
-                  and tools that multiply engineering output.
+                  Build agents that plan, call tools, and complete multi-step
+                  tasks reliably.
                 </p>
               </div>
             </div>
             <div className="card">
               <div className="card-body">
                 <h3 style={{ marginBottom: "var(--space-md)" }}>
-                  Time Management for Engineers
+                  RAG Fundamentals
                 </h3>
                 <p className="muted" style={{ lineHeight: 1.7 }}>
-                  Manage complexity, prioritize ruthlessly, and stay productive
-                  on large projects with AI assistance.
+                  Retrieval-augmented generation: embeddings, vector stores,
+                  and grounding AI answers in real data.
                 </p>
               </div>
             </div>
             <div className="card">
               <div className="card-body">
                 <h3 style={{ marginBottom: "var(--space-md)" }}>
-                  <span className="tbd">
-                    Full curriculum modules announced soon
-                  </span>
+                  Testing &amp; Shipping with AI
                 </h3>
                 <p className="muted" style={{ lineHeight: 1.7 }}>
-                  Detailed module breakdown, session schedule, and project list
-                  will be published before the first cohort opens for enrollment.
+                  Test AI-assisted code properly and ship it safely to
+                  production.
+                </p>
+              </div>
+            </div>
+            <div className="card">
+              <div className="card-body">
+                <h3 style={{ marginBottom: "var(--space-md)" }}>
+                  Engineering Performance &amp; Time Management
+                </h3>
+                <p className="muted" style={{ lineHeight: 1.7 }}>
+                  Systems for output, focus, and ruthless prioritization on
+                  large projects.
+                </p>
+              </div>
+            </div>
+            <div className="card">
+              <div className="card-body">
+                <h3 style={{ marginBottom: "var(--space-md)" }}>
+                  Capstone
+                </h3>
+                <p className="muted" style={{ lineHeight: 1.7 }}>
+                  Ship a capstone project that demonstrates AI-augmented
+                  engineering end to end.
                 </p>
               </div>
             </div>
@@ -234,7 +255,7 @@ export default function AIEngineerPage() {
       <section className="section" style={{ textAlign: "center" }}>
         <div className="container container--narrow">
           <h2 style={{ marginBottom: "var(--space-xl)" }}>
-            Earn your Outskill certificate
+            Earn your SkillSync certificate
           </h2>
           <p
             className="muted"
@@ -244,11 +265,14 @@ export default function AIEngineerPage() {
               lineHeight: 1.7,
             }}
           >
-            Complete the program and receive a verifiable Outskill certificate
+            Complete the program and receive a verifiable SkillSync certificate
             of completion with a unique code and public verification page.
           </p>
+          <p className="muted" style={{ marginBottom: "var(--space-sm)" }}>
+            Next cohort: <strong>Sep 15, 2026</strong> · Tue &amp; Thu, 8–10 PM IST + weekend office hours
+          </p>
           <p className="tbd" style={{ marginBottom: "var(--space-2xl)" }}>
-            Program duration and schedule announced soon
+            Program duration announced soon
           </p>
           <div style={{ display: "flex", gap: "var(--space-md)", justifyContent: "center", flexWrap: "wrap" }}>
             <Link

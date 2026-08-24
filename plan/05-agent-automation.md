@@ -77,10 +77,10 @@ claims without data; Python prereq in every Engineer-track brief; every brief na
 - [ ] Widget on every page · per-session rate limit · transcripts to `touches`
   (channel='chat') · PostHog `chat_opened` / `chat_message`.
 
-## 8. Certificate automation (issuer: Outskill)
+## 8. Certificate automation (issuer: SkillSync)
 
 - [ ] `infra/supabase-certificates.sql` run · `scripts/certificate.mjs` renders the branded
-  HTML template to PDF/PNG via Playwright (name, program, date, code OSK-YYYY-NNNN).
+  HTML template to PDF/PNG via Playwright (name, program, date, code SSC-YYYY-NNNN).
 - [ ] Trigger: marking a student completed (drafts-dashboard button or
   `node scripts/certificate.mjs --complete <subscriber_id>`) → generate → email via Brevo
   (transactional; auto-send allowed as founder-enabled transactional flow) → `emailed_at` set.

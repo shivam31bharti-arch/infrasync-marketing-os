@@ -35,8 +35,8 @@ costs (payment-gateway fees, WhatsApp utility messages) are cost of goods.
 | Static creative | Pomelli (free beta) + Canva free | Cloud |
 | Ads (30s, 9:16) | Google Flow / Veo 3.1 (AI Pro, owned) + Nano Banana Pro scene stills + FFmpeg join | Cloud + local PC |
 | Chat agent (site) | /api/chat on the free LLM router — answers only from offers.md | Site + cloud |
-| Voice agent | OmniDimension "Outskill Course Counselor" — DEDICATED account (config: agent/voice-agent-config.md); minutes = COGS | Cloud |
-| Certificates | scripts/certificate.mjs (Playwright render) + Supabase + Brevo + /verify/[code] — issuer Outskill | Site + cloud |
+| Voice agent | OmniDimension "SkillSync Course Counselor" — DEDICATED account (config: agent/voice-agent-config.md); minutes = COGS | Cloud |
+| Certificates | scripts/certificate.mjs (Playwright render) + Supabase + Brevo + /verify/[code] — issuer SkillSync | Site + cloud |
 | Analytics · errors | PostHog free + Sentry free | Cloud |
 | Code · CI | GitHub free | Cloud |
 | LLM keys + fallback | NVIDIA NIM · Groq · Gemini via local LiteLLM proxy (`auto-coder` / `auto-heavy`) | Local + cloud |
