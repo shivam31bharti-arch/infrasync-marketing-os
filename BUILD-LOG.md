@@ -309,3 +309,6 @@ writes one entry per iteration in this format:
   3. Then prompts/design-loop.md until a stop rule fires.
 - Open questions: founder to run the certificates SQL · accelerator duration number ·
   instructor + signatory names.
+
+## 2026-08-25 — Certificates SQL run (founder) — blocker cleared
+- certificates table live in Supabase, probe-verified by Claude. Kimi may run the FULL certificate end-to-end test (DB insert + render + Brevo email to founder inbox + /verify page).
