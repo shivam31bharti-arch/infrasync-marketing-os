@@ -236,3 +236,14 @@ writes one entry per iteration in this format:
 - Next: Track A (founder browser tasks + offers.md answers) · Track B (build agent runs
   night-shift greenlist NOW) · Track C (Claude reviews + drives Pages deploy).
 - Open questions: offers.md open items (dates/duration/curriculum/EMI/refund/cert signatory).
+
+## 2026-08-25 — Continuity system audited + hardened
+- Done: audit of the new-agent context system (all knowledge files present; git clean/pushed;
+  BUILD-LOG carries Next lines). Fixes: prompts/kimi-kickoff.md → **prompts/START-HERE.md**
+  (universal onboarding for ANY model, includes the PLAN→EXECUTE→TEST→SAVE→REPORT loop with
+  mandatory test evidence + resume lines); checkpoint rule added to knowledge/handoff.md;
+  build-loop RECORD step now requires actual evidence + exact resume instructions; README
+  pointers updated.
+- Verified: reference grep (one live pointer updated; history mentions left); git mv tracked.
+- Next: proceed with plan/TODAY.md Track B — new agent starts by pasting prompts/START-HERE.md.
+- Open questions: none.

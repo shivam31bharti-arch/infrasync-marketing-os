@@ -53,7 +53,7 @@ Full details: [plan/00-stack.md](plan/00-stack.md). Research catalog of alternat
 ├── BUILD-LOG.md               ← append-only record of every build-loop iteration
 ├── knowledge/                 ← model-agnostic memory: context · decisions · tooling · glossary · handoff (READ FIRST)
 ├── .env.example · .gitignore  ← key names only · never commit secrets or renders
-├── prompts/                   ← build-loop · kimi-kickoff · night-shift · design-sprint · design-loop
+├── prompts/                   ← START-HERE (universal onboarding) · build-loop · night-shift · design-sprint · design-loop
 ├── .claude/commands/          ← /marketing-loop (Claude Code wrapper for the build loop)
 ├── plan/                      ← stage guide 00–06 (stack & keys · site · VPS · ad factory · growth · agent · operate)
 ├── agent/                     ← offers.md (BUSINESS FACTS) · icp.md · prompts/ · research/
@@ -68,7 +68,7 @@ Full details: [plan/00-stack.md](plan/00-stack.md). Research catalog of alternat
 
 - `/marketing-loop` (Claude Code) or `prompts/build-loop.md` (any agent): one task, finished,
   verified, logged to BUILD-LOG, committed — then ask.
-- Other agents: point them at [AGENTS.md](AGENTS.md); night runs use `prompts/night-shift.md`.
+- ANY new model/agent: paste `prompts/START-HERE.md` as its first message — full onboarding + the execute→test→save loop. Night runs: `prompts/night-shift.md`.
 
 ## Build status
 

@@ -1,6 +1,6 @@
 # Handoff to the next Claude (or any senior agent taking the reins)
 
-Written 2026-08-24 by the Claude session that built this system with the founder. Read
+Written 2026-08-24 by the Claude session that built this system with the founder. A new session onboards via `prompts/START-HERE.md`. Read
 `context.md` first for the current state; this file is the *operator's manual* — how to work
 with this founder and this repo without relearning three days of lessons.
 

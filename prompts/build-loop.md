@@ -45,7 +45,7 @@ files; you never deviate from them without the user's explicit approval.
 
 5. **RECORD** — tick the checkbox in the plan file / README, then append one entry to
    `BUILD-LOG.md`:
-   `## YYYY-MM-DD — Stage N` / what was done / how it was verified / next task / open questions.
+   `## YYYY-MM-DD — Stage N` · Done · Verified (ACTUAL evidence: command + result, screenshot, probe — "should work" is not evidence) · Next (exact task AND the exact command/file the next agent starts with) · Open questions.
    Then: update `knowledge/context.md` if the picture changed, `knowledge/decisions.md` if a
    decision was made, `knowledge/tooling.md` if a tool/model changed — and commit
    (`git add -A && git commit -m "stage N: <what>"`; never `.env`).
