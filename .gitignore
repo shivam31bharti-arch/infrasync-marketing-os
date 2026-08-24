@@ -31,3 +31,7 @@ Thumbs.db
 
 # QA artifacts (screenshots are large and regenerated)
 qa/shots/
+
+# OpenNext/Wrangler build output
+.open-next/
+.wrangler/

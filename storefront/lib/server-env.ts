@@ -9,11 +9,16 @@ let loaded = false;
 export function loadServerEnv(): void {
   if (loaded) return;
   loaded = true;
-  const rootEnv = path.resolve(process.cwd(), "..", ".env");
-  if (fs.existsSync(rootEnv)) {
-    // dotenv is a runtime dep; require lazily so client bundles never include it
-    // eslint-disable-next-line @typescript-eslint/no-require-imports
-    require("dotenv").config({ path: rootEnv, override: false });
+  try {
+    const rootEnv = path.resolve(process.cwd(), "..", ".env");
+    if (fs.existsSync(rootEnv)) {
+      // dotenv is a runtime dep; require lazily so client bundles never include it
+      // eslint-disable-next-line @typescript-eslint/no-require-imports
+      require("dotenv").config({ path: rootEnv, override: false });
+    }
+  } catch {
+    // No filesystem on some runtimes (e.g. Cloudflare Workers) — env vars
+    // come from the platform bindings / build env there. Degrade silently.
   }
 }
 
