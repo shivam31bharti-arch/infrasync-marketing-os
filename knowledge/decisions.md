@@ -1,5 +1,14 @@
 # Decision log (newest first). Format: date · decision · why · rejected alternatives.
 
+- **2026-08-24 · PIVOT #3: business = AI education again (final).** $20 2-Day AI Workshop →
+  AI Generalist Accelerator (non-tech; vibe coding + AI tools) and AI Engineer Accelerator
+  (Python required; AI-augmented engineering, performance, time management), both $1,200 intl /
+  ₹95,000 India. Why: founder decision; real pricing now exists. Consequences: Medusa +
+  commerce retired (payments = Stripe Payment Links / Razorpay Payment Pages); storefront/
+  repurposed to a program site (plan/01, design-sprint); ads/design/compliance re-aimed at
+  edtech (no fake students, no outcome claims without data, Python prereq stated); all
+  apparel-era docs rewritten. medusa/ folder + local pg:5433/redis:6380 containers safe to delete.
+
 - **2026-08-24 (night shift) · Local dev Medusa runs natively** (npx medusa develop on Windows) with
   Postgres/Redis in Docker containers on ports 5433/6380 — NOT infra/docker-compose.yml (VPS-only).
   Gotchas recorded: exact-pinned @mikro-orm/* (must match framework's), ts-node + transpileOnly.

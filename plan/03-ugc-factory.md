@@ -1,78 +1,51 @@
 # Stage 3 — The ad factory, powered by Google Flow (Week 3)
 
-**Objective:** a repeatable loop that turns competitor research into 30-second, 9:16
-**product ads** for clothing, shoes, and accessories, generated in **Google Flow (Veo 3.1)**
-on the Google AI Pro plan we already pay for — ₹0 additional cost. The PC only does
-research, joining, and captions.
+**Objective:** a repeatable loop turning competitor research into 30-second, 9:16 **course
+ads** for the $20 workshop and both accelerators, generated in **Google Flow (Veo 3.1)** on
+the owned Google AI Pro plan — ₹0 extra.
 
-**Definition of done:** competitor brief v1 produced by the agent · **3 finished 30-second
-ads** (4 × 8-second Veo segments each — one clothing, one footwear, one bag/accessory)
-published via Postiz · the loop timed end-to-end and documented in
+**Definition of done:** competitor brief v1 · **3 finished 30-second ads** (workshop ·
+generalist · engineer) published via Postiz · loop timed and documented in
 [workflows/ugc-ad-pipeline.md](../workflows/ugc-ad-pipeline.md).
 
 ## The pipeline
 
 ```
-RESEARCH  agent → competitors' ads, offers, hooks, prices, drops
-          sources: Meta Ad Library screenshots (LLM vision — D2C fashion brands live there),
-          competitors' Instagram/Pinterest, YouTube Data API (their shorts), product pages via
-          Firecrawl, their newsletters (research inbox)
-          output: weekly brief + swipe file + "angles nobody is using"
-BRIEF     agent → hero SKU(s) · 30s script in 4 beats (hook · product in motion · detail/
-          benefit · CTA "Shop now") · 9 image prompts · 4 clip prompts → drafts queue
-IMAGES    you (5 min) → per clip, 3 REAL product photos (front · detail · on-model) as the
-          Flow references; extra scene/mood refs from Nano Banana Pro (Gemini app, in AI Pro)
-          or Pomelli. Save to ads/<slug>/refs/
-FLOW      you (15–20 min) → Flow project, 9:16, Ingredients-to-Video with the 3 refs, **Fast**.
-          Clip 1 → **Extend ×3** for one continuous take, or 4 clips for outfit/scene changes.
-          Download 4 × 8s.
-JOIN      FFmpeg concat (or the Remotion template) → optional single voiceover → word captions
-          → price + CTA end card. Keep the Veo watermark (do not crop/remove).
-SHIP      Postiz → IG Reels / YT Shorts / Pinterest / Facebook — AI-content disclosure ON
-LOG       campaigns row (hero SKUs) → day-3 / day-7 read → kill or scale
+RESEARCH  agent → edtech competitors' ads (Meta Ad Library screenshots → LLM vision),
+          their YouTube/IG (YouTube Data API), funnels via the research inbox, landing pages
+          via Firecrawl → weekly brief + "angles nobody is using"
+BRIEF     agent → program · 4-beat 30s script (hook · pain/insight · what the program IS,
+          from offers.md · price + CTA "Join the $20 workshop") · 9 image prompts · 4 clip
+          prompts → drafts queue → you approve
+IMAGES    you (5 min) → scene refs via Nano Banana Pro (Gemini app, in AI Pro): confident
+          host in a studio · screens showing real AI tools · cohort/workshop energy —
+          NO fake students, no real-brand logos → ads/<slug>/refs/
+FLOW      you (15–20 min) → 9:16, Fast, Ingredients-to-Video (3 refs) → clip 1 + Extend ×3
+          (or 4 clips on scene change) → 4 × 8s
+JOIN      scripts/join.sh (TESTED): concat → single VO (Kokoro/ElevenLabs free) → word
+          captions → price + CTA end card. Veo watermark untouched.
+SHIP      Postiz → IG Reels / YT Shorts / LinkedIn / Facebook — AI-content disclosure ON
+LOG       campaigns row → day-3 / day-7 read → kill or scale
 ```
 
-Flow has **no API** — the agent does everything before and after Flow; the 15–20 minutes
-inside Flow is yours. That's the whole human cost of an ad.
+Flow has no API — the agent works before and after; your 15–20 min inside Flow is the whole
+human cost. Credits: Fast = 20/segment → ~80/ad → **5–7 ads/month** on the 1,000-credit AI
+Pro pool; 1 hero re-render on Quality (100/segment).
 
-## Credits math (Google AI Pro = 1,000 Flow credits / month)
+## Compliance — edtech is specifically watched (ASCI + CCPA India; FTC US — we price in USD)
 
-| Quality | Credits per 8s segment | Per 30s ad (4 segments) | Ads/month (first take) | Realistic (with retries) |
-|---|---|---|---|---|
-| Fast | 20 | 80 | ~12 | **5–7** |
-| Quality | 100 | 400 | 2 | 1 hero ad |
-
-Rules that stretch credits: images **outside** Flow; draft on Fast, re-render only the winner
-on Quality; Extend instead of regenerating whole clips; no generation without an approved brief.
-
-## Compliance rules — non-negotiable for a fashion brand
-
-1. **The product on screen must be the real product.** Veo will happily invent garments —
-   real product photos are always the reference images, and any clip where colour, cut, or
-   logo placement drifts from the SKU is re-generated or rejected. Misrepresenting the item is
-   a Consumer Protection Act problem, not a style choice.
-2. **No fake reviews or testimonials** (ASCI + CCPA India, FTC US). AI people in ads are
-   models/hosts showing the product — never "customers" praising it.
-3. **No fake scarcity or urgency** ("only 3 left", fake countdowns) — CCPA dark-pattern
-   guidelines. Discounts shown only against a real, previously charged price.
-4. **Innerwear never appears in ads or social** (brand decision + platform sensitivity).
-5. Synthetic-media disclosure toggled on when uploading to YouTube/Meta. Keep the Veo watermark.
-6. Price/offer on the end card must match the storefront on the day the ad runs.
+1. **No AI-generated "students", no fake testimonials, ever.** AI people are hosts/
+   explainers. Real student stories only with consent, once real students exist.
+2. **No outcome claims without data** — "get hired", "3x salary" don't ship unsubstantiated.
+   Curriculum facts and demos beat promises.
+3. **Engineer-track ads state the Python prerequisite.** Mis-sold seats become refunds.
+4. No fake scarcity/countdowns; prices on end cards match the site the day the ad runs.
+5. Synthetic-media disclosure ON when publishing; keep the Veo watermark.
 
 ## Tasks
-
-- [ ] Fill the catalog table + open items in `agent/offers.md` (hero SKUs, prices, photo folders)
-- [ ] `agent/research/` — competitor list + source URLs; first brief generated with free LLM keys
-- [ ] Create the Flow project template (9:16, brand style prompt prefix, ingredient slots)
-- [ ] `scripts/join.sh` — FFmpeg concat + optional VO + captions + price/CTA end card
-- [ ] Produce ads #1–3 (clothing · footwear · bag/accessory), each with 3 real product refs
-- [ ] Publish via Postiz with disclosure on; log rows in `campaigns`
-
-## Still useful from the old plan
-
-FFmpeg / Remotion (joining, captions, CTA), Kokoro / Chatterbox or ElevenLabs free
-(one continuous voiceover), faster-whisper (caption timings), Pexels/Pixabay (b-roll
-fill), Postiz (publishing). ComfyUI / Wan / LTX / HunyuanVideo are dropped — keep the
-research artifact for reference if Flow credits ever become the bottleneck.
+- [ ] Competitor list in `agent/offers.md` open items → `agent/research/` first brief
+- [ ] Flow project template (9:16, brand style prefix from design-sprint theme)
+- [ ] Produce ads #1–3 (workshop hook · generalist story · engineer story)
+- [ ] Publish via Postiz with disclosure; log `campaigns` rows
 
 **Next →** [04-lead-engine.md](04-lead-engine.md)

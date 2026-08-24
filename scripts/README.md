@@ -5,7 +5,6 @@
 | `join.sh` | FFmpeg: concat Flow segments → optional VO → burned captions → end card → −14 LUFS | **TESTED 2026-08-24** (2×5s clips + VO + captions; 2 real bugs fixed — see BUILD-LOG) |
 | `captions.py` | faster-whisper word-level SRT for `join.sh` | **TESTED 2026-08-24** (CPU default; `WHISPER_DEVICE=cuda` + cuBLAS 12 to use GPU) |
 | `tts.py` | Kokoro voiceover (optional lane) | **TESTED 2026-08-24** (English; downloads models + spacy `en_core_web_sm` on first run) |
-| `feed.py` | Medusa → Google Merchant / Meta catalog feed (excludes innerwear) | stub, Stage 4 — untested |
 
 Rule: an agent marks a script "tested" in this table only after running it on a real file.
 

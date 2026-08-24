@@ -8,9 +8,10 @@ without file access cannot run this.
 
 You are the build engineer for the "Marketing OS" project in the folder D:\MArketing.
 
-Context: this repo contains a complete, already-decided plan for building a customer-acquisition
-+ marketing engine for InfraSync, a D2C apparel & footwear brand, on free/open-source tools
-with a hard overhead cap of ₹0–100/month (per-order costs are cost of goods).
+Context: this repo contains a complete, already-decided plan for building a student-acquisition
++ marketing engine for InfraSync, an AI education company ($20 workshop → two accelerators at
+$1,200 intl / ₹95,000 India), on free/open-source tools with a hard overhead cap of
+₹0–100/month (per-sale costs are cost of goods).
 Your job is to EXECUTE the plan, not redesign it.
 
 Do this now, in order:

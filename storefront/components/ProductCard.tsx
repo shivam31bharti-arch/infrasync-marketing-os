@@ -1,28 +1,54 @@
-import Link from "next/link";
-import type { MedusaProduct } from "@/lib/medusa";
+"use client";
 
-function formatPrice(p: MedusaProduct): string {
-  const price = p.variants?.[0]?.prices?.[0];
-  if (!price || !price.amount) return "[[PRICE]]";
+import Link from "next/link";
+import Image from "next/image";
+import type { DemoProduct } from "@/lib/demo-data";
+
+function formatPrice(price: number): string {
   return new Intl.NumberFormat("en-IN", {
     style: "currency",
-    currency: price.currency_code.toUpperCase(),
-  }).format(price.amount / 100);
+    currency: "INR",
+    maximumFractionDigits: 0,
+  }).format(price);
 }
 
-export default function ProductCard({ product }: { product: MedusaProduct }) {
+interface ProductCardProps {
+  product: DemoProduct;
+  priority?: boolean;
+}
+
+export default function ProductCard({ product, priority = false }: ProductCardProps) {
+  const primaryImage = product.images[0];
+
   return (
-    <Link className="card" href={`/products/${product.handle}`}>
-      <div className="img">
-        {product.thumbnail ? (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img src={product.thumbnail} alt={product.title} />
+    <Link
+      href={`/products/${product.handle}`}
+      className="product-card"
+      aria-label={`${product.title} — ${formatPrice(product.price)}`}
+    >
+      <div className="product-card-media">
+        {primaryImage ? (
+          <Image
+            src={primaryImage}
+            alt={product.title}
+            fill
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+            className="product-card-image"
+            priority={priority}
+            placeholder="blur"
+            blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAn/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwA/AB//2Q=="
+          />
         ) : (
-          <span>[[PRODUCT_PHOTO]]</span>
+          <div className="product-card-placeholder" aria-hidden="true" />
         )}
+        {product.isNew && <span className="product-badge">New</span>}
+        {product.featured && <span className="product-badge product-badge--featured">Featured</span>}
       </div>
-      <strong>{product.title}</strong>
-      <div className="muted">{formatPrice(product)}</div>
+      <div className="product-card-content">
+        <p className="product-card-category label">{product.category.replace("-", " ")}</p>
+        <h3 className="product-card-title">{product.title}</h3>
+        <p className="product-card-price">{formatPrice(product.price)}</p>
+      </div>
     </Link>
   );
 }

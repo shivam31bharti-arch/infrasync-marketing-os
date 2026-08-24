@@ -1,56 +1,47 @@
-# InfraSync — brand, catalog & offers (source of truth for every prompt)
+# InfraSync — programs, prices & claims policy (source of truth for every prompt)
 
-> Every ad script, product description, email, WhatsApp message, and page must pull its facts
-> from here. If a fact is missing, the agent asks — it never invents.
+> Every ad script, page, email, and WhatsApp message pulls its facts from here. If a fact is
+> missing, the agent asks — it never invents. Updated 2026-08-24 (pivot #3: AI education).
 
 ## What InfraSync is
-A direct-to-consumer **apparel & footwear** brand: clothing, shoes, and accessories people
-wear or carry (handbags, backpacks, belts, caps, socks…). Innerwear is sold on the site but
-**never advertised** (not in ads, not in social posts, not in email subject lines). We do not
-sell food, electronics, bikes, or anything that isn't worn/carried.
+An **AI-skills training platform**: live, cohort-based programs teaching people to work with
+AI — one track for non-tech professionals, one for engineers.
 
-## Catalog (fill in — this table drives ads, pages, and product feeds)
+## Programs (confirmed by the founder 2026-08-24)
 
-| Category | Sub-categories | Price range | Hero SKUs (with photo folder) |
+| Program | Price | Who it's for | What they learn |
 |---|---|---|---|
-| Clothing | tees, shirts, dresses, jeans, jackets, ethnic… | | |
-| Footwear | sneakers, sandals, formal, sports… | | |
-| Bags & accessories | handbags, backpacks, belts, caps, socks | | |
-| Innerwear (site only) | — | | not advertised |
+| **2-Day AI Workshop** | **$20** (entry offer) | Anyone curious; the funnel's front door | Hands-on AI fundamentals over 2 days; the taste of both accelerators |
+| **AI Generalist Accelerator** | **$1,200 international · ₹95,000 India** | Non-tech backgrounds | Vibe coding, the modern AI tool stack, building real things without an engineering background |
+| **AI Engineer Accelerator** | **$1,200 international · ₹95,000 India** | Techies — **Python required** (basic-to-intermediate coding assumed) | Engineering with AI: performance, productivity, time management, leveling up how they build |
 
-Open items to confirm before the store/ads ship:
-- [ ] Who makes the products — own label, sourced, or marketplace/dropship? (affects photos, returns, country-of-origin labels)
-- [ ] Audience: men / women / kids / all · age band · India-first or international · budget vs premium positioning
-- [ ] Currency & payments: INR via Razorpay · USD via Stripe · both?
-- [ ] Shipping zones, delivery promise, COD yes/no, return/exchange window
-- [ ] Real product photos available? (required: Flow ads use them as reference images; the store needs them)
-- [ ] Brand name on the storefront — "InfraSync" is a tech-sounding name for a fashion label; keep it,
-      or choose a fashion brand name + a matching cheap .in domain while keeping infra-sync.online as the technical home?
-- [ ] 3–5 competitor brands to research (Indian D2C examples: Bewakoof, The Souled Store, Snitch, Campus, Neeman's — replace with the real set)
+Open items to confirm before pages/ads ship:
+- [ ] Accelerator duration + schedule (weeks? sessions per week? live times + timezone)
+- [ ] Workshop cadence (weekly? weekend?) and next 2–3 dates
+- [ ] Curriculum outline per track (modules) · instructor names/bios
+- [ ] EMI / installment option for ₹95,000 (India converts poorly without it) · refund policy text
+- [ ] Certificates? Job/placement support claims — ONLY if backed by real data (see claims policy)
+- [ ] Seats per cohort (only state scarcity if genuinely limited)
+- [ ] Brand: keep "InfraSync" for the education brand? (name reads tech-native — fits)
 
 ## Funnel
-Ad (Flow-made, 30s, product-centric) / Instagram / Pinterest / Google free listings
-→ collection or product page (storefront) → add to cart → checkout (Razorpay / Stripe)
-→ WhatsApp + email order updates (utility) → delivery → review request (real) → repeat / referral.
-Capture along the way: email/WhatsApp subscribers (welcome offer), abandoned-cart recovery.
+Ads (Flow-made, 30s) · content · SEO → **$20 2-Day Workshop** (paid front-end — buyers, not
+freebie-seekers) → during/after workshop: **track-fit quiz** (Generalist vs Engineer) →
+accelerator offer $1,200 / ₹95,000 → checkout (Stripe intl / Razorpay India, EMI if enabled)
+→ onboarding → alumni referrals. Capture throughout: email + WhatsApp opt-in; reminders via
+Listmonk (free) + WhatsApp utility templates.
 
-## Offers & CTAs (fill in)
-- Welcome offer for subscribers (e.g., 10% off first order) — confirm
-- Free-shipping threshold — confirm
-- Seasonal drops / sale calendar — confirm
-- CTA vocabulary: "Shop now" · "Shop the drop" · "Get yours" (never "limited stock" unless true)
+## Claims policy (edtech is watched — ASCI + CCPA India, FTC US; we price in USD)
+- **No fake students, no fake testimonials, no AI-generated "graduates".** AI people in ads
+  are hosts/explainers only. Real testimonials only from real students, with consent.
+- **No outcome promises without data**: "get a job", "3x salary", "become an AI engineer in
+  X days" don't ship unless we can substantiate them. Curriculum facts always beat outcome claims.
+- No fake scarcity/countdowns; discounts only against a real prior price.
+- Python prerequisite for the Engineer track stated clearly wherever it's sold (mis-sold
+  seats become refunds and complaints).
+- Mandatory pages before payments go live: terms, privacy, refund policy, contact/support.
 
-## Voice & style (fill in after Pomelli's Business DNA run)
-- Tone:
+## Voice & style (fill after Pomelli Business DNA run on the new site)
+- Tone: confident, practical, zero hype-jargon:
 - Words we use / never use:
-- Visual style prefix for Flow prompts (e.g., "sunlit street-style, real fabric texture,
-  natural skin, product always in frame and accurate, 9:16"):
-
-## Claims policy
-- AI-generated visuals must show the **actual product** (colour, cut, logo placement) — real
-  product photos are the reference images; anything invented is re-generated or rejected.
-- No fake reviews/testimonials (ASCI + CCPA India, FTC US). Real reviews only, with consent.
-- No fake scarcity/urgency/countdowns (CCPA dark-pattern guidelines). Discounts shown against
-  a real, previously charged price (MRP rules).
-- Innerwear never appears in ads or social.
-- Mandatory e-commerce disclosures on the site: seller details, returns policy, country of origin, MRP.
+- Visual direction for ads/site: premium tech-education (see prompts/design-sprint.md)

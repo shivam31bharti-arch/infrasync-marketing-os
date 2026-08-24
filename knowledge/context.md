@@ -1,38 +1,41 @@
-# Context — read this first (updated 2026-08-23)
+# Context — read this first (updated 2026-08-24, pivot #3)
 
-**What:** Marketing OS for **InfraSync**, a D2C **apparel & footwear** brand (clothing, shoes,
-bags & accessories; innerwear sold but never advertised; no food/electronics). Domain
-`infra-sync.online` (Spaceship, Cloudflare DNS active, expires 17 Apr 2027, auto-renew off by
-choice; brand name may change to a fashion name later).
+**What:** Marketing OS for **InfraSync**, an **AI education company**. Products: **2-Day AI
+Workshop ($20**, funnel front door) → two accelerators at **$1,200 international / ₹95,000
+India**: **AI Generalist** (non-tech people: vibe coding + AI tools) and **AI Engineer**
+(Python required — basic/intermediate coders taught AI-augmented engineering, performance,
+time management). Full facts + open items: `agent/offers.md`. Domain `infra-sync.online`
+(Spaceship, Cloudflare DNS active, expires 17 Apr 2027, auto-renew off by choice).
 
-**Who:** 1 person now (the user), up to 10 later. Budget: **₹0–100/month overhead**; per-order
-costs (payment fees, shipping, WhatsApp order updates) are cost of goods. Free tiers and open
-source only; Google AI Pro is already owned.
+**History in one line:** the business pivoted AI-courses → apparel (2026-08-22) → **back to
+AI courses with real pricing (2026-08-24)**. Medusa/commerce is retired; if you find
+apparel/product/shoe references anywhere, they are stale — fix on sight.
 
-**Stack (decided):** Next.js storefront on Cloudflare Pages ↔ **Medusa v2** (commerce) on an
-**Oracle Always-Free VPS** with Listmonk (email) + Postiz (social) behind Caddy · Supabase
-(marketing DB + pgvector) · Razorpay/Stripe · WhatsApp Cloud API (official only) · Google
-Merchant Center / Meta catalog / Pinterest (free listings) · PostHog + Sentry · free LLM keys
-(Groq → Gemini → NVIDIA NIM) · ads made by the user in **Google Flow** (Veo 3.1, AI Pro) from
-**real product photos**, joined with FFmpeg, published via Postiz.
+**Who:** 1 person (the founder), up to 10 later. Budget: **₹0–100/month overhead**; per-sale
+costs (payment fees, WhatsApp utility) are cost of goods. Free/open-source only; Google AI
+Pro is owned (Flow ads + Antigravity + Nano Banana).
 
-**Pipelines:** `PIPELINES.md` (A ads · B shopping funnel · C customers · D SEO · E weekly rhythm ·
-F build loop). **Stage guide:** `plan/00`–`06`. **Facts:** `agent/offers.md` (mostly still to be
-filled by the user). **History:** `BUILD-LOG.md`.
+**Stack:** Next.js program site on Cloudflare Pages · Stripe Payment Links + Razorpay Payment
+Pages (hosted; EMI for ₹95k pending) · Supabase (leads/segments/drafts + pgvector) · Oracle
+Always-Free VPS (pending) running Listmonk + Postiz behind Caddy · WhatsApp Cloud API
+(official only) · YouTube Live for ₹0 delivery · PostHog + Sentry · ads made by the founder
+in Google Flow from agent briefs, joined by tested `scripts/` · LLM: local LiteLLM proxy
+:4000 (`auto-coder` fast / `auto-heavy` = Nemotron 3 Ultra) + Antigravity's own quota.
 
-**Where we are:** Stage 0 mostly done — domain + Cloudflare ✅, all core API keys ✅ (Supabase,
-Brevo, PostHog, Sentry, Groq, Gemini, NIM, YouTube; 11/13 verified). **Night shift 2026-08-24 built
-Stage 1 skeleton:** `storefront/` (Next.js 15, builds clean; home/collections/product/cart/policies,
-subscribe popup → Supabase, PostHog+Sentry wired, `/drafts` approval queue env-gated) · `medusa/`
-local backend running (npx medusa develop :9000, admin /app, admin@infrasync.local — local-only
-creds; Postgres `:5433` + Redis `:6380` in Docker; seeded with 3 clearly-fake samples) ·
-`agent/llm.py` router verified live on all 3 providers · media scripts (tts/captions/join) tested
-end-to-end with real fixes. Nothing deployed; nothing touches a real person.
-Pending (user-only): Oracle VPS, Razorpay/Stripe KYC, Meta verification, Merchant Center/Pinterest,
-product photos, `agent/offers.md` + `icp.md` answers, Turnstile site key, brand-name decision.
-Next build steps: real checkout wiring (after payments KYC) · Stage 2 VPS deploy of Medusa/Listmonk/
-Postiz · brand DNA once Pomelli runs.
+**Where we are:** Stage 0 mostly done — domain+Cloudflare ✅, Supabase live (5 tables) ✅,
+Brevo/PostHog/Sentry/Groq/Gemini/NIM/YouTube keys in `.env` ✅, repo on private GitHub ✅,
+FFmpeg+Docker ready ✅. Night shift built a Next.js site skeleton in `storefront/` (builds
+clean; Supabase capture, PostHog+Sentry, drafts dashboard) — it currently still contains
+retired commerce routes; **Stage 1 = repurpose it into the program site** per `plan/01` +
+`prompts/design-sprint.md` (premium tech-education theme, track-fit quiz as hero feature).
+`medusa/` folder + local containers on :5433/:6380 are retired — safe to delete. Media
+scripts tested; `agent/llm.py` router verified.
+Pending (founder-only): Oracle VPS · Razorpay/Stripe KYC · Meta WhatsApp verification ·
+research inbox · offers.md open items (dates, duration, curriculum, EMI, refund policy) ·
+Turnstile key.
 
-**Non-negotiables:** no overhead spend without a trigger · official WhatsApp API only · human
-approves all outbound · product on screen = real product · no fake reviews/urgency · innerwear
-never in marketing · verify before ticking any checkbox · secrets only in `.env`.
+**Non-negotiables:** no overhead spend without a plan/06 trigger · official WhatsApp only ·
+human approves all outbound · facts only from offers.md · **no fake students/testimonials,
+no outcome claims without data, Python prereq always stated for the Engineer track** ·
+verify before ticking · secrets only in `.env` (edit via notepad only — never re-copy the
+template).

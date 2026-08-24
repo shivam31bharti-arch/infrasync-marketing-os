@@ -202,3 +202,22 @@ writes one entry per iteration in this format:
   One event each — no floods.
 - Verified: exact responses above.
 - Open questions: none.
+
+## 2026-08-24 — PIVOT #3: AI education (final), full doc sweep + Claude handoff
+- Done: business re-defined — $20 2-Day AI Workshop → AI Generalist Accelerator (non-tech;
+  vibe coding + AI tools) + AI Engineer Accelerator (Python required; AI-augmented
+  engineering, performance, time management), both $1,200 intl / ₹95,000 India. Rewritten:
+  README, AGENTS, PIPELINES, offers.md (REAL prices now), icp.md, plan/00–06, all workflows,
+  agent/prompts (product-copy → program-copy), night-shift + design-sprint (premium tech-ed
+  theme; hero feature = track-fit quiz) + design-loop retargeted, infra (Medusa removed from
+  compose/Caddy/init-dbs), .env.example (Medusa keys dropped), glossary, context.md.
+  scripts/feed.py deleted. knowledge/claude-handoff.md created (operator's manual for the
+  next Claude/senior agent). Audit: no live apparel/Medusa references outside history files
+  and explicit removal instructions.
+- Retired, safe to delete when convenient: medusa/ folder · Docker containers pg:5433 +
+  redis:6380 · storefront commerce routes (Stage 1 task removes them).
+- Verified: repo-wide grep audit (above); all patches applied ok.
+- Next: user stops any agent still running the apparel design loop → new session with
+  prompts/design-sprint.md (education theme). User-only: Stripe + Razorpay accounts, Oracle
+  VPS, Meta verification, offers.md open items (dates/duration/curriculum/EMI/refund).
+- Open questions: offers.md open-items list.

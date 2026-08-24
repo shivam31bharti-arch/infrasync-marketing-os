@@ -26,8 +26,9 @@ no manual copywriting.
 ## 3. The customer-touch loop
 
 ```
-nightly segment sync (Medusa orders + PostHog events → subscribers.segment)
-  → SELECT     who is due a touch today (welcome day 0/2/5 · cart 1h/24h · review +7d · win-back 60/90d)
+nightly segment sync (payments + PostHog events → subscribers.segment)
+  → SELECT     who is due a touch today (welcome d0/2/5 · workshop confirm/T-24h/T-1h ·
+               post-workshop offer ×3 · cohort countdown · win-back 60/90d)
   → DRAFT      🤖 personalized email / WhatsApp text from the flow template + brand DNA +
                offers.md → INSERT into drafts (kind = email | whatsapp)
   → APPROVE    👤 drafts dashboard (approve / edit / reject + reason) — batch, 10 minutes
@@ -44,14 +45,14 @@ nightly segment sync (Medusa orders + PostHog events → subscribers.segment)
 
 ## 4. The content agent (product + SEO copy)
 
-- [ ] Product descriptions + collection intros + size/care guides drafted from the catalog
-  table (facts only) → `drafts` (kind = product_copy | seo_page) → 👤 approves → storefront repo
+- [ ] Program-page copy, workshop copy, FAQ answers, and per-track SEO guides drafted from
+  `agent/offers.md` (facts only) → `drafts` (kind = program_copy | seo_page) → 👤 approves → site repo
 - [ ] 2 SEO pieces/week per [PIPELINES.md](../PIPELINES.md) D
 
 ## 5. n8n automations (VPS) — or plain cron
 
-- [ ] `segment-sync` nightly · `drafts-due` morning · `dispatch` on approval · `feed-export`
-  (Medusa → Google Merchant / Meta catalog feed) nightly · `weekly-report` Mondays 9:00
+- [ ] `segment-sync` nightly (payments + PostHog → segments) · `drafts-due` morning ·
+  `dispatch` on approval · `weekly-report` Mondays 9:00
 
 ## 6. The marketing agent (competitor research → ad briefs) — weekly
 
@@ -60,14 +61,13 @@ Monday cron
   → RESEARCH  Firecrawl competitor product pages · YouTube Data API (their latest shorts/ads) ·
               Meta Ad Library screenshots (vision) · Instagram/Pinterest · our research inbox
   → ANALYZE   hooks, offers, price points, drop/bundle tactics, objections they answer (fit, returns)
-  → ANGLES    3 angles competitors are NOT using, per category (clothing / footwear / bags)
-  → BRIEFS    1 ad brief per angle (hero SKU, 4-beat script, 9 image prompts, 4 clip prompts,
+  → ANGLES    3 angles competitors are NOT using, per program (workshop / generalist / engineer)
+  → BRIEFS    1 ad brief per angle (program, 4-beat script, 9 image prompts, 4 clip prompts,
               CTA) → drafts queue → you approve → you run Flow (plan/03)
   → LEARN     day-7 results feed next Monday's angle selection
 ```
-Rules: facts only from `agent/offers.md`; product accuracy instruction in every visual
-prompt; AI people are models/hosts, never customers; innerwear never briefed; every brief
-names its sources.
+Rules: facts only from `agent/offers.md`; AI people are hosts, never students; no outcome
+claims without data; Python prereq in every Engineer-track brief; every brief names its sources.
 
 ## 7. Autonomy gate (Rule 3)
 

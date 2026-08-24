@@ -1,18 +1,19 @@
 # storefront/ — Next.js 15 (App Router, TypeScript)
 
-InfraSync D2C storefront. Talks to Medusa v2 (dev: `http://localhost:9000`, prod: `https://api.infra-sync.online`).
+**Being repurposed (pivot #3, 2026-08-24): commerce shop → InfraSync program site.**
+See `plan/01-foundation.md` + `prompts/design-sprint.md`. Keep: scaffold, `/api/subscribe` →
+Supabase, PostHog + Sentry wiring, drafts dashboard. Remove: collections/products/cart pages
+and the Medusa client (`lib/medusa.ts`) — Medusa is retired.
 
-## Pages
-- `/` home · `/collections` + `/collections/{clothing,footwear,bags-accessories}` · `/products/[handle]` (variant selector, JSON-LD) · `/cart` (localStorage; checkout is a placeholder until payments) · `/policies/{shipping,returns,privacy,terms}` (**placeholders — legally required real content before launch**)
-- Subscriber capture: timed popup + footer form → `POST /api/subscribe` → Supabase `subscribers` (service role, server-side). Turnstile: stub/TODO (needs user's site key).
-- Analytics: PostHog (`product_viewed` · `add_to_cart` · `checkout_started` · `subscribed`; `purchase` event defined, fires when checkout exists). Sentry via `instrumentation.ts`.
+## Target pages (Stage 1)
+`/` · `/workshop` ($20) · `/programs/ai-generalist` · `/programs/ai-engineer` (Python prereq
+stated) · `/quiz` (track-fit) · `/policies/{terms,privacy,refund,contact}` · `/thank-you`
 
-All copy is `[[PLACEHOLDER]]` until `agent/offers.md` is filled. Sample products are clearly fake ("DO NOT PUBLISH").
+Facts only from `agent/offers.md`; open items render as styled "announced soon" states.
 
 ## Run
 ```
 npm install
-npm run dev        # needs frontend/.env.local (public keys) + repo root .env (server keys)
-npm run build      # verified passing 2026-08-24
+npm run dev        # http://localhost:3000 — root .env supplies server keys via lib/server-env.ts
+npm run build      # must pass before any commit
 ```
-Env loading: server code reads repo-root `../.env` via `lib/server-env.ts` (dev only; set real env vars in hosting).

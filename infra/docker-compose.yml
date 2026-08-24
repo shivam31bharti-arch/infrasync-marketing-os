@@ -1,4 +1,4 @@
-# Stage 2 — Oracle Always-Free VPS. Sketch: pin image versions before first deploy.
+# Stage 2 — Oracle Always-Free VPS. Pin image versions before first deploy.
 # Run: docker compose --env-file ../.env up -d
 services:
   caddy:
@@ -22,22 +22,6 @@ services:
   redis:
     image: redis:7
     restart: unless-stopped
-
-  medusa:
-    build: ../medusa            # Medusa v2 app created in Stage 1/2 (npx create-medusa-app)
-    restart: unless-stopped
-    depends_on: [db, redis]
-    environment:
-      DATABASE_URL: "postgres://postgres:${PG_PASS}@db/medusa"
-      REDIS_URL: "redis://redis:6379"
-      STORE_CORS: "https://infra-sync.online,https://www.infra-sync.online"
-      ADMIN_CORS: "https://admin.infra-sync.online"
-      AUTH_CORS: "https://infra-sync.online,https://admin.infra-sync.online"
-      JWT_SECRET: "${JWT_SECRET}"
-      COOKIE_SECRET: "${COOKIE_SECRET}"
-      MEDUSA_BACKEND_URL: "https://api.infra-sync.online"
-    volumes:
-      - medusa_uploads:/app/uploads
 
   listmonk:
     image: listmonk/listmonk:latest
@@ -69,5 +53,4 @@ volumes:
   caddy_data: {}
   caddy_config: {}
   pg_data: {}
-  medusa_uploads: {}
   postiz_uploads: {}
