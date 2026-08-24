@@ -34,6 +34,9 @@ costs (payment-gateway fees, WhatsApp utility messages) are cost of goods.
 | Workflow glue | n8n (optional) or cron | Docker on VPS |
 | Static creative | Pomelli (free beta) + Canva free | Cloud |
 | Ads (30s, 9:16) | Google Flow / Veo 3.1 (AI Pro, owned) + Nano Banana Pro scene stills + FFmpeg join | Cloud + local PC |
+| Chat agent (site) | /api/chat on the free LLM router — answers only from offers.md | Site + cloud |
+| Voice agent | OmniDimension "Outskill Course Counselor" — DEDICATED account (config: agent/voice-agent-config.md); minutes = COGS | Cloud |
+| Certificates | scripts/certificate.mjs (Playwright render) + Supabase + Brevo + /verify/[code] — issuer Outskill | Site + cloud |
 | Analytics · errors | PostHog free + Sentry free | Cloud |
 | Code · CI | GitHub free | Cloud |
 | LLM keys + fallback | NVIDIA NIM · Groq · Gemini via local LiteLLM proxy (`auto-coder` / `auto-heavy`) | Local + cloud |
@@ -70,7 +73,7 @@ Full details: [plan/00-stack.md](plan/00-stack.md). Research catalog of alternat
 ## Build status
 
 - [ ] Stage 0 — accounts + keys — domain/Cloudflare ✅ · Supabase ✅ · Brevo ✅ · PostHog/Sentry ✅ · LLM+YouTube keys ✅ · pending: Oracle VPS, Razorpay/Stripe KYC, Meta verification, research inbox
-- [ ] Stage 1 — program site live: workshop page + both accelerator pages + track quiz + registration → Supabase; test payment link works
+- [ ] Stage 1 — program site live: workshop page + both accelerator pages + track quiz + chat agent + registration → Supabase; test payment link works; certificate test passes (see plan/TODAY.md for the one-day runbook)
 - [ ] Stage 2 — VPS up: Listmonk + Postiz reachable over HTTPS
 - [ ] Stage 3 — first 3 course ads produced and published
 - [ ] Stage 4 — 1,000 leads, workshop funnel + reminder flows live, first cohort filled

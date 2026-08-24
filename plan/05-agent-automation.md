@@ -69,7 +69,25 @@ Monday cron
 Rules: facts only from `agent/offers.md`; AI people are hosts, never students; no outcome
 claims without data; Python prereq in every Engineer-track brief; every brief names its sources.
 
-## 7. Autonomy gate (Rule 3)
+## 7. Site chat agent (general queries, ₹0)
+
+- [ ] `/api/chat`: LLM router (Groq→Gemini→NIM) with `agent/offers.md` + FAQ as the ONLY
+  context; system prompt enforces the claims policy (no outcome promises, Python prereq,
+  "the team will follow up" for unknowns); escalation buttons (WhatsApp, email).
+- [ ] Widget on every page · per-session rate limit · transcripts to `touches`
+  (channel='chat') · PostHog `chat_opened` / `chat_message`.
+
+## 8. Certificate automation (issuer: Outskill)
+
+- [ ] `infra/supabase-certificates.sql` run · `scripts/certificate.mjs` renders the branded
+  HTML template to PDF/PNG via Playwright (name, program, date, code OSK-YYYY-NNNN).
+- [ ] Trigger: marking a student completed (drafts-dashboard button or
+  `node scripts/certificate.mjs --complete <subscriber_id>`) → generate → email via Brevo
+  (transactional; auto-send allowed as founder-enabled transactional flow) → `emailed_at` set.
+- [ ] `/verify/[code]` public page reads the certificates table (RLS: read-only by code).
+- [ ] Rule: certificates state completion only — no accreditation or outcome claims.
+
+## 9. Autonomy gate (Rule 3)
 
 The agent sends nothing on its own until **4 consecutive weeks with ≥95% of drafts approved
 unedited**. Even then: autonomous sending only for the lowest-risk flows (transactional

@@ -26,7 +26,14 @@ GREEN-LIT (current stage — Stage 1 repurpose, per plan/01 + prompts/design-spr
 4. Payment-link buttons wired to env-configured URLs (leave TODO if links not created yet).
 5. Design system per prompts/design-sprint.md Phase A; then run prompts/design-loop.md
    until a stop rule fires.
-6. If time remains: SEO (sitemap, Course JSON-LD, OG) · GitHub Actions build-on-push.
+6. **Chat agent**: `/api/chat` + widget per plan/05 §7 (offers.md-only knowledge, claims
+   policy enforced, escalation links, rate limit, PostHog events). Verify with 5 test
+   questions incl. one it must refuse to invent.
+7. **Certificates**: run infra/supabase-certificates.sql (via service key) · build
+   `scripts/certificate.mjs` (HTML template, issuer Outskill, Playwright render) ·
+   `/verify/[code]` page · end-to-end test: generate one for "Test Student", email it via
+   Brevo SMTP to the founder's own inbox, verify page resolves. No real recipients.
+8. If time remains: SEO (sitemap, Course JSON-LD, OG) · GitHub Actions build-on-push.
 
 DO NOT: deploy · touch domains/accounts · touch infra/ · modify plan strategy · send anything.
 

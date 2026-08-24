@@ -15,7 +15,10 @@ apparel/product/shoe references anywhere, they are stale — fix on sight.
 costs (payment fees, WhatsApp utility) are cost of goods. Free/open-source only; Google AI
 Pro is owned (Flow ads + Antigravity + Nano Banana).
 
-**Stack:** Next.js program site on Cloudflare Pages · Stripe Payment Links + Razorpay Payment
+**Stack:** Next.js program site on Cloudflare Pages · site chat agent (/api/chat on the free
+LLM router, offers.md-only) · OmniDimension voice counselor (DEDICATED account — NOT the demo
+account connected to some Claude sessions; config in agent/voice-agent-config.md) · Outskill
+completion certificates (scripts/certificate.mjs + Supabase + Brevo + /verify/[code]) · Stripe Payment Links + Razorpay Payment
 Pages (hosted; EMI for ₹95k pending) · Supabase (leads/segments/drafts + pgvector) · Oracle
 Always-Free VPS (pending) running Listmonk + Postiz behind Caddy · WhatsApp Cloud API
 (official only) · YouTube Live for ₹0 delivery · PostHog + Sentry · ads made by the founder
@@ -33,6 +36,9 @@ scripts tested; `agent/llm.py` router verified.
 Pending (founder-only): Oracle VPS · Razorpay/Stripe KYC · Meta WhatsApp verification ·
 research inbox · offers.md open items (dates, duration, curriculum, EMI, refund policy) ·
 Turnstile key.
+
+**Brand note:** company/issuer = **Outskill**; "InfraSync" was the working codename; domain
+stays infra-sync.online for now. **Today-mode:** plan/TODAY.md is the active one-day runbook.
 
 **Non-negotiables:** no overhead spend without a plan/06 trigger · official WhatsApp only ·
 human approves all outbound · facts only from offers.md · **no fake students/testimonials,

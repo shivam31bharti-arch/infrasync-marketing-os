@@ -3,9 +3,12 @@
 > Every ad script, page, email, and WhatsApp message pulls its facts from here. If a fact is
 > missing, the agent asks — it never invents. Updated 2026-08-24 (pivot #3: AI education).
 
-## What InfraSync is
-An **AI-skills training platform**: live, cohort-based programs teaching people to work with
-AI — one track for non-tech professionals, one for engineers.
+## What this is
+**Outskill** — an AI education company (infra-sync.online is the current project domain;
+"InfraSync" was the working codename). Live, cohort-based programs teaching people to work
+with AI — one track for non-tech professionals, one for engineers. **Certificates of
+completion are issued by Outskill** automatically when a student completes their program
+(unique code + public verify page; completion only — no accreditation claims).
 
 ## Programs (confirmed by the founder 2026-08-24)
 
@@ -22,14 +25,17 @@ Open items to confirm before pages/ads ship:
 - [ ] EMI / installment option for ₹95,000 (India converts poorly without it) · refund policy text
 - [ ] Certificates? Job/placement support claims — ONLY if backed by real data (see claims policy)
 - [ ] Seats per cohort (only state scarcity if genuinely limited)
-- [ ] Brand: keep "InfraSync" for the education brand? (name reads tech-native — fits)
+- [x] Brand: **Outskill** (site + certificates); infra-sync.online remains the domain for now
+- [ ] Certificate template sign-off (logo, signatory name/title) — needed before first auto-send
 
 ## Funnel
 Ads (Flow-made, 30s) · content · SEO → **$20 2-Day Workshop** (paid front-end — buyers, not
 freebie-seekers) → during/after workshop: **track-fit quiz** (Generalist vs Engineer) →
 accelerator offer $1,200 / ₹95,000 → checkout (Stripe intl / Razorpay India, EMI if enabled)
-→ onboarding → alumni referrals. Capture throughout: email + WhatsApp opt-in; reminders via
-Listmonk (free) + WhatsApp utility templates.
+→ onboarding → cohort → **completion → auto-certificate (Outskill) + verify page** → alumni
+referrals. Support: site **chat agent** (answers only from this file) + **voice counselor**
+(OmniDimension, dedicated account) + WhatsApp windows. Reminders via email (Brevo) +
+WhatsApp utility templates.
 
 ## Claims policy (edtech is watched — ASCI + CCPA India, FTC US; we price in USD)
 - **No fake students, no fake testimonials, no AI-generated "graduates".** AI people in ads

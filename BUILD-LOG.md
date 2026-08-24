@@ -221,3 +221,18 @@ writes one entry per iteration in this format:
   prompts/design-sprint.md (education theme). User-only: Stripe + Razorpay accounts, Oracle
   VPS, Meta verification, offers.md open items (dates/duration/curriculum/EMI/refund).
 - Open questions: offers.md open-items list.
+
+## 2026-08-25 — TODAY-mode: one-day ship runbook + voice/chat/certificates
+- Done: plan/TODAY.md (3 parallel tracks, honest cannot-finish-today list with workarounds,
+  tonight's definition of done). New components specced + wired into docs: site chat agent
+  (/api/chat, offers.md-only knowledge), OmniDimension voice counselor (config in
+  agent/voice-agent-config.md — to be created in the DEDICATED account, NOT the demo account
+  connected to Claude's session; no calls dispatched), Outskill completion certificates
+  (infra/supabase-certificates.sql + scripts/certificate.mjs spec + /verify/[code]).
+  Brand/issuer confirmed: Outskill ("InfraSync" was the codename). night-shift greenlist
+  extended (chat agent, certificates); README/PIPELINES/plan05/offers/context updated.
+- Note: Claude listed the connected OmniDimension account read-only (4 demo agents, 0 phone
+  numbers), created NOTHING there per founder instruction.
+- Next: Track A (founder browser tasks + offers.md answers) · Track B (build agent runs
+  night-shift greenlist NOW) · Track C (Claude reviews + drives Pages deploy).
+- Open questions: offers.md open items (dates/duration/curriculum/EMI/refund/cert signatory).
