@@ -41,3 +41,6 @@ scripts/out/
 
 # service-account keys and other credentials
 .secrets/
+
+# cloned reference repos (read-only inspiration)
+.refs/
