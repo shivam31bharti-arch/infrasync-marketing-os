@@ -482,3 +482,9 @@ writes one entry per iteration in this format:
 - Verified: npm run build is green (0 errors).
 - Next: Build Task 5 — Reviews section.
 - Open questions: none.
+
+## 2026-08-26 — Phase 1: Design loop v2 Task 5 (Reviews section)
+- Done: Built ReviewsMarquee component with infinite auto-scrolling motion using framer-motion. Added 4 exact real reviews. Placed on home and /workshop.
+- Verified: npm run build is green (0 errors).
+- Next: Build Task 6 — Micro-polish sweep.
+- Open questions: none.
