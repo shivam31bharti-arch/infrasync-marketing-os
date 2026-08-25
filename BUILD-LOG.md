@@ -433,3 +433,13 @@ writes one entry per iteration in this format:
   only when repo secrets are added; local `node scripts/delivery-pack.mjs` works today.
 - RESUME: founder runs registrations SQL → founder makes a 4111 test payment → run
   `node scripts/delivery-pack.mjs` → expect cert+drive+hubspot+email for that payer.
+
+## 2026-08-26 — 🎉 DELIVERY PIPELINE LIVE E2E: first real payer fully processed
+- Test payment (netbanking mock, Rs 1999) → pipeline run: registration upserted →
+  participation cert SSC-2026-0001 → Drive session-folder created + reader grant to payer
+  email → HubSpot contact CREATED (lifecycle customer, program, enrollment_status) → pack
+  email sent from team@infra-sync.online. All stamps set. Second run: 0 pending (idempotent ✓).
+- Evidence: registrations row shows cert_no + all three timestamps. The core business loop
+  (pay → certify → deliver content → CRM) is now AUTOMATIC.
+- Note: 4111 intl test card rejected (merchant domestic-only) — use netbanking mock or
+  domestic test card 5267 3181 8797 5449 for test payments.
