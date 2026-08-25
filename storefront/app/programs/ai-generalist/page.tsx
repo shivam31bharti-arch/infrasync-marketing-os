@@ -1,14 +1,15 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Link from "next/link";
 import GradientMesh from "@/components/GradientMesh";
+import CurriculumModule from "@/components/CurriculumModule";
 import { loadServerEnv, serverEnv } from "@/lib/server-env";
 
 loadServerEnv(); // root .env (NEXT_PUBLIC_* not auto-loaded outside storefront/)
 
 export const metadata: Metadata = {
-  title: "AI Generalist Accelerator — $1,200 / ₹95,000",
+  title: "AI Generalist Accelerator â€” $1,200 / â‚¹95,000",
   description:
-    "For non-tech professionals. Learn vibe coding, the modern AI tool stack, and build real things — no engineering background needed.",
+    "For non-tech professionals. Learn vibe coding, the modern AI tool stack, and build real things â€” no engineering background needed.",
 };
 
 export default function AIGeneralistPage() {
@@ -39,7 +40,7 @@ export default function AIGeneralistPage() {
             }}
           >
             For professionals without a coding background. Learn vibe coding,
-            the modern AI tool stack, and how to build real things — no
+            the modern AI tool stack, and how to build real things â€” no
             engineering degree needed.
           </p>
           <div
@@ -55,7 +56,7 @@ export default function AIGeneralistPage() {
               <p className="price-note">International</p>
             </div>
             <div>
-              <div className="price-display">₹95,000</div>
+              <div className="price-display">â‚¹95,000</div>
               <p className="price-note">India</p>
             </div>
           </div>
@@ -73,7 +74,7 @@ export default function AIGeneralistPage() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Enroll — $1,200 / ₹95,000
+                Enroll â€” $1,200 / â‚¹95,000
               </a>
             ) : (
               <span className="tbd">Enrollment opens soon</span>
@@ -82,17 +83,17 @@ export default function AIGeneralistPage() {
               href="/workshop"
               className="button button--ghost button--large"
             >
-              Start with the $20 Workshop →
+              Start with the $20 Workshop â†’
             </Link>
           </div>
           <p className="muted" style={{ marginTop: "var(--space-xl)", fontSize: "0.9375rem", maxWidth: "640px", lineHeight: 1.7 }}>
-            Next cohort starts <strong>Sep 15, 2026</strong> · live sessions Tue
-            &amp; Thu, 8–10 PM IST + weekend office hours ·{" "}
+            Next cohort starts <strong>Sep 15, 2026</strong> Â· live sessions Tue
+            &amp; Thu, 7:30–10:30 PM IST + weekend office hours Â·{" "}
             <span className="tbd">program duration announced soon</span>
           </p>
           <p className="muted" style={{ marginTop: "var(--space-sm)", fontSize: "0.9375rem", maxWidth: "640px", lineHeight: 1.7 }}>
-            India: <strong>no-cost EMI</strong> — 3, 6, or 10 months via
-            Razorpay (subject to bank approval) · Full refund within 4 weeks of
+            India: <strong>no-cost EMI</strong> â€” 3, 6, or 10 months via
+            Razorpay (subject to bank approval) Â· Full refund within 4 weeks of
             cohort start.
           </p>
         </div>
@@ -107,63 +108,32 @@ export default function AIGeneralistPage() {
           <h2 style={{ marginBottom: "var(--space-3xl)" }}>
             What you&apos;ll learn
           </h2>
-          <div className="grid grid--2">
-            <div className="card card--dark">
-              <div className="card-body">
-                <h3 style={{ marginBottom: "var(--space-md)" }}>
-                  AI Fundamentals &amp; Prompting
-                </h3>
-                <p className="muted" style={{ lineHeight: 1.7 }}>
-                  How modern AI actually works, where it helps, where it fails —
-                  and how to prompt it for reliable, useful output.
-                </p>
-              </div>
-            </div>
-            <div className="card card--dark">
-              <div className="card-body">
-                <h3 style={{ marginBottom: "var(--space-md)" }}>
-                  Vibe Coding with AI Builders
-                </h3>
-                <p className="muted" style={{ lineHeight: 1.7 }}>
-                  Build functional software using AI assistants — no traditional
-                  coding skills required. Describe what you want, iterate with
-                  AI, and ship.
-                </p>
-              </div>
-            </div>
-            <div className="card card--dark">
-              <div className="card-body">
-                <h3 style={{ marginBottom: "var(--space-md)" }}>
-                  Automations Without Code
-                </h3>
-                <p className="muted" style={{ lineHeight: 1.7 }}>
-                  Design automations for everyday work — connect tools, data,
-                  and AI steps without writing a line of code.
-                </p>
-              </div>
-            </div>
-            <div className="card card--dark">
-              <div className="card-body">
-                <h3 style={{ marginBottom: "var(--space-md)" }}>
-                  AI for Content, Marketing &amp; Data
-                </h3>
-                <p className="muted" style={{ lineHeight: 1.7 }}>
-                  Put AI to work on content, marketing, and data workflows —
-                  the highest-leverage applications for non-tech roles.
-                </p>
-              </div>
-            </div>
-            <div className="card card--dark">
-              <div className="card-body">
-                <h3 style={{ marginBottom: "var(--space-md)" }}>
-                  Build-Your-Own Capstone
-                </h3>
-                <p className="muted" style={{ lineHeight: 1.7 }}>
-                  Finish with a project you design and build yourself — a real
-                  thing you made, not a certificate of attendance.
-                </p>
-              </div>
-            </div>
+          <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-md)", maxWidth: "800px", margin: "0 auto" }}>
+            <CurriculumModule 
+              index={0}
+              title="AI Fundamentals & Prompting"
+              description="How modern AI actually works, where it helps, where it fails — and how to prompt it for reliable, useful output."
+            />
+            <CurriculumModule 
+              index={1}
+              title="Vibe Coding with AI Builders"
+              description="Build functional software using AI assistants — no traditional coding skills required. Describe what you want, iterate with AI, and ship."
+            />
+            <CurriculumModule 
+              index={2}
+              title="Automations Without Code"
+              description="Design automations for everyday work — connect tools, data, and AI steps without writing a line of code."
+            />
+            <CurriculumModule 
+              index={3}
+              title="AI for Content, Marketing & Data"
+              description="Put AI to work on content, marketing, and data workflows — the highest-leverage applications for non-tech roles."
+            />
+            <CurriculumModule 
+              index={4}
+              title="Build-Your-Own Capstone"
+              description="Finish with a project you design and build yourself — a real thing you made, not a certificate of attendance."
+            />
           </div>
         </div>
       </section>
@@ -176,27 +146,27 @@ export default function AIGeneralistPage() {
           </h2>
           <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-xl)" }}>
             <div className="step">
-              <div className="step-number">✓</div>
+              <div className="step-number">âœ“</div>
               <div className="step-content">
                 <h3>You don&apos;t have a coding background</h3>
                 <p>
-                  Marketing, operations, design, management, freelancing — any
+                  Marketing, operations, design, management, freelancing â€” any
                   non-tech background works. No Python, no prior programming.
                 </p>
               </div>
             </div>
             <div className="step">
-              <div className="step-number">✓</div>
+              <div className="step-number">âœ“</div>
               <div className="step-content">
                 <h3>You want to build, not just prompt</h3>
                 <p>
-                  Beyond chatting with AI — you want to build automations,
+                  Beyond chatting with AI â€” you want to build automations,
                   tools, and workflows using the latest AI capabilities.
                 </p>
               </div>
             </div>
             <div className="step">
-              <div className="step-number">✓</div>
+              <div className="step-number">âœ“</div>
               <div className="step-content">
                 <h3>You learn by doing</h3>
                 <p>
@@ -227,7 +197,7 @@ export default function AIGeneralistPage() {
             of completion with a unique code and public verification page.
           </p>
           <p className="muted" style={{ marginBottom: "var(--space-sm)" }}>
-            Next cohort: <strong>Sep 15, 2026</strong> · Tue &amp; Thu, 8–10 PM IST + weekend office hours
+            Next cohort: <strong>Sep 15, 2026</strong> Â· Tue &amp; Thu, 7:30–10:30 PM IST + weekend office hours
           </p>
           <p className="tbd" style={{ marginBottom: "var(--space-2xl)" }}>
             Program duration announced soon
@@ -237,10 +207,10 @@ export default function AIGeneralistPage() {
               href="/workshop"
               className="button button--primary button--large"
             >
-              Start with the Workshop — $20
+              Start with the Workshop â€” $20
             </Link>
             <Link href="/quiz" className="button button--secondary button--large">
-              Take the Quiz →
+              Take the Quiz â†’
             </Link>
           </div>
         </div>
@@ -248,3 +218,6 @@ export default function AIGeneralistPage() {
     </>
   );
 }
+
+
+

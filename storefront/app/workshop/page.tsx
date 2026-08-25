@@ -1,15 +1,16 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Link from "next/link";
 import FaqAccordion from "@/components/FaqAccordion";
 import GradientMesh from "@/components/GradientMesh";
+import CurriculumModule from "@/components/CurriculumModule";
 import { loadServerEnv, serverEnv } from "@/lib/server-env";
 
 loadServerEnv(); // root .env (NEXT_PUBLIC_* not auto-loaded outside storefront/)
 
 export const metadata: Metadata = {
-  title: "2-Day AI Workshop — $20 / ₹1,999 — InfraSync",
+  title: "2-Day AI Workshop â€” $20 / â‚¹1,999 â€” InfraSync",
   description:
-    "Two days of hands-on AI fundamentals. No prior coding needed. A real taste of both accelerator tracks — before you commit. $20 international / ₹1,999 India.",
+    "Two days of hands-on AI fundamentals. No prior coding needed. A real taste of both accelerator tracks â€” before you commit. $20 international / â‚¹1,999 India.",
 };
 
 export default function WorkshopPage() {
@@ -41,7 +42,7 @@ export default function WorkshopPage() {
             }}
           >
             Two days of hands-on AI fundamentals. No prior coding needed.
-            A real taste of both accelerator tracks — before you commit.
+            A real taste of both accelerator tracks â€” before you commit.
           </p>
           <div
             style={{
@@ -56,18 +57,18 @@ export default function WorkshopPage() {
               <p className="price-note">International</p>
             </div>
             <div>
-              <div className="price-display">₹1,999</div>
+              <div className="price-display">â‚¹1,999</div>
               <p className="price-note">India</p>
             </div>
           </div>
           <p className="price-note" style={{ marginBottom: "var(--space-lg)" }}>
-            One-time payment — $20 international · ₹1,999 India. No hidden fees.
+            One-time payment â€” $20 international Â· â‚¹1,999 India. No hidden fees.
           </p>
           <p style={{ marginBottom: "var(--space-xs)", fontWeight: 600 }}>
-            Live online · Saturday + Sunday, 2:00–8:00 PM IST (6 hrs/day)
+            Live online Â· Saturday + Sunday, 10:00 AM–6:00 PM IST (6 hrs/day)
           </p>
           <p className="muted" style={{ marginBottom: "var(--space-2xl)" }}>
-            Upcoming: Aug 29–30 · Sep 5–6 · Sep 12–13, 2026
+            Upcoming: Aug 29â€“30 Â· Sep 5â€“6 Â· Sep 12â€“13, 2026
           </p>
           {paymentLink ? (
             <a
@@ -76,11 +77,11 @@ export default function WorkshopPage() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              Register Now — $20 / ₹1,999
+              Register Now â€” $20 / â‚¹1,999
             </a>
           ) : (
             <span className="tbd">
-              Registration opens soon — payment link being configured
+              Registration opens soon â€” payment link being configured
             </span>
           )}
           <p
@@ -103,45 +104,22 @@ export default function WorkshopPage() {
           <h2 style={{ marginBottom: "var(--space-3xl)" }}>
             Two days. Real skills. Zero fluff.
           </h2>
-          <div className="grid grid--3">
-            <div className="card">
-              <div className="card-body">
-                <span className="track-badge">DAY 1</span>
-                <h3 style={{ marginBottom: "var(--space-md)", marginTop: "var(--space-md)" }}>
-                  AI Fundamentals
-                </h3>
-                <p className="muted" style={{ lineHeight: 1.7 }}>
-                  Understand how AI works today. Hands-on with the tools
-                  that matter — not theory slides. You&apos;ll build something
-                  real before the day is over.
-                </p>
-              </div>
-            </div>
-            <div className="card">
-              <div className="card-body">
-                <span className="track-badge">DAY 2</span>
-                <h3 style={{ marginBottom: "var(--space-md)", marginTop: "var(--space-md)" }}>
-                  Choose Your Path
-                </h3>
-                <p className="muted" style={{ lineHeight: 1.7 }}>
-                  Explore both accelerator tracks — Generalist and
-                  Engineer. Work through sample projects from each. Find
-                  where you fit.
-                </p>
-              </div>
-            </div>
-            <div className="card">
-              <div className="card-body">
-                <span className="track-badge">OUTCOME</span>
-                <h3 style={{ marginBottom: "var(--space-md)", marginTop: "var(--space-md)" }}>
-                  Clear Next Steps
-                </h3>
-                <p className="muted" style={{ lineHeight: 1.7 }}>
-                  Walk away with real skills, a clear recommendation for
-                  your accelerator track, and the confidence to go deeper.
-                </p>
-              </div>
-            </div>
+          <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-md)", maxWidth: "800px", margin: "0 auto" }}>
+            <CurriculumModule 
+              index={0}
+              title="Day 1: AI Fundamentals"
+              description="Understand how AI works today. Hands-on with the tools that matter — not theory slides. You'll build something real before the day is over."
+            />
+            <CurriculumModule 
+              index={1}
+              title="Day 2: Choose Your Path"
+              description="Explore both accelerator tracks — Generalist and Engineer. Work through sample projects from each. Find where you fit."
+            />
+            <CurriculumModule 
+              index={2}
+              title="Outcome: Clear Next Steps"
+              description="Walk away with real skills, a clear recommendation for your accelerator track, and the confidence to go deeper."
+            />
           </div>
         </div>
       </section>
@@ -153,7 +131,7 @@ export default function WorkshopPage() {
             Upcoming Workshop Dates
           </h2>
           <p style={{ fontSize: "1.125rem", marginBottom: "var(--space-lg)" }}>
-            Every weekend · <strong>Saturday + Sunday, 2:00–8:00 PM IST</strong> · live online
+            Every weekend Â· <strong>Saturday + Sunday, 10:00 AM–6:00 PM IST</strong> Â· live online
           </p>
           <div
             style={{
@@ -164,7 +142,7 @@ export default function WorkshopPage() {
               marginBottom: "var(--space-xl)",
             }}
           >
-            {["Aug 29–30, 2026", "Sep 5–6, 2026", "Sep 12–13, 2026"].map((d) => (
+            {["Aug 29â€“30, 2026", "Sep 5â€“6, 2026", "Sep 12â€“13, 2026"].map((d) => (
               <span key={d} className="track-badge" style={{ fontSize: "0.9375rem" }}>
                 {d}
               </span>
@@ -173,7 +151,7 @@ export default function WorkshopPage() {
           <p className="muted" style={{ marginBottom: "var(--space-2xl)", lineHeight: 1.7 }}>
             Workshops are live and cohort-based. Small groups for real
             interaction. Registered students receive automated session
-            reminders — by call from SkillSync&apos;s AI counselor, plus email
+            reminders â€” by call from SkillSync&apos;s AI counselor, plus email
             and WhatsApp.
           </p>
           <div style={{ display: "flex", gap: "var(--space-md)", justifyContent: "center", flexWrap: "wrap" }}>
@@ -184,13 +162,13 @@ export default function WorkshopPage() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Register — $20 / ₹1,999
+                Register â€” $20 / â‚¹1,999
               </a>
             ) : (
               <span className="tbd">Registration link coming soon</span>
             )}
             <Link href="/quiz" className="button button--secondary button--large">
-              Find Your Track First →
+              Find Your Track First â†’
             </Link>
           </div>
         </div>
@@ -208,7 +186,7 @@ export default function WorkshopPage() {
                 question: "Do I need to know how to code?",
                 answer: (
                   <p>
-                    No. The workshop is designed for everyone — coders and non-coders
+                    No. The workshop is designed for everyone â€” coders and non-coders
                     alike. Day 2 helps you figure out which accelerator track fits
                     your background.
                   </p>
@@ -237,7 +215,7 @@ export default function WorkshopPage() {
                 answer: (
                   <p>
                     Yes. Registered students receive automated reminders before
-                    sessions — a call from SkillSync&apos;s AI counselor, plus email
+                    sessions â€” a call from SkillSync&apos;s AI counselor, plus email
                     and WhatsApp. You consent to these reminders when you register.
                   </p>
                 ),
@@ -246,7 +224,7 @@ export default function WorkshopPage() {
                 question: "Can I get a refund?",
                 answer: (
                   <p>
-                    The workshop is <strong>non-refundable</strong> — and we state
+                    The workshop is <strong>non-refundable</strong> â€” and we state
                     that clearly before you pay. Accelerator programs are different:
                     they include a 4-week money-back window from cohort start. See
                     the{" "}
@@ -264,3 +242,6 @@ export default function WorkshopPage() {
     </>
   );
 }
+
+
+

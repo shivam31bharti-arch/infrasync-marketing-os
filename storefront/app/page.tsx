@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 import Hero3D from "@/components/Hero3D";
 import FaqAccordion from "@/components/FaqAccordion";
 
@@ -142,7 +142,7 @@ export default function HomePage() {
             started.
           </p>
           <p style={{ marginBottom: "var(--space-xs)", fontSize: "1.0625rem" }}>
-            <strong>Live online · Saturday + Sunday, 2:00–8:00 PM IST</strong>
+            <strong>Live online · Saturday + Sunday, 10:00 AM–6:00 PM IST</strong>
           </p>
           <p className="muted" style={{ marginBottom: "var(--space-xl)" }}>
             Upcoming: Aug 29–30 · Sep 5–6 · Sep 12–13, 2026
@@ -235,3 +235,4 @@ export default function HomePage() {
     </>
   );
 }
+
