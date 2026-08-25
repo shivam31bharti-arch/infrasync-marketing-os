@@ -1,0 +1,40 @@
+[/][desktop] NAVIGATION_ERROR: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3000/
+Call log:
+[2m  - navigating to "http://localhost:3000/", waiting until "networkidle"[22m
+
+[/][mobile] NAVIGATION_ERROR: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3000/
+Call log:
+[2m  - navigating to "http://localhost:3000/", waiting until "networkidle"[22m
+
+[/workshop][desktop] NAVIGATION_ERROR: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3000/workshop
+Call log:
+[2m  - navigating to "http://localhost:3000/workshop", waiting until "networkidle"[22m
+
+[/workshop][mobile] NAVIGATION_ERROR: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3000/workshop
+Call log:
+[2m  - navigating to "http://localhost:3000/workshop", waiting until "networkidle"[22m
+
+[/programs/ai-generalist][desktop] NAVIGATION_ERROR: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3000/programs/ai-generalist
+Call log:
+[2m  - navigating to "http://localhost:3000/programs/ai-generalist", waiting until "networkidle"[22m
+
+[/programs/ai-generalist][mobile] NAVIGATION_ERROR: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3000/programs/ai-generalist
+Call log:
+[2m  - navigating to "http://localhost:3000/programs/ai-generalist", waiting until "networkidle"[22m
+
+[/programs/ai-engineer][desktop] NAVIGATION_ERROR: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3000/programs/ai-engineer
+Call log:
+[2m  - navigating to "http://localhost:3000/programs/ai-engineer", waiting until "networkidle"[22m
+
+[/programs/ai-engineer][mobile] NAVIGATION_ERROR: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3000/programs/ai-engineer
+Call log:
+[2m  - navigating to "http://localhost:3000/programs/ai-engineer", waiting until "networkidle"[22m
+
+[/quiz][desktop] NAVIGATION_ERROR: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3000/quiz
+Call log:
+[2m  - navigating to "http://localhost:3000/quiz", waiting until "networkidle"[22m
+
+[/quiz][mobile] NAVIGATION_ERROR: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3000/quiz
+Call log:
+[2m  - navigating to "http://localhost:3000/quiz", waiting until "networkidle"[22m
+

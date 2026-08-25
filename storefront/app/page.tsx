@@ -1,5 +1,5 @@
 import Link from "next/link";
-import GradientMesh from "@/components/GradientMesh";
+import Hero3D from "@/components/Hero3D";
 import FaqAccordion from "@/components/FaqAccordion";
 
 export default function HomePage() {
@@ -7,7 +7,7 @@ export default function HomePage() {
     <>
       {/* Hero */}
       <section className="section section--dark" style={{ minHeight: "80vh", display: "flex", alignItems: "center", position: "relative" }}>
-        <GradientMesh />
+        <Hero3D />
         <div className="container" style={{ position: "relative", zIndex: 1 }}>
           <p className="label" style={{ marginBottom: "var(--space-lg)" }}>
             AI Education by SkillSync
