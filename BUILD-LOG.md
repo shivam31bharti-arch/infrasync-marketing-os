@@ -458,3 +458,9 @@ writes one entry per iteration in this format:
 - Verified: npm install succeeded (58 packages added); git clone completed.
 - Next: Build Task 1 â€” Hero with depth (R3F or pure-CSS 3D floating geometric shapes/particle field with subtle pointer parallax â‰¤8px, 60fps, prefers-reduced-motion disables it, headline stays legible).
 - Open questions: none.
+
+## 2026-08-26 — Phase 1: Design loop v2 Task 1 (Hero with depth)
+- Done: Built Task 1 — Hero with depth. Replaced pure-CSS GradientMesh with R3F-powered Hero3D featuring floating geometric shapes (Box, Torus, Octahedron) and a particle field reacting to pointer parallax. Enforced \prefers-reduced-motion\. Set CSS gradient vars in globals.css.
+- Verified: npm run build is green (0 errors).
+- Next: Build Task 2 — Course details, complete (expand /workshop + both program pages with the full curriculum from offers.md as interactive modules).
+- Open questions: none.
