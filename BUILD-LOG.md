@@ -464,3 +464,9 @@ writes one entry per iteration in this format:
 - Verified: npm run build is green (0 errors).
 - Next: Build Task 2 — Course details, complete (expand /workshop + both program pages with the full curriculum from offers.md as interactive modules).
 - Open questions: none.
+
+## 2026-08-26 — Phase 1: Design loop v2 Task 2 (Course details)
+- Done: Replaced static grid curriculums on /workshop and both program pages with interactive CurriculumModule components powered by framer-motion reveals. Updated schedule strip to match offers.md (Workshop: 10 AM–6 PM IST, Accelerators: 7:30–10:30 PM IST). 
+- Verified: npm run build is green (0 errors).
+- Next: Build Task 3 — Included free with your seat section (home + /workshop).
+- Open questions: none.
