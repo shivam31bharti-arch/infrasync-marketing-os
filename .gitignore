@@ -38,3 +38,6 @@ qa/shots/
 
 # generated certificates (contain student PII)
 scripts/out/
+
+# service-account keys and other credentials
+.secrets/
