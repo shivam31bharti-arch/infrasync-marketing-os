@@ -452,3 +452,9 @@ writes one entry per iteration in this format:
 - Site is now 100% functional: 16 routes, payment buttons, quiz persistence, chat agent,
   public cert verification. Remaining founder click: OmniDimension KB upload. Rest = design
   polish (agent) + post-demo phase (GH Action secrets, KYC→live, WhatsApp, ads, research).
+
+## 2026-08-26 — Phase 0: Design loop v2 reference libraries loaded
+- Done: Installed `motion`, `@react-three/fiber`, `@react-three/drei`, `three` in storefront. Cloned `magicuidesign/magicui` to `.refs/magicui` (gitignored, read-only inspiration).
+- Verified: npm install succeeded (58 packages added); git clone completed.
+- Next: Build Task 1 — Hero with depth (R3F or pure-CSS 3D floating geometric shapes/particle field with subtle pointer parallax ≤8px, 60fps, prefers-reduced-motion disables it, headline stays legible).
+- Open questions: none.
