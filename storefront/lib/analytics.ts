@@ -7,7 +7,9 @@ let initialised = false;
 
 export function initPostHog(): void {
   if (initialised || typeof window === "undefined") return;
-  const key = process.env.NEXT_PUBLIC_POSTHOG_PROJECT_KEY;
+  // Public project key (ships to every browser by design) — literal fallback because
+  // Cloudflare's build env does not inject NEXT_PUBLIC vars; env override still wins.
+  const key = process.env.NEXT_PUBLIC_POSTHOG_PROJECT_KEY || "phc_kNMTjQATm79Vr3iNCNGAnVEyAMPL6T3Uc6QVzTMPcZXm";
   if (!key) return;
   posthog.init(key, {
     api_host: "https://us.i.posthog.com",
