@@ -164,7 +164,7 @@ async function sendEmail({ to, certNo, studentName, programLabel, verifyUrl, pdf
     auth: { user, pass: need("BREVO_SMTP_PASS") },
   });
   return tx.sendMail({
-    from: `"SkillSync Certificates" <${user}>`,
+    from: process.env.MAIL_FROM || `"SkillSync Certificates" <${user}>`,
     to,
     subject: `Your SkillSync certificate of completion — ${certNo}`,
     text: [

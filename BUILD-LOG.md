@@ -406,3 +406,16 @@ writes one entry per iteration in this format:
 - Razorpay TEST API keys in .env (rzp_test_, shapes verified).
 - NEXT: delivery-pack.mjs (Razorpay→Supabase→participation certs→Drive grants→8:30 PM email)
   + Brevo domain auth for team@infra-sync.online + Worker runtime secrets (founder, CF dash).
+
+## 2026-08-26 (~2 AM) — Professional sender live: team@infra-sync.online
+- Brevo domain auth complete: brevo-code TXT + DKIM1/2 CNAMEs (DNS only) + DMARC in
+  Cloudflare, all verified green. Sender "SkillSync <team@infra-sync.online>" Verified,
+  DKIM ✓ DMARC ✓ (Google/Yahoo compliant).
+- certificate.mjs from-address now MAIL_FROM env (set in .env to the team@ sender, fallback
+  smtp user). Re-ran --test: 250 OK, message-id @infra-sync.online. Cert email now fully branded.
+- Night tally: Razorpay test keys ✓ · GCP skillsync project + Drive API + SA key (.secrets/) ✓
+  · Drive folder shared to SA ✓ · SMTP login fix ✓ · cert e2e ✓ · domain auth + sender ✓.
+- NEXT (Claude, daytime): build scripts/delivery-pack.mjs (Razorpay→Supabase registrations →
+  participation certs → Drive per-email grants → 3-link email from team@) + GitHub Actions
+  cron 8:30 PM IST + registrations table SQL. Founder remaining: CF Worker runtime secrets
+  (chat/quiz/verify) · OmniDimension KB upload (agent/skillsync-kb.pdf).
