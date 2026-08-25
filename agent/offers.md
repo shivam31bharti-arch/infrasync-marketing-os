@@ -15,14 +15,14 @@ completion are issued by SkillSync** automatically when a student completes thei
 
 | Program | Price | Who it's for | Format |
 |---|---|---|---|
-| **2-Day AI Workshop** | **$20 international · ₹1,999 India** (entry offer) | Anyone curious; the funnel's front door | Live online · **Saturday + Sunday, 2:00–8:00 PM IST** |
+| **2-Day AI Workshop** | **$20 international · ₹1,999 India** (entry offer) | Anyone curious; the funnel's front door | Live online · **Saturday + Sunday, 10:00 AM–6:00 PM IST** |
 | **AI Generalist Accelerator** | **$1,200 international · ₹95,000 India** | Non-tech backgrounds | Live cohort (see schedule) |
 | **AI Engineer Accelerator** | **$1,200 international · ₹95,000 India** | Techies — **Python required** (basic-to-intermediate) | Live cohort (see schedule) |
 
 ## Schedule & logistics (confirmed)
-- **Workshop:** every weekend, **Sat + Sun, 2–8 PM IST** (6 hrs/day). Next dates:
+- **Workshop:** every weekend, **Sat + Sun, 10 AM–6 PM IST** (founder-corrected 2026-08-25). Next dates:
   **Aug 29–30 · Sep 5–6 · Sep 12–13, 2026.**
-- **Accelerators:** next cohort starts **Sep 15, 2026** · live sessions Tue & Thu 8–10 PM IST
+- **Accelerators:** next cohort starts **Sep 15, 2026** · live sessions **7:30–10:30 PM IST** (founder-corrected 2026-08-25)
   + weekend office hours.
 - **EMI:** **no-cost EMI — 3, 6, or 10 months** via Razorpay (subject to bank approval).
 - **Refunds:** **Workshop: non-refundable** (stated clearly at checkout). **Accelerator:
@@ -72,3 +72,15 @@ WhatsApp utility + AI reminder calls.
 - Tone: confident, practical, zero hype-jargon:
 - Words we use / never use:
 - Visual direction for ads/site: premium tech-education (see prompts/design-sprint.md)
+
+## Post-session delivery (founder-defined 2026-08-25 — the "8 PM pack")
+- Registration source of truth: Razorpay payment pages (name + email captured at payment) →
+  pulled into Supabase `registrations`. Every student gets an ID; course/cohort IDs tracked.
+- EVERY registrant of a masterclass day (attended or not) receives by email, **after 8 PM,
+  latest 10 PM IST** same day: (1) **Certificate of PARTICIPATION** link (/verify),
+  (2) lecture recording link, (3) Google Drive notes+tools access.
+- Recordings + notes land in Google Drive **by 7 PM** (one folder per session date).
+- Drive access: **registered email only** — per-email permission grants, never public links.
+- **Completion certificates are separate**: issued only on finishing an accelerator, to the
+  registered email. Participation ≠ completion — never conflate them (claims policy).
+- Delivery is idempotent (a "delivered" flag per registrant) — re-runs never double-send.
