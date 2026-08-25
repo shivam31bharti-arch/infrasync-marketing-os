@@ -1,7 +1,7 @@
-/* ============================================================
-   InfraSync / SkillSync — Premium Tech-Education Design System
-   Palette: deep ink #0A0E14 · paper #F4F2EC · electric #4F7CFF · warm gray #8A8F98
-   Type: Space Grotesk (display) · Inter (body) · JetBrains Mono (code)
+﻿/* ============================================================
+   InfraSync / SkillSync â€” Premium Tech-Education Design System
+   Palette: deep ink #0A0E14 Â· paper #F4F2EC Â· electric #4F7CFF Â· warm gray #8A8F98
+   Type: Space Grotesk (display) Â· Inter (body) Â· JetBrains Mono (code)
    ============================================================ */
 
 :root {
@@ -171,6 +171,12 @@ h4 { font-size: clamp(1rem, 1.5vw, 1.25rem); }
   transition: all var(--transition-base);
   white-space: nowrap;
   text-decoration: none;
+
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s ease, color 0.2s ease;
+}
+.button:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 30px rgba(79, 124, 255, 0.15);
 }
 
 .button--primary {
@@ -582,7 +588,13 @@ h4 { font-size: clamp(1rem, 1.5vw, 1.25rem); }
 }
 
 .footer-newsletter .input::placeholder { color: var(--color-gray); }
-.footer-newsletter .button { padding: 0.875rem var(--space-lg); white-space: nowrap; }
+.footer-newsletter .button { padding: 0.875rem var(--space-lg); white-space: nowrap; 
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s ease, color 0.2s ease;
+}
+.button:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 30px rgba(79, 124, 255, 0.15);
+}
 
 .footer-bottom {
   max-width: 1200px;
