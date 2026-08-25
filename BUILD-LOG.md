@@ -443,3 +443,12 @@ writes one entry per iteration in this format:
   (pay → certify → deliver content → CRM) is now AUTOMATIC.
 - Note: 4111 intl test card rejected (merchant domestic-only) — use netbanking mock or
   domestic test card 5267 3181 8797 5449 for test payments.
+
+## 2026-08-26 — Runtime secrets live: FULL SITE FUNCTIONAL on infra-sync.online
+- Founder added 5 runtime vars to the Worker (SUPABASE_URL text + 4 secrets) → redeployed.
+- Verified live: /verify/SSC-2026-0001 renders "Shivam Bharti · Verified" (real cert from
+  the delivery pipeline, publicly checkable) · /api/chat answers with offers.md facts
+  ("workshop non-refundable, stated before payment", provider=nim fallback chain working).
+- Site is now 100% functional: 16 routes, payment buttons, quiz persistence, chat agent,
+  public cert verification. Remaining founder click: OmniDimension KB upload. Rest = design
+  polish (agent) + post-demo phase (GH Action secrets, KYC→live, WhatsApp, ads, research).
