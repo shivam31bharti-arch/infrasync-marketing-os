@@ -375,3 +375,20 @@ writes one entry per iteration in this format:
   OmniDimension Knowledge Base manually).
 - NEXT: day shift runs prompts/day-shift-opus.md (cert email leg → production smoke tests
   after founder's Cloudflare deploy → design loop → ad briefs).
+
+## 2026-08-25 (evening) — 🚀 GO-LIVE: infra-sync.online is in production (founder office + Claude)
+- Cloudflare Workers Builds connected to GitHub (project skillsync-site, root storefront,
+  OpenNext build/deploy). Custom domains attached: infra-sync.online + www (instant, zone
+  in-account). Build vars set in dashboard but NOT injected into build env by CF → pages
+  baked the "link coming soon" fallback. Fixed in 1ab595f: three PUBLIC payment URLs are
+  code defaults in serverEnv (env override wins).
+- Production smoke test PASSED: 11/11 routes HTTP 200 · each program page serves exactly its
+  own rzp.io link (workshop YnzvRKMr · generalist BZZDx5n · engineer 416AflD) · ₹1,999 in
+  workshop title.
+- KNOWN GAPS: (1) Worker RUNTIME vars empty → /api/chat, /api/quiz, /verify lookups fail —
+  founder adds SUPABASE_URL + SUPABASE_SERVICE_ROLE_KEY + GROQ/GEMINI/NVIDIA keys as runtime
+  secrets in dash (values from each provider's dashboard) → auto-redeploys. (2) Brand text
+  still "InfraSync" in layout metadata/home — day-shift cosmetic task. (3) Cloudflare may
+  auto-PR a wrangler.jsonc name fix (infrasync-storefront→skillsync-site) — merge on sight.
+- RESUME: day shift task 2 (production smoke) largely done by Claude; re-run after runtime
+  secrets land, then design loop.
