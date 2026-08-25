@@ -419,3 +419,17 @@ writes one entry per iteration in this format:
   participation certs → Drive per-email grants → 3-link email from team@) + GitHub Actions
   cron 8:30 PM IST + registrations table SQL. Founder remaining: CF Worker runtime secrets
   (chat/quiz/verify) · OmniDimension KB upload (agent/skillsync-kb.pdf).
+
+## 2026-08-26 — Delivery machine built (Claude): scripts/delivery-pack.mjs
+- Pipeline: Razorpay captured payments → Supabase registrations (upsert by payment_id) →
+  participation cert (certificate.mjs --type participation, new) → Drive per-email grant on
+  SKILLSYNC/<session-date> folder (SA JWT, no SDK) → HubSpot contact upsert (lifecycle
+  customer + program + enrollment_status) → 3-link pack email from team@ → emailed_at stamp.
+  Idempotent per stage; --check and --dry-run modes.
+- --check verified: Razorpay auth OK · Drive SA reaches SKILLSYNC folder OK · HubSpot token
+  OK (pat-na2, contacts r/w) · sender team@infra-sync.online. Registrations table pending
+  founder (infra/supabase-registrations.sql).
+- GitHub Action .github/workflows/delivery-pack.yml (20:30 IST daily + manual) — activates
+  only when repo secrets are added; local `node scripts/delivery-pack.mjs` works today.
+- RESUME: founder runs registrations SQL → founder makes a 4111 test payment → run
+  `node scripts/delivery-pack.mjs` → expect cert+drive+hubspot+email for that payer.

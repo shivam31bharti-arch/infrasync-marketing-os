@@ -92,7 +92,9 @@ async function markEmailed(certNo) {
   if (!res.ok) throw new Error(`Supabase emailed_at patch failed: HTTP ${res.status}`);
 }
 
-function certificateHtml({ studentName, programLabel, issuedDate, certNo, cohort, verifyUrl }) {
+function certificateHtml({ studentName, programLabel, issuedDate, certNo, cohort, verifyUrl, kind = "completion" }) {
+  const kindTitle = kind === "participation" ? "Certificate of Participation" : "Certificate of Completion";
+  const kindVerb = kind === "participation" ? "participated in" : "has successfully completed";
   const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
   return `<!doctype html>
 <html><head><meta charset="utf-8"><style>
@@ -124,10 +126,10 @@ function certificateHtml({ studentName, programLabel, issuedDate, certNo, cohort
 </style></head><body>
   <div class="frame"><div class="card">
     <div class="brand">SKILLSYNC<small>AI EDUCATION · LIVE COHORT PROGRAMS</small></div>
-    <div class="title">Certificate of Completion</div>
+    <div class="title">${kindTitle}</div>
     <div class="sub">This certifies that</div>
     <div class="name">${esc(studentName)}</div>
-    <div class="prog">has successfully completed the <strong>${esc(programLabel)}</strong>${
+    <div class="prog">${kindVerb} the <strong>${esc(programLabel)}</strong>${
       cohort ? ` · cohort ${esc(cohort)}` : ""
     }</div>
     <div class="foot">
@@ -138,7 +140,7 @@ function certificateHtml({ studentName, programLabel, issuedDate, certNo, cohort
         Verify: ${esc(verifyUrl)}
       </div>
     </div>
-    <div class="legal">This certificate states completion of the program only. It does not constitute an accreditation or professional qualification.</div>
+    <div class="legal">This certificate states ${kind} of the program only. It does not constitute an accreditation or professional qualification.</div>
   </div></div>
 </body></html>`;
 }
@@ -155,7 +157,7 @@ async function render(html, base) {
   }
 }
 
-async function sendEmail({ to, certNo, studentName, programLabel, verifyUrl, pdfPath, pngPath }) {
+async function sendEmail({ to, certNo, studentName, programLabel, verifyUrl, pdfPath, pngPath, kind = "completion" }) {
   const user = need("BREVO_SMTP_USER");
   const tx = nodemailer.createTransport({
     host: "smtp-relay.brevo.com",
@@ -166,17 +168,17 @@ async function sendEmail({ to, certNo, studentName, programLabel, verifyUrl, pdf
   return tx.sendMail({
     from: process.env.MAIL_FROM || `"SkillSync Certificates" <${user}>`,
     to,
-    subject: `Your SkillSync certificate of completion — ${certNo}`,
+    subject: `Your SkillSync certificate of ${kind} — ${certNo}`,
     text: [
       `Hi ${studentName},`,
       ``,
       `Congratulations — you're certified! Attached is your SkillSync certificate of`,
-      `completion for the ${programLabel}.`,
+      `${kind} for the ${programLabel}.`,
       ``,
       `Certificate code: ${certNo}`,
       `Public verification page: ${verifyUrl}`,
       ``,
-      `This certificate states completion of the program only.`,
+      `This certificate states ${kind} of the program only.`,
       ``,
       `— Team SkillSync`,
     ].join("\n"),
@@ -197,6 +199,7 @@ const cert = args.test
       cohort: args.cohort || null, send: args.send,
       certNo: null,
     };
+cert.kind = args.type === "participation" ? "participation" : "completion";
 
 if (!cert.studentName || !cert.program || !PROGRAMS[cert.program])
   throw new Error(`Usage: node certificate.mjs --test | --name ".." --email .. --program [${Object.keys(PROGRAMS).join("|")}] [--cohort ".."] [--send]`);
@@ -223,7 +226,7 @@ const outDir = path.join(ROOT, "scripts", "out", "certificates");
 fs.mkdirSync(outDir, { recursive: true });
 const base = path.join(outDir, cert.certNo);
 await render(
-  certificateHtml({ studentName: cert.studentName, programLabel: PROGRAMS[cert.program], issuedDate, certNo: cert.certNo, cohort: cert.cohort, verifyUrl }),
+  certificateHtml({ studentName: cert.studentName, programLabel: PROGRAMS[cert.program], issuedDate, certNo: cert.certNo, cohort: cert.cohort, verifyUrl, kind: cert.kind }),
   base
 );
 for (const ext of ["pdf", "png"]) {
@@ -236,7 +239,7 @@ for (const ext of ["pdf", "png"]) {
 if (cert.send) {
   const info = await sendEmail({
     to: cert.email, certNo: cert.certNo, studentName: cert.studentName,
-    programLabel: PROGRAMS[cert.program], verifyUrl, pdfPath: `${base}.pdf`, pngPath: `${base}.png`,
+    programLabel: PROGRAMS[cert.program], verifyUrl, pdfPath: `${base}.pdf`, pngPath: `${base}.png`, kind: cert.kind,
   });
   if (!/^(250|2\d\d)/.test(info.response || "")) throw new Error(`SMTP not accepted: ${info.response}`);
   await markEmailed(cert.certNo);

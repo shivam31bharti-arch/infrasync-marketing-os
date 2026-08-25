@@ -1,0 +1,42 @@
+# SkillSync 8:30 PM IST delivery pack — daily, idempotent (no-ops when nothing pending).
+# ACTIVATION (optional, post-demo): add the repo secrets listed below in
+# GitHub → Settings → Secrets and variables → Actions. Until then this workflow
+# fails fast on missing secrets and costs nothing; the founder can also run
+# `node scripts/delivery-pack.mjs` on the home PC instead.
+name: delivery-pack
+on:
+  schedule:
+    - cron: "0 15 * * *" # 15:00 UTC = 20:30 IST
+  workflow_dispatch: {}
+
+jobs:
+  deliver:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Install script deps + chromium
+        working-directory: scripts
+        run: |
+          npm ci
+          npx playwright install --with-deps chromium
+      - name: Write env + service-account key
+        run: |
+          cat > .env <<EOF
+          RAZORPAY_KEY_ID=${{ secrets.RAZORPAY_KEY_ID }}
+          RAZORPAY_KEY_SECRET=${{ secrets.RAZORPAY_KEY_SECRET }}
+          SUPABASE_URL=${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY=${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          BREVO_SMTP_USER=${{ secrets.BREVO_SMTP_USER }}
+          BREVO_SMTP_PASS=${{ secrets.BREVO_SMTP_PASS }}
+          MAIL_FROM=${{ secrets.MAIL_FROM }}
+          HUBSPOT_TOKEN=${{ secrets.HUBSPOT_TOKEN }}
+          FOUNDER_EMAIL=${{ secrets.FOUNDER_EMAIL }}
+          SITE_URL=https://infra-sync.online
+          EOF
+          mkdir -p .secrets
+          printf '%s' '${{ secrets.GDRIVE_SA_KEY_JSON }}' > .secrets/gdrive-sa.json
+      - name: Run delivery pack
+        run: node scripts/delivery-pack.mjs
