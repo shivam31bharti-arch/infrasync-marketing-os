@@ -476,3 +476,9 @@ writes one entry per iteration in this format:
 - Verified: npm run build is green (0 errors).
 - Next: Build Task 4 — Talk-to-us launcher (floating action button).
 - Open questions: none.
+
+## 2026-08-26 — Phase 1: Design loop v2 Task 4 (Talk-to-us launcher)
+- Done: Replaced simple ChatWidget with a floating "Talk to us" pill. Expanded to show "Chat with AI" (opening the chat panel) and "Request Callback". Added IntersectionObserver to hide the launcher when near primary CTA buttons to prevent overlap.
+- Verified: npm run build is green (0 errors).
+- Next: Build Task 5 — Reviews section.
+- Open questions: none.
