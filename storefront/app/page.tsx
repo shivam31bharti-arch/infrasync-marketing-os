@@ -2,6 +2,7 @@
 import Hero3D from "@/components/Hero3D";
 import FaqAccordion from "@/components/FaqAccordion";
 import IncludedFreeSection from "@/components/IncludedFreeSection";
+import ReviewsMarquee from "@/components/ReviewsMarquee";
 
 export default function HomePage() {
   return (
@@ -157,6 +158,9 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Reviews */}
+      <ReviewsMarquee />
+
       {/* FAQ */}
       <section className="section section--dark">
         <div className="container container--narrow">
@@ -239,5 +243,6 @@ export default function HomePage() {
     </>
   );
 }
+
 
 

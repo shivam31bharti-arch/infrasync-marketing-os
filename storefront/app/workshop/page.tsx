@@ -4,6 +4,7 @@ import FaqAccordion from "@/components/FaqAccordion";
 import GradientMesh from "@/components/GradientMesh";
 import CurriculumModule from "@/components/CurriculumModule";
 import IncludedFreeSection from "@/components/IncludedFreeSection";
+import ReviewsMarquee from "@/components/ReviewsMarquee";
 import { loadServerEnv, serverEnv } from "@/lib/server-env";
 
 loadServerEnv(); // root .env (NEXT_PUBLIC_* not auto-loaded outside storefront/)
@@ -178,6 +179,9 @@ export default function WorkshopPage() {
         </div>
       </section>
 
+      {/* Reviews */}
+      <ReviewsMarquee />
+
       {/* FAQ */}
       <section className="section">
         <div className="container container--narrow">
@@ -246,6 +250,7 @@ export default function WorkshopPage() {
     </>
   );
 }
+
 
 
 
