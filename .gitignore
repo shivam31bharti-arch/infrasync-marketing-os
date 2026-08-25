@@ -35,3 +35,6 @@ qa/shots/
 # OpenNext/Wrangler build output
 .open-next/
 .wrangler/
+
+# generated certificates (contain student PII)
+scripts/out/

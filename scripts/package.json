@@ -1,0 +1,14 @@
+{
+  "name": "infrasync-scripts",
+  "private": true,
+  "type": "module",
+  "description": "SkillSync operations scripts (certificates, media). Secrets come from the repo-root .env — never committed.",
+  "scripts": {
+    "cert": "node certificate.mjs"
+  },
+  "dependencies": {
+    "dotenv": "^17.0.0",
+    "nodemailer": "^6.9.16",
+    "playwright": "^1.49.0"
+  }
+}

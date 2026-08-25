@@ -32,6 +32,12 @@ async function getCertificate(code: string) {
   }
 }
 
+const PROGRAM_LABELS: Record<string, string> = {
+  workshop: "2-Day AI Workshop",
+  ai_generalist: "AI Generalist Accelerator",
+  ai_engineer: "AI Engineer Accelerator",
+};
+
 export default async function VerifyPage({
   params,
 }: {
@@ -116,7 +122,7 @@ export default async function VerifyPage({
             has successfully completed
           </p>
           <h3 style={{ marginBottom: "var(--space-lg)", color: "var(--color-electric)" }}>
-            {cert.program}
+            {PROGRAM_LABELS[cert.program] || cert.program}
           </h3>
           <hr className="rule" />
           <div

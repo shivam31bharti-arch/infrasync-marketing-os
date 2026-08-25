@@ -352,3 +352,26 @@ writes one entry per iteration in this format:
   Then prompts/design-loop.md until a stop rule fires.
 - Open questions: founder to connect Cloudflare Pages + swap test→live Razorpay links after
   KYC · accelerator duration in weeks · instructor + cert signatory names.
+
+## 2026-08-25 (morning) — Claude audit: night shift verified, cert task closed to 90%, day shift prepped
+- Verified bfcc4a3 evidence honestly: outskill=0 in storefront ✓ · offers.md header = SkillSync ✓ ·
+  3 payment buttons + ₹1,999 confirmed in the log's build evidence ✓.
+- Founder-side milestones (done with Claude, logged here for continuity): 3 Razorpay TEST
+  Payment Pages live + probed HTTP 200 (workshop ₹1,999 YnzvRKMr · generalist 95k BZZDx5n ·
+  engineer 95k 416AflD), URLs in .env AND storefront/.env.local (Next.js only reads the
+  latter) · HubSpot Free CRM "SkillSync" created; Gmail inbox-sync disabled + scraped
+  contacts wiped; 14-contact @example.com demo pipeline imported (Program dropdown +
+  Enrollment Status text properties) · OmniDimension Course Counselor created + web-call
+  tested in the DEDICATED account · Twenty/Docker CRM dropped (demo runs from any laptop) —
+  HubSpot chosen; compose kept in crm/ for the future VPS · test payment made (4111 card).
+- Cert e2e (was stalled overnight): ran `--test` → PDF+PNG rendered
+  (scripts/out/certificates/SSC-2026-0000.*) + DB row SSC-2026-0000 registered ✓ · email leg
+  FAILED Brevo 535: BREVO_SMTP_USER is a gmail address; Brevo SMTP needs the generated
+  @smtp-brevo.com login. Patched --test recipient to FOUNDER_EMAIL || BREVO_SMTP_USER.
+  RESUME: founder fixes .env (SMTP login + fresh xsmtpsib- key + FOUNDER_EMAIL=) →
+  `node scripts/certificate.mjs --test` → expect [3/3] emailed + emailed_at set → then prove
+  /verify/SSC-2026-0000 renders.
+- Voice-agent KB generated from swept offers.md → agent/skillsync-kb.pdf (founder uploads to
+  OmniDimension Knowledge Base manually).
+- NEXT: day shift runs prompts/day-shift-opus.md (cert email leg → production smoke tests
+  after founder's Cloudflare deploy → design loop → ad briefs).
