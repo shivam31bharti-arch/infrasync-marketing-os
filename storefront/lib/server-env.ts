@@ -22,7 +22,15 @@ export function loadServerEnv(): void {
   }
 }
 
+// Public constants — payment-page URLs are public by definition (they ship in
+// page HTML). A same-named env var overrides; hosts without build env still work.
+const PUBLIC_DEFAULTS: Record<string, string> = {
+  NEXT_PUBLIC_RAZORPAY_WORKSHOP_LINK: "https://rzp.io/rzp/YnzvRKMr",
+  NEXT_PUBLIC_RAZORPAY_GENERALIST_LINK: "https://rzp.io/rzp/BZZDx5n",
+  NEXT_PUBLIC_RAZORPAY_ENGINEER_LINK: "https://rzp.io/rzp/416AflD",
+};
+
 export function serverEnv(name: string): string | undefined {
   loadServerEnv();
-  return process.env[name];
+  return process.env[name] ?? PUBLIC_DEFAULTS[name];
 }
