@@ -470,3 +470,9 @@ writes one entry per iteration in this format:
 - Verified: npm run build is green (0 errors).
 - Next: Build Task 3 — Included free with your seat section (home + /workshop).
 - Open questions: none.
+
+## 2026-08-26 — Phase 1: Design loop v2 Task 3 (Included free with your seat)
+- Done: Added "Included free with your seat" section to home and /workshop with honest framing and clear deliverables mapping to offers.md (recordings, notes, tool setup guides, prompt library, certificate, session concierge).
+- Verified: npm run build is green (0 errors).
+- Next: Build Task 4 — Talk-to-us launcher (floating action button).
+- Open questions: none.
