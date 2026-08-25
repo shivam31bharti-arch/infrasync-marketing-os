@@ -3,11 +3,14 @@
 import { motion } from "motion/react";
 import React from "react";
 
+// SAMPLE testimonials — replace with real, consented student reviews after cohort 1.
+// Never present these as real (claims policy, agent/offers.md). The visible
+// "Illustrative reviews" caption below must stay until real quotes replace them.
 const reviews = [
   { text: "The vibe coding day was a revelation. Actually shipped something.", author: "Priya K." },
   { text: "Finally, an AI course that isn't just theory slides.", author: "Rajesh M." },
   { text: "The AI Engineer capstone broke my brain in the best way.", author: "Alex T." },
-  { text: "Worth 10x the price for the prompt library alone.", author: "Sarah J." },
+  { text: "The prompt library and session notes alone kept me busy for weeks.", author: "Sarah J." },
 ];
 
 export default function ReviewsMarquee() {
@@ -18,6 +21,9 @@ export default function ReviewsMarquee() {
     <section className="section" style={{ overflow: "hidden", background: "var(--color-bg)" }}>
       <div className="container" style={{ marginBottom: "var(--space-2xl)", textAlign: "center" }}>
         <h2 style={{ fontSize: "2rem" }}>What our students say</h2>
+        <p style={{ marginTop: "var(--space-sm)", color: "var(--color-muted, #8A8F98)", fontSize: "0.875rem" }}>
+          Illustrative reviews — real student stories publish after our first cohorts.
+        </p>
       </div>
       
       <div style={{ position: "relative", width: "100vw", left: "50%", right: "50%", marginLeft: "-50vw", marginRight: "-50vw", overflow: "hidden" }}>
