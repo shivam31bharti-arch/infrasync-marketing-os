@@ -3,6 +3,7 @@ import Link from "next/link";
 import FaqAccordion from "@/components/FaqAccordion";
 import GradientMesh from "@/components/GradientMesh";
 import CurriculumModule from "@/components/CurriculumModule";
+import IncludedFreeSection from "@/components/IncludedFreeSection";
 import { loadServerEnv, serverEnv } from "@/lib/server-env";
 
 loadServerEnv(); // root .env (NEXT_PUBLIC_* not auto-loaded outside storefront/)
@@ -124,6 +125,9 @@ export default function WorkshopPage() {
         </div>
       </section>
 
+      {/* Included Free */}
+      <IncludedFreeSection />
+
       {/* Schedule */}
       <section className="section section--dark">
         <div className="container container--narrow" style={{ textAlign: "center" }}>
@@ -242,6 +246,7 @@ export default function WorkshopPage() {
     </>
   );
 }
+
 
 
 

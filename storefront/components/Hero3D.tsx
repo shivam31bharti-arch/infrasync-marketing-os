@@ -1,137 +1,226 @@
 "use client";
 
 import { useRef, useMemo, useEffect, useState } from "react";
-import { Canvas, useFrame } from "@react-three/fiber";
-import { Float, Environment } from "@react-three/drei";
 import * as THREE from "three";
+import { Canvas, useFrame } from "@react-three/fiber";
+import { OrbitControls } from "@react-three/drei";
 
-function Particles({ count = 40, reducedMotion = false }: { count?: number, reducedMotion?: boolean }) {
-  const mesh = useRef<THREE.InstancedMesh>(null);
-  const dummy = useMemo(() => new THREE.Object3D(), []);
-  
-  const particles = useMemo(() => {
-    const temp = [];
-    for (let i = 0; i < count; i++) {
-      const t = Math.random() * 100;
-      const factor = 20 + Math.random() * 100;
-      const speed = 0.01 + Math.random() / 200;
-      const xFactor = -50 + Math.random() * 100;
-      const yFactor = -50 + Math.random() * 100;
-      const zFactor = -50 + Math.random() * 100;
-      temp.push({ t, factor, speed, xFactor, yFactor, zFactor, mx: 0, my: 0 });
-    }
-    return temp;
-  }, [count]);
+const GRADIENT_VARS = {
+  hero: "linear-gradient(135deg, #0A0E14 0%, #101828 100%)",
+  accent: "linear-gradient(90deg, #4F7CFF 0%, #7C5CFF 100%)",
+} as const;
 
-  useFrame((state) => {
-    if (reducedMotion) return;
-    particles.forEach((particle, i) => {
-      let { t, factor, speed, xFactor, yFactor, zFactor } = particle;
-      t = particle.t += speed / 2;
-      const a = Math.cos(t) + Math.sin(t * 1) / 10;
-      const b = Math.sin(t) + Math.cos(t * 2) / 10;
-      const s = Math.cos(t);
-
-      dummy.position.set(
-        (particle.mx / 10) * a + xFactor + Math.cos((t / 10) * factor) + (Math.sin(t * 1) * factor) / 10,
-        (particle.my / 10) * b + yFactor + Math.sin((t / 10) * factor) + (Math.cos(t * 2) * factor) / 10,
-        (particle.my / 10) * b + zFactor + Math.cos((t / 10) * factor) + (Math.sin(t * 3) * factor) / 10
-      );
-      dummy.scale.set(s, s, s);
-      dummy.rotation.set(s * 5, s * 5, s * 5);
-      dummy.updateMatrix();
-      if (mesh.current) {
-        mesh.current.setMatrixAt(i, dummy.matrix);
-      }
-    });
-    if (mesh.current) {
-      mesh.current.instanceMatrix.needsUpdate = true;
-    }
-  });
-
-  return (
-    <>
-      <instancedMesh ref={mesh} args={[undefined, undefined, count]}>
-        <dodecahedronGeometry args={[0.2, 0]} />
-        <meshPhysicalMaterial color="#4F7CFF" roughness={0.2} metalness={0.8} />
-      </instancedMesh>
-    </>
-  );
+interface Particle {
+  position: [number, number, number];
+  velocity: [number, number, number];
+  size: number;
+  color: string;
+  opacity: number;
 }
 
-function Scene({ reducedMotion }: { reducedMotion: boolean }) {
-  const group = useRef<THREE.Group>(null);
-  
-  useFrame((state) => {
-    if (reducedMotion || !group.current) return;
-    const targetX = (state.pointer.x * 0.1);
-    const targetY = (state.pointer.y * 0.1);
-    group.current.position.x += (targetX - group.current.position.x) * 0.1;
-    group.current.position.y += (targetY - group.current.position.y) * 0.1;
-  });
+const PARTICLE_COUNT = 120;
+const SPREAD = 40;
 
-  return (
-    <group ref={group}>
-      <Float speed={reducedMotion ? 0 : 2} rotationIntensity={reducedMotion ? 0 : 1.5} floatIntensity={reducedMotion ? 0 : 2}>
-        <mesh position={[-2, 1, -5]} rotation={[0.5, 0.5, 0]}>
-          <boxGeometry args={[1.5, 1.5, 1.5]} />
-          <meshStandardMaterial color="#0A0E14" wireframe opacity={0.3} transparent />
-        </mesh>
-      </Float>
-      
-      <Float speed={reducedMotion ? 0 : 3} rotationIntensity={reducedMotion ? 0 : 1} floatIntensity={reducedMotion ? 0 : 2}>
-        <mesh position={[3, -1, -3]} rotation={[-0.2, 0.8, 0]}>
-          <torusGeometry args={[1, 0.3, 16, 32]} />
-          <meshStandardMaterial color="#4F7CFF" opacity={0.8} transparent roughness={0.1} metalness={0.8} />
-        </mesh>
-      </Float>
-
-      <Float speed={reducedMotion ? 0 : 1.5} rotationIntensity={reducedMotion ? 0 : 2} floatIntensity={reducedMotion ? 0 : 1}>
-        <mesh position={[-3, -2, -6]} rotation={[1, 1, 1]}>
-          <octahedronGeometry args={[1]} />
-          <meshStandardMaterial color="#8A8F98" wireframe opacity={0.2} transparent />
-        </mesh>
-      </Float>
-      
-      <Particles count={60} reducedMotion={reducedMotion} />
-    </group>
-  );
-}
-
-export default function Hero3D({ className = "" }: { className?: string }) {
-  const [reducedMotion, setReducedMotion] = useState(false);
-  const [mounted, setMounted] = useState(false);
+function Hero3DCanvas() {
+  const [reduceMotion, setReduceMotion] = useState(false);
+  const pointer = useMemo(() => ({ x: 0, y: 0 }), []);
+  const targetPointer = useMemo(() => ({ x: 0, y: 0 }), []);
 
   useEffect(() => {
-    setMounted(true);
     const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
-    setReducedMotion(mediaQuery.matches);
-    const handler = (e: MediaQueryListEvent) => setReducedMotion(e.matches);
+    setReduceMotion(mediaQuery.matches);
+    const handler = (e: MediaQueryListEvent) => setReduceMotion(e.matches);
     mediaQuery.addEventListener("change", handler);
     return () => mediaQuery.removeEventListener("change", handler);
   }, []);
 
-  if (!mounted) return null;
+  useEffect(() => {
+    const onPointerMove = (e: MouseEvent) => {
+      if (reduceMotion) return;
+      targetPointer.x = (e.clientX / window.innerWidth - 0.5) * 2;
+      targetPointer.y = (e.clientY / window.innerHeight - 0.5) * 2;
+    };
+    window.addEventListener("pointermove", onPointerMove, { passive: true });
+    return () => window.removeEventListener("pointermove", onPointerMove);
+  }, [reduceMotion]);
+
+  const particles = useMemo((): Particle[] => {
+    const arr: Particle[] = [];
+    for (let i = 0; i < PARTICLE_COUNT; i++) {
+      const theta = Math.random() * Math.PI * 2;
+      const phi = Math.acos(2 * Math.random() - 1);
+      const r = SPREAD * (0.3 + Math.random() * 0.7);
+      arr.push({
+        position: [
+          r * Math.sin(phi) * Math.cos(theta),
+          r * Math.sin(phi) * Math.sin(theta),
+          r * Math.cos(phi),
+        ],
+        velocity: [
+          (Math.random() - 0.5) * 0.02,
+          (Math.random() - 0.5) * 0.02,
+          (Math.random() - 0.5) * 0.02,
+        ],
+        size: 0.15 + Math.random() * 0.35,
+        color: Math.random() > 0.6 ? "#4F7CFF" : Math.random() > 0.3 ? "#7C5CFF" : "#FFFFFF",
+        opacity: 0.15 + Math.random() * 0.35,
+      });
+    }
+    return arr;
+  }, []);
+
+  return (
+    <Canvas
+      camera={{ position: [0, 0, 50], fov: 45 }}
+      style={{ position: "absolute", inset: 0, zIndex: 0 }}
+      gl={{ antialias: true, alpha: true, preserveDrawingBuffer: false }}
+      onCreated={({ gl }) => {
+        gl.setClearColor(0x0a0e14, 1);
+      }}
+    >
+      <color attach="background" args={["#0A0E14"]} />
+      <fog attach="fog" args={["#0A0E14", 30, 100]} />
+      
+      {!reduceMotion && <OrbitControls enableRotate={false} enableZoom={false} enablePan={false} />}
+      
+      <ParticleSystem particles={particles} pointer={pointer} targetPointer={targetPointer} reduceMotion={reduceMotion} />
+      
+      <ambientLight intensity={0.6} />
+      <directionalLight position={[10, 10, 10]} intensity={0.4} color="#4F7CFF" />
+      <directionalLight position={[-10, -10, 10]} intensity={0.3} color="#7C5CFF" />
+    </Canvas>
+  );
+}
+
+function ParticleSystem({
+  particles,
+  pointer,
+  targetPointer,
+  reduceMotion,
+}: {
+  particles: Particle[];
+  pointer: { x: number; y: number };
+  targetPointer: { x: number; y: number };
+  reduceMotion: boolean;
+}) {
+  const groupRef = useRef<THREE.Group>(null);
+
+  useFrame((_state, delta) => {
+    if (!groupRef.current) return;
+    if (reduceMotion) {
+      pointer.x += (targetPointer.x - pointer.x) * 0.02;
+      pointer.y += (targetPointer.y - pointer.y) * 0.02;
+      groupRef.current.rotation.y = pointer.x * 0.05;
+      groupRef.current.rotation.x = -pointer.y * 0.05;
+      return;
+    }
+
+    pointer.x += (targetPointer.x - pointer.x) * 0.03;
+    pointer.y += (targetPointer.y - pointer.y) * 0.03;
+
+    groupRef.current.rotation.y = pointer.x * 0.08;
+    groupRef.current.rotation.x = -pointer.y * 0.08;
+
+    particles.forEach((p, i) => {
+      const mesh = groupRef.current!.children[i] as THREE.Mesh;
+      if (!mesh) return;
+
+      p.position[0] += p.velocity[0];
+      p.position[1] += p.velocity[1];
+      p.position[2] += p.velocity[2];
+
+      const dist = Math.sqrt(
+        p.position[0] ** 2 + p.position[1] ** 2 + p.position[2] ** 2
+      );
+      if (dist > SPREAD * 1.2) {
+        p.velocity[0] *= -1;
+        p.velocity[1] *= -1;
+        p.velocity[2] *= -1;
+      }
+
+      mesh.position.set(p.position[0], p.position[1], p.position[2]);
+      mesh.rotation.x += 0.001;
+      mesh.rotation.y += 0.001;
+    });
+  });
+
+  return (
+    <group ref={groupRef}>
+      {particles.map((p, i) => (
+        <ParticleMesh key={i} particle={p} />
+      ))}
+    </group>
+  );
+}
+
+function ParticleMesh({ particle }: { particle: Particle }) {
+  const { position, size, color, opacity } = particle;
+  const ref = useRef<THREE.Mesh>(null);
+
+  return (
+    <mesh ref={ref} position={position} frustumCulled={false}>
+      <sphereGeometry args={[size, 16, 16]} />
+      <meshBasicMaterial
+        color={color}
+        transparent
+        opacity={opacity}
+        depthWrite={false}
+        blending={THREE.AdditiveBlending}
+      />
+    </mesh>
+  );
+}
+
+export default function Hero3D() {
+  const [reduceMotion, setReduceMotion] = useState(false);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    setReduceMotion(mediaQuery.matches);
+    const handler = (e: MediaQueryListEvent) => setReduceMotion(e.matches);
+    mediaQuery.addEventListener("change", handler);
+    return () => mediaQuery.removeEventListener("change", handler);
+  }, []);
 
   return (
     <div
-      className={`hero-3d-bg ${className}`}
-      aria-hidden="true"
       style={{
         position: "absolute",
         inset: 0,
-        overflow: "hidden",
         zIndex: 0,
-        pointerEvents: "none",
-        background: "var(--grad-hero)",
+        overflow: "hidden",
+        background: GRADIENT_VARS.hero,
       }}
+      aria-hidden="true"
     >
-      <Canvas camera={{ position: [0, 0, 8], fov: 45 }}>
-        <ambientLight intensity={0.5} />
-        <directionalLight position={[10, 10, 5]} intensity={1} color="#ffffff" />
-        <Environment preset="city" />
-        <Scene reducedMotion={reducedMotion} />
-      </Canvas>
+      {!reduceMotion ? <Hero3DCanvas /> : null}
+      <div
+        style={{
+          position: "absolute",
+          inset: 0,
+          background: `
+            radial-gradient(ellipse at 20% 20%, rgba(79, 124, 255, 0.08) 0%, transparent 50%),
+            radial-gradient(ellipse at 80% 80%, rgba(124, 92, 255, 0.06) 0%, transparent 50%),
+            radial-gradient(ellipse at 50% 50%, rgba(79, 124, 255, 0.03) 0%, transparent 70%)
+          `,
+          pointerEvents: "none",
+        }}
+      />
     </div>
   );
+}
+
+declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      group: any;
+      mesh: any;
+      sphereGeometry: any;
+      meshBasicMaterial: any;
+      ambientLight: any;
+      directionalLight: any;
+      color: any;
+      fog: any;
+    }
+  }
 }

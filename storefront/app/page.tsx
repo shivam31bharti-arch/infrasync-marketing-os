@@ -1,6 +1,7 @@
 ﻿import Link from "next/link";
 import Hero3D from "@/components/Hero3D";
 import FaqAccordion from "@/components/FaqAccordion";
+import IncludedFreeSection from "@/components/IncludedFreeSection";
 
 export default function HomePage() {
   return (
@@ -130,6 +131,9 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Included Free */}
+      <IncludedFreeSection />
+
       {/* Workshop CTA */}
       <section className="section">
         <div className="container" style={{ textAlign: "center" }}>
@@ -235,4 +239,5 @@ export default function HomePage() {
     </>
   );
 }
+
 
