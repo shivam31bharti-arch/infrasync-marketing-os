@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import GradientMesh from "@/components/GradientMesh";
 import { loadServerEnv, serverEnv } from "@/lib/server-env";
 
 loadServerEnv(); // root .env (NEXT_PUBLIC_* not auto-loaded outside storefront/)
@@ -19,9 +20,10 @@ export default function AIEngineerPage() {
       {/* Hero */}
       <section
         className="section section--dark"
-        style={{ minHeight: "50vh", display: "flex", alignItems: "center" }}
+        style={{ minHeight: "50vh", display: "flex", alignItems: "center", position: "relative" }}
       >
-        <div className="container">
+        <GradientMesh />
+        <div className="container" style={{ position: "relative", zIndex: 1 }}>
           <span
             className="prereq-badge"
             style={{ marginBottom: "var(--space-lg)", display: "inline-flex" }}

@@ -1,13 +1,15 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import FaqAccordion from "@/components/FaqAccordion";
+import GradientMesh from "@/components/GradientMesh";
 import { loadServerEnv, serverEnv } from "@/lib/server-env";
 
 loadServerEnv(); // root .env (NEXT_PUBLIC_* not auto-loaded outside storefront/)
 
 export const metadata: Metadata = {
-  title: "2-Day AI Workshop — $20 international · ₹1,999 India",
+  title: "2-Day AI Workshop — $20 / ₹1,999 — InfraSync",
   description:
-    "Two days of hands-on AI fundamentals. A taste of both the Generalist and Engineer accelerators. $20 international · ₹1,999 India.",
+    "Two days of hands-on AI fundamentals. No prior coding needed. A real taste of both accelerator tracks — before you commit. $20 international / ₹1,999 India.",
 };
 
 export default function WorkshopPage() {
@@ -19,9 +21,10 @@ export default function WorkshopPage() {
       {/* Hero */}
       <section
         className="section section--dark"
-        style={{ minHeight: "50vh", display: "flex", alignItems: "center" }}
+        style={{ minHeight: "50vh", display: "flex", alignItems: "center", position: "relative" }}
       >
-        <div className="container">
+        <GradientMesh />
+        <div className="container" style={{ position: "relative", zIndex: 1 }}>
           <p className="label" style={{ marginBottom: "var(--space-md)" }}>
             The starting point
           </p>
@@ -199,49 +202,63 @@ export default function WorkshopPage() {
           <h2 style={{ textAlign: "center", marginBottom: "var(--space-3xl)" }}>
             Workshop FAQ
           </h2>
-          <div className="faq-item">
-            <h3 className="faq-question">Do I need to know how to code?</h3>
-            <p className="faq-answer">
-              No. The workshop is designed for everyone — coders and non-coders
-              alike. Day 2 helps you figure out which accelerator track fits
-              your background.
-            </p>
-          </div>
-          <div className="faq-item">
-            <h3 className="faq-question">Is it live or pre-recorded?</h3>
-            <p className="faq-answer">
-              Live. You&apos;ll be in a small cohort with real-time interaction
-              and hands-on exercises.
-            </p>
-          </div>
-          <div className="faq-item">
-            <h3 className="faq-question">What do I need?</h3>
-            <p className="faq-answer">
-              A computer with internet access and a browser. That&apos;s it.
-              We&apos;ll guide you through everything else.
-            </p>
-          </div>
-          <div className="faq-item">
-            <h3 className="faq-question">Will I get a reminder before my sessions?</h3>
-            <p className="faq-answer">
-              Yes. Registered students receive automated reminders before
-              sessions — a call from SkillSync&apos;s AI counselor, plus email
-              and WhatsApp. You consent to these reminders when you register.
-            </p>
-          </div>
-          <div className="faq-item">
-            <h3 className="faq-question">Can I get a refund?</h3>
-            <p className="faq-answer">
-              The workshop is <strong>non-refundable</strong> — and we state
-              that clearly before you pay. Accelerator programs are different:
-              they include a 4-week money-back window from cohort start. See
-              the{" "}
-              <Link href="/policies/refund" style={{ color: "var(--color-electric)", textDecoration: "underline" }}>
-                Refund Policy
-              </Link>
-              .
-            </p>
-          </div>
+          <FaqAccordion
+            items={[
+              {
+                question: "Do I need to know how to code?",
+                answer: (
+                  <p>
+                    No. The workshop is designed for everyone — coders and non-coders
+                    alike. Day 2 helps you figure out which accelerator track fits
+                    your background.
+                  </p>
+                ),
+              },
+              {
+                question: "Is it live or pre-recorded?",
+                answer: (
+                  <p>
+                    Live. You&apos;ll be in a small cohort with real-time interaction
+                    and hands-on exercises.
+                  </p>
+                ),
+              },
+              {
+                question: "What do I need?",
+                answer: (
+                  <p>
+                    A computer with internet access and a browser. That&apos;s it.
+                    We&apos;ll guide you through everything else.
+                  </p>
+                ),
+              },
+              {
+                question: "Will I get a reminder before my sessions?",
+                answer: (
+                  <p>
+                    Yes. Registered students receive automated reminders before
+                    sessions — a call from SkillSync&apos;s AI counselor, plus email
+                    and WhatsApp. You consent to these reminders when you register.
+                  </p>
+                ),
+              },
+              {
+                question: "Can I get a refund?",
+                answer: (
+                  <p>
+                    The workshop is <strong>non-refundable</strong> — and we state
+                    that clearly before you pay. Accelerator programs are different:
+                    they include a 4-week money-back window from cohort start. See
+                    the{" "}
+                    <Link href="/policies/refund" style={{ color: "var(--color-electric)", textDecoration: "underline" }}>
+                      Refund Policy
+                    </Link>
+                    .
+                  </p>
+                ),
+              },
+            ]}
+          />
         </div>
       </section>
     </>

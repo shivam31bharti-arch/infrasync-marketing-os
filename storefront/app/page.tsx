@@ -1,11 +1,14 @@
 import Link from "next/link";
+import GradientMesh from "@/components/GradientMesh";
+import FaqAccordion from "@/components/FaqAccordion";
 
 export default function HomePage() {
   return (
     <>
       {/* Hero */}
-      <section className="section section--dark" style={{ minHeight: "80vh", display: "flex", alignItems: "center" }}>
-        <div className="container">
+      <section className="section section--dark" style={{ minHeight: "80vh", display: "flex", alignItems: "center", position: "relative" }}>
+        <GradientMesh />
+        <div className="container" style={{ position: "relative", zIndex: 1 }}>
           <p className="label" style={{ marginBottom: "var(--space-lg)" }}>
             AI Education by SkillSync
           </p>
@@ -134,7 +137,7 @@ export default function HomePage() {
             The 2-Day AI Workshop
           </h2>
           <p className="muted" style={{ fontSize: "1.125rem", maxWidth: "520px", margin: "0 auto var(--space-lg)" }}>
-            Your entry point into the InfraSync ecosystem. Two days of
+            Your entry point into the SkillSync ecosystem. Two days of
             hands-on AI. Just $20 international · ₹1,999 India to get
             started.
           </p>
@@ -156,71 +159,77 @@ export default function HomePage() {
           <h2 style={{ textAlign: "center", marginBottom: "var(--space-3xl)" }}>
             Frequently Asked Questions
           </h2>
-          <div>
-            <div className="faq-item">
-              <h3 className="faq-question">What is InfraSync?</h3>
-              <p className="faq-answer">
-                InfraSync is an AI education platform by SkillSync. We run
-                live, cohort-based programs that teach people how to work
-                with AI — whether you&apos;re a non-tech professional or a
-                developer with Python experience.
-              </p>
-            </div>
-            <div className="faq-item">
-              <h3 className="faq-question">
-                Do I need coding experience for the workshop?
-              </h3>
-              <p className="faq-answer">
-                No. The 2-Day AI Workshop is designed for everyone — it
-                covers fundamentals and gives you a taste of both the
-                Generalist and Engineer tracks before you choose.
-              </p>
-            </div>
-            <div className="faq-item">
-              <h3 className="faq-question">
-                What&apos;s the difference between the two accelerators?
-              </h3>
-              <p className="faq-answer">
-                The <strong>AI Generalist</strong> track is for non-tech
-                professionals — learn vibe coding and AI tools without an
-                engineering background. The <strong>AI Engineer</strong>{" "}
-                track requires Python and teaches AI-augmented engineering,
-                performance, and productivity.
-              </p>
-            </div>
-            <div className="faq-item">
-              <h3 className="faq-question">Do I get a certificate?</h3>
-              <p className="faq-answer">
-                Yes. Upon completing your accelerator program, you receive
-                a verifiable SkillSync certificate of completion with a
-                unique code and public verification page.
-              </p>
-            </div>
-            <div className="faq-item">
-              <h3 className="faq-question">
-                Is EMI available for the accelerators?
-              </h3>
-              <p className="faq-answer">
-                Yes — India enrollments can use <strong>no-cost EMI</strong> over{" "}
-                3, 6, or 10 months via Razorpay (subject to bank approval).
-              </p>
-            </div>
-            <div className="faq-item">
-              <h3 className="faq-question">
-                What&apos;s your refund policy?
-              </h3>
-              <p className="faq-answer">
-                The $20 workshop is non-refundable — stated clearly before you
-                pay. Accelerators include a{" "}
-                <strong>4-week money-back window</strong>: full refund if you
-                cancel within 4 weeks of your cohort start. See our{" "}
-                <Link href="/policies/refund" style={{ color: "var(--color-electric)", textDecoration: "underline" }}>
-                  Refund Policy
-                </Link>
-                .
-              </p>
-            </div>
-          </div>
+          <FaqAccordion
+            items={[
+              {
+                question: "What is InfraSync?",
+                answer: (
+                  <p>
+                    InfraSync is an AI education platform by SkillSync. We run
+                    live, cohort-based programs that teach people how to work
+                    with AI — whether you&apos;re a non-tech professional or a
+                    developer with Python experience.
+                  </p>
+                ),
+              },
+              {
+                question: "Do I need coding experience for the workshop?",
+                answer: (
+                  <p>
+                    No. The 2-Day AI Workshop is designed for everyone — it
+                    covers fundamentals and gives you a taste of both the
+                    Generalist and Engineer tracks before you choose.
+                  </p>
+                ),
+              },
+              {
+                question: "What's the difference between the two accelerators?",
+                answer: (
+                  <p>
+                    The <strong>AI Generalist</strong> track is for non-tech
+                    professionals — learn vibe coding and AI tools without an
+                    engineering background. The <strong>AI Engineer</strong>{" "}
+                    track requires Python and teaches AI-augmented engineering,
+                    performance, and productivity.
+                  </p>
+                ),
+              },
+              {
+                question: "Do I get a certificate?",
+                answer: (
+                  <p>
+                    Yes. Upon completing your accelerator program, you receive
+                    a verifiable SkillSync certificate of completion with a
+                    unique code and public verification page.
+                  </p>
+                ),
+              },
+              {
+                question: "Is EMI available for the accelerators?",
+                answer: (
+                  <p>
+                    Yes — India enrollments can use <strong>no-cost EMI</strong> over{" "}
+                    3, 6, or 10 months via Razorpay (subject to bank approval).
+                  </p>
+                ),
+              },
+              {
+                question: "What's your refund policy?",
+                answer: (
+                  <p>
+                    The $20 workshop is non-refundable — stated clearly before you
+                    pay. Accelerators include a{" "}
+                    <strong>4-week money-back window</strong>: full refund if you
+                    cancel within 4 weeks of your cohort start. See our{" "}
+                    <Link href="/policies/refund" style={{ color: "var(--color-electric)", textDecoration: "underline" }}>
+                      Refund Policy
+                    </Link>
+                    .
+                  </p>
+                ),
+              },
+            ]}
+          />
         </div>
       </section>
     </>

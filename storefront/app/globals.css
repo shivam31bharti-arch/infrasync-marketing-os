@@ -643,10 +643,22 @@ main { padding-top: var(--nav-height); }
   border: none;
   color: inherit;
   text-align: left;
+  padding: var(--space-sm) 0;
+  transition: color var(--transition-base);
+}
+
+.faq-question:hover {
+  color: var(--color-electric);
+}
+
+.faq-question:focus-visible {
+  outline: 2px solid var(--color-electric);
+  outline-offset: 4px;
+  border-radius: var(--radius-sm);
 }
 
 .faq-answer {
-  margin-top: var(--space-md);
+  padding: 0 0 var(--space-md);
   color: var(--color-gray);
   line-height: 1.7;
   max-width: 640px;
@@ -688,3 +700,155 @@ main { padding-top: var(--nav-height); }
 }
 
 .subscribe-inline .input { flex: 1; }
+
+/* ---- Gradient Mesh (hero background) ---- */
+.gradient-mesh__orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.35;
+}
+
+.gradient-mesh__orb--1 {
+  width: 600px;
+  height: 600px;
+  background: var(--color-electric);
+  top: -20%;
+  right: -10%;
+  animation: meshFloat1 12s ease-in-out infinite;
+}
+
+.gradient-mesh__orb--2 {
+  width: 400px;
+  height: 400px;
+  background: #6C3AED;
+  bottom: -15%;
+  left: -5%;
+  animation: meshFloat2 15s ease-in-out infinite;
+}
+
+.gradient-mesh__orb--3 {
+  width: 300px;
+  height: 300px;
+  background: #0EA5E9;
+  top: 40%;
+  left: 40%;
+  animation: meshFloat3 10s ease-in-out infinite;
+}
+
+@keyframes meshFloat1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(-30px, 20px) scale(1.05); }
+  66% { transform: translate(20px, -15px) scale(0.95); }
+}
+
+@keyframes meshFloat2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(25px, -20px) scale(1.08); }
+}
+
+@keyframes meshFloat3 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-20px, 25px) scale(1.1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gradient-mesh__orb { animation: none !important; }
+}
+
+/* ---- Section icon badge (used on curriculum cards, steps) ---- */
+.section-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-md);
+  background: var(--color-electric-dim);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--space-lg);
+  flex-shrink: 0;
+  color: var(--color-electric);
+}
+
+.section--dark .section-icon {
+  background: rgba(79, 124, 255, 0.15);
+}
+
+/* ---- Enhanced card styles ---- */
+.card--curriculum {
+  padding: var(--space-xl) var(--space-xl) var(--space-lg);
+  position: relative;
+  border-left: 3px solid transparent;
+  transition: transform var(--transition-slow), box-shadow var(--transition-slow), border-color var(--transition-base);
+}
+
+.card--curriculum:hover {
+  border-left-color: var(--color-electric);
+}
+
+.card--dark.card--curriculum:hover {
+  border-left-color: var(--color-electric);
+}
+
+/* ---- Feature grid (3-col with icons) ---- */
+.feature-grid {
+  display: grid;
+  gap: var(--space-lg);
+  grid-template-columns: repeat(3, 1fr);
+}
+
+@media (max-width: 1024px) {
+  .feature-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 640px) {
+  .feature-grid { grid-template-columns: 1fr; }
+}
+
+/* ---- Stats row (social proof numbers) ---- */
+.stats-row {
+  display: flex;
+  gap: var(--space-3xl);
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: var(--space-2xl) 0;
+}
+
+.stat-item {
+  text-align: center;
+}
+
+.stat-number {
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--color-electric);
+}
+
+.stat-label {
+  font-size: 0.875rem;
+  color: var(--color-gray);
+  margin-top: var(--space-xs);
+}
+
+/* ---- Divider with label ---- */
+.section-divider {
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+  margin: var(--space-3xl) auto;
+  max-width: 400px;
+}
+
+.section-divider::before,
+.section-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: rgba(138, 143, 152, 0.2);
+}
+
+.section--dark .section-divider::before,
+.section--dark .section-divider::after {
+  background: rgba(244, 242, 236, 0.1);
+}

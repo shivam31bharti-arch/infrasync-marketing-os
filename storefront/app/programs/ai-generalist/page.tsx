@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import GradientMesh from "@/components/GradientMesh";
 import { loadServerEnv, serverEnv } from "@/lib/server-env";
 
 loadServerEnv(); // root .env (NEXT_PUBLIC_* not auto-loaded outside storefront/)
