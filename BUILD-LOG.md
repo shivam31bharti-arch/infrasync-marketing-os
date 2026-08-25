@@ -392,3 +392,17 @@ writes one entry per iteration in this format:
   auto-PR a wrangler.jsonc name fix (infrasync-storefront→skillsync-site) — merge on sight.
 - RESUME: day shift task 2 (production smoke) largely done by Claude; re-run after runtime
   secrets land, then design loop.
+
+## 2026-08-26 (~1 AM) — Certificate e2e 100% + Drive delivery infra ready (founder + Claude)
+- SMTP root cause: BREVO_SMTP_USER must be the generated login b6766c001@smtp-brevo.com, NOT
+  the gmail. Existing key was valid all along. .env fixed (login + FOUNDER_EMAIL added).
+- `node scripts/certificate.mjs --test` → [3/3] SMTP 250 OK queued → cert email delivered to
+  founder inbox. Cert task CLOSED.
+- Google Drive delivery infra (personal acct busnz122 — work acct blocked SA keys by org
+  policy): GCP project skillsync-506618 · Drive API enabled · SA
+  skillsync-delivery@skillsync-506618.iam.gserviceaccount.com · JSON key at
+  .secrets/gdrive-sa.json (gitignored) · Drive folder "SKILLSYNC" shared with SA as Editor,
+  General access Restricted.
+- Razorpay TEST API keys in .env (rzp_test_, shapes verified).
+- NEXT: delivery-pack.mjs (Razorpay→Supabase→participation certs→Drive grants→8:30 PM email)
+  + Brevo domain auth for team@infra-sync.online + Worker runtime secrets (founder, CF dash).
