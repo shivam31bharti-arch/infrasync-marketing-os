@@ -513,8 +513,8 @@ writes one entry per iteration in this format:
   redeploy.
 - Open questions: none.
 
-## 2026-08-26 — design-v3 (branch): GrowthSchool-reference rebuild of the 4 money pages
-- Done (branch `design-v3`, NOT merged — founder must review a preview first):
+## 2026-08-26 — design-v3-growthschool (branch): GrowthSchool-reference rebuild of the 4 money pages
+- Done (branch `design-v3-growthschool`, NOT merged — founder must review a preview first):
   · New design system in globals.css: growthschool.io/in language — deep green-black
     #030D02/#041B01, cream #FFFAF1, signature green #33C375 CTAs (pill), IBM Plex Sans/Mono.
     All v2 class names preserved so untouched pages (quiz/policies/verify/thank-you) inherit.
@@ -539,4 +539,9 @@ writes one entry per iteration in this format:
   (mojibake) still awaits founder Worker redeploy for the CURRENT live site.
 - Resume line: `git checkout design-v3 && cd storefront && npm install && npm run build`
   then review /, /workshop, both program pages at 1440px and 390px.
+- Branch note: remote `design-v3` already carries a PARALLEL direction from another
+  session (Kimi/Claude “Auxia” v3.1–v3.3: cream/ink/hyper-blue, Instrument Sans,
+  /community page). This GrowthSchool dark-green rebuild (user-directed 2026-08-26,
+  reference growthschool.io/in) is pushed as `design-v3-growthschool` so the founder can
+  preview BOTH and pick. Do not force-push either branch over the other.
 - Open questions: none.
