@@ -117,8 +117,11 @@ function certificateHtml({ studentName, programLabel, issuedDate, certNo, cohort
   .foot { margin-top: auto; display: flex; justify-content: space-between; align-items: flex-end;
           font-size: 3.6mm; color: #8A8F98; }
   .sig { text-align: left; }
+  .sig .signame { font-family: "Segoe Script", "Brush Script MT", cursive;
+                  font-size: 9mm; color: #0A0E14; margin: 0 0 1.2mm 2mm;
+                  transform: rotate(-2.5deg); }
   .sig .line { border-top: 0.4mm solid #0A0E14; padding-top: 1.5mm; color: #0A0E14;
-               font-size: 4mm; margin-bottom: 1mm; }
+               font-size: 4mm; margin-bottom: 1mm; min-width: 52mm; }
   .meta { text-align: right; line-height: 1.8; }
   .code { font-family: Consolas, "JetBrains Mono", monospace; color: #0A0E14; font-weight: 600; }
   .legal { position: absolute; bottom: 5mm; left: 0; right: 0; text-align: center;
@@ -133,7 +136,10 @@ function certificateHtml({ studentName, programLabel, issuedDate, certNo, cohort
       cohort ? ` · cohort ${esc(cohort)}` : ""
     }</div>
     <div class="foot">
-      <div class="sig"><div class="line">Program Director, SkillSync</div>Authorized signatory</div>
+      <div class="sig">
+        <div class="signame">${esc(process.env.CERT_SIGNATORY || "Vaibhav")}</div>
+        <div class="line">Program Director, SkillSync</div>Authorized signatory
+      </div>
       <div class="meta">
         Issued ${esc(issuedDate)}<br>
         Certificate <span class="code">${esc(certNo)}</span><br>
