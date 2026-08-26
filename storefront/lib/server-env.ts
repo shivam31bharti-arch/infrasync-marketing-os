@@ -28,6 +28,8 @@ const PUBLIC_DEFAULTS: Record<string, string> = {
   NEXT_PUBLIC_RAZORPAY_WORKSHOP_LINK: "https://rzp.io/rzp/YnzvRKMr",
   NEXT_PUBLIC_RAZORPAY_GENERALIST_LINK: "https://rzp.io/rzp/BZZDx5n",
   NEXT_PUBLIC_RAZORPAY_ENGINEER_LINK: "https://rzp.io/rzp/416AflD",
+  NEXT_PUBLIC_WHATSAPP_COMMUNITY_LINK:
+    "https://stayingahead.ai/IGIP?utm_source=skillsync&utm_medium=site&utm_campaign=community",
 };
 
 export function serverEnv(name: string): string | undefined {
