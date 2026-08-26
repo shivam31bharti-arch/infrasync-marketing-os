@@ -15,17 +15,11 @@ npm run build
 npm start          # serves http://localhost:3000
 ```
 
-- **Real voice callback (recommended):** add the OmniDimension API key to the
-  root `.env` (open in Notepad, add these two lines — key from the OmniDimension
-  dashboard → Settings → API):
-
-  ```
-  OMNIDIM_API_KEY=<your key>
-  OMNIDIM_AGENT_ID=244841
-  ```
-
-  Then restart `npm start`. Without the key, callback requests are still stored
-  in Supabase and the widget says "Request received" — no live call.
+- **Voice is already wired** (verified 2026-08-26): `.env` holds
+  `OMNIDIM_API_KEY` (validated against the API), `OMNIDIM_AGENT_ID=244948`
+  (Course Counselor — site callback) and `STAYINGAHEAD_FOLLOWUP_AGENT_ID=244927`
+  (Follow-up Caller). Confirm both agents' Post-Call email actions are saved in
+  the dashboard (recipient busnz122@gmail.com, all five trigger statuses).
 - Open two tabs in advance: **Supabase → Table Editor → `subscribers` +
   `registrations`**, and **HubSpot → Contacts**.
 - Test payments: use the **netbanking mock** or domestic test card
@@ -51,8 +45,8 @@ invent facts). Provider fallback chain: Groq → Gemini → NVIDIA NIM.
 ## 3) Voice callback (1 min)
 
 **Talk to us → Request a Callback** → your name + your number (with +91) →
-**Call me now**. With the API key set, OmniDimension's *SkillSync Course
-Counselor* (agent 244841) calls your phone within seconds — answer on speaker.
+**Call me now**. OmniDimension's *SkillSync Course Counselor* (agent 244948)
+calls your phone within seconds — answer on speaker.
 Every request is also stored in Supabase `subscribers` (source=`callback`), and
 a post-call summary email with extracted lead fields goes to
 busnz122@gmail.com.
@@ -62,8 +56,9 @@ busnz122@gmail.com.
 - Take the `/quiz` (6 questions, enter an email at the end) → show the row
   appear in Supabase `subscribers` (refresh the table).
 - Newsletter form (footer or popup) → same table, source=`footer`/`popup`.
-- Note: a test row "Test Probe / +919999999999" exists from pre-demo
-  verification — ignore or delete it.
+- Bonus: the follow-up bot demo — `node scripts/followup-calls.mjs --mark
+  +91<your number> missed` then `node scripts/followup-calls.mjs` → your phone
+  gets the "our team tried to reach you" call from agent 244927.
 
 ## 5) Payment → certificate → Drive → CRM (5 min, the closer)
 
@@ -102,6 +97,7 @@ one idempotent pass.
 - Instructor names, accelerator duration, seat caps: founder-pending — the site
   deliberately shows "announced soon" (claims policy: no invented facts).
 - Reviews are labeled illustrative until real, consented student quotes exist.
-- The OmniDimension agent currently lives in the connected (demo) OmniDimension
-  account; the founder can recreate it in the dedicated account later using
-  `agent/voice-agent-config.md` and swap `OMNIDIM_AGENT_ID`.
+- Both voice agents (244948 counselor, 244927 follow-up) live in the user's own
+  OmniDimension account; post-call lead emails go to busnz122@gmail.com. That
+  account has no purchased phone number yet — calls go out from the platform's
+  default caller ID.
