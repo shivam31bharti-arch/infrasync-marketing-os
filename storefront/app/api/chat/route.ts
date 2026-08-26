@@ -52,7 +52,7 @@ const PROVIDERS: Provider[] = [
     name: "groq",
     url: "https://api.groq.com/openai/v1/chat/completions",
     keyEnv: "GROQ_API_KEY",
-    model: "llama-3.1-8b-instant",
+    model: "openai/gpt-oss-120b", // llama-3.1-8b-instant retired from Groq (fixed 2026-08-26)
     headers: (key) => ({
       Authorization: `Bearer ${key}`,
       "Content-Type": "application/json",
@@ -62,9 +62,9 @@ const PROVIDERS: Provider[] = [
   },
   {
     name: "gemini",
-    url: "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-lite:generateContent",
+    url: "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent",
     keyEnv: "GEMINI_API_KEY",
-    model: "gemini-2.0-flash-lite",
+    model: "gemini-3.5-flash", // 2.0-flash-lite no longer served (fixed 2026-08-26)
     headers: (key) => ({
       "Content-Type": "application/json",
       "x-goog-api-key": key,
@@ -76,7 +76,7 @@ const PROVIDERS: Provider[] = [
     name: "nim",
     url: "https://integrate.api.nvidia.com/v1/chat/completions",
     keyEnv: "NVIDIA_API_KEY", // matches repo-root .env (was NIM_API_KEY — never resolved)
-    model: "meta/llama-3.1-8b-instruct",
+    model: "nvidia/nemotron-3-ultra-550b-a55b", // llama-3.1-8b EOL on NIM (fixed 2026-08-26)
     headers: (key) => ({
       Authorization: `Bearer ${key}`,
       "Content-Type": "application/json",

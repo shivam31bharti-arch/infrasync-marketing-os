@@ -1,7 +1,6 @@
 import { redirect } from "next/navigation";
 
-// Site consolidated to home + /workshop (design v3.1, 2026-08-26):
-// the Generalist deep-dive now lives on the homepage.
+// v4: single-page site — track details live in the curriculum section.
 export default function AIGeneralistPage() {
-  redirect("/#ai-generalist");
+  redirect("/#curriculum");
 }

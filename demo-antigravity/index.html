@@ -1,0 +1,2050 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GrowthSchool — Master ChatGPT & 15+ AI Tools in 3 Hours</title>
+  <meta name="description" content="Join 10M+ professionals who've mastered generative AI tools, automated workflows, and 10x'd their productivity with GrowthSchool." />
+
+  <!-- Premium Typography: Outfit, Plus Jakarta Sans & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      /* Auxia-inspired Warm Luxury Canvas Palette */
+      --bg-cream: #faf8f5;
+      --bg-canvas: #f6f3ee;
+      --bg-white: #ffffff;
+      --bg-card: #ffffff;
+      --bg-card-subtle: #fcfbf9;
+      
+      --border-subtle: #eae6df;
+      --border-medium: #ddd8ce;
+      --border-focus: #0f172a;
+      
+      --text-dark: #0f172a;
+      --text-heading: #0a131f;
+      --text-body: #334155;
+      --text-muted: #64748b;
+      --text-faint: #94a3b8;
+
+      --accent-emerald: #059669;
+      --accent-emerald-light: #10b981;
+      --accent-indigo: #4f46e5;
+      --accent-cyan: #0284c7;
+
+      --font-heading: 'Outfit', sans-serif;
+      --font-body: 'Plus Jakarta Sans', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+
+      --container-max: 1200px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg-cream);
+      color: var(--text-body);
+      font-family: var(--font-body);
+      overflow-x: hidden;
+      position: relative;
+      line-height: 1.55;
+    }
+
+    /* 3D WebGL Light Silk Waves Particle Canvas */
+    #silk-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 1;
+      pointer-events: auto;
+      opacity: 0.95;
+    }
+
+    /* Ambient Warm Canvas Radial Texture */
+    .bg-mesh-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 2;
+      pointer-events: none;
+      background: 
+        radial-gradient(ellipse at 50% 15%, rgba(79, 70, 229, 0.03) 0%, transparent 65%),
+        radial-gradient(ellipse at 80% 30%, rgba(5, 150, 105, 0.025) 0%, transparent 50%);
+    }
+
+    .page-wrapper {
+      position: relative;
+      z-index: 5;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .container {
+      width: 100%;
+      max-width: var(--container-max);
+      padding: 0 1.5rem;
+      margin: 0 auto;
+    }
+
+    /* ----------------------------------------------------------------
+       3D MAGNETIC TILT & SPECULAR SHEEN SYSTEM
+       ---------------------------------------------------------------- */
+    .tilt-card {
+      position: relative;
+      transform-style: preserve-3d;
+      will-change: transform;
+      transition: transform 0.15s ease-out, box-shadow 0.25s ease;
+    }
+
+    .specular-sheen {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: inherit;
+      pointer-events: none;
+      z-index: 10;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.6) 0%, transparent 65%);
+      mix-blend-mode: overlay;
+    }
+
+    .tilt-card:hover .specular-sheen {
+      opacity: 1;
+    }
+
+    /* ----------------------------------------------------------------
+       1. HEADER NAVIGATION
+       ---------------------------------------------------------------- */
+    .header-nav {
+      position: fixed;
+      top: 1.25rem;
+      left: 50%;
+      transform: translateX(-50%);
+      width: calc(100% - 3rem);
+      max-width: var(--container-max);
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border: 1px solid var(--border-medium);
+      border-radius: 9999px;
+      padding: 0.75rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 8px 30px rgba(15, 23, 42, 0.05);
+      transition: all 0.3s ease;
+    }
+
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      text-decoration: none;
+      color: var(--text-dark);
+    }
+
+    .brand-symbol {
+      width: 2.2rem;
+      height: 2.2rem;
+      border-radius: 0.65rem;
+      background: linear-gradient(135deg, #0f172a, #334155);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.2);
+    }
+
+    .brand-symbol svg {
+      width: 1.2rem;
+      height: 1.2rem;
+      fill: #ffffff;
+    }
+
+    .brand-name {
+      font-family: var(--font-heading);
+      font-size: 1.35rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--text-heading);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2.2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--text-dark);
+    }
+
+    .btn-header-cta {
+      background: #0f172a;
+      color: #ffffff;
+      font-family: var(--font-heading);
+      font-size: 0.9rem;
+      font-weight: 700;
+      padding: 0.65rem 1.4rem;
+      border-radius: 9999px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      box-shadow: 0 4px 15px rgba(15, 23, 42, 0.15);
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .btn-header-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(15, 23, 42, 0.3);
+      background: #1e293b;
+    }
+
+    /* ----------------------------------------------------------------
+       2. HERO SECTION
+       ---------------------------------------------------------------- */
+    .hero-section {
+      padding-top: 8.5rem;
+      padding-bottom: 4.5rem;
+      text-align: center;
+      width: 100%;
+      position: relative;
+    }
+
+    .hero-pill-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      padding: 0.45rem 1.2rem;
+      border-radius: 9999px;
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--border-medium);
+      box-shadow: 0 4px 15px rgba(15, 23, 42, 0.04);
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: #0f172a;
+      letter-spacing: 0.04em;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-pill-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #10b981;
+      box-shadow: 0 0 8px #10b981;
+      animation: pulseBlink 2s infinite;
+    }
+
+    @keyframes pulseBlink {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.8); }
+    }
+
+    .hero-h1 {
+      font-family: var(--font-heading);
+      font-size: 4.9rem;
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      line-height: 1.04;
+      color: var(--text-heading);
+      max-width: 980px;
+      margin: 0 auto 1.35rem auto;
+      text-shadow: 0 4px 25px rgba(255, 255, 255, 0.95);
+    }
+
+    .hero-h1 .gradient-ai {
+      background: linear-gradient(135deg, #059669 0%, #0284c7 50%, #4f46e5 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: inline-block;
+    }
+
+    .hero-sub {
+      font-size: 1.25rem;
+      line-height: 1.6;
+      color: var(--text-body);
+      max-width: 740px;
+      margin: 0 auto 2.5rem auto;
+      font-weight: 400;
+    }
+
+    .hero-action-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.35rem;
+      margin-bottom: 3.5rem;
+    }
+
+    .btn-main-hero {
+      padding: 1.35rem 3.2rem;
+      border-radius: 1.25rem;
+      background: #0f172a;
+      color: #ffffff;
+      font-family: var(--font-heading);
+      font-size: 1.3rem;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      box-shadow: 0 15px 40px rgba(15, 23, 42, 0.25);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .btn-main-hero:hover {
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 20px 50px rgba(15, 23, 42, 0.4);
+      background: #1e293b;
+    }
+
+    .hero-rating-proof {
+      display: flex;
+      align-items: center;
+      gap: 2.2rem;
+      color: var(--text-body);
+      font-size: 0.92rem;
+      font-weight: 600;
+    }
+
+    .rating-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .stars {
+      color: #f59e0b;
+      letter-spacing: 2px;
+      font-size: 1.05rem;
+    }
+
+    /* ----------------------------------------------------------------
+       3. EXACT GROWTHSCHOOL "10M+ LEARNERS" MARQUEE STRIP
+       ---------------------------------------------------------------- */
+    .learners-marquee-section {
+      width: 100%;
+      margin: 0 auto 5rem auto;
+    }
+
+    .learners-wrapper-card {
+      background: #faf8f3;
+      border: 1px solid var(--border-medium);
+      border-radius: 2rem;
+      padding: 2.5rem;
+      display: grid;
+      grid-template-columns: 1fr 280px;
+      gap: 2rem;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 15px 45px rgba(15, 23, 42, 0.04);
+      background-image: radial-gradient(#d6d0c4 0.8px, transparent 0.8px);
+      background-size: 18px 18px;
+    }
+
+    .learners-content h2 {
+      font-family: var(--font-heading);
+      font-size: 2.8rem;
+      font-weight: 900;
+      color: #0c201d;
+      letter-spacing: -0.03em;
+      line-height: 1;
+      margin-bottom: 0.4rem;
+    }
+
+    .learners-content p {
+      font-size: 1.1rem;
+      color: #3f554e;
+      font-weight: 500;
+      margin-bottom: 1.8rem;
+    }
+
+    .marquee-container {
+      width: 100%;
+      overflow: hidden;
+      position: relative;
+      mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+      -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+    }
+
+    .marquee-track {
+      display: flex;
+      gap: 1rem;
+      width: max-content;
+      animation: marqueeScroll 25s linear infinite;
+    }
+
+    .marquee-track:hover {
+      animation-play-state: paused;
+    }
+
+    @keyframes marqueeScroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    .learner-card {
+      width: 110px;
+      height: 145px;
+      background: #ffffff;
+      border: 1px solid #e5e0d5;
+      border-radius: 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.65rem 0.5rem 0 0.5rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+      flex-shrink: 0;
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+    }
+
+    .learner-card:hover {
+      transform: translateY(-8px) scale(1.05);
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.08);
+      z-index: 10;
+    }
+
+    .learner-logo-badge {
+      height: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-heading);
+      font-size: 0.75rem;
+      font-weight: 800;
+      color: #334155;
+    }
+
+    .learner-img-cutout {
+      width: 90px;
+      height: 105px;
+      object-fit: cover;
+      object-position: top;
+      border-bottom-left-radius: 0.9rem;
+      border-bottom-right-radius: 0.9rem;
+    }
+
+    .rating-deck-card {
+      background: #ffffff;
+      border: 1px solid var(--border-medium);
+      border-radius: 1.75rem;
+      padding: 2.2rem 1.75rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+      position: relative;
+      cursor: pointer;
+    }
+
+    .deck-top-layer {
+      position: absolute;
+      top: -12px;
+      width: 80%;
+      height: 14px;
+      background: #f1ede4;
+      border: 1px solid var(--border-medium);
+      border-top-left-radius: 1rem;
+      border-top-right-radius: 1rem;
+      z-index: 1;
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .deck-mid-layer {
+      position: absolute;
+      top: -6px;
+      width: 90%;
+      height: 10px;
+      background: #f8f6f0;
+      border: 1px solid var(--border-medium);
+      border-top-left-radius: 1rem;
+      border-top-right-radius: 1rem;
+      z-index: 2;
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .rating-deck-card:hover .deck-top-layer {
+      transform: translateY(-12px) rotateZ(-4deg);
+    }
+    .rating-deck-card:hover .deck-mid-layer {
+      transform: translateY(-6px) rotateZ(3deg);
+    }
+
+    .deck-content {
+      position: relative;
+      z-index: 3;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.65rem;
+    }
+
+    .google-badge-row {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+    }
+
+    .google-icon-circle {
+      width: 2.2rem;
+      height: 2.2rem;
+      border-radius: 50%;
+      background: #ffffff;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      font-size: 1.15rem;
+      color: #ea4335;
+      border: 1px solid #e2e8f0;
+    }
+
+    .google-review-text {
+      text-align: left;
+    }
+
+    .google-review-text h4 {
+      font-size: 0.88rem;
+      font-weight: 800;
+      color: #0f172a;
+    }
+
+    .google-review-text p {
+      font-size: 0.78rem;
+      color: #64748b;
+      font-weight: 600;
+    }
+
+    /* ----------------------------------------------------------------
+       4. HERO STAGE CARD
+       ---------------------------------------------------------------- */
+    .hero-preview-stage {
+      width: 100%;
+      max-width: 1080px;
+      margin: 0 auto 5rem auto;
+      background: var(--bg-white);
+      border: 1px solid var(--border-medium);
+      border-radius: 2.2rem;
+      padding: 3rem;
+      box-shadow: 0 20px 50px rgba(15, 23, 42, 0.06);
+      display: grid;
+      grid-template-columns: 1.25fr 1fr;
+      gap: 3rem;
+      text-align: left;
+      position: relative;
+    }
+
+    .stage-left {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .stage-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      font-family: var(--font-mono);
+      font-size: 0.76rem;
+      letter-spacing: 0.08em;
+      color: #059669;
+      background: #ecfdf5;
+      border: 1px solid #a7f3d0;
+      padding: 0.4rem 0.85rem;
+      border-radius: 0.55rem;
+      margin-bottom: 1.1rem;
+      width: fit-content;
+      font-weight: 700;
+    }
+
+    .stage-title {
+      font-family: var(--font-heading);
+      font-size: 2.4rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+      color: var(--text-heading);
+      margin-bottom: 1.25rem;
+    }
+
+    .stage-perks {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+      margin-bottom: 2rem;
+    }
+
+    .stage-perks li {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 1rem;
+      color: var(--text-body);
+      font-weight: 500;
+    }
+
+    .stage-perks li svg {
+      width: 1.25rem;
+      height: 1.25rem;
+      color: #059669;
+      flex-shrink: 0;
+    }
+
+    .stage-mentor-badge {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem 1.3rem;
+      background: #f8fafc;
+      border: 1px solid var(--border-subtle);
+      border-radius: 1.2rem;
+    }
+
+    .mentor-avatar-img {
+      width: 3.4rem;
+      height: 3.4rem;
+      border-radius: 0.85rem;
+      object-fit: cover;
+      border: 2px solid #ffffff;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+    }
+
+    .mentor-text h4 {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--text-heading);
+    }
+
+    .mentor-text p {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+
+    .stage-right {
+      background: linear-gradient(180deg, #fbfaf7 0%, #f4efe6 100%);
+      border: 1px solid var(--border-medium);
+      border-radius: 1.8rem;
+      padding: 2.2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+    }
+
+    .timer-title {
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 1.35rem;
+      font-weight: 700;
+    }
+
+    .countdown-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.85rem;
+      margin-bottom: 2rem;
+    }
+
+    .time-card {
+      background: #ffffff;
+      border: 1px solid var(--border-medium);
+      border-radius: 0.95rem;
+      padding: 0.95rem 0.45rem;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+    }
+
+    .time-num {
+      font-family: var(--font-mono);
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--text-heading);
+      line-height: 1.1;
+    }
+
+    .time-lbl {
+      font-size: 0.68rem;
+      font-family: var(--font-mono);
+      text-transform: uppercase;
+      color: var(--text-muted);
+      letter-spacing: 0.06em;
+      font-weight: 600;
+    }
+
+    .price-tag-row {
+      display: flex;
+      justify-content: center;
+      align-items: baseline;
+      gap: 0.85rem;
+      margin-bottom: 1.75rem;
+    }
+
+    .price-original {
+      text-decoration: line-through;
+      color: var(--text-faint);
+      font-size: 1.25rem;
+      font-weight: 600;
+    }
+
+    .price-free {
+      font-family: var(--font-heading);
+      font-size: 2.6rem;
+      font-weight: 900;
+      color: #059669;
+    }
+
+    /* ----------------------------------------------------------------
+       5. CURRICULUM: 15+ AI TOOLS
+       ---------------------------------------------------------------- */
+    .curriculum-section {
+      width: 100%;
+      padding: 5rem 0;
+    }
+
+    .section-label {
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #059669;
+      margin-bottom: 0.85rem;
+      display: block;
+    }
+
+    .section-h2 {
+      font-family: var(--font-heading);
+      font-size: 3.4rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--text-heading);
+      margin-bottom: 1.25rem;
+    }
+
+    .section-desc {
+      font-size: 1.2rem;
+      color: var(--text-body);
+      max-width: 660px;
+      margin: 0 auto 3.5rem auto;
+    }
+
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-top: 3.5rem;
+    }
+
+    .tool-card {
+      background: #ffffff;
+      border: 1px solid var(--border-medium);
+      border-radius: 1.75rem;
+      padding: 2.2rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .tool-icon-wrap {
+      width: 3.4rem;
+      height: 3.4rem;
+      border-radius: 1rem;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.4rem;
+      font-size: 1.6rem;
+    }
+
+    .tool-tag {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: #059669;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.4rem;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .tool-title {
+      font-family: var(--font-heading);
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--text-heading);
+      margin-bottom: 0.85rem;
+    }
+
+    .tool-desc {
+      font-size: 0.96rem;
+      color: var(--text-body);
+      line-height: 1.65;
+      margin-bottom: 1.5rem;
+    }
+
+    .tool-pill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .tool-pill {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      background: #faf8f5;
+      border: 1px solid #e5e0d5;
+      padding: 0.3rem 0.65rem;
+      border-radius: 0.45rem;
+      color: var(--text-body);
+      font-weight: 600;
+    }
+
+    /* ----------------------------------------------------------------
+       6. REVIEWS & STUDENT TESTIMONIALS
+       ---------------------------------------------------------------- */
+    .reviews-section {
+      width: 100%;
+      padding: 5rem 0;
+    }
+
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-top: 3.5rem;
+    }
+
+    .review-card {
+      background: #ffffff;
+      border: 1px solid var(--border-medium);
+      border-radius: 1.75rem;
+      padding: 2.4rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+    }
+
+    .review-top-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.2rem;
+    }
+
+    .review-stars {
+      color: #f59e0b;
+      font-size: 1.1rem;
+      letter-spacing: 2px;
+    }
+
+    .hike-badge {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 700;
+      background: #ecfdf5;
+      border: 1px solid #a7f3d0;
+      color: #059669;
+      padding: 0.25rem 0.6rem;
+      border-radius: 0.4rem;
+    }
+
+    .review-quote {
+      font-size: 1.05rem;
+      color: var(--text-body);
+      line-height: 1.7;
+      margin-bottom: 1.75rem;
+      font-weight: 400;
+    }
+
+    .review-user {
+      display: flex;
+      align-items: center;
+      gap: 0.95rem;
+      border-top: 1px solid #f1f5f9;
+      padding-top: 1.25rem;
+    }
+
+    .user-avatar-img {
+      width: 2.8rem;
+      height: 2.8rem;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .user-meta h4 {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--text-heading);
+    }
+
+    .user-meta p {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+
+    /* ----------------------------------------------------------------
+       7. MENTOR SHOWCASE (With Real Photo - Image 3)
+       ---------------------------------------------------------------- */
+    .mentor-section {
+      width: 100%;
+      padding: 5rem 0;
+    }
+
+    .mentor-profile-card {
+      background: #ffffff;
+      border: 1px solid var(--border-medium);
+      border-radius: 2.5rem;
+      padding: 4rem;
+      box-shadow: 0 20px 50px rgba(15, 23, 42, 0.06);
+      display: grid;
+      grid-template-columns: 1.1fr 1.4fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .mentor-visual-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .mentor-real-photo {
+      width: 260px;
+      height: 310px;
+      border-radius: 2rem;
+      object-fit: cover;
+      object-position: center;
+      border: 3px solid #ffffff;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+      margin-bottom: 1.25rem;
+    }
+
+    .mentor-details h3 {
+      font-family: var(--font-heading);
+      font-size: 2.8rem;
+      font-weight: 900;
+      color: var(--text-heading);
+      margin-bottom: 0.4rem;
+      line-height: 1.1;
+    }
+
+    .mentor-details .mentor-role {
+      font-size: 1.15rem;
+      color: #059669;
+      font-weight: 700;
+      margin-bottom: 1.35rem;
+    }
+
+    .mentor-details p {
+      font-size: 1.05rem;
+      color: var(--text-body);
+      line-height: 1.75;
+      margin-bottom: 2rem;
+    }
+
+    .mentor-stats-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+      border-top: 1px solid #f1f5f9;
+      padding-top: 1.75rem;
+    }
+
+    .m-stat h4 {
+      font-family: var(--font-heading);
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--text-heading);
+    }
+
+    .m-stat p {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    /* ----------------------------------------------------------------
+       8. FAQ ACCORDION
+       ---------------------------------------------------------------- */
+    .faq-section {
+      width: 100%;
+      max-width: 880px;
+      padding: 5rem 0;
+    }
+
+    .faq-accordion {
+      display: flex;
+      flex-direction: column;
+      gap: 1.1rem;
+      margin-top: 3.5rem;
+    }
+
+    .faq-item {
+      background: #ffffff;
+      border: 1px solid var(--border-medium);
+      border-radius: 1.35rem;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+      transition: all 0.3s ease;
+    }
+
+    .faq-header {
+      padding: 1.5rem 1.85rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      font-family: var(--font-heading);
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--text-heading);
+    }
+
+    .faq-toggle-icon {
+      font-size: 1.35rem;
+      color: #059669;
+      transition: transform 0.3s ease;
+      font-weight: 700;
+    }
+
+    .faq-item.active .faq-toggle-icon {
+      transform: rotate(45deg);
+    }
+
+    .faq-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease, padding 0.35s ease;
+      padding: 0 1.85rem;
+      color: var(--text-body);
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+
+    .faq-item.active .faq-content {
+      max-height: 280px;
+      padding: 0 1.85rem 1.75rem 1.85rem;
+    }
+
+    /* ----------------------------------------------------------------
+       9. FOOTER & STICKY BOTTOM CONVERSION BAR
+       ---------------------------------------------------------------- */
+    .site-footer {
+      width: 100%;
+      border-top: 1px solid var(--border-medium);
+      background: #faf8f5;
+      padding: 4.5rem 0 7.5rem 0;
+      margin-top: 4rem;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 3.5rem;
+      margin-bottom: 3.5rem;
+    }
+
+    .footer-brand h3 {
+      font-family: var(--font-heading);
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--text-heading);
+      margin-bottom: 0.85rem;
+    }
+
+    .footer-brand p {
+      font-size: 0.96rem;
+      color: var(--text-muted);
+      max-width: 380px;
+      line-height: 1.65;
+    }
+
+    .footer-col h4 {
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-heading);
+      margin-bottom: 1.35rem;
+      font-weight: 700;
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+
+    .footer-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.92rem;
+      font-weight: 500;
+      transition: color 0.2s ease;
+    }
+
+    .footer-links a:hover {
+      color: var(--text-dark);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid var(--border-medium);
+      padding-top: 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+
+    /* Sticky Bottom Bar */
+    .sticky-bar {
+      position: fixed;
+      bottom: 1.25rem;
+      left: 50%;
+      transform: translateX(-50%) translateY(120%);
+      width: calc(100% - 3rem);
+      max-width: 920px;
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(28px);
+      -webkit-backdrop-filter: blur(28px);
+      border: 1px solid var(--border-medium);
+      border-radius: 1.4rem;
+      padding: 1rem 1.85rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 100;
+      box-shadow: 0 20px 50px rgba(15, 23, 42, 0.12);
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .sticky-bar.visible {
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .sticky-info {
+      display: flex;
+      align-items: center;
+      gap: 1.35rem;
+    }
+
+    .sticky-title {
+      font-family: var(--font-heading);
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--text-heading);
+    }
+
+    .sticky-price {
+      font-family: var(--font-mono);
+      font-size: 0.92rem;
+      color: #059669;
+      font-weight: 800;
+    }
+
+    /* Responsive */
+    @media (max-width: 992px) {
+      .hero-h1 { font-size: 3.6rem; }
+      .learners-wrapper-card { grid-template-columns: 1fr; }
+      .hero-preview-stage { grid-template-columns: 1fr; }
+      .mentor-profile-card { grid-template-columns: 1fr; padding: 2.5rem; }
+      .tools-grid, .reviews-grid { grid-template-columns: repeat(2, 1fr); }
+      .header-nav .nav-links { display: none; }
+    }
+
+    @media (max-width: 640px) {
+      .hero-h1 { font-size: 2.8rem; }
+      .hero-sub { font-size: 1.1rem; }
+      .tools-grid, .reviews-grid { grid-template-columns: 1fr; }
+      .sticky-info { display: none; }
+      .sticky-bar { justify-content: center; }
+      .btn-header-cta { padding: 0.55rem 1.1rem; font-size: 0.82rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- WebGL 3D Light Silk Waves Particle Canvas -->
+  <canvas id="silk-canvas"></canvas>
+
+  <!-- Ambient Light Mesh Background -->
+  <div class="bg-mesh-overlay"></div>
+
+  <div class="page-wrapper">
+
+    <!-- 1. Header Navigation Bar -->
+    <header class="header-nav">
+      <a href="#" class="brand-logo">
+        <div class="brand-symbol">
+          <svg viewBox="0 0 24 24">
+            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+          </svg>
+        </div>
+        <span class="brand-name">GrowthSchool</span>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#learners">10M+ Learners</a></li>
+        <li><a href="#curriculum">15+ AI Tools</a></li>
+        <li><a href="#mentor">Mentor</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+        <li><a href="#faq">FAQs</a></li>
+      </ul>
+
+      <a href="#register" class="btn-header-cta">
+        Claim Free Spot →
+      </a>
+    </header>
+
+    <!-- 2. Hero Section -->
+    <section class="hero-section container">
+      <div class="hero-pill-badge">
+        <span class="hero-pill-dot"></span>
+        3-HOUR LIVE MASTERCLASS · 26TH AUG · 7 PM IST
+      </div>
+
+      <h1 class="hero-h1">
+        Master ChatGPT & <br />
+        <span class="gradient-ai">15+ AI Tools in 3 Hours</span>
+      </h1>
+
+      <p class="hero-sub">
+        Join 10M+ professionals who've automated daily workflows, 10x'd their output, and built custom AI systems without writing code.
+      </p>
+
+      <div class="hero-action-box">
+        <a href="#register" class="btn-main-hero">
+          Claim Your Spot — FREE (Worth ₹1,999) →
+        </a>
+
+        <div class="hero-rating-proof">
+          <div class="rating-item">
+            <span class="stars">★★★★★</span>
+            <span><strong>4.6/5</strong> (12,400+ Google Reviews)</span>
+          </div>
+          <div class="rating-item">
+            <span class="stars">★★★★★</span>
+            <span><strong>4.5/5</strong> Trustpilot</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. EXACT GROWTHSCHOOL 10M+ LEARNERS INFINITE MARQUEE (With 3D Tilt) -->
+    <section class="learners-marquee-section container" id="learners">
+      <div class="learners-wrapper-card tilt-card" data-tilt="4">
+        <div class="specular-sheen"></div>
+        
+        <div class="learners-content">
+          <h2>10M+ Learners</h2>
+          <p>have reaped benefits from our programs</p>
+
+          <div class="marquee-container">
+            <div class="marquee-track">
+              <div class="learner-card">
+                <span class="learner-logo-badge" style="color: #00a1e0;">Salesforce</span>
+                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80" alt="Learner" class="learner-img-cutout" />
+              </div>
+              <div class="learner-card">
+                <span class="learner-logo-badge" style="color: #2563eb;">~ alta</span>
+                <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=150&auto=format&fit=crop&q=80" alt="Learner" class="learner-img-cutout" />
+              </div>
+              <div class="learner-card">
+                <span class="learner-logo-badge" style="color: #059669;">trainline</span>
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80" alt="Learner" class="learner-img-cutout" />
+              </div>
+              <div class="learner-card">
+                <span class="learner-logo-badge" style="color: #ea4335;">Google</span>
+                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=150&auto=format&fit=crop&q=80" alt="Learner" class="learner-img-cutout" />
+              </div>
+              <div class="learner-card">
+                <span class="learner-logo-badge" style="color: #1db954;">Spotify</span>
+                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&auto=format&fit=crop&q=80" alt="Learner" class="learner-img-cutout" />
+              </div>
+              <div class="learner-card">
+                <span class="learner-logo-badge" style="color: #0668e1;">∞ Meta</span>
+                <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=150&auto=format&fit=crop&q=80" alt="Learner" class="learner-img-cutout" />
+              </div>
+              <div class="learner-card">
+                <span class="learner-logo-badge" style="color: #00a4ef;">Microsoft</span>
+                <img src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?w=150&auto=format&fit=crop&q=80" alt="Learner" class="learner-img-cutout" />
+              </div>
+
+              <!-- Duplicate loop set for seamless infinite scrolling -->
+              <div class="learner-card">
+                <span class="learner-logo-badge" style="color: #00a1e0;">Salesforce</span>
+                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80" alt="Learner" class="learner-img-cutout" />
+              </div>
+              <div class="learner-card">
+                <span class="learner-logo-badge" style="color: #2563eb;">~ alta</span>
+                <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=150&auto=format&fit=crop&q=80" alt="Learner" class="learner-img-cutout" />
+              </div>
+              <div class="learner-card">
+                <span class="learner-logo-badge" style="color: #059669;">trainline</span>
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80" alt="Learner" class="learner-img-cutout" />
+              </div>
+              <div class="learner-card">
+                <span class="learner-logo-badge" style="color: #ea4335;">Google</span>
+                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=150&auto=format&fit=crop&q=80" alt="Learner" class="learner-img-cutout" />
+              </div>
+              <div class="learner-card">
+                <span class="learner-logo-badge" style="color: #1db954;">Spotify</span>
+                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&auto=format&fit=crop&q=80" alt="Learner" class="learner-img-cutout" />
+              </div>
+              <div class="learner-card">
+                <span class="learner-logo-badge" style="color: #0668e1;">∞ Meta</span>
+                <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=150&auto=format&fit=crop&q=80" alt="Learner" class="learner-img-cutout" />
+              </div>
+              <div class="learner-card">
+                <span class="learner-logo-badge" style="color: #00a4ef;">Microsoft</span>
+                <img src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?w=150&auto=format&fit=crop&q=80" alt="Learner" class="learner-img-cutout" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Stacked Rating Badge Card -->
+        <div class="rating-deck-card tilt-card" data-tilt="6">
+          <div class="specular-sheen"></div>
+          <div class="deck-top-layer"></div>
+          <div class="deck-mid-layer"></div>
+          
+          <div class="deck-content">
+            <div class="google-badge-row">
+              <div class="google-icon-circle">G</div>
+              <div class="google-review-text">
+                <h4>Google Reviews</h4>
+                <p>Rated 4.6/5 (3,730)</p>
+              </div>
+            </div>
+            <div class="hero-pill-badge" style="margin: 0.5rem 0 0 0; padding: 0.3rem 0.8rem; font-size: 0.72rem;">
+              <span>🏆 LinkedIn Top Startup 2023</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 4. LIVE WORKSHOP STAGE CARD -->
+    <div class="hero-preview-stage container tilt-card" data-tilt="3" id="register">
+      <div class="specular-sheen"></div>
+      
+      <div class="stage-left">
+        <div>
+          <span class="stage-badge">⚡ HANDS-ON WORKSHOP</span>
+          <h2 class="stage-title">Zero Fluff. Build Live AI Systems in 3 Hours.</h2>
+          <ul class="stage-perks">
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Automate repetitive emails, reports & executive memos</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Build custom GPT agents tailored to your company's data</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Instant decks, spreadsheets & SQL data analysis</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Receive 100+ proven prompt templates & bonus toolkits</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="stage-mentor-badge">
+          <img src="vaibhav_mentor.png" alt="Vaibhav Sisinty" class="mentor-avatar-img" />
+          <div class="mentor-text">
+            <h4>Vaibhav Sisinty</h4>
+            <p>Founder, GrowthSchool · Backed by Sequoia (Peak XV)</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="stage-right">
+        <div class="timer-title">WORKSHOP BEGINS IN</div>
+        <div class="countdown-grid">
+          <div class="time-card">
+            <div class="time-num" id="cd-days">02</div>
+            <div class="time-lbl">Days</div>
+          </div>
+          <div class="time-card">
+            <div class="time-num" id="cd-hours">06</div>
+            <div class="time-lbl">Hours</div>
+          </div>
+          <div class="time-card">
+            <div class="time-num" id="cd-mins">45</div>
+            <div class="time-lbl">Mins</div>
+          </div>
+          <div class="time-card">
+            <div class="time-num" id="cd-secs">18</div>
+            <div class="time-lbl">Secs</div>
+          </div>
+        </div>
+
+        <div class="price-tag-row">
+          <span class="price-original">₹1,999</span>
+          <span class="price-free">FREE</span>
+        </div>
+
+        <button class="btn-main-hero" style="width: 100%; justify-content: center; font-size: 1.1rem; padding: 1.1rem 1.5rem;" onclick="alert('Spot confirmed! WhatsApp & Calendar invite sent.')">
+          Instant One-Click Registration →
+        </button>
+      </div>
+    </div>
+
+    <!-- 5. Curriculum (15+ AI Tools) -->
+    <section class="curriculum-section container" id="curriculum">
+      <span class="section-label" style="text-align: center;">HANDS-ON CURRICULUM</span>
+      <h2 class="section-h2" style="text-align: center;">15+ AI Tools You Will Master in 3 Hours</h2>
+      <p class="section-desc" style="text-align: center;">Live interactive building sessions. Walk away with fully configured workflows on your laptop.</p>
+
+      <div class="tools-grid">
+        <div class="tool-card tilt-card" data-tilt="5">
+          <div class="specular-sheen"></div>
+          <div>
+            <div class="tool-icon-wrap">🤖</div>
+            <div class="tool-tag">MODULE 01 · AGENTS</div>
+            <h3 class="tool-title">Custom GPTs & Internal Bots</h3>
+            <p class="tool-desc">Build tailored AI assistants loaded with your company's SOPs, pitch decks, and knowledge docs for instant answers.</p>
+          </div>
+          <div class="tool-pill-list">
+            <span class="tool-pill">ChatGPT-4o</span>
+            <span class="tool-pill">Claude 3.7</span>
+            <span class="tool-pill">Gemini Advanced</span>
+          </div>
+        </div>
+
+        <div class="tool-card tilt-card" data-tilt="5">
+          <div class="specular-sheen"></div>
+          <div>
+            <div class="tool-icon-wrap">📊</div>
+            <div class="tool-tag">MODULE 02 · DATA MAGIC</div>
+            <h3 class="tool-title">Excel & SQL Automation</h3>
+            <p class="tool-desc">Clean messy datasets, generate advanced nested formulas, and synthesize executive charts with natural language prompts.</p>
+          </div>
+          <div class="tool-pill-list">
+            <span class="tool-pill">Code Interpreter</span>
+            <span class="tool-pill">Julius AI</span>
+            <span class="tool-pill">Sheets AI</span>
+          </div>
+        </div>
+
+        <div class="tool-card tilt-card" data-tilt="5">
+          <div class="specular-sheen"></div>
+          <div>
+            <div class="tool-icon-wrap">🎨</div>
+            <div class="tool-tag">MODULE 03 · VISUALS & DECKS</div>
+            <h3 class="tool-title">Instant Presentations</h3>
+            <p class="tool-desc">Generate complete 20-slide investor and client decks in under 3 minutes with automated layouts, copy, and visuals.</p>
+          </div>
+          <div class="tool-pill-list">
+            <span class="tool-pill">Gamma App</span>
+            <span class="tool-pill">Midjourney</span>
+            <span class="tool-pill">Tome AI</span>
+          </div>
+        </div>
+
+        <div class="tool-card tilt-card" data-tilt="5">
+          <div class="specular-sheen"></div>
+          <div>
+            <div class="tool-icon-wrap">⚡</div>
+            <div class="tool-tag">MODULE 04 · WRITING & EMAILS</div>
+            <h3 class="tool-title">Executive Communication</h3>
+            <p class="tool-desc">Draft hyper-contextual negotiations, cold pitches, and crisis communications matching your unique writing voice.</p>
+          </div>
+          <div class="tool-pill-list">
+            <span class="tool-pill">Superhuman AI</span>
+            <span class="tool-pill">Lex.page</span>
+            <span class="tool-pill">Grammarly AI</span>
+          </div>
+        </div>
+
+        <div class="tool-card tilt-card" data-tilt="5">
+          <div class="specular-sheen"></div>
+          <div>
+            <div class="tool-icon-wrap">🎙️</div>
+            <div class="tool-tag">MODULE 05 · RESEARCH</div>
+            <h3 class="tool-title">Video & Podcast Repurposing</h3>
+            <p class="tool-desc">Summarize 2-hour earnings calls or webinars in 30 seconds and extract actionable checklists, tweets, and takeaways.</p>
+          </div>
+          <div class="tool-pill-list">
+            <span class="tool-pill">Perplexity Pro</span>
+            <span class="tool-pill">Descript</span>
+            <span class="tool-pill">Otter.ai</span>
+          </div>
+        </div>
+
+        <div class="tool-card tilt-card" data-tilt="5">
+          <div class="specular-sheen"></div>
+          <div>
+            <div class="tool-icon-wrap">💻</div>
+            <div class="tool-tag">MODULE 06 · VIBE CODING</div>
+            <h3 class="tool-title">No-Code Prototypes & Web Apps</h3>
+            <p class="tool-desc">Build functional web apps, calculators, and landing pages from simple English descriptions without technical background.</p>
+          </div>
+          <div class="tool-pill-list">
+            <span class="tool-pill">v0 by Vercel</span>
+            <span class="tool-pill">Bolt.new</span>
+            <span class="tool-pill">Cursor AI</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. Student Reviews -->
+    <section class="reviews-section container" id="reviews">
+      <span class="section-label" style="text-align: center;">REAL STORIES · REAL IMPACT</span>
+      <h2 class="section-h2" style="text-align: center;">Hear What 10M+ Alumni Are Saying</h2>
+
+      <div class="reviews-grid">
+        <div class="review-card tilt-card" data-tilt="5">
+          <div class="specular-sheen"></div>
+          <div>
+            <div class="review-top-row">
+              <div class="review-stars">★★★★★</div>
+              <span class="hike-badge">+40% Appraisal</span>
+            </div>
+            <p class="review-quote">
+              "This single 3-hour workshop saved me 20 hours a week. I automated my entire reporting pipeline at Swiggy using the exact prompt frameworks Vaibhav taught."
+            </p>
+          </div>
+          <div class="review-user">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=120&auto=format&fit=crop&q=80" alt="Rahul Kulkarni" class="user-avatar-img" />
+            <div class="user-meta">
+              <h4>Rahul Kulkarni</h4>
+              <p>Senior Product Manager, Swiggy</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card tilt-card" data-tilt="5">
+          <div class="specular-sheen"></div>
+          <div>
+            <div class="review-top-row">
+              <div class="review-stars">★★★★★</div>
+              <span class="hike-badge">4x Agency Speed</span>
+            </div>
+            <p class="review-quote">
+              "I was terrified of coding, but after building my own custom GPT in the live class, my agency's client turnaround time dropped from 4 days to 4 hours."
+            </p>
+          </div>
+          <div class="review-user">
+            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=120&auto=format&fit=crop&q=80" alt="Priya Sharma" class="user-avatar-img" />
+            <div class="user-meta">
+              <h4>Priya Sharma</h4>
+              <p>Founder, Studio Neon</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card tilt-card" data-tilt="5">
+          <div class="specular-sheen"></div>
+          <div>
+            <div class="review-top-row">
+              <div class="review-stars">★★★★★</div>
+              <span class="hike-badge">Saved 18 Hrs/Wk</span>
+            </div>
+            <p class="review-quote">
+              "The depth of practical prompt engineering was unbelievable. No generic YouTube advice — pure actionable gold that got me immediate leadership buy-in."
+            </p>
+          </div>
+          <div class="review-user">
+            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=120&auto=format&fit=crop&q=80" alt="Anand Menon" class="user-avatar-img" />
+            <div class="user-meta">
+              <h4>Anand Menon</h4>
+              <p>Marketing Director, TechCorp</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. MENTOR SHOWCASE (With Real Photo - Image 3) -->
+    <section class="mentor-section container" id="mentor">
+      <div class="mentor-profile-card tilt-card" data-tilt="3">
+        <div class="specular-sheen"></div>
+        
+        <div class="mentor-visual-box">
+          <img src="vaibhav_mentor.png" alt="Vaibhav Sisinty" class="mentor-real-photo" />
+          <div class="stage-badge">🔥 TOP 1% MENTOR</div>
+        </div>
+
+        <div class="mentor-details">
+          <h3>Vaibhav Sisinty</h3>
+          <div class="mentor-role">Founder & CEO, GrowthSchool · Ex-Uber & Klook</div>
+          <p>
+            Vaibhav has pioneered generative AI and growth education in India, helping over 10 million professionals master modern tool stacks. GrowthSchool is backed by Sequoia (Peak XV) and top global tech executives.
+          </p>
+
+          <div class="mentor-stats-row">
+            <div class="m-stat">
+              <h4>500M+</h4>
+              <p>Impressions</p>
+            </div>
+            <div class="m-stat">
+              <h4>1M+</h4>
+              <p>Instagram Community</p>
+            </div>
+            <div class="m-stat">
+              <h4>600K+</h4>
+              <p>LinkedIn Network</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. Interactive FAQs -->
+    <section class="faq-section container" id="faq">
+      <span class="section-label" style="text-align: center;">GOT QUESTIONS?</span>
+      <h2 class="section-h2" style="text-align: center;">Frequently Asked Questions</h2>
+
+      <div class="faq-accordion">
+        <div class="faq-item active">
+          <div class="faq-header" onclick="this.parentElement.classList.toggle('active')">
+            <span>Is this workshop really free?</span>
+            <span class="faq-toggle-icon">+</span>
+          </div>
+          <div class="faq-content">
+            Yes! This live 3-hour masterclass is 100% free to attend live. You will get full access to the live session, templates, and community access at zero cost.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-header" onclick="this.parentElement.classList.toggle('active')">
+            <span>Do I need coding or technical knowledge?</span>
+            <span class="faq-toggle-icon">+</span>
+          </div>
+          <div class="faq-content">
+            No coding background is required. Everything is taught in plain English using intuitive no-code AI tools, prompt engineering frameworks, and visual automations.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-header" onclick="this.parentElement.classList.toggle('active')">
+            <span>Will I receive a certificate upon completion?</span>
+            <span class="faq-toggle-icon">+</span>
+          </div>
+          <div class="faq-content">
+            Yes! All live attendees who participate through the 3-hour session will receive an official, verifiable GrowthSchool Certificate of Completion to showcase on LinkedIn.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-header" onclick="this.parentElement.classList.toggle('active')">
+            <span>What if I miss the live session?</span>
+            <span class="faq-toggle-icon">+</span>
+          </div>
+          <div class="faq-content">
+            Since this is an interactive hands-on workshop with live Q&A, we strongly recommend attending live. Live attendees also get exclusive access to our 100+ prompt bundle.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. Site Footer -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <h3>GrowthSchool</h3>
+            <p>Empowering the next generation of leaders with practical, industry-led AI and growth education.</p>
+          </div>
+
+          <div class="footer-col">
+            <h4>Programs</h4>
+            <ul class="footer-links">
+              <li><a href="#">Generative AI Masterclass</a></li>
+              <li><a href="#">AI Generalist Accelerator</a></li>
+              <li><a href="#">AI Engineer Track</a></li>
+              <li><a href="#">Growth Marketing</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h4>Company</h4>
+            <ul class="footer-links">
+              <li><a href="#">About Us</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+              <li><a href="#">Terms of Service</a></li>
+              <li><a href="#">Contact Support</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>© 2026 GrowthSchool Inc. All rights reserved.</p>
+          <p>Backed by Peak XV (Sequoia India) · Empowering 10M+ Learners</p>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- Sticky Conversion Bottom Bar -->
+  <div class="sticky-bar" id="sticky-bar">
+    <div class="sticky-info">
+      <span class="stage-badge" style="margin: 0;">⚡ LIVE 26TH AUG</span>
+      <span class="sticky-title">Master ChatGPT & 15+ AI Tools</span>
+      <span class="sticky-price">FREE (₹1,999 Value)</span>
+    </div>
+
+    <a href="#register" class="btn-main-hero" style="padding: 0.75rem 1.85rem; font-size: 0.95rem;">
+      Claim Your Free Spot →
+    </a>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- 3D LIGHT SILK WAVES ENGINE (Optimized Single Shader)                       -->
+  <!-- ========================================================================= -->
+  <script>
+    const canvas = document.getElementById('silk-canvas');
+    const gl = canvas.getContext('webgl2', { antialias: true, alpha: true, powerPreference: 'high-performance' })
+            || canvas.getContext('webgl');
+
+    let dpr = Math.min(window.devicePixelRatio || 1, 2);
+    canvas.width = window.innerWidth * dpr;
+    canvas.height = window.innerHeight * dpr;
+
+    const NUM_RIBBONS = 32;
+    const POINTS_PER_RIBBON = 750;
+    const TOTAL_POINTS = NUM_RIBBONS * POINTS_PER_RIBBON;
+
+    const vsSource = `
+      precision highp float;
+      attribute vec3 aBasePos;
+      attribute float aRibbonIndex;
+      attribute float aU;
+
+      uniform float uTime;
+      uniform vec2 uMouse;
+      uniform float uAspect;
+      uniform float uShockwave;
+      uniform vec2 uShockOrigin;
+      uniform float uScroll;
+
+      varying float vRibbon;
+      varying float vU;
+      varying vec3 vPos;
+
+      void main() {
+        vRibbon = aRibbonIndex;
+        vU = aU;
+
+        float flowTime = uTime * 0.38 + aU * 3.2;
+        float ribbonPhase = aRibbonIndex * 0.24;
+
+        float x = (aU - 0.5) * 3.6;
+        float y = sin(x * 1.45 + flowTime + ribbonPhase) * 0.42 
+                + cos(x * 2.2 - flowTime * 0.65) * 0.20 
+                + (aRibbonIndex - 16.0) * 0.056;
+        float z = cos(x * 1.75 + flowTime * 1.05 + ribbonPhase) * 0.48;
+
+        // Scroll Depth Parallax
+        y += uScroll * 0.45;
+        z -= uScroll * 0.35;
+
+        // Interactive Cursor Hydrodynamic Wake
+        vec2 toMouse = vec2(x, y) - uMouse;
+        float distMouse = length(toMouse);
+        if (distMouse < 0.8) {
+          float force = (1.0 - distMouse / 0.8);
+          y += toMouse.y * force * 0.4;
+          z += force * 0.5;
+        }
+
+        // Synaptic Click Shockwave
+        if (uShockwave > 0.0) {
+          vec2 toShock = vec2(x, y) - uShockOrigin;
+          float distShock = length(toShock);
+          float waveDist = abs(distShock - (1.0 - uShockwave) * 2.4);
+          if (waveDist < 0.32) {
+            float shockForce = (1.0 - waveDist / 0.32) * uShockwave * 0.5;
+            y += normalize(toShock).y * shockForce;
+            z += shockForce * 0.6;
+          }
+        }
+
+        vPos = vec3(x, y, z);
+        vec4 pos = vec4(x / uAspect, y, z * 0.45, 1.0);
+        gl_Position = pos;
+
+        gl_PointSize = (2.0 + (z + 0.5) * 1.8) * (1.0 + sin(aU * 16.0 + uTime * 2.0) * 0.2);
+      }
+    `;
+
+    const fsSource = `
+      precision highp float;
+      varying float vRibbon;
+      varying float vU;
+      varying vec3 vPos;
+      uniform float uTime;
+
+      void main() {
+        vec2 coord = gl_PointCoord - vec2(0.5);
+        float dist = length(coord);
+        if (dist > 0.5) discard;
+
+        float alpha = pow(clamp(1.0 - dist * 2.0, 0.0, 1.0), 1.7) * 0.45;
+
+        vec3 colIndigo = vec3(0.31, 0.27, 0.90);
+        vec3 colCyan = vec3(0.06, 0.65, 0.85);
+        vec3 colEmerald = vec3(0.02, 0.72, 0.48);
+
+        float colorPhase = sin(vRibbon * 0.28 + vU * 3.5 + uTime * 0.4) * 0.5 + 0.5;
+        vec3 baseCol = mix(colIndigo, colCyan, colorPhase);
+        baseCol = mix(baseCol, colEmerald, clamp(sin(vPos.y * 2.5 + uTime * 0.5) * 0.5 + 0.5, 0.0, 1.0));
+
+        gl_FragColor = vec4(baseCol, alpha);
+      }
+    `;
+
+    function createShader(gl, type, source) {
+      const shader = gl.createShader(type);
+      gl.shaderSource(shader, source);
+      gl.compileShader(shader);
+      if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
+        console.error(gl.getShaderInfoLog(shader));
+        gl.deleteShader(shader);
+        return null;
+      }
+      return shader;
+    }
+
+    const vs = createShader(gl, gl.VERTEX_SHADER, vsSource);
+    const fs = createShader(gl, gl.FRAGMENT_SHADER, fsSource);
+    const program = gl.createProgram();
+    gl.attachShader(program, vs);
+    gl.attachShader(program, fs);
+    gl.linkProgram(program);
+
+    const locBasePos = gl.getAttribLocation(program, 'aBasePos');
+    const locRibbon = gl.getAttribLocation(program, 'aRibbonIndex');
+    const locU = gl.getAttribLocation(program, 'aU');
+
+    const uTime = gl.getUniformLocation(program, 'uTime');
+    const uMouse = gl.getUniformLocation(program, 'uMouse');
+    const uAspect = gl.getUniformLocation(program, 'uAspect');
+    const uShockwave = gl.getUniformLocation(program, 'uShockwave');
+    const uShockOrigin = gl.getUniformLocation(program, 'uShockOrigin');
+    const uScroll = gl.getUniformLocation(program, 'uScroll');
+
+    const basePosArray = new Float32Array(TOTAL_POINTS * 3);
+    const ribbonIndexArray = new Float32Array(TOTAL_POINTS);
+    const uArray = new Float32Array(TOTAL_POINTS);
+
+    let ptr = 0;
+    for (let r = 0; r < NUM_RIBBONS; r++) {
+      for (let p = 0; p < POINTS_PER_RIBBON; p++) {
+        const u = p / (POINTS_PER_RIBBON - 1);
+        basePosArray[ptr * 3] = (u - 0.5) * 3.6;
+        basePosArray[ptr * 3 + 1] = 0;
+        basePosArray[ptr * 3 + 2] = 0;
+
+        ribbonIndexArray[ptr] = r;
+        uArray[ptr] = u;
+        ptr++;
+      }
+    }
+
+    const bufPos = gl.createBuffer();
+    gl.bindBuffer(gl.ARRAY_BUFFER, bufPos);
+    gl.bufferData(gl.ARRAY_BUFFER, basePosArray, gl.STATIC_DRAW);
+
+    const bufRibbon = gl.createBuffer();
+    gl.bindBuffer(gl.ARRAY_BUFFER, bufRibbon);
+    gl.bufferData(gl.ARRAY_BUFFER, ribbonIndexArray, gl.STATIC_DRAW);
+
+    const bufU = gl.createBuffer();
+    gl.bindBuffer(gl.ARRAY_BUFFER, bufU);
+    gl.bufferData(gl.ARRAY_BUFFER, uArray, gl.STATIC_DRAW);
+
+    let mousePos = [-999, -999];
+    let targetMouse = [-999, -999];
+    let shockwave = 0.0;
+    let shockOrigin = [0, 0];
+    let scrollNorm = 0.0;
+
+    window.addEventListener('mousemove', (e) => {
+      const aspect = window.innerWidth / window.innerHeight;
+      const nx = ((e.clientX / window.innerWidth) * 2 - 1) * aspect;
+      const ny = -((e.clientY / window.innerHeight) * 2 - 1);
+      targetMouse = [nx, ny];
+    });
+
+    window.addEventListener('click', (e) => {
+      if (e.target.tagName === 'A' || e.target.tagName === 'BUTTON' || e.target.closest('.faq-header') || e.target.closest('input')) return;
+      const aspect = window.innerWidth / window.innerHeight;
+      const nx = ((e.clientX / window.innerWidth) * 2 - 1) * aspect;
+      const ny = -((e.clientY / window.innerHeight) * 2 - 1);
+      shockOrigin = [nx, ny];
+      shockwave = 1.0;
+    });
+
+    window.addEventListener('scroll', () => {
+      const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+      scrollNorm = maxScroll > 0 ? (window.scrollY / maxScroll) : 0;
+    });
+
+    const stickyBar = document.getElementById('sticky-bar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 550) {
+        stickyBar.classList.add('visible');
+      } else {
+        stickyBar.classList.remove('visible');
+      }
+    });
+
+    let startTime = performance.now();
+    let lastTime = startTime;
+
+    function render(now) {
+      requestAnimationFrame(render);
+
+      const time = (now - startTime) * 0.001;
+      const delta = (now - lastTime) * 0.001;
+      lastTime = now;
+
+      mousePos[0] += (targetMouse[0] - mousePos[0]) * 0.06;
+      mousePos[1] += (targetMouse[1] - mousePos[1]) * 0.06;
+
+      if (shockwave > 0.0) {
+        shockwave -= delta * 1.5;
+        if (shockwave < 0.0) shockwave = 0.0;
+      }
+
+      gl.viewport(0, 0, canvas.width, canvas.height);
+      gl.clearColor(0.98, 0.97, 0.96, 1.0);
+      gl.clear(gl.COLOR_BUFFER_BIT);
+
+      gl.enable(gl.BLEND);
+      gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
+
+      gl.useProgram(program);
+
+      gl.bindBuffer(gl.ARRAY_BUFFER, bufPos);
+      gl.enableVertexAttribArray(locBasePos);
+      gl.vertexAttribPointer(locBasePos, 3, gl.FLOAT, false, 0, 0);
+
+      gl.bindBuffer(gl.ARRAY_BUFFER, bufRibbon);
+      gl.enableVertexAttribArray(locRibbon);
+      gl.vertexAttribPointer(locRibbon, 1, gl.FLOAT, false, 0, 0);
+
+      gl.bindBuffer(gl.ARRAY_BUFFER, bufU);
+      gl.enableVertexAttribArray(locU);
+      gl.vertexAttribPointer(locU, 1, gl.FLOAT, false, 0, 0);
+
+      const aspect = canvas.width / canvas.height;
+
+      gl.uniform1f(uTime, time);
+      gl.uniform2f(uMouse, mousePos[0], mousePos[1]);
+      gl.uniform1f(uAspect, aspect);
+      gl.uniform1f(uShockwave, shockwave);
+      gl.uniform2f(uShockOrigin, shockOrigin[0], shockOrigin[1]);
+      gl.uniform1f(uScroll, scrollNorm);
+
+      gl.drawArrays(gl.POINTS, 0, TOTAL_POINTS);
+    }
+
+    requestAnimationFrame(render);
+
+    window.addEventListener('resize', () => {
+      dpr = Math.min(window.devicePixelRatio || 1, 2);
+      canvas.width = window.innerWidth * dpr;
+      canvas.height = window.innerHeight * dpr;
+    });
+
+    // 3D Magnetic Card Tilt
+    const tiltCards = document.querySelectorAll('.tilt-card');
+    tiltCards.forEach((card) => {
+      const maxTilt = parseFloat(card.getAttribute('data-tilt') || '5');
+      const sheen = card.querySelector('.specular-sheen');
+
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const cx = rect.width / 2;
+        const cy = rect.height / 2;
+
+        const dx = (x - cx) / cx;
+        const dy = (y - cy) / cy;
+
+        const rotX = -dy * maxTilt;
+        const rotY = dx * maxTilt;
+
+        card.style.transform = `perspective(1200px) rotateX(${rotX.toFixed(2)}deg) rotateY(${rotY.toFixed(2)}deg) translateZ(8px)`;
+
+        if (sheen) {
+          const px = (x / rect.width) * 100;
+          const py = (y / rect.height) * 100;
+          sheen.style.background = `radial-gradient(circle at ${px}% ${py}%, rgba(255, 255, 255, 0.45) 0%, transparent 60%)`;
+        }
+      });
+
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = 'perspective(1200px) rotateX(0deg) rotateY(0deg) translateZ(0px)';
+      });
+    });
+  </script>
+</body>
+</html>

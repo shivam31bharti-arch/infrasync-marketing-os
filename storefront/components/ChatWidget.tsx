@@ -230,7 +230,7 @@ export default function ChatWidget({ whatsappLink = null }: ChatWidgetProps) {
             exit={{ opacity: 0, y: 20, scale: 0.9 }}
             style={{
               position: "fixed",
-              bottom: 24,
+              bottom: 96, // clears the v4 sticky conversion bar
               right: 24,
               zIndex: 150,
               display: "flex",
@@ -344,7 +344,7 @@ export default function ChatWidget({ whatsappLink = null }: ChatWidgetProps) {
             transition={{ type: "spring", stiffness: 220, damping: 24 }}
             style={{
               position: "fixed",
-              bottom: 24,
+              bottom: 96, // clears the v4 sticky conversion bar
               right: 24,
               width: 390,
               maxWidth: "calc(100vw - 48px)",

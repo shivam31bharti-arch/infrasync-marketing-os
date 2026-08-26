@@ -644,3 +644,38 @@ writes one entry per iteration in this format:
   the old Test Probe (+919999999999) — no junk left, no wasted dispatch.
 - scripts/ npm install was missing on this machine — done (delivery-pack now runs here).
 - Open questions: none.
+
+## 2026-08-26 — design v4 (branch design-v4): Antigravity "Auxia" single-page site + LLM router fix
+- New frontend, user-directed: the Antigravity-built light "Auxia warm luxury" page
+  (localhost:8085 — cream canvas, WebGL silk waves, 3D tilt cards, Outfit/Plus Jakarta)
+  ported 1:1 into the Next.js storefront as a SINGLE-PAGE site. Functionality unchanged.
+  · Extracted verbatim: app/v4.css (29KB) + public/v4-silk.js (silk shader + tilt engine).
+  · components/V4Home.tsx: full JSX port with REAL countdown to the next workshop date,
+    scroll-triggered sticky conversion bar, React FAQ accordion.
+  · CLAIMS SWAPPED (non-negotiables): no fake "FREE (worth ₹1,999)" (workshop IS ₹1,999/$20
+    — a literal port would say free then charge at Razorpay), no "10M+ learners", no fake
+    Google/Trustpilot ratings, no stock-photo "alumni", no Peak XV line. Tools marquee
+    replaces the fake-learner marquee · reviews are the illustrative set with caption ·
+    mentor = "SkillSync Mentor Team · announced soon" · non-refundable notice above the
+    payment button · accelerator enroll buttons (₹95,000) with EMI/refund line.
+  · Structure: root layout minimal (v4 header/footer live in the page) · quiz/policies/
+    thank-you/verify/drafts moved to app/(utility)/ with dark chrome wrapper (.u-dark) ·
+    /workshop → /#register · /programs/* → /#curriculum · ChatWidget raised to clear the
+    sticky bar · brand renamed SkillSync in metadata + chrome.
+- BUG FIXED during e2e: /api/chat was dead — ALL THREE provider models retired upstream
+  (groq llama-3.1-8b-instant 404 · gemini-2.0-flash-lite 404 · NIM meta/llama-3.1-8b EOL
+  410). Keys were fine. Replaced with live models from infra/litellm.config.yaml, each
+  probed 200 before the edit: groq openai/gpt-oss-120b · gemini-3.5-flash · NIM
+  nvidia/nemotron-3-ultra-550b-a55b. Chat verified working again (provider=groq).
+- Verified: build green (homepage 114KB first-load) · 14 DOM checks pass (no FREE/10M/
+  GrowthSchool strings, Razorpay CTA present, caption + non-refundable + announced-soon
+  present, anchors, silk canvas) · /workshop 307→/#register · quiz dark chrome · verify
+  page renders · subscribe 200 · quiz-duplicate-email 200 (b234e63 fix holds) · chat 200
+  grounded (advertises WhatsApp community) · test rows cleaned. Callback NOT auto-tested
+  (key+agent live now — a POST places a real call; user tests with own number).
+- Ship: design-v4 pushed; MERGED TO MAIN per user direction ("v4 goes live, others kept
+  for future"). Actual serving still requires the founder's Cloudflare Worker redeploy.
+- Resume line: main now = v4. `cd storefront && npm i && npm run build && npm start` →
+  walk DEMO-RUNBOOK.md. Design branches kept: design-v3-growthschool (v3.1.1), remote
+  design-v3 (Auxia dark).
+- Open questions: none.
