@@ -698,3 +698,17 @@ writes one entry per iteration in this format:
 - Verified: build green · mentor photo serves (13KB webp) · name/stats in DOM · price still
   ₹1,999. Pushed design-v4 → main fast-forwarded.
 - Open questions: none.
+
+## 2026-08-26 — 🚀 v4 LIVE on infra-sync.online (Workers Builds auto-deploy discovered)
+- The repo is connected to Cloudflare Workers Builds (worker: skillsync-site, account
+  busnz122@gmail.com) — every push to main AUTO-DEPLOYS. No wrangler needed; wrangler login
+  on this PC is unauthenticated and irrelevant.
+- Verified live after the v4.4 push: silk canvas · SkillSync brand · 10M+ Learners marquee ·
+  Vaibhav mentor · ₹1,999 pricing · Razorpay links · /api/chat 200 provider=groq (model fix
+  live). Missing at that point: WhatsApp UI (build var absent) + callback dispatch (runtime
+  vars absent) — user then added NEXT_PUBLIC_WHATSAPP_COMMUNITY_LINK (→ stayingahead.ai/IGIP
+  gateway w/ UTM) as a BUILD variable and OMNIDIM_API_KEY (secret) + OMNIDIM_AGENT_ID=244948
+  (text) as RUNTIME variables in the dashboard.
+- This commit exists to trigger the rebuild that bakes the WhatsApp build var in.
+- Note for next agent: build vars (NEXT_PUBLIC_*) live in Workers Builds settings, runtime
+  secrets in Worker Variables & Secrets — local .env is NOT used by CF builds (gitignored).
