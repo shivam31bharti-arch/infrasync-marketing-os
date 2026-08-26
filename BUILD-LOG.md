@@ -600,3 +600,25 @@ writes one entry per iteration in this format:
 - Next: founder/user creates the actual WhatsApp community and pastes the invite link into
   .env as NEXT_PUBLIC_WHATSAPP_COMMUNITY_LINK (notepad edit).
 - Open questions: none.
+
+## 2026-08-26 — Voice bot #2: "Staying Ahead — Follow-up Caller" (OmniDimension 244918) + Supabase dispatcher
+- Purpose (user-defined): call leads the SALES TEAM couldn't reach (missed) and take gentle
+  follow-ups with "not interested" leads. We already hold name/phone/email. The bot's ONE
+  goal: if they say yes to talking to our executive, confirm a human will call back and
+  capture the preferred time. No selling — no prices/dates/discounts/outcome promises;
+  first "no" is accepted; do-not-call honored on first ask.
+- Agent 244918 created in the connected OmniDimension account: dynamic greeting by name via
+  call_context {user_name, lead_context}, EN(India)+Hindi, post-call email to
+  marketing.od@growthschool.io with wants_executive_call / preferred_callback_time /
+  objection / do_not_call / outcome enum. Full spec: agent/stayingahead-followup-agent.md.
+- Supabase integration: scripts/followup-calls.mjs (zero-dependency, Node fetch) —
+  --mark <phone> missed|not_interested (sales team flags leads in subscribers.meta) ·
+  --list · --dry-run · default = human-triggered dispatch, stamps meta.followup_called_at
+  (idempotent, never double-calls). .env.example: STAYINGAHEAD_FOLLOWUP_AGENT_ID=244918.
+- Verified: --mark flagged Test Probe row · --list/--dry-run show it eligible, exit 0 ·
+  dispatch without OMNIDIM_API_KEY guards with exit 1. Supabase state checked: subscribers=4
+  (2 real callback leads from widget testing), registrations=1, certificates=2.
+- Note: Test Probe (+919999999999, fake) is still flagged "missed" — delete the row or
+  expect one failed dispatch when the key goes in.
+- Next: OMNIDIM_API_KEY into .env (notepad) → test both bots against your own number.
+- Open questions: none.
