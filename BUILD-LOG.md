@@ -512,3 +512,31 @@ writes one entry per iteration in this format:
 - Resume line: `curl -s https://infra-sync.online/workshop | grep -c "â€"` must return 0 after
   redeploy.
 - Open questions: none.
+
+## 2026-08-26 — design-v3 (branch): GrowthSchool-reference rebuild of the 4 money pages
+- Done (branch `design-v3`, NOT merged — founder must review a preview first):
+  · New design system in globals.css: growthschool.io/in language — deep green-black
+    #030D02/#041B01, cream #FFFAF1, signature green #33C375 CTAs (pill), IBM Plex Sans/Mono.
+    All v2 class names preserved so untouched pages (quiz/policies/verify/thank-you) inherit.
+  · 5 Higgsfield Soul 2.0 photos (decorative ONLY per claims policy — "AI people are
+    hosts/explainers only", alt="", never near reviews) → public/images/*.webp, 30–68KB each.
+  · Rebuilt / · /workshop · /programs/ai-generalist · /programs/ai-engineer:
+    split hero with photo frame, fact chips, spring reveals (motion/react, reduced-motion
+    collapses to fades), GrowthSchool-style sticky bottom CTA bar (renders only when the
+    Razorpay link env is set), mentor "announced soon" card ("SkillSync mentor team"),
+    audience chips, curriculum check-lists. New components: Reveal, StickyCTA, MentorSoon.
+  · Removed R3F/three.js hero → home First Load JS 392KB → 148KB.
+  · Fact fix: dropped invented "Tue & Thu" cohort days (offers.md has no days — only
+    7:30–10:30 PM IST + weekend office hours).
+- Verified: npm run build green (16 routes) · prod server DOM checks: IBM Plex + green
+  tokens active, all images load, sticky CTA + mentor card + "Illustrative reviews" caption
+  present, non-refundable notice above payment button, 0 console errors, 0 mojibake.
+  (No screenshots — Browser pane not displayed this session.)
+- NOT touched: app/api/, lib/, payment hrefs/env logic, ChatWidget wiring, analytics,
+  Sentry (design-rebuild-v3 hard boundaries).
+- Next: push design-v3 → founder opens Cloudflare preview build for the branch and
+  reviews; merge to main only on founder approval. Separately: main branch hotfix b234e63
+  (mojibake) still awaits founder Worker redeploy for the CURRENT live site.
+- Resume line: `git checkout design-v3 && cd storefront && npm install && npm run build`
+  then review /, /workshop, both program pages at 1440px and 390px.
+- Open questions: none.
