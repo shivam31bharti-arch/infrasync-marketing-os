@@ -35,9 +35,9 @@ export default function SubscriberPopup() {
       }}
     >
       <div
-        className="popup"
+        className="popup popup--premium"
         style={{
-          background: "var(--color-paper)",
+          background: "var(--color-cream-bright)",
           borderRadius: "var(--radius-xl)",
           padding: "var(--space-3xl)",
           maxWidth: 420,

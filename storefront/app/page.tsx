@@ -6,6 +6,8 @@ import ReviewsMarquee from "@/components/ReviewsMarquee";
 import { loadServerEnv, serverEnv } from "@/lib/server-env";
 import PipelineDemo from "@/components/v3/PipelineDemo";
 import WordReveal from "@/components/v3/WordReveal";
+import FrameworksTools from "@/components/v3/FrameworksTools";
+import MentorSection from "@/components/v3/MentorSection";
 
 loadServerEnv(); // root .env (NEXT_PUBLIC_* not auto-loaded outside storefront/)
 
@@ -29,6 +31,8 @@ export default function HomePage() {
 
       {/* The delivery pipeline — our real fulfilment system, animated */}
       <PipelineDemo />
+
+      <FrameworksTools />
 
       {/* Two-Track Split */}
       <section className="section section--paper" id="programs">
@@ -158,6 +162,9 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Mentors */}
+      <MentorSection />
+
       {/* Reviews */}
       <ReviewsMarquee />
 
@@ -170,12 +177,12 @@ export default function HomePage() {
           <FaqAccordion
             items={[
               {
-                question: "What is InfraSync?",
+                question: "What is SkillSync?",
                 answer: (
                   <p>
-                    InfraSync is an AI education platform by SkillSync. We run
-                    live, cohort-based programs that teach people how to work
-                    with AI — whether you&apos;re a non-tech professional or a
+                    SkillSync is an AI education company. We run live,
+                    cohort-based programs that teach people how to work with
+                    AI — whether you&apos;re a non-tech professional or a
                     developer with Python experience.
                   </p>
                 ),

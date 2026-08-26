@@ -141,7 +141,7 @@ function Lights() {
   );
 }
 
-export default function HeroScene() {
+export default function HeroScene({ dark = false }: { dark?: boolean } = {}) {
   const group = useRef<THREE.Group>(null);
   const pointer = useRef({ x: 0, y: 0 });
   const smooth = useRef({ x: 0, y: 0 });
@@ -172,7 +172,7 @@ export default function HeroScene() {
         pointer.current.y = (e.clientY / window.innerHeight - 0.5) * 2;
       }}
     >
-      <fog attach="fog" args={["#F0EFE3", 14, 26]} />
+      <fog attach="fog" args={[dark ? "#05070B" : "#F0EFE3", 14, 26]} />
       <Lights />
       <Rig group={group} pointer={pointer} smooth={smooth} />
       <group ref={group}>

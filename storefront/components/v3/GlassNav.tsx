@@ -47,6 +47,9 @@ export default function GlassNav() {
           <Link href="/quiz" className="nav-link" onClick={() => setOpen(false)}>
             Find Your Track
           </Link>
+          <Link href="/community" className="nav-link" onClick={() => setOpen(false)}>
+            Community
+          </Link>
         </nav>
         <div className="nav-actions">
           <Link href="/workshop" className="button button--primary nav-cta">
