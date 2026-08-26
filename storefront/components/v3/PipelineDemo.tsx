@@ -3,42 +3,43 @@
 import { motion } from "motion/react";
 
 /**
- * PipelineDemo — the Auxia-style "watch the machine work" panel, except ours
- * demos a real, running system: the SkillSync delivery pipeline. Chips light
- * up in sequence with springs, looping forever. 100% true claims only.
+ * PipelineDemo — student-language, four steps, gradient panel.
+ * Chips light up in sequence with a soft blue gradient wash, looping.
+ * Everything shown is our real, running fulfilment system.
  */
 const STEPS = [
-  { label: "STUDENT PAYS ₹1,999", sub: "Razorpay checkout" },
-  { label: "CERTIFICATE ISSUED", sub: "SSC-#### · publicly verifiable" },
-  { label: "DRIVE ACCESS GRANTED", sub: "notes + tools · registered email only" },
-  { label: "CRM UPDATED", sub: "contact created automatically" },
-  { label: "PACK EMAILED BY 8 PM", sub: "recordings · notes · certificate" },
+  { label: "JOIN A PROGRAM", sub: "one-click checkout" },
+  { label: "GET CERTIFIED", sub: "publicly verifiable" },
+  { label: "CONTENT UNLOCKED", sub: "recordings · notes · tools" },
+  { label: "IN YOUR INBOX BY 8 PM", sub: "same day, every day" },
 ];
 
-const CYCLE = 7.5; // seconds for a full loop
+const CYCLE = 6.4;
 
 export default function PipelineDemo() {
   return (
-    <section className="section" aria-label="The delivery pipeline">
+    <section className="section" aria-label="What happens after you join">
       <div className="container--narrow" style={{ textAlign: "center", marginBottom: "var(--space-2xl)" }}>
         <p className="label" style={{ color: "var(--color-electric)", marginBottom: "var(--space-md)" }}>
-          The delivery pipeline · runs itself, daily
+          After you join
         </p>
-        <h2>Pay once. The machine does the rest.</h2>
-        <p className="muted" style={{ marginTop: "var(--space-md)", maxWidth: "34ch", marginInline: "auto", lineHeight: 1.5 }}>
-          This isn&apos;t a mockup — it&apos;s our live fulfilment system, animated.
-        </p>
+        <h2>Join once. The rest is automatic.</h2>
       </div>
 
-      <div className="container" style={{ maxWidth: 900 }}>
-        <div className="pipeline-panel" role="img" aria-label="Animated diagram: payment triggers certificate, drive access, CRM update, and the evening delivery email">
+      <div className="container" style={{ maxWidth: 860 }}>
+        <div
+          className="pipeline-panel"
+          style={{ background: "linear-gradient(165deg, #FEFDF5 0%, #EEF3FF 70%, #E3EBFF 100%)" }}
+          role="img"
+          aria-label="Animated diagram: joining triggers your certificate, content access, and the evening delivery email"
+        >
           {STEPS.map((step, i) => (
             <div key={step.label} className="pipeline-row">
               <motion.div
                 className="pipeline-chip"
+                style={{ position: "relative", overflow: "hidden" }}
                 animate={{
-                  borderColor: ["rgba(35,35,35,0.14)", "rgba(11,79,255,1)", "rgba(35,35,35,0.14)"],
-                  backgroundColor: ["rgba(254,253,245,1)", "rgba(11,79,255,0.07)", "rgba(254,253,245,1)"],
+                  borderColor: ["rgba(35,35,35,0.12)", "rgba(11,79,255,0.9)", "rgba(35,35,35,0.12)"],
                   scale: [1, 1.02, 1],
                 }}
                 transition={{
@@ -49,12 +50,28 @@ export default function PipelineDemo() {
                 }}
               >
                 <motion.span
+                  aria-hidden="true"
+                  style={{
+                    position: "absolute",
+                    inset: 0,
+                    background: "linear-gradient(90deg, rgba(11,79,255,0.12) 0%, rgba(79,124,255,0.05) 100%)",
+                    pointerEvents: "none",
+                  }}
+                  animate={{ opacity: [0, 1, 0] }}
+                  transition={{
+                    duration: CYCLE,
+                    times: [i / STEPS.length, (i + 0.5) / STEPS.length, (i + 1) / STEPS.length],
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  }}
+                />
+                <motion.span
                   className="pipeline-dot"
                   animate={{
-                    backgroundColor: ["rgba(35,35,35,0.25)", "rgba(11,79,255,1)", "rgba(35,35,35,0.25)"],
+                    backgroundColor: ["rgba(35,35,35,0.2)", "rgba(11,79,255,1)", "rgba(35,35,35,0.2)"],
                     boxShadow: [
                       "0 0 0 rgba(11,79,255,0)",
-                      "0 0 12px rgba(11,79,255,0.65)",
+                      "0 0 14px rgba(11,79,255,0.7)",
                       "0 0 0 rgba(11,79,255,0)",
                     ],
                   }}

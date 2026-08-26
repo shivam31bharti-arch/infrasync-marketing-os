@@ -98,19 +98,18 @@ export default function HomePage() {
               <div className="step-content">
                 <h3>Start with the Workshop</h3>
                 <p>
-                  Two days, $20 international · ₹1,999 India. Hands-on AI
-                  fundamentals — a taste of both accelerator tracks. No
-                  commitment, real skills.
+                  Two days, hands-on. ₹1,999 India · $20 international. A real
+                  taste of both tracks.
                 </p>
               </div>
             </div>
             <div className="step">
               <div className="step-number">02</div>
               <div className="step-content">
-                <h3>Find Your Track</h3>
+                <h3>Discover your path</h3>
                 <p>
-                  Take our track-fit quiz. Based on your background, goals, and
-                  available time, we&apos;ll recommend the right accelerator for you.
+                  A two-minute quiz matches your background to Generalist or
+                  Engineer.
                 </p>
               </div>
             </div>
@@ -119,8 +118,8 @@ export default function HomePage() {
               <div className="step-content">
                 <h3>Accelerate</h3>
                 <p>
-                  Join your cohort, build real projects, and earn your SkillSync
-                  certificate of completion.
+                  Join your cohort, ship real projects, earn a verifiable
+                  certificate.
                 </p>
               </div>
             </div>
