@@ -7,9 +7,9 @@ import { loadServerEnv, serverEnv } from "@/lib/server-env";
 loadServerEnv(); // root .env (NEXT_PUBLIC_* not auto-loaded outside storefront/)
 
 export const metadata: Metadata = {
-  title: "AI Engineer Accelerator â€” Python Required â€” $1,200 / â‚¹95,000",
+  title: "AI Engineer Accelerator — Python Required — $1,200 / ₹95,000",
   description:
-    "For developers with Python experience. AI-augmented engineering, performance, productivity, and time management. $1,200 international / â‚¹95,000 India.",
+    "For developers with Python experience. AI-augmented engineering, performance, productivity, and time management. $1,200 international / ₹95,000 India.",
 };
 
 export default function AIEngineerPage() {
@@ -29,7 +29,7 @@ export default function AIEngineerPage() {
             className="prereq-badge"
             style={{ marginBottom: "var(--space-lg)", display: "inline-flex" }}
           >
-            âš¡ PYTHON REQUIRED
+            ⚡ PYTHON REQUIRED
           </span>
           <h1 style={{ maxWidth: "700px", marginBottom: "var(--space-xl)" }}>
             AI Engineer Accelerator
@@ -44,7 +44,7 @@ export default function AIEngineerPage() {
             }}
           >
             For developers with basic-to-intermediate Python. AI-augmented
-            engineering, performance, productivity, and time management â€”
+            engineering, performance, productivity, and time management —
             level up how you build.
           </p>
           <p
@@ -81,7 +81,7 @@ export default function AIEngineerPage() {
               <p className="price-note">International</p>
             </div>
             <div>
-              <div className="price-display">â‚¹95,000</div>
+              <div className="price-display">₹95,000</div>
               <p className="price-note">India</p>
             </div>
           </div>
@@ -99,7 +99,7 @@ export default function AIEngineerPage() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Enroll â€” $1,200 / â‚¹95,000
+                Enroll — $1,200 / ₹95,000
               </a>
             ) : (
               <span className="tbd">Enrollment opens soon</span>
@@ -108,17 +108,17 @@ export default function AIEngineerPage() {
               href="/workshop"
               className="button button--ghost button--large"
             >
-              Start with the $20 Workshop â†’
+              Start with the $20 Workshop →
             </Link>
           </div>
           <p className="muted" style={{ marginTop: "var(--space-xl)", fontSize: "0.9375rem", maxWidth: "640px", lineHeight: 1.7 }}>
-            Next cohort starts <strong>Sep 15, 2026</strong> Â· live sessions Tue
-            &amp; Thu, 7:30–10:30 PM IST + weekend office hours Â·{" "}
+            Next cohort starts <strong>Sep 15, 2026</strong> · live sessions Tue
+            &amp; Thu, 7:30–10:30 PM IST + weekend office hours ·{" "}
             <span className="tbd">program duration announced soon</span>
           </p>
           <p className="muted" style={{ marginTop: "var(--space-sm)", fontSize: "0.9375rem", maxWidth: "640px", lineHeight: 1.7 }}>
-            India: <strong>no-cost EMI</strong> â€” 3, 6, or 10 months via
-            Razorpay (subject to bank approval) Â· Full refund within 4 weeks of
+            India: <strong>no-cost EMI</strong> — 3, 6, or 10 months via
+            Razorpay (subject to bank approval) · Full refund within 4 weeks of
             cohort start.
           </p>
         </div>
@@ -176,18 +176,18 @@ export default function AIEngineerPage() {
           </h2>
           <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-xl)" }}>
             <div className="step">
-              <div className="step-number">âœ“</div>
+              <div className="step-number">✓</div>
               <div className="step-content">
                 <h3>Python (basic to intermediate)</h3>
                 <p>
                   Comfortable with functions, loops, data structures, file I/O.
-                  You don&apos;t need to be an expert â€” but you should be able to
+                  You don&apos;t need to be an expert — but you should be able to
                   read and write Python without guidance.
                 </p>
               </div>
             </div>
             <div className="step">
-              <div className="step-number">âœ“</div>
+              <div className="step-number">✓</div>
               <div className="step-content">
                 <h3>Command line basics</h3>
                 <p>
@@ -197,7 +197,7 @@ export default function AIEngineerPage() {
               </div>
             </div>
             <div className="step">
-              <div className="step-number">âœ“</div>
+              <div className="step-number">✓</div>
               <div className="step-content">
                 <h3>Curiosity about AI</h3>
                 <p>
@@ -212,7 +212,7 @@ export default function AIEngineerPage() {
               Not sure you&apos;re ready? The quiz will help.
             </p>
             <Link href="/quiz" className="button button--secondary button--large">
-              Take the Track-Fit Quiz â†’
+              Take the Track-Fit Quiz →
             </Link>
           </div>
         </div>
@@ -236,7 +236,7 @@ export default function AIEngineerPage() {
             of completion with a unique code and public verification page.
           </p>
           <p className="muted" style={{ marginBottom: "var(--space-sm)" }}>
-            Next cohort: <strong>Sep 15, 2026</strong> Â· Tue &amp; Thu, 7:30–10:30 PM IST + weekend office hours
+            Next cohort: <strong>Sep 15, 2026</strong> · Tue &amp; Thu, 7:30–10:30 PM IST + weekend office hours
           </p>
           <p className="tbd" style={{ marginBottom: "var(--space-2xl)" }}>
             Program duration announced soon
@@ -246,7 +246,7 @@ export default function AIEngineerPage() {
               href="/workshop"
               className="button button--primary button--large"
             >
-              Start with the Workshop â€” $20
+              Start with the Workshop — $20
             </Link>
           </div>
         </div>

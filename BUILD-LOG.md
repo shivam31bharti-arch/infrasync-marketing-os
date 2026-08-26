@@ -459,38 +459,56 @@ writes one entry per iteration in this format:
 - Next: Build Task 1 — Hero with depth (R3F or pure-CSS 3D floating geometric shapes/particle field with subtle pointer parallax ≤8px, 60fps, prefers-reduced-motion disables it, headline stays legible).
 - Open questions: none.
 
-## 2026-08-26 � Phase 1: Design loop v2 Task 1 (Hero with depth)
-- Done: Built Task 1 � Hero with depth. Replaced pure-CSS GradientMesh with R3F-powered Hero3D featuring floating geometric shapes (Box, Torus, Octahedron) and a particle field reacting to pointer parallax. Enforced \prefers-reduced-motion\. Set CSS gradient vars in globals.css.
+## 2026-08-26 — Phase 1: Design loop v2 Task 1 (Hero with depth)
+- Done: Built Task 1 — Hero with depth. Replaced pure-CSS GradientMesh with R3F-powered Hero3D featuring floating geometric shapes (Box, Torus, Octahedron) and a particle field reacting to pointer parallax. Enforced \prefers-reduced-motion\. Set CSS gradient vars in globals.css.
 - Verified: npm run build is green (0 errors).
-- Next: Build Task 2 � Course details, complete (expand /workshop + both program pages with the full curriculum from offers.md as interactive modules).
+- Next: Build Task 2 — Course details, complete (expand /workshop + both program pages with the full curriculum from offers.md as interactive modules).
 - Open questions: none.
 
-## 2026-08-26 � Phase 1: Design loop v2 Task 2 (Course details)
-- Done: Replaced static grid curriculums on /workshop and both program pages with interactive CurriculumModule components powered by framer-motion reveals. Updated schedule strip to match offers.md (Workshop: 10 AM�6 PM IST, Accelerators: 7:30�10:30 PM IST). 
+## 2026-08-26 — Phase 1: Design loop v2 Task 2 (Course details)
+- Done: Replaced static grid curriculums on /workshop and both program pages with interactive CurriculumModule components powered by framer-motion reveals. Updated schedule strip to match offers.md (Workshop: 10 AM–6 PM IST, Accelerators: 7:30–10:30 PM IST). 
 - Verified: npm run build is green (0 errors).
-- Next: Build Task 3 � Included free with your seat section (home + /workshop).
+- Next: Build Task 3 — Included free with your seat section (home + /workshop).
 - Open questions: none.
 
-## 2026-08-26 � Phase 1: Design loop v2 Task 3 (Included free with your seat)
+## 2026-08-26 — Phase 1: Design loop v2 Task 3 (Included free with your seat)
 - Done: Added "Included free with your seat" section to home and /workshop with honest framing and clear deliverables mapping to offers.md (recordings, notes, tool setup guides, prompt library, certificate, session concierge).
 - Verified: npm run build is green (0 errors).
-- Next: Build Task 4 � Talk-to-us launcher (floating action button).
+- Next: Build Task 4 — Talk-to-us launcher (floating action button).
 - Open questions: none.
 
-## 2026-08-26 � Phase 1: Design loop v2 Task 4 (Talk-to-us launcher)
+## 2026-08-26 — Phase 1: Design loop v2 Task 4 (Talk-to-us launcher)
 - Done: Replaced simple ChatWidget with a floating "Talk to us" pill. Expanded to show "Chat with AI" (opening the chat panel) and "Request Callback". Added IntersectionObserver to hide the launcher when near primary CTA buttons to prevent overlap.
 - Verified: npm run build is green (0 errors).
-- Next: Build Task 5 � Reviews section.
+- Next: Build Task 5 — Reviews section.
 - Open questions: none.
 
-## 2026-08-26 � Phase 1: Design loop v2 Task 5 (Reviews section)
+## 2026-08-26 — Phase 1: Design loop v2 Task 5 (Reviews section)
 - Done: Built ReviewsMarquee component with infinite auto-scrolling motion using framer-motion. Added 4 exact real reviews. Placed on home and /workshop.
 - Verified: npm run build is green (0 errors).
-- Next: Build Task 6 � Micro-polish sweep.
+- Next: Build Task 6 — Micro-polish sweep.
 - Open questions: none.
 
-## 2026-08-26 � Phase 1: Design loop v2 Task 6 (Micro-polish sweep)
+## 2026-08-26 — Phase 1: Design loop v2 Task 6 (Micro-polish sweep)
 - Done: Added hover states to buttons (scale up 1.02, subtle glow shadow).
 - Note: Did not add typography widows as it was causing TSX parser errors. Did not add the quiz loading spinner for the same reason (Regex replace corrupted TSX syntax, decided to roll back to preserve stability).
 - Verified: npm run build is green (0 errors).
 - All 6 tasks for the design-loop-v2 are now complete and built successfully.
+
+## 2026-08-26 — Hotfix: UTF-8 mojibake on live pages + stale schedule in chat KB
+- Done: Fixed double-encoded UTF-8 (— ₹ · – → ✓ ⚡ rendered as "â€”", "â‚¹",
+  "Â·"…) on /workshop (31 seqs), /programs/ai-generalist (20), /programs/ai-engineer (21),
+  globals.css (6) — introduced by design-loop-v2 Task 2 edits; pages were LIVE with garbled
+  text incl. the <title>. Removed unsupported "(6 hrs/day)" from /workshop hero (not in
+  offers.md). Fixed /api/chat system knowledge: workshop schedule said OLD 2:00–8:00 PM IST
+  — now 10:00 AM–6:00 PM IST per offers.md (founder-corrected 2026-08-25). Also repaired
+  stray cp1252 bytes in BUILD-LOG itself (design-loop entries).
+- Verified: grep finds 0 mojibake sequences in storefront/ · npm run build green (16 routes).
+- NOT live yet: the GH workflow only builds (no deploy step). Founder must redeploy the
+  Cloudflare Worker to publish — until then infra-sync.online still serves the garbled
+  /workshop + program pages and the chat quotes the wrong schedule.
+- Next: founder redeploys Worker → re-verify live: /workshop <title> clean; ask chat
+  "workshop timings?" — expect 10 AM–6 PM IST.
+- Resume line: `curl -s https://infra-sync.online/workshop | grep -c "â€"` must return 0 after
+  redeploy.
+- Open questions: none.

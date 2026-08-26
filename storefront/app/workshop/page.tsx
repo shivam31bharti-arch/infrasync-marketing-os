@@ -10,9 +10,9 @@ import { loadServerEnv, serverEnv } from "@/lib/server-env";
 loadServerEnv(); // root .env (NEXT_PUBLIC_* not auto-loaded outside storefront/)
 
 export const metadata: Metadata = {
-  title: "2-Day AI Workshop â€” $20 / â‚¹1,999 â€” InfraSync",
+  title: "2-Day AI Workshop — $20 / ₹1,999 — InfraSync",
   description:
-    "Two days of hands-on AI fundamentals. No prior coding needed. A real taste of both accelerator tracks â€” before you commit. $20 international / â‚¹1,999 India.",
+    "Two days of hands-on AI fundamentals. No prior coding needed. A real taste of both accelerator tracks — before you commit. $20 international / ₹1,999 India.",
 };
 
 export default function WorkshopPage() {
@@ -44,7 +44,7 @@ export default function WorkshopPage() {
             }}
           >
             Two days of hands-on AI fundamentals. No prior coding needed.
-            A real taste of both accelerator tracks â€” before you commit.
+            A real taste of both accelerator tracks — before you commit.
           </p>
           <div
             style={{
@@ -59,18 +59,18 @@ export default function WorkshopPage() {
               <p className="price-note">International</p>
             </div>
             <div>
-              <div className="price-display">â‚¹1,999</div>
+              <div className="price-display">₹1,999</div>
               <p className="price-note">India</p>
             </div>
           </div>
           <p className="price-note" style={{ marginBottom: "var(--space-lg)" }}>
-            One-time payment â€” $20 international Â· â‚¹1,999 India. No hidden fees.
+            One-time payment — $20 international · ₹1,999 India. No hidden fees.
           </p>
           <p style={{ marginBottom: "var(--space-xs)", fontWeight: 600 }}>
-            Live online Â· Saturday + Sunday, 10:00 AM–6:00 PM IST (6 hrs/day)
+            Live online · Saturday + Sunday, 10:00 AM–6:00 PM IST
           </p>
           <p className="muted" style={{ marginBottom: "var(--space-2xl)" }}>
-            Upcoming: Aug 29â€“30 Â· Sep 5â€“6 Â· Sep 12â€“13, 2026
+            Upcoming: Aug 29–30 · Sep 5–6 · Sep 12–13, 2026
           </p>
           {paymentLink ? (
             <a
@@ -79,11 +79,11 @@ export default function WorkshopPage() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              Register Now â€” $20 / â‚¹1,999
+              Register Now — $20 / ₹1,999
             </a>
           ) : (
             <span className="tbd">
-              Registration opens soon â€” payment link being configured
+              Registration opens soon — payment link being configured
             </span>
           )}
           <p
@@ -136,7 +136,7 @@ export default function WorkshopPage() {
             Upcoming Workshop Dates
           </h2>
           <p style={{ fontSize: "1.125rem", marginBottom: "var(--space-lg)" }}>
-            Every weekend Â· <strong>Saturday + Sunday, 10:00 AM–6:00 PM IST</strong> Â· live online
+            Every weekend · <strong>Saturday + Sunday, 10:00 AM–6:00 PM IST</strong> · live online
           </p>
           <div
             style={{
@@ -147,7 +147,7 @@ export default function WorkshopPage() {
               marginBottom: "var(--space-xl)",
             }}
           >
-            {["Aug 29â€“30, 2026", "Sep 5â€“6, 2026", "Sep 12â€“13, 2026"].map((d) => (
+            {["Aug 29–30, 2026", "Sep 5–6, 2026", "Sep 12–13, 2026"].map((d) => (
               <span key={d} className="track-badge" style={{ fontSize: "0.9375rem" }}>
                 {d}
               </span>
@@ -156,7 +156,7 @@ export default function WorkshopPage() {
           <p className="muted" style={{ marginBottom: "var(--space-2xl)", lineHeight: 1.7 }}>
             Workshops are live and cohort-based. Small groups for real
             interaction. Registered students receive automated session
-            reminders â€” by call from SkillSync&apos;s AI counselor, plus email
+            reminders — by call from SkillSync&apos;s AI counselor, plus email
             and WhatsApp.
           </p>
           <div style={{ display: "flex", gap: "var(--space-md)", justifyContent: "center", flexWrap: "wrap" }}>
@@ -167,13 +167,13 @@ export default function WorkshopPage() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Register â€” $20 / â‚¹1,999
+                Register — $20 / ₹1,999
               </a>
             ) : (
               <span className="tbd">Registration link coming soon</span>
             )}
             <Link href="/quiz" className="button button--secondary button--large">
-              Find Your Track First â†’
+              Find Your Track First →
             </Link>
           </div>
         </div>
@@ -194,7 +194,7 @@ export default function WorkshopPage() {
                 question: "Do I need to know how to code?",
                 answer: (
                   <p>
-                    No. The workshop is designed for everyone â€” coders and non-coders
+                    No. The workshop is designed for everyone — coders and non-coders
                     alike. Day 2 helps you figure out which accelerator track fits
                     your background.
                   </p>
@@ -223,7 +223,7 @@ export default function WorkshopPage() {
                 answer: (
                   <p>
                     Yes. Registered students receive automated reminders before
-                    sessions â€” a call from SkillSync&apos;s AI counselor, plus email
+                    sessions — a call from SkillSync&apos;s AI counselor, plus email
                     and WhatsApp. You consent to these reminders when you register.
                   </p>
                 ),
@@ -232,7 +232,7 @@ export default function WorkshopPage() {
                 question: "Can I get a refund?",
                 answer: (
                   <p>
-                    The workshop is <strong>non-refundable</strong> â€” and we state
+                    The workshop is <strong>non-refundable</strong> — and we state
                     that clearly before you pay. Accelerator programs are different:
                     they include a 4-week money-back window from cohort start. See
                     the{" "}
