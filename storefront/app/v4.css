@@ -1296,11 +1296,11 @@
 /* Root main wrapper: v4 header is in-flow, no fixed-nav offset needed */
 main#main-content { padding-top: 0 !important; }
 
-/* Floating WhatsApp button (bottom-left, mirrors the Talk-to-us pill) */
+/* Floating WhatsApp button — stacked directly above the Talk-to-us pill */
 .wa-float {
   position: fixed;
-  bottom: 96px;
-  left: 24px;
+  bottom: 170px;
+  right: 24px;
   z-index: 150;
   width: 58px;
   height: 58px;

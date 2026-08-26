@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Staying Ahead — AI Workshops & WhatsApp VIP Community</title>
+  <meta name="description" content="Join our private WhatsApp AI Community & 2-Day Live Workshop. Practical AI tools, vibe coding, and prompt engineering frameworks." />
+
+  <!-- Premium Typography: Outfit & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg-cream: #faf8f5;
+      --bg-canvas: #f6f3ee;
+      --bg-white: #ffffff;
+      --border-subtle: #eae6df;
+      --border-medium: #ddd8ce;
+      --text-dark: #0f172a;
+      --text-heading: #0a131f;
+      --text-body: #334155;
+      --text-muted: #64748b;
+      --whatsapp-green: #25d366;
+      --whatsapp-dark: #128c7e;
+      --accent-indigo: #4f46e5;
+      --font-heading: 'Outfit', sans-serif;
+      --font-body: 'Plus Jakarta Sans', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+      --container-max: 1160px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; -webkit-font-smoothing: antialiased; }
+    body { background-color: var(--bg-cream); color: var(--text-body); font-family: var(--font-body); overflow-x: hidden; position: relative; }
+
+    #silk-canvas {
+      position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 1; pointer-events: auto; opacity: 0.95;
+    }
+
+    .page-wrapper {
+      position: relative; z-index: 5; width: 100%; display: flex; flex-direction: column; align-items: center;
+    }
+
+    .container { width: 100%; max-width: var(--container-max); padding: 0 1.5rem; margin: 0 auto; }
+
+    /* Header */
+    .header-nav {
+      position: fixed; top: 1.25rem; left: 50%; transform: translateX(-50%); width: calc(100% - 3rem); max-width: var(--container-max);
+      z-index: 100; background: rgba(255, 255, 255, 0.94); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+      border: 1px solid var(--border-medium); border-radius: 9999px; padding: 0.75rem 1.5rem; display: flex; justify-content: space-between;
+      align-items: center; box-shadow: 0 8px 30px rgba(15, 23, 42, 0.05);
+    }
+
+    .brand-logo { display: flex; align-items: center; gap: 0.65rem; text-decoration: none; color: var(--text-dark); font-family: var(--font-heading); font-size: 1.35rem; font-weight: 800; }
+    .brand-logo svg { width: 1.8rem; height: 1.8rem; fill: #25d366; }
+
+    .btn-wa-header {
+      background: #0f172a; color: #ffffff; font-family: var(--font-heading); font-size: 0.88rem; font-weight: 700;
+      padding: 0.6rem 1.35rem; border-radius: 9999px; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem;
+      transition: all 0.25s ease;
+    }
+    .btn-wa-header:hover { background: #1e293b; transform: translateY(-2px); }
+
+    /* Hero */
+    .hero-section { padding-top: 8.5rem; padding-bottom: 4rem; text-align: center; width: 100%; }
+
+    .hero-pill {
+      display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.45rem 1.15rem; border-radius: 9999px;
+      background: #ffffff; border: 1px solid #d1fae5; font-family: var(--font-mono); font-size: 0.78rem; font-weight: 700;
+      color: #065f46; margin-bottom: 1.4rem; box-shadow: 0 2px 10px rgba(37, 211, 102, 0.1);
+    }
+    .hero-pill-dot { width: 8px; height: 8px; border-radius: 50%; background: #10b981; box-shadow: 0 0 8px #10b981; }
+
+    .hero-h1 {
+      font-family: var(--font-heading); font-size: 4.6rem; font-weight: 900; letter-spacing: -0.04em; line-height: 1.05;
+      color: var(--text-heading); max-width: 920px; margin: 0 auto 1.35rem auto; text-shadow: 0 4px 25px rgba(255, 255, 255, 0.95);
+    }
+    .hero-h1 span {
+      background: linear-gradient(135deg, #059669 0%, #25d366 50%, #0284c7 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+
+    .hero-sub { font-size: 1.25rem; line-height: 1.6; color: var(--text-body); max-width: 720px; margin: 0 auto 2.5rem auto; }
+
+    /* WhatsApp Community VIP Box */
+    .wa-vip-box {
+      background: #ffffff; border: 1px solid var(--border-medium); border-radius: 2.2rem; padding: 3rem;
+      box-shadow: 0 20px 50px rgba(15, 23, 42, 0.06); display: grid; grid-template-columns: 1.2fr 1fr; gap: 3rem;
+      text-align: left; margin-bottom: 4rem; position: relative;
+    }
+
+    .wa-vip-left h3 { font-family: var(--font-heading); font-size: 2.2rem; font-weight: 800; color: var(--text-heading); margin-bottom: 1rem; line-height: 1.2; }
+    .wa-vip-perks { list-style: none; display: flex; flex-direction: column; gap: 0.8rem; margin-bottom: 1.8rem; }
+    .wa-vip-perks li { display: flex; align-items: center; gap: 0.75rem; font-size: 1rem; font-weight: 500; }
+    .wa-vip-perks li svg { width: 1.3rem; height: 1.3rem; color: #059669; flex-shrink: 0; }
+
+    .wa-vip-right {
+      background: linear-gradient(180deg, #f0fdf4 0%, #ecfdf5 100%); border: 1px solid #a7f3d0; border-radius: 1.8rem;
+      padding: 2.2rem; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;
+    }
+
+    .wa-icon-large {
+      width: 4.5rem; height: 4.5rem; border-radius: 1.25rem; background: #25d366; display: flex; align-items: center; justify-content: center;
+      margin-bottom: 1.2rem; box-shadow: 0 10px 25px rgba(37, 211, 102, 0.35);
+    }
+    .wa-icon-large svg { width: 2.4rem; height: 2.4rem; fill: #ffffff; }
+
+    .btn-wa-join {
+      background: #25d366; color: #ffffff; font-family: var(--font-heading); font-size: 1.2rem; font-weight: 800;
+      padding: 1.1rem 2.2rem; border-radius: 1rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.75rem;
+      box-shadow: 0 12px 30px rgba(37, 211, 102, 0.35); transition: all 0.3s ease; border: none; cursor: pointer;
+    }
+    .btn-wa-join:hover { background: #1eb857; transform: translateY(-2px); box-shadow: 0 16px 40px rgba(37, 211, 102, 0.45); }
+
+    /* Tilt Card & Specular */
+    .tilt-card { transform-style: preserve-3d; will-change: transform; transition: transform 0.15s ease-out; }
+    .specular-sheen { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: inherit; pointer-events: none; opacity: 0; transition: opacity 0.3s ease; }
+    .tilt-card:hover .specular-sheen { opacity: 1; }
+
+    /* Floating WhatsApp Pulse Button */
+    .floating-wa-btn {
+      position: fixed; bottom: 2rem; left: 2rem; z-index: 1000; width: 3.8rem; height: 3.8rem; border-radius: 50%;
+      background: #25d366; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
+      text-decoration: none; transition: transform 0.3s ease; animation: waPulse 2s infinite;
+    }
+    .floating-wa-btn:hover { transform: scale(1.1); }
+    .floating-wa-btn svg { width: 2rem; height: 2rem; fill: #ffffff; }
+
+    @keyframes waPulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.6); }
+      70% { box-shadow: 0 0 0 18px rgba(37, 211, 102, 0); }
+    }
+
+    @media (max-width: 860px) {
+      .hero-h1 { font-size: 3.2rem; }
+      .wa-vip-box { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- WebGL 3D Silk Waves Canvas -->
+  <canvas id="silk-canvas"></canvas>
+
+  <div class="page-wrapper">
+    <!-- Header -->
+    <header class="header-nav">
+      <a href="#" class="brand-logo">
+        <svg viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-5.46-4.45-9.92-9.91-9.92z"/></svg>
+        Staying Ahead
+      </a>
+      <a href="https://chat.whatsapp.com/sample-invite-code" target="_blank" class="btn-wa-header">
+        Join VIP WhatsApp →
+      </a>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section container">
+      <div class="hero-pill">
+        <span class="hero-pill-dot"></span>
+        FREE VIP WHATSAPP COMMUNITY · DAILY AI PROMPTS & UPDATES
+      </div>
+
+      <h1 class="hero-h1">
+        Master Real-World AI.<br />
+        <span>Join 10,000+ Innovators on WhatsApp.</span>
+      </h1>
+
+      <p class="hero-sub">
+        Get instant access to curated prompt frameworks, daily AI breakdown memos, live workshop schedules, and direct mentor Q&A.
+      </p>
+
+      <!-- WhatsApp VIP Card -->
+      <div class="wa-vip-box tilt-card">
+        <div class="specular-sheen"></div>
+        <div class="wa-vip-left">
+          <h3>Inside the Staying Ahead WhatsApp Community</h3>
+          <ul class="wa-vip-perks">
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Daily vetted AI tools, GitHub repos, and no-code workflows</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Weekly live build rooms & prompt engineering templates</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Direct access to instructors and peer collaboration</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>100% Free VIP access — zero spam, high signal</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="wa-vip-right">
+          <div class="wa-icon-large">
+            <svg viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-5.46-4.45-9.92-9.91-9.92z"/></svg>
+          </div>
+          <h4 style="font-family: var(--font-heading); font-size: 1.4rem; font-weight: 800; margin-bottom: 0.4rem; color: #065f46;">Join WhatsApp Group</h4>
+          <p style="font-size: 0.88rem; color: #047857; margin-bottom: 1.5rem;">Free Instant Access · 10K+ Members</p>
+          <a href="https://chat.whatsapp.com/sample-invite-code" target="_blank" class="btn-wa-join">
+            Join Group Now →
+          </a>
+        </div>
+      </div>
+
+      <div style="font-size: 0.95rem; color: var(--text-muted); font-weight: 600;">
+        ⚡ Looking for the 2-Day AI Workshop page? <a href="index.html" style="color: #059669; font-weight: 800; text-decoration: underline;">Switch to GrowthSchool Flagship Workshop →</a>
+      </div>
+    </section>
+  </div>
+
+  <!-- Floating Pulse WhatsApp Button -->
+  <a href="https://chat.whatsapp.com/sample-invite-code" target="_blank" class="floating-wa-btn" title="Join WhatsApp Group">
+    <svg viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-5.46-4.45-9.92-9.91-9.92z"/></svg>
+  </a>
+
+  <!-- 3D WebGL Silk Waves Engine -->
+  <script>
+    const canvas = document.getElementById('silk-canvas');
+    const gl = canvas.getContext('webgl2', { antialias: true, alpha: true, powerPreference: 'high-performance' })
+            || canvas.getContext('webgl');
+
+    let dpr = Math.min(window.devicePixelRatio || 1, 2);
+    canvas.width = window.innerWidth * dpr;
+    canvas.height = window.innerHeight * dpr;
+
+    const NUM_RIBBONS = 32;
+    const POINTS_PER_RIBBON = 750;
+    const TOTAL_POINTS = NUM_RIBBONS * POINTS_PER_RIBBON;
+
+    const vsSource = `
+      precision highp float;
+      attribute vec3 aBasePos;
+      attribute float aRibbonIndex;
+      attribute float aU;
+      uniform float uTime;
+      uniform vec2 uMouse;
+      uniform float uAspect;
+      uniform float uShockwave;
+      uniform vec2 uShockOrigin;
+      varying float vRibbon;
+      varying float vU;
+      varying vec3 vPos;
+
+      void main() {
+        vRibbon = aRibbonIndex;
+        vU = aU;
+        float flowTime = uTime * 0.38 + aU * 3.2;
+        float ribbonPhase = aRibbonIndex * 0.24;
+        float x = (aU - 0.5) * 3.6;
+        float y = sin(x * 1.45 + flowTime + ribbonPhase) * 0.42 + cos(x * 2.2 - flowTime * 0.65) * 0.20 + (aRibbonIndex - 16.0) * 0.056;
+        float z = cos(x * 1.75 + flowTime * 1.05 + ribbonPhase) * 0.48;
+
+        vec2 toMouse = vec2(x, y) - uMouse;
+        float distMouse = length(toMouse);
+        if (distMouse < 0.8) {
+          float force = (1.0 - distMouse / 0.8);
+          y += toMouse.y * force * 0.4;
+          z += force * 0.5;
+        }
+
+        if (uShockwave > 0.0) {
+          vec2 toShock = vec2(x, y) - uShockOrigin;
+          float distShock = length(toShock);
+          float waveDist = abs(distShock - (1.0 - uShockwave) * 2.4);
+          if (waveDist < 0.32) {
+            float shockForce = (1.0 - waveDist / 0.32) * uShockwave * 0.5;
+            y += normalize(toShock).y * shockForce;
+            z += shockForce * 0.6;
+          }
+        }
+
+        vPos = vec3(x, y, z);
+        gl_Position = vec4(x / uAspect, y, z * 0.45, 1.0);
+        gl_PointSize = (2.0 + (z + 0.5) * 1.8) * (1.0 + sin(aU * 16.0 + uTime * 2.0) * 0.2);
+      }
+    `;
+
+    const fsSource = `
+      precision highp float;
+      varying float vRibbon;
+      varying float vU;
+      varying vec3 vPos;
+      uniform float uTime;
+
+      void main() {
+        vec2 coord = gl_PointCoord - vec2(0.5);
+        if (length(coord) > 0.5) discard;
+        float alpha = pow(clamp(1.0 - length(coord) * 2.0, 0.0, 1.0), 1.7) * 0.45;
+        vec3 colIndigo = vec3(0.31, 0.27, 0.90);
+        vec3 colCyan = vec3(0.06, 0.65, 0.85);
+        vec3 colEmerald = vec3(0.14, 0.82, 0.40);
+        float colorPhase = sin(vRibbon * 0.28 + vU * 3.5 + uTime * 0.4) * 0.5 + 0.5;
+        vec3 baseCol = mix(colIndigo, colCyan, colorPhase);
+        baseCol = mix(baseCol, colEmerald, clamp(sin(vPos.y * 2.5 + uTime * 0.5) * 0.5 + 0.5, 0.0, 1.0));
+        gl_FragColor = vec4(baseCol, alpha);
+      }
+    `;
+
+    function createShader(gl, type, source) {
+      const shader = gl.createShader(type);
+      gl.shaderSource(shader, source);
+      gl.compileShader(shader);
+      return shader;
+    }
+
+    const vs = createShader(gl, gl.VERTEX_SHADER, vsSource);
+    const fs = createShader(gl, gl.FRAGMENT_SHADER, fsSource);
+    const program = gl.createProgram();
+    gl.attachShader(program, vs);
+    gl.attachShader(program, fs);
+    gl.linkProgram(program);
+
+    const locBasePos = gl.getAttribLocation(program, 'aBasePos');
+    const locRibbon = gl.getAttribLocation(program, 'aRibbonIndex');
+    const locU = gl.getAttribLocation(program, 'aU');
+    const uTime = gl.getUniformLocation(program, 'uTime');
+    const uMouse = gl.getUniformLocation(program, 'uMouse');
+    const uAspect = gl.getUniformLocation(program, 'uAspect');
+    const uShockwave = gl.getUniformLocation(program, 'uShockwave');
+    const uShockOrigin = gl.getUniformLocation(program, 'uShockOrigin');
+
+    const basePosArray = new Float32Array(TOTAL_POINTS * 3);
+    const ribbonIndexArray = new Float32Array(TOTAL_POINTS);
+    const uArray = new Float32Array(TOTAL_POINTS);
+
+    let ptr = 0;
+    for (let r = 0; r < NUM_RIBBONS; r++) {
+      for (let p = 0; p < POINTS_PER_RIBBON; p++) {
+        const u = p / (POINTS_PER_RIBBON - 1);
+        basePosArray[ptr * 3] = (u - 0.5) * 3.6;
+        basePosArray[ptr * 3 + 1] = 0;
+        basePosArray[ptr * 3 + 2] = 0;
+        ribbonIndexArray[ptr] = r;
+        uArray[ptr] = u;
+        ptr++;
+      }
+    }
+
+    const bufPos = gl.createBuffer();
+    gl.bindBuffer(gl.ARRAY_BUFFER, bufPos);
+    gl.bufferData(gl.ARRAY_BUFFER, basePosArray, gl.STATIC_DRAW);
+
+    const bufRibbon = gl.createBuffer();
+    gl.bindBuffer(gl.ARRAY_BUFFER, bufRibbon);
+    gl.bufferData(gl.ARRAY_BUFFER, ribbonIndexArray, gl.STATIC_DRAW);
+
+    const bufU = gl.createBuffer();
+    gl.bindBuffer(gl.ARRAY_BUFFER, bufU);
+    gl.bufferData(gl.ARRAY_BUFFER, uArray, gl.STATIC_DRAW);
+
+    let mousePos = [-999, -999];
+    let targetMouse = [-999, -999];
+    let shockwave = 0.0;
+    let shockOrigin = [0, 0];
+
+    window.addEventListener('mousemove', (e) => {
+      const aspect = window.innerWidth / window.innerHeight;
+      targetMouse = [((e.clientX / window.innerWidth) * 2 - 1) * aspect, -((e.clientY / window.innerHeight) * 2 - 1)];
+    });
+
+    window.addEventListener('click', (e) => {
+      if (e.target.tagName === 'A' || e.target.tagName === 'BUTTON') return;
+      const aspect = window.innerWidth / window.innerHeight;
+      shockOrigin = [((e.clientX / window.innerWidth) * 2 - 1) * aspect, -((e.clientY / window.innerHeight) * 2 - 1)];
+      shockwave = 1.0;
+    });
+
+    let startTime = performance.now();
+    let lastTime = startTime;
+
+    function render(now) {
+      requestAnimationFrame(render);
+      const time = (now - startTime) * 0.001;
+      const delta = (now - lastTime) * 0.001;
+      lastTime = now;
+
+      mousePos[0] += (targetMouse[0] - mousePos[0]) * 0.06;
+      mousePos[1] += (targetMouse[1] - mousePos[1]) * 0.06;
+      if (shockwave > 0.0) { shockwave -= delta * 1.5; if (shockwave < 0.0) shockwave = 0.0; }
+
+      gl.viewport(0, 0, canvas.width, canvas.height);
+      gl.clearColor(0.98, 0.97, 0.96, 1.0);
+      gl.clear(gl.COLOR_BUFFER_BIT);
+      gl.enable(gl.BLEND);
+      gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
+
+      gl.useProgram(program);
+      gl.bindBuffer(gl.ARRAY_BUFFER, bufPos);
+      gl.enableVertexAttribArray(locBasePos);
+      gl.vertexAttribPointer(locBasePos, 3, gl.FLOAT, false, 0, 0);
+
+      gl.bindBuffer(gl.ARRAY_BUFFER, bufRibbon);
+      gl.enableVertexAttribArray(locRibbon);
+      gl.vertexAttribPointer(locRibbon, 1, gl.FLOAT, false, 0, 0);
+
+      gl.bindBuffer(gl.ARRAY_BUFFER, bufU);
+      gl.enableVertexAttribArray(locU);
+      gl.vertexAttribPointer(locU, 1, gl.FLOAT, false, 0, 0);
+
+      gl.uniform1f(uTime, time);
+      gl.uniform2f(uMouse, mousePos[0], mousePos[1]);
+      gl.uniform1f(uAspect, canvas.width / canvas.height);
+      gl.uniform1f(uShockwave, shockwave);
+      gl.uniform2f(uShockOrigin, shockOrigin[0], shockOrigin[1]);
+      gl.drawArrays(gl.POINTS, 0, TOTAL_POINTS);
+    }
+    requestAnimationFrame(render);
+
+    window.addEventListener('resize', () => {
+      dpr = Math.min(window.devicePixelRatio || 1, 2);
+      canvas.width = window.innerWidth * dpr;
+      canvas.height = window.innerHeight * dpr;
+    });
+  </script>
+</body>
+</html>
