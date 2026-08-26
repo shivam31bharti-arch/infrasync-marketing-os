@@ -4,6 +4,8 @@ import FaqAccordion from "@/components/FaqAccordion";
 import IncludedFreeSection from "@/components/IncludedFreeSection";
 import ReviewsMarquee from "@/components/ReviewsMarquee";
 import { loadServerEnv, serverEnv } from "@/lib/server-env";
+import PipelineDemo from "@/components/v3/PipelineDemo";
+import WordReveal from "@/components/v3/WordReveal";
 
 loadServerEnv(); // root .env (NEXT_PUBLIC_* not auto-loaded outside storefront/)
 
@@ -15,6 +17,18 @@ export default function HomePage() {
     <>
       {/* S1 — cinematic hero */}
       <HeroV3 workshopHref={workshopHref} />
+
+      {/* Big-statement interlude (Auxia pattern) */}
+      <section className="section section--cream-alt">
+        <WordReveal
+          as="h2"
+          className="statement"
+          text="Courses didn't get harder. They got boring. We teach AI by shipping."
+        />
+      </section>
+
+      {/* The delivery pipeline — our real fulfilment system, animated */}
+      <PipelineDemo />
 
       {/* Two-Track Split */}
       <section className="section section--paper" id="programs">
@@ -112,6 +126,11 @@ export default function HomePage() {
             </div>
           </div>
         </div>
+      </section>
+
+      {/* Statement 2 */}
+      <section className="section" style={{ paddingBottom: "var(--space-2xl)" }}>
+        <WordReveal as="h2" className="statement" text="Learn by shipping, not by watching." />
       </section>
 
       {/* Included Free */}

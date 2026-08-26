@@ -494,3 +494,19 @@ writes one entry per iteration in this format:
 - Note: Did not add typography widows as it was causing TSX parser errors. Did not add the quiz loading spinner for the same reason (Regex replace corrupted TSX syntax, decided to roll back to preserve stability).
 - Verified: npm run build is green (0 errors).
 - All 6 tasks for the design-loop-v2 are now complete and built successfully.
+
+## 2026-08-26 — design-v3.1 executed by Claude (Auxia direction) — LOCAL VERIFIED
+- Flip: cream #F0EFE3 ground, ink #232323, hyper-blue #0B4FFF, Instrument Sans wght500,
+  H1 clamp→6.5rem ls-0.03em lh0.95, mono eyebrows. Two dark contrast sections kept.
+- New: <WordReveal> per-word scroll reveal · <PipelineDemo> animated real-pipeline panel
+  (chips: pays→cert→drive→CRM→8PM email) · 2 big-statement interludes · HeroScene restyled
+  chrome-on-cream (fog #F0EFE3, ink/blue/steel/white shards).
+- Reviews: 7 illustrative voices (India×2, US, UK, Nigeria, Japan, Brazil) with AI-generated
+  portrait avatars (public/reviews/r1-7.jpg, 200px, ~8KB each; initials fallback onError).
+  Caption "Illustrative reviews — real student stories publish after our first cohorts" KEPT.
+- Verified: clean npm run build green · next start prod server · qa/snap 0 console errors ·
+  home-desktop reviewed (hero shards on cream, pipeline panel, duo cards, dark steps section,
+  bento, avatars all render). Note: earlier .next corruption from parallel dev server — clean
+  rebuild fixed; killed stale :3000 processes.
+- Pushed to design-v3 → Cloudflare PREVIEW build (main untouched). Founder reviews preview,
+  then merge to main deploys it live.

@@ -27,7 +27,7 @@ type ShardSpec = {
   spin: [number, number, number];
 };
 
-const SHARD_COLORS = ["#4F7CFF", "#7C5CFF", "#9DB6FF", "#E8ECF5"];
+const SHARD_COLORS = ["#0B4FFF", "#1B2130", "#AEB6C4", "#FFFFFF"];
 
 function Shard({ spec }: { spec: ShardSpec }) {
   const ref = useRef<THREE.Mesh>(null);
@@ -172,7 +172,7 @@ export default function HeroScene() {
         pointer.current.y = (e.clientY / window.innerHeight - 0.5) * 2;
       }}
     >
-      <fog attach="fog" args={["#05070B", 14, 26]} />
+      <fog attach="fog" args={["#F0EFE3", 14, 26]} />
       <Lights />
       <Rig group={group} pointer={pointer} smooth={smooth} />
       <group ref={group}>
