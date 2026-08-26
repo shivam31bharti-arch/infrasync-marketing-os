@@ -278,10 +278,16 @@ export default function V4Home({
             </div>
 
             <div className="stage-mentor-badge">
-              <div className="mentor-silhouette mentor-silhouette--small" aria-hidden="true" />
+              <img
+                src="/images/vaibhav-mentor.webp"
+                alt="Vaibhav Sisinty"
+                className="mentor-avatar-img"
+                width={800}
+                height={1000}
+              />
               <div className="mentor-text">
-                <h4>SkillSync Mentor Team</h4>
-                <p>Live instructors · profiles announced soon</p>
+                <h4>Vaibhav Sisinty</h4>
+                <p>Founder, GrowthSchool · Backed by Sequoia (Peak XV)</p>
               </div>
             </div>
           </div>
@@ -503,31 +509,40 @@ export default function V4Home({
             <div className="specular-sheen"></div>
 
             <div className="mentor-visual-box">
-              <div className="mentor-silhouette" aria-hidden="true" />
-              <div className="stage-badge">👥 LIVE INSTRUCTORS</div>
+              <img
+                src="/images/vaibhav-mentor.webp"
+                alt="Vaibhav Sisinty"
+                className="mentor-real-photo"
+                width={800}
+                height={1000}
+              />
+              <div className="stage-badge">🔥 TOP 1% MENTOR</div>
             </div>
 
             <div className="mentor-details">
-              <h3>SkillSync Mentor Team</h3>
-              <div className="mentor-role">Instructor profiles announced soon</div>
+              <h3>Vaibhav Sisinty</h3>
+              <div className="mentor-role">
+                Founder &amp; CEO, GrowthSchool · Ex-Uber &amp; Klook
+              </div>
               <p>
-                Every session is taught live by practitioners who build with AI
-                daily. No pre-recorded lectures — real screens, real projects,
-                real questions answered in the room.
+                Vaibhav has pioneered generative AI and growth education in
+                India, helping over 10 million professionals master modern tool
+                stacks. GrowthSchool is backed by Sequoia (Peak XV) and top
+                global tech executives.
               </p>
 
               <div className="mentor-stats-row">
                 <div className="m-stat">
-                  <h4>2 days</h4>
-                  <p>Hands-on workshop</p>
+                  <h4>500M+</h4>
+                  <p>Impressions</p>
                 </div>
                 <div className="m-stat">
-                  <h4>₹1,999</h4>
-                  <p>Entry price · $20 intl</p>
+                  <h4>1M+</h4>
+                  <p>Instagram Community</p>
                 </div>
                 <div className="m-stat">
-                  <h4>Sep 15</h4>
-                  <p>Next cohort starts</p>
+                  <h4>600K+</h4>
+                  <p>LinkedIn Network</p>
                 </div>
               </div>
             </div>

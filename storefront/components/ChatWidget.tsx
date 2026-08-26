@@ -15,6 +15,25 @@ const QUICK_QUESTIONS = [
   "Is EMI available?",
 ];
 
+// v4 light Auxia theme
+const T = {
+  panel: "#ffffff",
+  line: "rgba(15, 23, 42, 0.12)",
+  ink: "#0f172a",
+  muted: "#64748b",
+  faint: "#94a3b8",
+  field: "#fcfbf9",
+  fieldBorder: "#ddd8ce",
+  bubble: "#f1f3ef",
+  accent: "#059669",
+  accentSoft: "rgba(5, 150, 105, 0.08)",
+  accentBorder: "rgba(5, 150, 105, 0.35)",
+  waText: "#0a7d42",
+  waSoft: "rgba(37, 211, 102, 0.1)",
+  waBorder: "rgba(37, 211, 102, 0.4)",
+  danger: "#dc2626",
+};
+
 function BotIcon({ size = 20 }: { size?: number }) {
   return (
     <svg
@@ -56,6 +75,14 @@ function PhoneIcon({ size = 18 }: { size?: number }) {
   );
 }
 
+function WhatsAppIcon({ size = 16 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.297-.497.1-.198.05-.371-.025-.52-.074-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z" />
+    </svg>
+  );
+}
+
 function TypingDots() {
   return (
     <span style={{ display: "inline-flex", gap: 4, alignItems: "center" }}>
@@ -68,20 +95,12 @@ function TypingDots() {
             width: 6,
             height: 6,
             borderRadius: "50%",
-            background: "var(--color-electric)",
+            background: T.accent,
             display: "inline-block",
           }}
         />
       ))}
     </span>
-  );
-}
-
-function WhatsAppIcon({ size = 16 }: { size?: number }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.297-.497.1-.198.05-.371-.025-.52-.074-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z" />
-    </svg>
   );
 }
 
@@ -217,8 +236,25 @@ export default function ChatWidget({ whatsappLink = null }: ChatWidgetProps) {
     }
   }
 
-  const panelBg = "#06170A";
-  const lineColor = "rgba(255, 250, 241, 0.09)";
+  const fieldStyle: React.CSSProperties = {
+    background: T.field,
+    border: `1px solid ${T.fieldBorder}`,
+    borderRadius: 12,
+    color: T.ink,
+    fontFamily: "var(--font-body)",
+    outline: "none",
+    width: "100%",
+  };
+
+  const primaryBtn: React.CSSProperties = {
+    background: T.accent,
+    color: "#ffffff",
+    border: "none",
+    borderRadius: 999,
+    fontFamily: "var(--font-heading)",
+    fontWeight: 700,
+    cursor: "pointer",
+  };
 
   return (
     <>
@@ -236,7 +272,7 @@ export default function ChatWidget({ whatsappLink = null }: ChatWidgetProps) {
               display: "flex",
               flexDirection: "column",
               alignItems: "flex-end",
-              gap: "var(--space-sm)",
+              gap: "0.5rem",
             }}
           >
             <AnimatePresence>
@@ -247,57 +283,83 @@ export default function ChatWidget({ whatsappLink = null }: ChatWidgetProps) {
                   exit={{ opacity: 0, scale: 0.9, y: 10 }}
                   transition={{ type: "spring", stiffness: 240, damping: 22 }}
                   style={{
-                    background: panelBg,
-                    border: `1px solid ${lineColor}`,
-                    borderRadius: "var(--radius-lg)",
-                    padding: "var(--space-sm)",
+                    background: T.panel,
+                    border: `1px solid ${T.line}`,
+                    borderRadius: 16,
+                    padding: "0.5rem",
                     display: "flex",
                     flexDirection: "column",
-                    gap: "var(--space-xs)",
-                    boxShadow: "0 18px 50px rgba(0,0,0,0.55)",
-                    minWidth: 230,
+                    gap: "0.25rem",
+                    boxShadow: "0 18px 50px rgba(15, 23, 42, 0.18)",
+                    minWidth: 240,
                   }}
                 >
                   <button
-                    className="button button--ghost"
-                    style={{
-                      width: "100%",
-                      justifyContent: "flex-start",
-                      gap: 10,
-                      padding: "var(--space-sm) var(--space-md)",
-                    }}
                     onClick={() => openPanel("chat")}
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: 10,
+                      padding: "0.65rem 0.9rem",
+                      background: "none",
+                      border: "none",
+                      borderRadius: 10,
+                      color: T.ink,
+                      fontFamily: "var(--font-body)",
+                      fontWeight: 600,
+                      fontSize: "0.9rem",
+                      cursor: "pointer",
+                      textAlign: "left",
+                    }}
                   >
-                    <BotIcon /> Chat with AI
+                    <span style={{ color: T.accent, display: "flex" }}>
+                      <BotIcon />
+                    </span>
+                    Chat with AI
                   </button>
                   <button
-                    className="button button--ghost"
-                    style={{
-                      width: "100%",
-                      justifyContent: "flex-start",
-                      gap: 10,
-                      padding: "var(--space-sm) var(--space-md)",
-                    }}
                     onClick={() => openPanel("callback")}
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: 10,
+                      padding: "0.65rem 0.9rem",
+                      background: "none",
+                      border: "none",
+                      borderRadius: 10,
+                      color: T.ink,
+                      fontFamily: "var(--font-body)",
+                      fontWeight: 600,
+                      fontSize: "0.9rem",
+                      cursor: "pointer",
+                      textAlign: "left",
+                    }}
                   >
-                    <PhoneIcon /> Request a Callback
+                    <span style={{ color: T.accent, display: "flex" }}>
+                      <PhoneIcon />
+                    </span>
+                    Request a Callback
                   </button>
                   {whatsappLink && (
                     <a
                       href={whatsappLink}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="button button--ghost"
-                      style={{
-                        width: "100%",
-                        justifyContent: "flex-start",
-                        gap: 10,
-                        padding: "var(--space-sm) var(--space-md)",
-                        color: "#25D366",
-                      }}
                       onClick={() => {
                         track({ name: "whatsapp_join_click", props: { source: "launcher_menu" } });
                         setMenuOpen(false);
+                      }}
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        gap: 10,
+                        padding: "0.65rem 0.9rem",
+                        borderRadius: 10,
+                        color: T.waText,
+                        fontFamily: "var(--font-body)",
+                        fontWeight: 700,
+                        fontSize: "0.9rem",
+                        textDecoration: "none",
                       }}
                     >
                       <WhatsAppIcon /> Join Free WhatsApp Community
@@ -312,10 +374,10 @@ export default function ChatWidget({ whatsappLink = null }: ChatWidgetProps) {
               whileHover={{ scale: 1.04 }}
               whileTap={{ scale: 0.97 }}
               style={{
-                background: "var(--color-electric)",
-                color: "var(--color-ink)",
+                background: T.ink,
+                color: "#ffffff",
                 border: "none",
-                borderRadius: "99px",
+                borderRadius: 99,
                 padding: "0.8rem 1.25rem",
                 display: "flex",
                 alignItems: "center",
@@ -323,8 +385,8 @@ export default function ChatWidget({ whatsappLink = null }: ChatWidgetProps) {
                 cursor: "pointer",
                 fontWeight: 700,
                 fontSize: "0.9375rem",
-                boxShadow: "0 8px 30px rgba(51, 195, 117, 0.4)",
-                fontFamily: "var(--font-body)",
+                boxShadow: "0 12px 34px rgba(15, 23, 42, 0.3)",
+                fontFamily: "var(--font-heading)",
               }}
               aria-label={menuOpen ? "Close menu" : "Talk to us"}
             >
@@ -349,24 +411,25 @@ export default function ChatWidget({ whatsappLink = null }: ChatWidgetProps) {
               width: 390,
               maxWidth: "calc(100vw - 48px)",
               height: 540,
-              maxHeight: "calc(100vh - 100px)",
-              background: panelBg,
-              color: "var(--color-paper)",
-              borderRadius: "var(--radius-xl)",
-              boxShadow: "0 30px 80px rgba(0, 0, 0, 0.65)",
-              border: `1px solid ${lineColor}`,
+              maxHeight: "calc(100vh - 130px)",
+              background: T.panel,
+              color: T.ink,
+              borderRadius: 22,
+              boxShadow: "0 30px 80px rgba(15, 23, 42, 0.28)",
+              border: `1px solid ${T.line}`,
               display: "flex",
               flexDirection: "column",
               overflow: "hidden",
               zIndex: 150,
+              fontFamily: "var(--font-body)",
             }}
           >
             {/* Header */}
             <div
               style={{
                 padding: "14px 18px",
-                background: "rgba(51, 195, 117, 0.08)",
-                borderBottom: `1px solid ${lineColor}`,
+                background: T.accentSoft,
+                borderBottom: `1px solid ${T.line}`,
                 flexShrink: 0,
                 display: "flex",
                 alignItems: "center",
@@ -378,8 +441,8 @@ export default function ChatWidget({ whatsappLink = null }: ChatWidgetProps) {
                   width: 38,
                   height: 38,
                   borderRadius: 12,
-                  background: "var(--color-electric)",
-                  color: "var(--color-ink)",
+                  background: T.accent,
+                  color: "#ffffff",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
@@ -392,28 +455,27 @@ export default function ChatWidget({ whatsappLink = null }: ChatWidgetProps) {
                 <div
                   style={{
                     fontSize: "0.9375rem",
-                    fontWeight: 700,
-                    fontFamily: "var(--font-display)",
+                    fontWeight: 800,
+                    fontFamily: "var(--font-heading)",
+                    letterSpacing: "-0.01em",
                   }}
                 >
                   {view === "chat" ? "SkillSync Assistant" : "Request a Callback"}
                 </div>
-                <div style={{ fontSize: "0.72rem", color: "var(--color-electric)" }}>
+                <div style={{ fontSize: "0.72rem", color: T.accent, fontWeight: 600 }}>
                   {view === "chat"
                     ? "● Online — programs, pricing, prerequisites"
                     : "Our AI counselor calls your number"}
                 </div>
               </div>
               <button
-                onClick={() =>
-                  setView(view === "chat" ? "callback" : "chat")
-                }
+                onClick={() => setView(view === "chat" ? "callback" : "chat")}
                 title={view === "chat" ? "Request a callback" : "Back to chat"}
                 style={{
-                  background: "none",
-                  border: `1px solid ${lineColor}`,
+                  background: T.panel,
+                  border: `1px solid ${T.line}`,
                   borderRadius: 10,
-                  color: "var(--color-paper)",
+                  color: T.ink,
                   cursor: "pointer",
                   padding: 8,
                   display: "flex",
@@ -427,7 +489,7 @@ export default function ChatWidget({ whatsappLink = null }: ChatWidgetProps) {
                 style={{
                   background: "none",
                   border: "none",
-                  color: "var(--color-gray)",
+                  color: T.faint,
                   cursor: "pointer",
                   fontSize: "1.2rem",
                   padding: 4,
@@ -462,7 +524,7 @@ export default function ChatWidget({ whatsappLink = null }: ChatWidgetProps) {
                     >
                       <p
                         style={{
-                          color: "var(--color-gray)",
+                          color: T.muted,
                           fontSize: "0.875rem",
                           lineHeight: 1.6,
                           marginBottom: 16,
@@ -471,24 +533,19 @@ export default function ChatWidget({ whatsappLink = null }: ChatWidgetProps) {
                         Hi! Ask me anything about our programs, pricing, or
                         prerequisites — or tap a question to start.
                       </p>
-                      <div
-                        style={{
-                          display: "flex",
-                          flexDirection: "column",
-                          gap: 8,
-                        }}
-                      >
+                      <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
                         {QUICK_QUESTIONS.map((q) => (
                           <button
                             key={q}
                             onClick={() => sendText(q)}
                             style={{
-                              background: "rgba(255, 250, 241, 0.05)",
-                              border: `1px solid ${lineColor}`,
+                              background: T.field,
+                              border: `1px solid ${T.fieldBorder}`,
                               borderRadius: 12,
-                              color: "var(--color-paper)",
+                              color: T.ink,
                               padding: "10px 14px",
                               fontSize: "0.85rem",
+                              fontWeight: 600,
                               cursor: "pointer",
                               fontFamily: "var(--font-body)",
                               transition: "border-color 0.15s ease",
@@ -510,10 +567,10 @@ export default function ChatWidget({ whatsappLink = null }: ChatWidgetProps) {
                               alignItems: "center",
                               justifyContent: "center",
                               gap: 8,
-                              background: "rgba(37, 211, 102, 0.12)",
-                              border: "1px solid rgba(37, 211, 102, 0.4)",
+                              background: T.waSoft,
+                              border: `1px solid ${T.waBorder}`,
                               borderRadius: 12,
-                              color: "#25D366",
+                              color: T.waText,
                               padding: "10px 14px",
                               fontSize: "0.85rem",
                               fontWeight: 700,
@@ -538,14 +595,8 @@ export default function ChatWidget({ whatsappLink = null }: ChatWidgetProps) {
                           msg.role === "user"
                             ? "14px 14px 4px 14px"
                             : "14px 14px 14px 4px",
-                        background:
-                          msg.role === "user"
-                            ? "var(--color-electric)"
-                            : "rgba(255, 250, 241, 0.06)",
-                        color:
-                          msg.role === "user"
-                            ? "var(--color-ink)"
-                            : "var(--color-paper)",
+                        background: msg.role === "user" ? T.accent : T.bubble,
+                        color: msg.role === "user" ? "#ffffff" : T.ink,
                         fontSize: "0.875rem",
                         lineHeight: 1.55,
                         whiteSpace: "pre-wrap",
@@ -561,7 +612,7 @@ export default function ChatWidget({ whatsappLink = null }: ChatWidgetProps) {
                         alignSelf: "flex-start",
                         padding: "12px 16px",
                         borderRadius: "14px 14px 14px 4px",
-                        background: "rgba(255, 250, 241, 0.06)",
+                        background: T.bubble,
                       }}
                     >
                       <TypingDots />
@@ -569,13 +620,13 @@ export default function ChatWidget({ whatsappLink = null }: ChatWidgetProps) {
                   )}
                 </div>
 
-                {/* Persistent actions: WhatsApp community + talk to our team */}
+                {/* Persistent actions */}
                 <div
                   style={{
                     display: "flex",
                     gap: 8,
                     padding: "8px 14px 0",
-                    borderTop: `1px solid ${lineColor}`,
+                    borderTop: `1px solid ${T.line}`,
                     flexShrink: 0,
                   }}
                 >
@@ -595,9 +646,9 @@ export default function ChatWidget({ whatsappLink = null }: ChatWidgetProps) {
                         gap: 6,
                         fontSize: "0.72rem",
                         fontWeight: 700,
-                        color: "#25D366",
-                        background: "rgba(37, 211, 102, 0.1)",
-                        border: "1px solid rgba(37, 211, 102, 0.35)",
+                        color: T.waText,
+                        background: T.waSoft,
+                        border: `1px solid ${T.waBorder}`,
                         borderRadius: 99,
                         padding: "7px 10px",
                         textDecoration: "none",
@@ -617,9 +668,9 @@ export default function ChatWidget({ whatsappLink = null }: ChatWidgetProps) {
                       gap: 6,
                       fontSize: "0.72rem",
                       fontWeight: 700,
-                      color: "var(--color-paper)",
-                      background: "rgba(255, 250, 241, 0.05)",
-                      border: `1px solid ${lineColor}`,
+                      color: T.ink,
+                      background: T.field,
+                      border: `1px solid ${T.fieldBorder}`,
                       borderRadius: 99,
                       padding: "7px 10px",
                       cursor: "pointer",
@@ -648,14 +699,18 @@ export default function ChatWidget({ whatsappLink = null }: ChatWidgetProps) {
                     onChange={(e) => setInput(e.target.value)}
                     placeholder="Type a message…"
                     maxLength={500}
-                    className="input"
-                    style={{ flex: 1, fontSize: "0.875rem", padding: "10px 14px" }}
+                    style={{
+                      ...fieldStyle,
+                      flex: 1,
+                      fontSize: "0.875rem",
+                      padding: "10px 14px",
+                    }}
                   />
                   <button
                     type="submit"
                     disabled={loading || !input.trim()}
-                    className="button button--primary"
                     style={{
+                      ...primaryBtn,
                       padding: "10px 18px",
                       fontSize: "0.875rem",
                       opacity: loading || !input.trim() ? 0.6 : 1,
@@ -675,8 +730,9 @@ export default function ChatWidget({ whatsappLink = null }: ChatWidgetProps) {
                         width: 64,
                         height: 64,
                         borderRadius: "50%",
-                        background: "var(--color-electric-dim)",
-                        color: "var(--color-electric)",
+                        background: T.accentSoft,
+                        border: `1px solid ${T.accentBorder}`,
+                        color: T.accent,
                         display: "flex",
                         alignItems: "center",
                         justifyContent: "center",
@@ -685,18 +741,19 @@ export default function ChatWidget({ whatsappLink = null }: ChatWidgetProps) {
                     >
                       <PhoneIcon size={28} />
                     </div>
-                    <h3 style={{ marginBottom: 10, fontSize: "1.2rem" }}>
+                    <h3
+                      style={{
+                        marginBottom: 10,
+                        fontSize: "1.2rem",
+                        fontFamily: "var(--font-heading)",
+                        fontWeight: 800,
+                      }}
+                    >
                       {cbState === "dispatched"
                         ? "Your phone should ring shortly"
                         : "Request received"}
                     </h3>
-                    <p
-                      style={{
-                        color: "var(--color-gray)",
-                        fontSize: "0.9rem",
-                        lineHeight: 1.6,
-                      }}
-                    >
+                    <p style={{ color: T.muted, fontSize: "0.9rem", lineHeight: 1.6 }}>
                       {cbState === "dispatched"
                         ? "Our AI course counselor is calling you now. Answer to talk about programs, pricing, and your track."
                         : "Our counselor will call you back soon on the number you shared."}
@@ -706,7 +763,7 @@ export default function ChatWidget({ whatsappLink = null }: ChatWidgetProps) {
                   <form onSubmit={requestCallback}>
                     <p
                       style={{
-                        color: "var(--color-gray)",
+                        color: T.muted,
                         fontSize: "0.875rem",
                         lineHeight: 1.6,
                         marginBottom: 18,
@@ -720,8 +777,9 @@ export default function ChatWidget({ whatsappLink = null }: ChatWidgetProps) {
                       style={{
                         display: "block",
                         fontSize: "0.75rem",
-                        color: "var(--color-gray)",
+                        color: T.muted,
                         marginBottom: 6,
+                        fontWeight: 600,
                       }}
                     >
                       Your name
@@ -733,15 +791,15 @@ export default function ChatWidget({ whatsappLink = null }: ChatWidgetProps) {
                       placeholder="Full name"
                       maxLength={80}
                       required
-                      className="input"
-                      style={{ marginBottom: 14 }}
+                      style={{ ...fieldStyle, padding: "12px 14px", fontSize: "0.9rem", marginBottom: 14 }}
                     />
                     <label
                       style={{
                         display: "block",
                         fontSize: "0.75rem",
-                        color: "var(--color-gray)",
+                        color: T.muted,
                         marginBottom: 6,
+                        fontWeight: 600,
                       }}
                     >
                       Phone (with country code)
@@ -752,25 +810,23 @@ export default function ChatWidget({ whatsappLink = null }: ChatWidgetProps) {
                       onChange={(e) => setCbPhone(e.target.value)}
                       placeholder="+91 98765 43210"
                       required
-                      className="input"
-                      style={{ marginBottom: 16 }}
+                      style={{ ...fieldStyle, padding: "12px 14px", fontSize: "0.9rem", marginBottom: 16 }}
                     />
                     {cbState === "error" && (
-                      <p
-                        style={{
-                          color: "var(--color-danger)",
-                          fontSize: "0.8rem",
-                          marginBottom: 12,
-                        }}
-                      >
+                      <p style={{ color: T.danger, fontSize: "0.8rem", marginBottom: 12 }}>
                         {cbError}
                       </p>
                     )}
                     <button
                       type="submit"
                       disabled={cbState === "sending"}
-                      className="button button--primary"
-                      style={{ width: "100%", opacity: cbState === "sending" ? 0.7 : 1 }}
+                      style={{
+                        ...primaryBtn,
+                        width: "100%",
+                        padding: "12px",
+                        fontSize: "0.95rem",
+                        opacity: cbState === "sending" ? 0.7 : 1,
+                      }}
                     >
                       {cbState === "sending" ? "Connecting…" : "Call me now"}
                     </button>
@@ -778,7 +834,7 @@ export default function ChatWidget({ whatsappLink = null }: ChatWidgetProps) {
                       style={{
                         marginTop: 14,
                         fontSize: "0.72rem",
-                        color: "var(--color-gray)",
+                        color: T.faint,
                         lineHeight: 1.55,
                       }}
                     >

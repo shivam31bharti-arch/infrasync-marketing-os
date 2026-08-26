@@ -679,3 +679,22 @@ writes one entry per iteration in this format:
   walk DEMO-RUNBOOK.md. Design branches kept: design-v3-growthschool (v3.1.1), remote
   design-v3 (Auxia dark).
 - Open questions: none.
+
+## 2026-08-26 — v4.1: mentor restored + popup/widget redesigned to v4 light (user feedback round)
+- User overruled two of my port decisions and ordered redesigns; payment flow explicitly
+  kept AS IS (paid ₹1,999 Razorpay — the FREE flip was NOT taken after clarification).
+- Mentor restored per user: vaibhav_mentor.png (was present in the Antigravity folder — I
+  had skipped it citing the instructor-names-open rule; user's call stands, Vaibhav IS the
+  mentor). Converted to public/images/vaibhav-mentor.webp (13KB). Full original mentor
+  section back: name, Founder & CEO GrowthSchool · Ex-Uber & Klook, bio, 500M+/1M+/600K+
+  stats, TOP 1% MENTOR badge + stage mini-badge.
+- SubscriberPopup: interactive two-step Auxia-light redesign — step 1 "Which weekend works
+  for you?" date chips (choice stored in subscribe source as popup:<choice>) → step 2 email
+  → success state with WhatsApp-community CTA (env-gated). Inline /api/subscribe, error
+  states, backdrop dismiss.
+- ChatWidget: full re-theme to v4 light (white panel, ink launcher pill, emerald accents,
+  Outfit/Plus Jakarta) — chat + callback views, quick questions, action strip, WhatsApp
+  buttons; same wiring untouched.
+- Verified: build green · mentor photo serves (13KB webp) · name/stats in DOM · price still
+  ₹1,999. Pushed design-v4 → main fast-forwarded.
+- Open questions: none.

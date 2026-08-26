@@ -48,7 +48,9 @@ export default function RootLayout({
         <ChatWidget
           whatsappLink={serverEnv("NEXT_PUBLIC_WHATSAPP_COMMUNITY_LINK") || null}
         />
-        <SubscriberPopup />
+        <SubscriberPopup
+          whatsappLink={serverEnv("NEXT_PUBLIC_WHATSAPP_COMMUNITY_LINK") || null}
+        />
       </body>
     </html>
   );
