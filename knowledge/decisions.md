@@ -53,3 +53,19 @@
 - **2026-08-21 · Domain `infra-sync.online` kept; auto-renew OFF on purpose; decide renewal vs fashion-brand `.in` by Mar 2027.**
 - **2026-08-21 · Cloudflare Pages over Vercel Hobby** (commercial use allowed on free tier). **Supabase pgvector over Pinecone** (one less vendor).
 - **2026-08-21 · WhatsApp: official Cloud API only; unofficial clients (Evolution/WAHA/Baileys) banned from the company number.**
+
+- **2026-08-26 · Design v3 = Auxia-style light-first (cream #F0EFE3 / ink / #0B4FFF, Instrument
+  Sans wght500, per-word reveals, pipeline demo panel), built on branch design-v3 with
+  Cloudflare preview URLs; merge to main = founder-approved only.** Rejected: dark-first v3
+  (read generic), copying edtech sites wholesale (brand + claims risk).
+- **2026-08-26 · Public config values (payment links, PostHog key, Sentry DSN) ship as code
+  defaults with env override** — Cloudflare build env doesn't inject NEXT_PUBLIC vars;
+  public-by-design values are safe inline. Secrets stay env-only, never in code.
+- **2026-08-25 · CRM = HubSpot Free (cloud)** for demo + early ops; Twenty (self-host) deferred
+  to the Oracle VPS era. Payers auto-upserted by the delivery pipeline via service key.
+- **2026-08-25 · Certificates: participation (registrants) vs completion (accelerator grads),
+  never conflated** — claims-policy line; both publicly verifiable (SSC- prefix).
+- **2026-08-26 · Reminder calls: xAI voice agent built but PARKED (no free telephony exists);
+  reminders ride free email until revenue makes ₹1–2/min sensible COGS.**
+- **2026-08-26 · Fulfilment = daily idempotent batch (delivery-pack.mjs), not webhooks** —
+  matches the founder's 8 PM spec, needs no live keys; webhooks are a post-KYC upgrade.

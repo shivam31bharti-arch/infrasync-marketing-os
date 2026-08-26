@@ -510,3 +510,22 @@ writes one entry per iteration in this format:
   rebuild fixed; killed stale :3000 processes.
 - Pushed to design-v3 → Cloudflare PREVIEW build (main untouched). Founder reviews preview,
   then merge to main deploys it live.
+
+## 2026-08-26 — v3.3 shipped to design-v3 preview + Build Guide PDF (Claude)
+- /community page (Staying-Ahead pattern): dark antigravity scene, full registration form
+  (name/email/WhatsApp/coding/role/exp + masterclass & newsletter checkboxes) → /api/subscribe
+  with rich source tag → WhatsApp handoff (NEXT_PUBLIC_WHATSAPP_COMMUNITY_LINK, default
+  links.stayingahead.com/AIOS). Fluid blue→teal→green→violet CTA (.btn-fluid) + .fluid-text.
+- Home GrowthSchool-depth: FrameworksTools twin lists + stack strip · MentorSection (honest
+  "mentor team", no fabricated bios) · premium popup (gradient ring, spring) · FAQ "What is
+  SkillSync?" fix · Community nav link. Build green, /community 200, pushed → preview.
+- docs/SkillSync-Build-Guide.pdf: dual-audience guide (story, systems map, tool-by-tool
+  rationale, honesty layer, ₹0 cost table, next steps). Delivered to founder + in repo.
+- NEXT (the plan, in order):
+  1. Founder reviews preview → "merge it" → design-v3 → main → live on infra-sync.online.
+  2. Post-merge smoke test (routes, buttons, /community form, analytics beacons).
+  3. GitHub Actions secrets → 20:30 IST delivery run goes hands-free (workflow already in repo).
+  4. Razorpay KYC completes → switch pages to live mode → replace 3 env link values.
+  5. WhatsApp Cloud API (official) for reminders + community; delivery-pack --remind mode.
+  6. Reminder-agent telephony (xAI, parked) once revenue justifies per-minute COGS.
+  7. Growth engines: competitor research/scraping (plan/04), SEO content, Google Flow ads.
