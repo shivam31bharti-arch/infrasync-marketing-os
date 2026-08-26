@@ -5,15 +5,16 @@ import PostHogInit from "@/components/PostHogInit";
 import SubscriberPopup from "@/components/SubscriberPopup";
 import SubscribeForm from "@/components/SubscribeForm";
 import ChatWidget from "@/components/ChatWidget";
+import GlassNav from "@/components/v3/GlassNav";
 
 export const metadata: Metadata = {
   title: {
-    default: "InfraSync — Learn to Build with AI",
-    template: "%s · InfraSync",
+    default: "SkillSync — Learn AI by Building",
+    template: "%s · SkillSync",
   },
   description:
-    "AI education for builders. A hands-on workshop ($20 international · ₹1,999 India), then choose your path: AI Generalist (non-tech) or AI Engineer (Python required). Live, cohort-based programs by SkillSync.",
-  openGraph: { siteName: "InfraSync" },
+    "Live, cohort-based AI education. Start with the 2-Day AI Workshop ($20 international · ₹1,999 India), then choose your path: AI Generalist (non-tech) or AI Engineer (Python required).",
+  openGraph: { siteName: "SkillSync" },
 };
 
 export default function RootLayout({
@@ -37,38 +38,7 @@ export default function RootLayout({
       </head>
       <body className="antialiased">
         <PostHogInit />
-        <header className="site-nav" role="banner">
-          <div className="nav-container">
-            <Link href="/" className="brand" aria-label="InfraSync — Home">
-              <span className="brand-mark" aria-hidden="true">
-                O
-              </span>
-              <span className="brand-name">InfraSync</span>
-            </Link>
-            <nav className="nav-primary" aria-label="Primary navigation">
-              <Link href="/workshop" className="nav-link">
-                Workshop
-              </Link>
-              <Link href="/programs/ai-generalist" className="nav-link">
-                AI Generalist
-              </Link>
-              <Link href="/programs/ai-engineer" className="nav-link">
-                AI Engineer
-              </Link>
-              <Link href="/quiz" className="nav-link">
-                Find Your Track
-              </Link>
-            </nav>
-            <div className="nav-actions">
-              <Link
-                href="/workshop"
-                className="button button--primary nav-cta"
-              >
-                Join Workshop — $20
-              </Link>
-            </div>
-          </div>
-        </header>
+        <GlassNav />
         <main id="main-content" role="main">
           {children}
         </main>
@@ -78,18 +48,18 @@ export default function RootLayout({
               <Link
                 href="/"
                 className="footer-brand-link"
-                aria-label="InfraSync — Home"
+                aria-label="SkillSync — Home"
               >
                 <span className="brand-mark" aria-hidden="true">
-                  O
+                  S
                 </span>
                 <span className="brand-name" style={{ color: "#F4F2EC" }}>
-                  InfraSync
+                  SkillSync
                 </span>
               </Link>
               <p className="footer-tagline">
-                AI education for builders. Live, cohort-based programs by
-                SkillSync.
+                AI education for builders. Live, cohort-based programs that
+                teach you to work with AI — for real.
               </p>
             </div>
             <nav className="footer-nav" aria-label="Footer navigation">
@@ -135,7 +105,12 @@ export default function RootLayout({
                 <h4 className="footer-heading">Company</h4>
                 <ul>
                   <li>
-                    <Link href="/">About SkillSync</Link>
+                    <a href="mailto:team@infra-sync.online">
+                      team@infra-sync.online
+                    </a>
+                  </li>
+                  <li>
+                    <Link href="/verify/SSC-2026-0001">Verify a certificate</Link>
                   </li>
                 </ul>
               </div>
@@ -152,6 +127,11 @@ export default function RootLayout({
           <div className="footer-bottom">
             <p className="copyright">
               © {new Date().getFullYear()} SkillSync. All rights reserved.
+            </p>
+            <p>
+              <a href="mailto:team@infra-sync.online" className="muted">
+                team@infra-sync.online
+              </a>
             </p>
           </div>
         </footer>

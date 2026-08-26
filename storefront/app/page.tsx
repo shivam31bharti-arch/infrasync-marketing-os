@@ -1,41 +1,23 @@
 ﻿import Link from "next/link";
-import Hero3D from "@/components/Hero3D";
+import HeroV3 from "@/components/v3/HeroV3";
 import FaqAccordion from "@/components/FaqAccordion";
 import IncludedFreeSection from "@/components/IncludedFreeSection";
 import ReviewsMarquee from "@/components/ReviewsMarquee";
+import { loadServerEnv, serverEnv } from "@/lib/server-env";
+
+loadServerEnv(); // root .env (NEXT_PUBLIC_* not auto-loaded outside storefront/)
 
 export default function HomePage() {
+  const workshopHref =
+    serverEnv("NEXT_PUBLIC_RAZORPAY_WORKSHOP_LINK") || "/workshop";
+
   return (
     <>
-      {/* Hero */}
-      <section className="section section--dark" style={{ minHeight: "80vh", display: "flex", alignItems: "center", position: "relative" }}>
-        <Hero3D />
-        <div className="container" style={{ position: "relative", zIndex: 1 }}>
-          <p className="label" style={{ marginBottom: "var(--space-lg)" }}>
-            AI Education by SkillSync
-          </p>
-          <h1 className="display-xl" style={{ maxWidth: "800px", marginBottom: "var(--space-xl)" }}>
-            Learn to build with AI.{" "}
-            <span className="text-electric">For real.</span>
-          </h1>
-          <p className="muted" style={{ fontSize: "1.25rem", maxWidth: "560px", marginBottom: "var(--space-2xl)", lineHeight: 1.7 }}>
-            Start with a hands-on workshop — $20 international · ₹1,999 India —
-            then accelerate into the track that fits you: Generalist or
-            Engineer. Live, cohort-based, no fluff.
-          </p>
-          <div style={{ display: "flex", gap: "var(--space-md)", flexWrap: "wrap" }}>
-            <Link href="/workshop" className="button button--primary button--large">
-              Join the Workshop — $20 / ₹1,999
-            </Link>
-            <Link href="/quiz" className="button button--secondary button--large">
-              Find Your Track →
-            </Link>
-          </div>
-        </div>
-      </section>
+      {/* S1 — cinematic hero */}
+      <HeroV3 workshopHref={workshopHref} />
 
       {/* Two-Track Split */}
-      <section className="section">
+      <section className="section section--paper" id="programs">
         <div className="container">
           <p className="label" style={{ marginBottom: "var(--space-md)", textAlign: "center" }}>
             Choose your path
