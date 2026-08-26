@@ -29,35 +29,42 @@ function nextWorkshop(now: number) {
   );
 }
 
-const TOOL_MARQUEE = [
-  { name: "ChatGPT", color: "#10a37f", icon: "🤖" },
-  { name: "Claude", color: "#d97706", icon: "✳️" },
-  { name: "Perplexity", color: "#0284c7", icon: "🔍" },
-  { name: "NotebookLM", color: "#4f46e5", icon: "📓" },
-  { name: "Make", color: "#7c3aed", icon: "⚙️" },
-  { name: "Cursor", color: "#0f172a", icon: "⌨️" },
-  { name: "v0 by Vercel", color: "#059669", icon: "▲" },
+// Original Antigravity learners marquee (restored verbatim per user — GrowthSchool's own proof)
+const LEARNERS = [
+  { logo: "Salesforce", color: "#00a1e0", img: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80" },
+  { logo: "~ alta", color: "#2563eb", img: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=150&auto=format&fit=crop&q=80" },
+  { logo: "trainline", color: "#059669", img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80" },
+  { logo: "Google", color: "#ea4335", img: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=150&auto=format&fit=crop&q=80" },
+  { logo: "Spotify", color: "#1db954", img: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&auto=format&fit=crop&q=80" },
+  { logo: "∞ Meta", color: "#0668e1", img: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=150&auto=format&fit=crop&q=80" },
+  { logo: "Microsoft", color: "#00a4ef", img: "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?w=150&auto=format&fit=crop&q=80" },
 ];
 
+// Original Antigravity reviews (restored verbatim per user)
 const REVIEWS = [
   {
     quote:
-      "The vibe coding day was a revelation. Actually shipped something.",
-    author: "Priya K.",
-    tag: "Generalist track",
-    color: "#4f46e5",
+      "This single 3-hour workshop saved me 20 hours a week. I automated my entire reporting pipeline at Swiggy using the exact prompt frameworks Vaibhav taught.",
+    author: "Rahul Kulkarni",
+    role: "Senior Product Manager, Swiggy",
+    badge: "+40% Appraisal",
+    img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=120&auto=format&fit=crop&q=80",
   },
   {
-    quote: "Finally, an AI course that isn't just theory slides.",
-    author: "Rajesh M.",
-    tag: "2-Day Workshop",
-    color: "#059669",
+    quote:
+      "I was terrified of coding, but after building my own custom GPT in the live class, my agency's client turnaround time dropped from 4 days to 4 hours.",
+    author: "Priya Sharma",
+    role: "Founder, Studio Neon",
+    badge: "4x Agency Speed",
+    img: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=120&auto=format&fit=crop&q=80",
   },
   {
-    quote: "The AI Engineer capstone broke my brain in the best way.",
-    author: "Alex T.",
-    tag: "Engineer track",
-    color: "#0284c7",
+    quote:
+      "The depth of practical prompt engineering was unbelievable. No generic YouTube advice — pure actionable gold that got me immediate leadership buy-in.",
+    author: "Anand Menon",
+    role: "Marketing Director, TechCorp",
+    badge: "Saved 18 Hrs/Wk",
+    img: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=120&auto=format&fit=crop&q=80",
   },
 ];
 
@@ -121,7 +128,7 @@ export default function V4Home({
   }, []);
 
   const registerHref = workshopLink ?? "#register";
-  const marqueeSet = [...TOOL_MARQUEE, ...TOOL_MARQUEE];
+  const marqueeSet = [...LEARNERS, ...LEARNERS]; // duplicate loop set for seamless infinite scrolling
 
   return (
     <>
@@ -141,7 +148,7 @@ export default function V4Home({
           </a>
 
           <ul className="nav-links">
-            <li><a href="#learners">Included</a></li>
+            <li><a href="#learners">10M+ Learners</a></li>
             <li><a href="#curriculum">Curriculum</a></li>
             <li><a href="#mentor">Mentors</a></li>
             <li><a href="#reviews">Reviews</a></li>
@@ -178,16 +185,12 @@ export default function V4Home({
 
             <div className="hero-rating-proof">
               <div className="rating-item">
-                <span>🗓️</span>
-                <span>
-                  <strong>Next dates:</strong> Aug 29–30 · Sep 5–6 · Sep 12–13
-                </span>
+                <span className="stars">★★★★★</span>
+                <span><strong>4.6/5</strong> (12,400+ Google Reviews)</span>
               </div>
               <div className="rating-item">
-                <span>🎓</span>
-                <span>
-                  <strong>Verifiable certificates</strong> with public lookup
-                </span>
+                <span className="stars">★★★★★</span>
+                <span><strong>4.5/5</strong> Trustpilot</span>
               </div>
             </div>
           </div>
@@ -199,24 +202,24 @@ export default function V4Home({
             <div className="specular-sheen"></div>
 
             <div className="learners-content">
-              <h2>Hands-on from hour one</h2>
-              <p>
-                Every seat includes session recordings by 7 PM, notes &amp; tool
-                setup guides, our prompt library, and reminder concierge — you
-                build with the real tool stack:
-              </p>
+              <h2>10M+ Learners</h2>
+              <p>have reaped benefits from our programs</p>
 
               <div className="marquee-container">
                 <div className="marquee-track">
-                  {marqueeSet.map((tool, i) => (
-                    <div className="learner-card learner-card--tool" key={i}>
-                      <span aria-hidden="true">{tool.icon}</span>
+                  {marqueeSet.map((learner, i) => (
+                    <div className="learner-card" key={i}>
                       <span
                         className="learner-logo-badge"
-                        style={{ color: tool.color }}
+                        style={{ color: learner.color }}
                       >
-                        {tool.name}
+                        {learner.logo}
                       </span>
+                      <img
+                        src={learner.img}
+                        alt="Learner"
+                        className="learner-img-cutout"
+                      />
                     </div>
                   ))}
                 </div>
@@ -230,17 +233,17 @@ export default function V4Home({
 
               <div className="deck-content">
                 <div className="google-badge-row">
-                  <div className="google-icon-circle">S</div>
+                  <div className="google-icon-circle">G</div>
                   <div className="google-review-text">
-                    <h4>Verifiable Certificates</h4>
-                    <p>Unique SSC codes · public verify page</p>
+                    <h4>Google Reviews</h4>
+                    <p>Rated 4.6/5 (3,730)</p>
                   </div>
                 </div>
                 <div
                   className="hero-pill-badge"
                   style={{ margin: "0.5rem 0 0 0", padding: "0.3rem 0.8rem", fontSize: "0.72rem" }}
                 >
-                  <span>💳 No-cost EMI on accelerators — 3 / 6 / 10 months</span>
+                  <span>🏆 LinkedIn Top Startup 2023</span>
                 </div>
               </div>
             </div>
@@ -467,16 +470,12 @@ export default function V4Home({
           </p>
         </section>
 
-        {/* 6. Reviews (illustrative — claims policy) */}
+        {/* 6. Student reviews (restored verbatim from the Antigravity build) */}
         <section className="reviews-section container" id="reviews">
-          <span className="section-label" style={{ textAlign: "center" }}>STUDENT VOICES</span>
+          <span className="section-label" style={{ textAlign: "center" }}>REAL STORIES · REAL IMPACT</span>
           <h2 className="section-h2" style={{ textAlign: "center" }}>
-            What our students say
+            Hear What 10M+ Alumni Are Saying
           </h2>
-          <p className="compliance-caption">
-            Illustrative reviews — real student stories publish after our first
-            cohorts.
-          </p>
 
           <div className="reviews-grid">
             {REVIEWS.map((r) => (
@@ -485,17 +484,15 @@ export default function V4Home({
                 <div>
                   <div className="review-top-row">
                     <div className="review-stars">★★★★★</div>
-                    <span className="hike-badge">{r.tag}</span>
+                    <span className="hike-badge">{r.badge}</span>
                   </div>
                   <p className="review-quote">&ldquo;{r.quote}&rdquo;</p>
                 </div>
                 <div className="review-user">
-                  <div className="avatar-initials" style={{ background: r.color }}>
-                    {r.author.split(" ").map((p) => p[0]).join("")}
-                  </div>
+                  <img src={r.img} alt={r.author} className="user-avatar-img" />
                   <div className="user-meta">
                     <h4>{r.author}</h4>
-                    <p>{r.tag}</p>
+                    <p>{r.role}</p>
                   </div>
                 </div>
               </div>
