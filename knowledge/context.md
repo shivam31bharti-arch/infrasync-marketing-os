@@ -1,4 +1,14 @@
-# Context — read this first (updated 2026-08-25, pivot #3 + SkillSync rename)
+# Context — read this first (updated 2026-08-26)
+
+**CURRENT TRUTH (2026-08-26):** SkillSync is LIVE at infra-sync.online (Cloudflare Workers,
+OpenNext, git-connected — push main = deploy). Delivery pipeline PROVEN end-to-end
+(Razorpay → Supabase registrations → participation cert → Drive grant → HubSpot → pack
+email from team@infra-sync.online). Certificates verify publicly at /verify. HubSpot Free
+= CRM. OmniDimension counselor live (dedicated acct). Design rebuild v3 (Auxia light-first)
+lives on branch design-v3 with auto-updating preview
+https://design-v3-skillsync-site.busnz122.workers.dev — merge to main ONLY on founder
+approval. Delivery cron workflow awaits GitHub repo secrets. BUILD-LOG.md tail is always
+the freshest truth; older text below is partially historical.
 
 **What:** Marketing OS for **InfraSync**, an **AI education company**. Products: **2-Day AI
 Workshop ($20**, funnel front door) → two accelerators at **$1,200 international / ₹95,000
