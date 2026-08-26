@@ -19,3 +19,4 @@ npm run build      # must pass before any commit
 ```
 
 <!-- deploy: v4 live trigger 2026-08-26 - WhatsApp build var bake -->
+<!-- deploy trigger 2 -->
