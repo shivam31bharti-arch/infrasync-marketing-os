@@ -201,7 +201,7 @@ function Rig({
     smooth.current.y += (pointer.current.y - smooth.current.y) * 0.035;
     group.current.rotation.y = smooth.current.x * 0.06;
     group.current.rotation.x = smooth.current.y * 0.04;
-    group.current.position.x = smooth.current.x * 0.35; // ≈ ≤8px at hero scale
+    group.current.position.x = 2.6 + smooth.current.x * 0.35; // ≈ ≤8px at hero scale
     group.current.position.y = -smooth.current.y * 0.25;
   });
   return null;
