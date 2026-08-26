@@ -50,11 +50,12 @@ export async function POST(req: Request) {
     Sentry.captureException(err);
   }
 
-  // 2) Dispatch the real call if the OmniDimension key is configured
+  // 2) Dispatch the real call if the OmniDimension key + agent are configured.
+  // Both must belong to the SAME OmniDimension account (the user's own).
   const apiKey = serverEnv("OMNIDIM_API_KEY");
-  const agentId = Number(serverEnv("OMNIDIM_AGENT_ID") || "244841");
-  if (!apiKey) {
-    // Lead recorded; voice dispatch not wired yet (OMNIDIM_API_KEY missing)
+  const agentId = Number(serverEnv("OMNIDIM_AGENT_ID") || "0");
+  if (!apiKey || !agentId) {
+    // Lead recorded; voice dispatch not wired yet (env missing)
     return NextResponse.json({ ok: true, call: "queued" });
   }
 

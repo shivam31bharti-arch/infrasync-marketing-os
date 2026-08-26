@@ -1,7 +1,18 @@
-# Staying Ahead — Follow-up Caller (OmniDimension agent 244918)
+# Staying Ahead — Follow-up Caller (OmniDimension agent 244927)
 
-Created 2026-08-26 in the connected OmniDimension account. The second voice bot,
-separate from the SkillSync Course Counselor (244841).
+Created 2026-08-26 by the user in THEIR OWN OmniDimension dashboard (Cartesia
+"Riya" voice, Soniox STT, EN-India + Hindi, gpt-4.1-mini). The earlier
+API-created twin (244918, demo account) was deleted — 244927 is the one.
+`OMNIDIM_API_KEY` in root .env must come from that same account. The SkillSync
+Course Counselor for the site's Request-a-Callback must also be (re)created in
+that account (spec: `agent/voice-agent-config.md`) and its id set as
+`OMNIDIM_AGENT_ID`.
+
+**Dashboard checklist (user):** open agent 244927 → Post-Call tab → confirm the
+email action exists (recipients marketing.od@growthschool.io, extracted
+variables listed below) — the free-text generator sometimes skips it. In the
+Welcome Message, use `{{user_name}}` (double curly braces) instead of
+`[user_name]` so the dispatch script's name substitution works.
 
 ## Who it calls — and why
 

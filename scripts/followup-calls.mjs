@@ -1,4 +1,4 @@
-// Staying Ahead — follow-up call dispatcher (agent 244918)
+// Staying Ahead — follow-up call dispatcher (agent 244927)
 // Calls leads the sales team couldn't reach, and gentle follow-ups for
 // "not interested" leads. HUMAN-TRIGGERED only (AGENTS.md ops rule) — run it
 // yourself after the sales pass. Zero dependencies: Node 18+ fetch only.
@@ -30,7 +30,7 @@ for (const line of readFileSync(join(root, ".env"), "utf-8").split(/\r?\n/)) {
 const SUPABASE_URL = env.SUPABASE_URL;
 const SUPABASE_KEY = env.SUPABASE_SERVICE_ROLE_KEY;
 const OMNIDIM_KEY = env.OMNIDIM_API_KEY;
-const AGENT_ID = Number(env.STAYINGAHEAD_FOLLOWUP_AGENT_ID || "244918");
+const AGENT_ID = Number(env.STAYINGAHEAD_FOLLOWUP_AGENT_ID || "244927");
 const OMNIDIM_BASE = env.OMNIDIM_API_BASE || "https://backend.omnidim.io/api/v1";
 
 if (!SUPABASE_URL || !SUPABASE_KEY) {
