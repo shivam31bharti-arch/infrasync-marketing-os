@@ -1,4 +1,4 @@
-# Manager Demo Runbook — SkillSync full funnel (design v3.1)
+﻿# Manager Demo Runbook — SkillSync full funnel (design v3.1)
 
 One page: what to run, what to click, what your manager sees. Built for the
 `design-v3-growthschool` branch demoed from localhost (the live site still runs
@@ -55,7 +55,7 @@ invent facts). Provider fallback chain: Groq → Gemini → NVIDIA NIM.
 Counselor* (agent 244841) calls your phone within seconds — answer on speaker.
 Every request is also stored in Supabase `subscribers` (source=`callback`), and
 a post-call summary email with extracted lead fields goes to
-marketing.od@growthschool.io.
+busnz122@gmail.com.
 
 ## 4) Lead capture → live data (1 min)
 

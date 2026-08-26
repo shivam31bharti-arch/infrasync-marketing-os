@@ -9,9 +9,9 @@ that account (spec: `agent/voice-agent-config.md`) and its id set as
 `OMNIDIM_AGENT_ID`.
 
 **Dashboard checklist (user):** open agent 244927 → Post-Call tab → confirm the
-email action exists (recipients marketing.od@growthschool.io, extracted
-variables listed below) — the free-text generator sometimes skips it. In the
-Welcome Message, use `{{user_name}}` (double curly braces) instead of
+email action exists (recipient busnz122@gmail.com — user-chosen 2026-08-26 —
+with the extracted variables listed below) and all five trigger statuses are on.
+In the Welcome Message, use `{{user_name}}` (double curly braces) instead of
 `[user_name]` so the dispatch script's name substitution works.
 
 ## Who it calls — and why
@@ -41,7 +41,7 @@ We already hold the lead's **name, phone number, and email** (Supabase
 
 ## What comes back after every call
 
-Email to marketing.od@growthschool.io with summary + sentiment + fields:
+Email to busnz122@gmail.com with summary + sentiment + fields:
 `caller_name` · `reached` · `still_interested` (YES/NO/MAYBE/UNKNOWN) ·
 **`wants_executive_call`** · `preferred_callback_time` · `objection` ·
 `do_not_call` · `outcome` (EXEC_CALLBACK_BOOKED / INTERESTED_NO_CALLBACK /
