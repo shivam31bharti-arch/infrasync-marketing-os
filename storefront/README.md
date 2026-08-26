@@ -17,3 +17,5 @@ npm install
 npm run dev        # http://localhost:3000 — root .env supplies server keys via lib/server-env.ts
 npm run build      # must pass before any commit
 ```
+
+<!-- deploy: v4 live trigger 2026-08-26 - WhatsApp build var bake -->
