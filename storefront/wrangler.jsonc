@@ -1,7 +1,7 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "main": ".open-next/worker.js",
-  "name": "infrasync-storefront",
+  "name": "skillsync-site",
   "compatibility_date": "2026-08-01",
   "compatibility_flags": ["nodejs_compat"],
   "assets": {
@@ -10,5 +10,13 @@
   },
   "observability": {
     "enabled": true
+  },
+  // Non-secret runtime vars MUST live here: `wrangler deploy` (every git build)
+  // replaces dashboard plain-text vars with this block. Secrets (API keys) are
+  // dashboard-managed and survive deploys — never put secrets in this file.
+  "vars": {
+    "SUPABASE_URL": "https://vqgqkhhrgaecigvvteha.supabase.co",
+    "OMNIDIM_AGENT_ID": "244948",
+    "SITE_URL": "https://infra-sync.online"
   }
 }
