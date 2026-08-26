@@ -69,7 +69,8 @@ async function eligibleLeads() {
     const status = r.meta?.sales_call_status;
     return (
       (status === "missed" || status === "not_interested") &&
-      !r.meta?.followup_called_at
+      !r.meta?.followup_called_at &&
+      r.meta?.do_not_call !== true // set by /api/call-outcome webhook — never re-call
     );
   });
 }
