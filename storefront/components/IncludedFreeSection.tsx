@@ -49,7 +49,7 @@ export default function IncludedFreeSection() {
         
         <div className="feature-grid">
           {items.map((item, idx) => (
-            <div key={idx} className="card card--dark" style={{ background: "rgba(10, 14, 20, 0.03)", borderColor: "rgba(138, 143, 152, 0.15)" }}>
+            <div key={idx} className="card card--dark">
               <div className="card-body">
                 <div style={{ fontSize: "2rem", marginBottom: "var(--space-md)" }}>{item.icon}</div>
                 <h3 style={{ marginBottom: "var(--space-sm)", fontSize: "1.125rem" }}>{item.title}</h3>

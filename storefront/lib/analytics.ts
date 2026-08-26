@@ -26,7 +26,8 @@ export type AnalyticsEvent =
   | { name: "purchase"; props: { product: string; amount: number; currency: string } }
   | { name: "subscribed"; props: { source: string } }
   | { name: "chat_opened"; props: Record<string, never> }
-  | { name: "chat_message"; props: { role: "user" | "assistant"; length: number } };
+  | { name: "chat_message"; props: { role: "user" | "assistant"; length: number } }
+  | { name: "callback_requested"; props: Record<string, never> };
 
 export function track(event: AnalyticsEvent): void {
   if (!initialised) return;

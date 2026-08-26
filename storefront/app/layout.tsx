@@ -49,10 +49,10 @@ export default function RootLayout({
               <Link href="/workshop" className="nav-link">
                 Workshop
               </Link>
-              <Link href="/programs/ai-generalist" className="nav-link">
+              <Link href="/#ai-generalist" className="nav-link">
                 AI Generalist
               </Link>
-              <Link href="/programs/ai-engineer" className="nav-link">
+              <Link href="/#ai-engineer" className="nav-link">
                 AI Engineer
               </Link>
               <Link href="/quiz" className="nav-link">

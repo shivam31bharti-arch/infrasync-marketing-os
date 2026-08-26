@@ -545,3 +545,39 @@ writes one entry per iteration in this format:
   reference growthschool.io/in) is pushed as `design-v3-growthschool` so the founder can
   preview BOTH and pick. Do not force-push either branch over the other.
 - Open questions: none.
+
+## 2026-08-26 — design v3.1 (branch design-v3-growthschool): premium consolidation + working funnel widgets
+- User feedback on v3.0: flat, childish, popups mismatched, callback dead, needs 1–2 pages max.
+- Done:
+  · Site consolidated to TWO marketing pages: home = deep GrowthSchool-style funnel page
+    (full-bleed photo hero, 4 fact blocks — all offers.md numbers, numbered acts, workshop
+    offer-card with DIRECT Razorpay button, both accelerator deep-dives at /#ai-generalist +
+    /#ai-engineer with curriculum check-lists/EMI/refund chips + direct enroll buttons,
+    included-free bento, mentor-soon, audience, illustrative reviews, FAQ, CTA band, sticky
+    bar). /workshop stays as conversion page. /programs/* now redirect to the home anchors.
+    Nav updated to anchors.
+  · ChatWidget rebuilt: bot SVG icon on the "Talk to us" pill, dark premium panel, animated
+    typing dots, quick-question chips, error states — AND a working "Request a Callback"
+    view (was a dead href="#").
+  · NEW /api/callback: stores consented lead in Supabase `subscribers` (source=callback)
+    always; dispatches a REAL call via OmniDimension when OMNIDIM_API_KEY is set
+    (agent "SkillSync Course Counselor" id 244841, created 2026-08-26 in the CONNECTED
+    OmniDimension account — note: that is the demo account; founder recreates in the
+    dedicated account per agent/voice-agent-config.md and swaps OMNIDIM_AGENT_ID).
+    .env.example documents OMNIDIM_API_KEY / OMNIDIM_AGENT_ID / OMNIDIM_API_BASE.
+  · SubscriberPopup restyled dark premium (green gradient card, backdrop click dismiss).
+  · analytics: added `callback_requested` event type (additive).
+  · voice-agent-config.md fact fixes: workshop 10 AM–6 PM (was stale 2–8 PM), accelerator
+    7:30–10:30 PM IST without invented days.
+  · DEMO-RUNBOOK.md: full manager-demo script (site → chat → real callback → quiz/Supabase
+    → test payment → delivery-pack run → cert/Drive/HubSpot/email + idempotent re-run).
+- Verified (localhost prod build): 17 routes green · home renders hero-mega/stat-blocks/
+  offer-card/both anchors with real payment links · /api/chat 200 grounded answers (nim) ·
+  /api/callback 200 {call:"queued"} without key, lead row written (test row "Test Probe"
+  +919999999999 left in subscribers — safe to delete) · /programs/* redirect.
+- Next: user adds OMNIDIM_API_KEY to .env → test real call to own phone → manager demo per
+  DEMO-RUNBOOK.md. Founder still owns: preview + branch pick (vs remote design-v3 "Auxia"),
+  Worker redeploy for the main-branch mojibake hotfix.
+- Resume line: `git checkout design-v3-growthschool && cd storefront && npm i && npm run build
+  && npm start` then walk DEMO-RUNBOOK.md top to bottom.
+- Open questions: none.

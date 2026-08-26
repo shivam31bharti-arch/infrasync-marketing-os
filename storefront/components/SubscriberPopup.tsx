@@ -16,17 +16,26 @@ export default function SubscriberPopup() {
 
   if (!open) return null;
 
+  function dismiss() {
+    localStorage.setItem(DISMISS_KEY, "1");
+    setOpen(false);
+  }
+
   return (
     <div
       className="popup-backdrop"
       role="dialog"
       aria-modal="true"
       aria-label="Stay updated"
+      onClick={(e) => {
+        if (e.target === e.currentTarget) dismiss();
+      }}
       style={{
         position: "fixed",
         inset: 0,
-        background: "rgba(10, 14, 20, 0.6)",
-        backdropFilter: "blur(4px)",
+        background: "rgba(3, 13, 2, 0.75)",
+        backdropFilter: "blur(6px)",
+        WebkitBackdropFilter: "blur(6px)",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
@@ -37,31 +46,35 @@ export default function SubscriberPopup() {
       <div
         className="popup"
         style={{
-          background: "var(--color-paper)",
+          position: "relative",
+          background: "linear-gradient(150deg, #0A2A12 0%, #06170A 70%)",
+          border: "1px solid rgba(51, 195, 117, 0.25)",
           borderRadius: "var(--radius-xl)",
-          padding: "var(--space-3xl)",
-          maxWidth: 420,
+          padding: "var(--space-2xl)",
+          maxWidth: 440,
           width: "100%",
+          color: "var(--color-paper)",
+          boxShadow: "0 40px 100px rgba(0, 0, 0, 0.6)",
         }}
       >
-        <h3 style={{ marginBottom: "var(--space-md)" }}>
+        <p className="label" style={{ marginBottom: "var(--space-sm)" }}>
           Stay in the loop
+        </p>
+        <h3 style={{ marginBottom: "var(--space-md)" }}>
+          Never miss a workshop date
         </h3>
         <p
           className="muted"
           style={{ marginBottom: "var(--space-xl)", lineHeight: 1.7 }}
         >
-          Get notified about upcoming workshop dates, curriculum updates,
-          and early-access offers. No spam.
+          Upcoming workshop dates, curriculum updates, and early-access offers —
+          straight to your inbox. No spam.
         </p>
         <SubscribeForm source="popup" />
         <p style={{ marginTop: "var(--space-lg)", textAlign: "center" }}>
           <button
             className="button button--ghost"
-            onClick={() => {
-              localStorage.setItem(DISMISS_KEY, "1");
-              setOpen(false);
-            }}
+            onClick={dismiss}
             style={{ fontSize: "0.8125rem" }}
           >
             No thanks

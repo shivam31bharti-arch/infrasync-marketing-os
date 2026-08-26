@@ -1089,3 +1089,167 @@ main { padding-top: var(--nav-height); }
 /* ---- Marquee edge fades reference these ---- */
 .section .marquee-fade-left,
 .section .marquee-fade-right { color: var(--color-bg); }
+
+/* ============================================================
+   v3.1 premium depth (GrowthSchool-grade)
+   ============================================================ */
+
+/* ---- Full-bleed photo hero ---- */
+.hero-mega {
+  position: relative;
+  min-height: calc(96vh - var(--nav-height));
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.hero-mega__bg { position: absolute; inset: 0; }
+
+.hero-mega__bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 70% center;
+}
+
+.hero-mega__bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(3, 13, 2, 0.96) 0%, rgba(3, 13, 2, 0.82) 42%, rgba(3, 13, 2, 0.25) 75%, rgba(3, 13, 2, 0.55) 100%),
+    linear-gradient(180deg, rgba(3, 13, 2, 0.4) 0%, transparent 30%, rgba(3, 13, 2, 0.9) 96%);
+}
+
+.hero-mega__content {
+  position: relative;
+  z-index: 1;
+  padding: var(--space-4xl) var(--space-xl);
+  width: 100%;
+}
+
+/* ---- Gradient display text ---- */
+.grad-text {
+  background: linear-gradient(92deg, #7FE0A8 0%, #33C375 45%, #FFFAF1 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* ---- Big stat blocks ---- */
+.stat-blocks {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--color-line);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+}
+
+.stat-block {
+  background: var(--color-ink);
+  padding: var(--space-xl) var(--space-lg);
+  text-align: center;
+}
+
+.stat-block__value {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.6rem, 3.2vw, 2.4rem);
+  letter-spacing: -0.02em;
+  color: var(--color-electric);
+  line-height: 1.1;
+}
+
+.stat-block__label {
+  margin-top: var(--space-xs);
+  font-size: 0.8125rem;
+  color: var(--color-gray);
+}
+
+@media (max-width: 900px) {
+  .stat-blocks { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* ---- Offer card (workshop block on home) ---- */
+.offer-card {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  border: 1px solid rgba(51, 195, 117, 0.3);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  background: linear-gradient(150deg, #0A2A12 0%, var(--color-ink) 70%);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
+}
+
+.offer-card__body { padding: clamp(1.5rem, 4vw, 3rem); }
+
+.offer-card__media { position: relative; min-height: 320px; }
+
+.offer-card__media img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.offer-card__media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, var(--color-ink) 0%, transparent 35%);
+}
+
+@media (max-width: 900px) {
+  .offer-card { grid-template-columns: 1fr; }
+  .offer-card__media { min-height: 220px; order: -1; }
+  .offer-card__media::after {
+    background: linear-gradient(180deg, transparent 55%, #0A2A12 100%);
+  }
+}
+
+/* ---- Section eyebrow numbering ---- */
+.eyebrow-num {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-electric);
+}
+
+.eyebrow-num::before {
+  content: "";
+  width: 34px;
+  height: 1px;
+  background: var(--color-electric);
+  opacity: 0.6;
+}
+
+/* ---- Glow divider between major acts ---- */
+.glow-divider {
+  height: 1px;
+  border: none;
+  margin: 0;
+  background: linear-gradient(90deg, transparent, rgba(51, 195, 117, 0.5), transparent);
+}
+
+/* ---- Track section (program deep-dive on home) ---- */
+.track-section {
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: var(--space-3xl);
+  align-items: center;
+}
+
+.track-section--flip .track-section__media { order: 2; }
+
+@media (max-width: 900px) {
+  .track-section { grid-template-columns: 1fr; }
+  .track-section--flip .track-section__media { order: 0; }
+}
+
