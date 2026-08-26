@@ -1296,6 +1296,96 @@
 /* Root main wrapper: v4 header is in-flow, no fixed-nav offset needed */
 main#main-content { padding-top: 0 !important; }
 
+/* Floating WhatsApp button (bottom-left, mirrors the Talk-to-us pill) */
+.wa-float {
+  position: fixed;
+  bottom: 96px;
+  left: 24px;
+  z-index: 150;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: #25d366;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 12px 34px rgba(37, 211, 102, 0.45);
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.wa-float:hover { transform: scale(1.08); }
+.wa-float::after {
+  content: "";
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  border: 2px solid rgba(37, 211, 102, 0.5);
+  animation: waPulse 2.2s ease-out infinite;
+}
+@keyframes waPulse {
+  0% { transform: scale(0.85); opacity: 1; }
+  70% { transform: scale(1.25); opacity: 0; }
+  100% { transform: scale(1.25); opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .wa-float::after { animation: none; }
+}
+
+/* WhatsApp community band */
+.wa-band {
+  width: 100%;
+  margin: 4rem 0 5rem;
+}
+.wa-band__card {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+  padding: 2.2rem 2.4rem;
+  border-radius: 1.5rem;
+  background: linear-gradient(135deg, rgba(37, 211, 102, 0.09) 0%, #ffffff 55%);
+  border: 1px solid rgba(37, 211, 102, 0.35);
+  box-shadow: 0 24px 60px rgba(15, 23, 42, 0.08);
+  flex-wrap: wrap;
+}
+.wa-band__icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 18px;
+  background: #25d366;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.wa-band__text { flex: 1; min-width: 240px; }
+.wa-band__text h3 {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 1.4rem;
+  letter-spacing: -0.02em;
+  color: var(--text-heading);
+  margin-bottom: 0.3rem;
+}
+.wa-band__text p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.55; }
+.btn-wa {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #25d366;
+  color: #06240f;
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 1rem;
+  padding: 0.95rem 1.9rem;
+  border-radius: 999px;
+  text-decoration: none;
+  box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4);
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  white-space: nowrap;
+}
+.btn-wa:hover { transform: translateY(-2px) scale(1.02); }
+
 /* Utility footer legibility on the dark wrapper */
 .u-dark .footer-bottom,
 .u-dark .footer-bottom a,
