@@ -622,3 +622,25 @@ writes one entry per iteration in this format:
   expect one failed dispatch when the key goes in.
 - Next: OMNIDIM_API_KEY into .env (notepad) → test both bots against your own number.
 - Open questions: none.
+
+## 2026-08-26 — End-to-end backend audit + quiz upsert bugfix
+- Audit (this machine, localhost prod build):
+  · ENV: 38 vars; OMNIDIM_API_KEY now SET by user · missing: OMNIDIM_AGENT_ID (site callback
+    → stores leads as "queued", by design) · STAYINGAHEAD_FOLLOWUP_AGENT_ID absent but script
+    defaults to 244927 ✓
+  · delivery-pack --check: Razorpay OK (1 captured payment) · Supabase registrations OK ·
+    HubSpot OK · Brevo OK · Drive FAIL on this machine — .secrets/gdrive-sa.json exists only
+    on the founder's PC (gitignored). Pipeline's Drive step must run there, or copy the SA file.
+  · Routes: /api/subscribe 200→row ✓ · /api/callback 200 queued→row ✓ · /verify/SSC-2026-0001
+    renders Verified ✓ · /api/chat 200 ✓ · /api/quiz **500 BUG FOUND**
+- BUG FIXED: quiz upsert used Prefer: resolution=merge-duplicates WITHOUT ?on_conflict=email
+  → 23505 duplicate-key 409 → 500 for any email already in subscribers (i.e. subscribe-then-
+  quiz, the NORMAL funnel order). Added on_conflict=email; retested with duplicate email →
+  200, quiz meta merged onto the existing row ✓
+- Data storage verified then cleaned: subscribe+quiz merge into one subscribers row (segment
+  quiz_generalist, meta.recommended_track) · callback rows carry meta.channel=site_widget ·
+  registrations schema confirmed (payment_id, student_name, program, amount_inr, cert_no,
+  drive_granted_at, hubspot_synced_at, emailed_at stamps) · all 3 test rows deleted incl.
+  the old Test Probe (+919999999999) — no junk left, no wasted dispatch.
+- scripts/ npm install was missing on this machine — done (delivery-pack now runs here).
+- Open questions: none.

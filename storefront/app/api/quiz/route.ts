@@ -46,7 +46,7 @@ export async function POST(req: NextRequest) {
   // If email is provided, upsert by email; otherwise just log (anonymous quiz)
   if (email) {
     const res = await fetch(
-      `${supabaseUrl}/rest/v1/subscribers`,
+      `${supabaseUrl}/rest/v1/subscribers?on_conflict=email`,
       {
         method: "POST",
         headers: {
