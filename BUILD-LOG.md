@@ -581,3 +581,22 @@ writes one entry per iteration in this format:
 - Resume line: `git checkout design-v3-growthschool && cd storefront && npm i && npm run build
   && npm start` then walk DEMO-RUNBOOK.md top to bottom.
 - Open questions: none.
+
+## 2026-08-26 — v3.1.1 (design-v3-growthschool): bot advertises WhatsApp community + callback
+- Done: ChatWidget now promotes the free WhatsApp community (launcher menu item, empty-state
+  button, persistent action strip above the chat input — all render ONLY when
+  NEXT_PUBLIC_WHATSAPP_COMMUNITY_LINK is set in root .env; documented in .env.example) and a
+  "Talk to our team" strip button that opens the callback view. layout.tsx passes the link
+  server-side. New analytics event whatsapp_join_click{source}.
+- Chat KB (/api/chat): added community + talk-to-team guidance — bot recommends the
+  community for updates and NEVER collects phone numbers in chat (directs to Request a
+  Callback; team gets details for personal follow-up). Fact fix: accelerator sessions were
+  still "Tue & Thu, 8–10 PM IST" in the prompt — corrected to 7:30–10:30 PM IST per
+  offers.md (second stale-schedule instance; first was the workshop hotfix b234e63).
+- Verified on localhost prod build: "How do I stay updated?" → bot pitches the community
+  button · "my number is 98765..." → bot refuses in-chat collection, points to callback.
+- Note: WhatsApp membership lives in WhatsApp itself — the site sees LEADS (Supabase
+  `subscribers`), and join-button CLICKS are tracked via whatsapp_join_click in PostHog.
+- Next: founder/user creates the actual WhatsApp community and pastes the invite link into
+  .env as NEXT_PUBLIC_WHATSAPP_COMMUNITY_LINK (notepad edit).
+- Open questions: none.

@@ -5,6 +5,9 @@ import PostHogInit from "@/components/PostHogInit";
 import SubscriberPopup from "@/components/SubscriberPopup";
 import SubscribeForm from "@/components/SubscribeForm";
 import ChatWidget from "@/components/ChatWidget";
+import { loadServerEnv, serverEnv } from "@/lib/server-env";
+
+loadServerEnv(); // root .env (NEXT_PUBLIC_* not auto-loaded outside storefront/)
 
 export const metadata: Metadata = {
   title: {
@@ -155,7 +158,9 @@ export default function RootLayout({
             </p>
           </div>
         </footer>
-        <ChatWidget />
+        <ChatWidget
+          whatsappLink={serverEnv("NEXT_PUBLIC_WHATSAPP_COMMUNITY_LINK") || null}
+        />
         <SubscriberPopup />
       </body>
     </html>

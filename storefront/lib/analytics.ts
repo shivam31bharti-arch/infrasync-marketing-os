@@ -27,7 +27,8 @@ export type AnalyticsEvent =
   | { name: "subscribed"; props: { source: string } }
   | { name: "chat_opened"; props: Record<string, never> }
   | { name: "chat_message"; props: { role: "user" | "assistant"; length: number } }
-  | { name: "callback_requested"; props: Record<string, never> };
+  | { name: "callback_requested"; props: Record<string, never> }
+  | { name: "whatsapp_join_click"; props: { source: string } };
 
 export function track(event: AnalyticsEvent): void {
   if (!initialised) return;
