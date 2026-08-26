@@ -218,6 +218,7 @@ const row = await registerCert({
   program: cert.program,
   cohort: cert.cohort,
   issued_at: issuedIso,
+  kind: cert.kind, // participation | completion (verify page renders accordingly)
 });
 console.log(`[1/3] Supabase registered: ${row.cert_no} (id ${row.id.slice(0, 8)}…, issued ${row.issued_at})`);
 

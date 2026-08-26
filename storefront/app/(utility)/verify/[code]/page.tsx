@@ -97,7 +97,9 @@ export default async function VerifyPage({
           Verified ✓
         </p>
         <h1 style={{ marginBottom: "var(--space-xl)" }}>
-          Certificate of Completion
+          {cert.kind === "participation"
+            ? "Certificate of Participation"
+            : "Certificate of Completion"}
         </h1>
         <div
           style={{
@@ -114,12 +116,13 @@ export default async function VerifyPage({
           >
             SkillSync
           </p>
-          <h2 style={{ marginBottom: "var(--space-md)" }}>{cert.student_name}</h2>
+          <h2 style={{ marginBottom: "var(--space-md)", color: "#14181F" }}>
+            {cert.student_name}
+          </h2>
           <p
-            className="muted"
-            style={{ fontSize: "1.125rem", marginBottom: "var(--space-lg)" }}
+            style={{ fontSize: "1.125rem", marginBottom: "var(--space-lg)", color: "#5A5F68" }}
           >
-            has successfully completed
+            {cert.kind === "participation" ? "participated in" : "has successfully completed"}
           </p>
           <h3 style={{ marginBottom: "var(--space-lg)", color: "var(--color-electric)" }}>
             {PROGRAM_LABELS[cert.program] || cert.program}
@@ -135,13 +138,13 @@ export default async function VerifyPage({
           >
             <div>
               <p className="label">Certificate Code</p>
-              <p className="mono" style={{ fontSize: "0.9375rem" }}>
+              <p className="mono" style={{ fontSize: "0.9375rem", color: "#14181F" }}>
                 {cert.cert_no}
               </p>
             </div>
             <div>
               <p className="label">Date Issued</p>
-              <p style={{ fontSize: "0.9375rem" }}>
+              <p style={{ fontSize: "0.9375rem", color: "#14181F" }}>
                 {new Date(cert.issued_at).toLocaleDateString("en-US", {
                   year: "numeric",
                   month: "long",

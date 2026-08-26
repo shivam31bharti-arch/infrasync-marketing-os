@@ -7,6 +7,7 @@ create table if not exists certificates (
   program text not null,                   -- workshop | ai_generalist | ai_engineer
   cohort text,
   issued_at date not null default current_date,
+  kind text not null default 'completion',  -- participation | completion
   emailed_at timestamptz,
   revoked boolean default false,
   meta jsonb default '{}'
