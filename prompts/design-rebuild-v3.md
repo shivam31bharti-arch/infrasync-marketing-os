@@ -61,3 +61,47 @@ Total added JS ≤ 350KB gzip. R3F loads only on desktop hero.
 Preview URL walk-through reads like a product film: every scroll reveals something with
 weight and intent, nothing generic, all facts correct, payments/chat/analytics untouched
 and verified working in the preview.
+
+---
+
+## ADDENDUM v3.1 — Auxia reference (auxia.io), measured values. This OVERRIDES earlier
+## look-and-feel where they conflict. Refactor existing v3 scenes — do not restart.
+
+### Palette flip: LIGHT-FIRST (Auxia-style, matches our original paper/ink tokens)
+- Body: cream `#F0EFE3` · alt sections `#E2E1D3` and `#FEFDF5` · ink text `#232323`
+- Accent: hyper-blue `#0B4FFF` (update --color-electric to this) — buttons, links, key words
+- Dark `#0A0E14` reserved for exactly TWO contrast sections (workshop block + certificate/
+  reviews block). Everything else lives on cream.
+
+### Typography (the core of "premium" — Auxia measured: 104px H1, weight 500, -3% tracking)
+- Display + body font: **Instrument Sans** via next/font/google (closest free stand-in for
+  PP Neue Montreal; do NOT use the paid PP font). Keep JetBrains Mono for eyebrows/code.
+- H1: clamp(3.2rem, 7.5vw, 6.5rem) · weight 500 (NOT bold) · letter-spacing -0.03em ·
+  line-height 0.95. H2: clamp(2.2rem, 4.5vw, 4rem) · -0.03em · lh 0.95.
+- Eyebrow labels above every section: JetBrains Mono, 11px, uppercase, +0.12em tracking,
+  blue or 50% ink (Auxia: "AGENT WORKFLOW", ours: "THE DELIVERY PIPELINE" etc.)
+- Body: 16-18px, lh 1.4, weight 450-500. Max width 34ch for intro paragraphs.
+
+### Signature interactions to replicate (all measured on auxia.io)
+1. **Per-word scroll reveal**: hero sub-paragraph + every section intro renders word-by-
+   word; each word animates opacity 0.15→1 (and 4px rise) driven by scroll progress
+   (useScroll + per-word useTransform). This is THE Auxia move — implement it as a
+   reusable <WordReveal> component.
+2. **"Watch the machine work" demo panel** (replaces/augments S2): an animated workflow
+   card like Auxia's ASK AGENT panel — chips animate in sequence: STUDENT PAYS ₹1,999 →
+   CERTIFICATE ISSUED → DRIVE ACCESS GRANTED → CRM UPDATED → PACK EMAILED BY 8 PM, each
+   chip lighting up with a spring, looping. This demos our REAL pipeline — pure marketing
+   gold and 100% true.
+3. **Sticky 3-layer section**: "One path, three stages" (Workshop → Your Track →
+   Accelerator) as sticky-pinned cards that stack/swap on scroll (Auxia's THREE LAYERS).
+4. **Big-statement interludes** on cream: two-line ink statements with per-word reveal,
+   e.g. "Courses didn't get harder. They got boring." / "Learn by shipping, not by
+   watching." (no outcome/job claims — claims policy.)
+5. **R3F hero restyle**: shards become glass/chrome on CREAM background with blue rim
+   light — bright, gallery-like (Auxia canvases sit on cream, not black). Mobile keeps
+   the CSS gradient fallback, now cream/blue.
+6. Buttons: pill radius, primary = blue #0B4FFF with white text, secondary = 1px ink
+   outline on cream; magnetic hover stays; arrows slide on hover.
+
+### Checkpoint discipline (repeat offense = shift ends)
+Commit + push design-v3 after EVERY scene. No exceptions.
