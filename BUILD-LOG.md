@@ -712,3 +712,13 @@ writes one entry per iteration in this format:
 - This commit exists to trigger the rebuild that bakes the WhatsApp build var in.
 - Note for next agent: build vars (NEXT_PUBLIC_*) live in Workers Builds settings, runtime
   secrets in Worker Variables & Secrets — local .env is NOT used by CF builds (gitignored).
+
+## 2026-08-26 (night) — v4 audit (Claude): v4 IS LIVE; hazards fixed
+- Verdict: v4 one-pager live on infra-sync.online (program routes 307→home anchors by
+  design; all 3 rzp links on home; quiz/chat/verify healthy). "The error" = the wrangler
+  var-wipe window before 8504cf5; fixed by that commit.
+- PROVEN live: POST /api/callback dispatched a real OmniDimension call to the founder's
+  number ({ok, call:"dispatched"}); lead recorded in subscribers (name/phone/meta columns
+  exist). call-outcome route present for post-call webhooks.
+- Fixed: /community 404 → redirect to /#community (old links/bookmarks) — deployed via
+  ff-merge to main. Deleted doc_2026-08-26_*.env (full .env copy in repo root — leak risk).
